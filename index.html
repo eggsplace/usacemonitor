@@ -414,31 +414,38 @@
         // 5. Fetch ReliefWeb Disasters API
         async function fetchReliefWebDisasters() {
             try {
-                // Query ReliefWeb for recent disasters and humanitarian crises
-                const res = await fetch('https://reliefweb.int/api/v1/disasters?appname=usace-monitor&limit=100&filter[field]=status&filter[value]=current');
-                if (!res.ok) throw new Error('Failed to fetch ReliefWeb data');
+                // Query ReliefWeb for recent disasters - US-focused
+                // ReliefWeb API format: simplified disaster query
+                const res = await fetch('https://reliefweb.int/api/v1/disasters?appname=usace-monitor&limit=50&filter[operator]=AND&filter[0][field]=status&filter[0][value]=current');
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 const data = await res.json();
                 
                 const events = [];
-                if (data.data) {
-                    data.data.slice(0, 50).forEach(disaster => {
+                if (data.data && Array.isArray(data.data)) {
+                    data.data.forEach(disaster => {
                         const primary = disaster.fields;
-                        if (primary.locations && primary.locations.length > 0) {
-                            const loc = primary.locations[0];
-                            
-                            events.push({
-                                id: disaster.id,
-                                type: 'disaster',
-                                title: `${primary.name}`,
-                                coords: loc.geolocation ? [loc.geolocation.latitude, loc.geolocation.longitude] : null,
-                                time: new Date(primary.date?.created).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
-                                severity: primary.status === 'current' ? 'critical' : 'warning',
-                                mag: 5 // fixed size for disaster markers
+                        // Try to get a US-relevant location
+                        if (primary.locations && Array.isArray(primary.locations) && primary.locations.length > 0) {
+                            primary.locations.forEach(loc => {
+                                if (loc.geolocation && loc.geolocation.latitude && loc.geolocation.longitude) {
+                                    events.push({
+                                        id: disaster.id,
+                                        type: 'disaster',
+                                        title: `${primary.name}`,
+                                        coords: [loc.geolocation.latitude, loc.geolocation.longitude],
+                                        time: primary.date && primary.date.created ? 
+                                            new Date(primary.date.created).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : 
+                                            new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+                                        severity: primary.status === 'current' ? 'critical' : 'warning',
+                                        mag: 5
+                                    });
+                                }
                             });
                         }
                     });
                 }
-                return events.filter(e => e.coords); // only return events with valid coordinates
+                console.log(`ReliefWeb: loaded ${events.length} disasters`);
+                return events;
             } catch (err) {
                 console.error("Failed to load ReliefWeb disasters:", err);
                 return [];
@@ -448,32 +455,51 @@
         // 6. Fetch NOAA Severe Weather Alerts
         async function fetchNOAAAlerts() {
             try {
-                // Query NOAA for active alerts across US
-                const res = await fetch('https://api.weather.gov/alerts/active?point=39,-98');
-                if (!res.ok) throw new Error('Failed to fetch NOAA alerts');
+                // Get all active alerts (no point filter - get everything)
+                const res = await fetch('https://api.weather.gov/alerts/active');
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 const data = await res.json();
                 
                 const events = [];
-                if (data.features) {
-                    data.features.slice(0, 50).forEach(alert => {
-                        const props = alert.properties;
-                        if (alert.geometry && alert.geometry.coordinates) {
-                            // Extract center point from polygon
-                            const coords = alert.geometry.coordinates[0][0];
-                            
-                            events.push({
-                                id: alert.id,
-                                type: 'weather',
-                                title: `${props.event} - ${props.areaDesc}`,
-                                coords: [coords[1], coords[0]],
-                                time: new Date(props.sent).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
-                                severity: props.severity === 'Extreme' || props.severity === 'Severe' ? 'critical' : 'warning',
-                                mag: 4
-                            });
+                if (data.features && Array.isArray(data.features)) {
+                    data.features.slice(0, 100).forEach(alert => {
+                        try {
+                            const props = alert.properties;
+                            if (alert.geometry && alert.geometry.coordinates && alert.geometry.coordinates.length > 0) {
+                                // Handle different geometry types
+                                let coords;
+                                if (alert.geometry.type === 'Polygon') {
+                                    // Get first point of polygon ring
+                                    const ring = alert.geometry.coordinates[0];
+                                    coords = ring[Math.floor(ring.length / 2)]; // use middle point
+                                } else if (alert.geometry.type === 'MultiPolygon') {
+                                    const ring = alert.geometry.coordinates[0][0];
+                                    coords = ring[Math.floor(ring.length / 2)];
+                                } else {
+                                    return; // skip unsupported geometry
+                                }
+                                
+                                if (coords && coords.length >= 2) {
+                                    events.push({
+                                        id: alert.id,
+                                        type: 'weather',
+                                        title: `${props.event} - ${props.areaDesc || 'Regional'}`,
+                                        coords: [coords[1], coords[0]], // [lat, lon]
+                                        time: props.sent ? 
+                                            new Date(props.sent).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' :
+                                            new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+                                        severity: (props.severity === 'Extreme' || props.severity === 'Severe') ? 'critical' : 'warning',
+                                        mag: 4
+                                    });
+                                }
+                            }
+                        } catch (itemErr) {
+                            console.warn('Error parsing NOAA alert:', itemErr);
                         }
                     });
                 }
-                return events.filter(e => e.coords);
+                console.log(`NOAA: loaded ${events.length} weather alerts`);
+                return events;
             } catch (err) {
                 console.error("Failed to load NOAA alerts:", err);
                 return [];
