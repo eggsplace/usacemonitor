@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <!-- Leaflet Terminator (Day/Night overlay) -->
-    <script src="https://unpkg.com/leaflet-terminator@0.2.2/L.Terminator.js"></script>
+    <!-- Leaflet Terminator (Day/Night overlay) - from CDN -->
+    <script src="https://unpkg.com/leaflet-terminator/L.Terminator.js"></script>
 
     <!-- Tactical Monospace Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -646,6 +646,13 @@
         // Day/Night Terminator helpers
         function addDayNightTerminator() {
             try {
+                // Check if L.terminator is available
+                if (!window.L || !window.L.terminator) {
+                    console.error('Leaflet Terminator library not loaded');
+                    document.getElementById('daynight-status').innerText = 'lib error';
+                    return;
+                }
+                
                 if (terminatorLayer) {
                     // Update existing terminator to current time
                     map.removeLayer(terminatorLayer);
@@ -662,7 +669,7 @@
                 document.getElementById('daynight-status').innerText = 'on';
             } catch (err) {
                 console.error('Failed to add day/night terminator:', err);
-                document.getElementById('daynight-status').innerText = 'error';
+                document.getElementById('daynight-status').innerText = 'error: ' + err.message;
             }
         }
 
