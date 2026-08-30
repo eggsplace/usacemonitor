@@ -12,6 +12,9 @@
     <!-- Leaflet Terminator (Day/Night overlay) - from CDN -->
     <script src="https://unpkg.com/leaflet-terminator/L.Terminator.js"></script>
 
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
     <!-- Tactical Monospace Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -515,17 +518,34 @@
             document.getElementById('total-events-count').innerText = `${events.length} EVENTS`;
 
             events.forEach(evt => {
-                // Tactical Marker
-                const marker = L.circleMarker(evt.coords, {
-                    radius: evt.mag ? Math.max(evt.mag * 2, 6) : 6,
-                    fillColor: evt.severity === 'critical' ? '#ff3344' : '#ffaa00',
-                    color: '#fff',
-                    weight: 1,
-                    opacity: 0.8,
-                    fillOpacity: 0.6
-                }).addTo(map);
+                // Create custom icon based on event type
+                const iconColor = evt.severity === 'critical' ? '#ff3344' : '#ffaa00';
+                const iconBgColor = evt.severity === 'critical' ? 'rgba(255, 51, 68, 0.2)' : 'rgba(255, 170, 0, 0.2)';
+                
+                let faIcon = 'fa-circle';
+                switch(evt.type) {
+                    case 'seismic': faIcon = 'fa-wave-square'; break;
+                    case 'river-gauge': faIcon = 'fa-water'; break;
+                    case 'fire': faIcon = 'fa-fire'; break;
+                    case 'hurricane': faIcon = 'fa-wind'; break;
+                    case 'weather': faIcon = 'fa-cloud-bolt'; break;
+                    case 'disaster': faIcon = 'fa-triangle-exclamation'; break;
+                    default: faIcon = 'fa-circle';
+                }
+                
+                const icon = L.divIcon({
+                    html: `<div style="background: ${iconBgColor}; border: 2px solid ${iconColor}; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas ${faIcon}" style="color: ${iconColor}; font-size: 16px;"></i>
+                    </div>`,
+                    iconSize: [32, 32],
+                    iconAnchor: [16, 16],
+                    popupAnchor: [0, -16],
+                    className: 'event-icon'
+                });
+                
+                const marker = L.marker(evt.coords, { icon: icon }).addTo(map);
 
-                marker.bindPopup(`<b>${evt.title}</b><br>Time: ${evt.time}`);
+                marker.bindPopup(`<b>${evt.title}</b><br>Type: ${evt.type}<br>Time: ${evt.time}`);
                 eventMarkers.push(marker);
 
                 // Sidebar Card
