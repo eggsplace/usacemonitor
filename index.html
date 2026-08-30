@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USACE Operations Monitor</title>
+
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Tactical Monospace Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-base: #0a0c10;
+            --bg-panel: rgba(14, 18, 24, 0.92);
+            --border: #1e2638;
+            --accent-cyan: #00f0ff;
+            --accent-red: #ff3344;
+            --accent-amber: #ffaa00;
+            --accent-green: #00ff66;
+            --text-main: #c0caf5;
+            --text-dim: #565f89;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Top Bar */
+        header {
+            background: #05070a;
+            border-bottom: 1px solid var(--border);
+            padding: 6px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            z-index: 1000;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-badge {
+            background: rgba(0, 255, 102, 0.15);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 2px 6px;
+            font-size: 10px;
+            border-radius: 2px;
+            letter-spacing: 1px;
+        }
+
+        .top-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Breaking Marquee */
+        .ticker-bar {
+            background: rgba(255, 51, 68, 0.1);
+            border-bottom: 1px solid rgba(255, 51, 68, 0.3);
+            color: #ff8899;
+            font-size: 12px;
+            padding: 4px 12px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .ticker-bar span.label {
+            color: var(--accent-red);
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        /* Main Workspace Layout */
+        .workspace {
+            flex: 1;
+            display: flex;
+            position: relative;
+            height: calc(100vh - 65px);
+        }
+
+        #map {
+            flex: 1;
+            height: 100%;
+            background: #000;
+        }
+
+        /* Tactical Sidebar */
+        aside {
+            width: 380px;
+            background: var(--bg-panel);
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            z-index: 999;
+            backdrop-filter: blur(8px);
+        }
+
+        .sidebar-header {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .filter-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+            padding: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            padding: 6px;
+            font-size: 11px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .events-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-cyan);
+            padding: 8px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+        }
+
+        .event-card:hover {
+            background: rgba(0, 240, 255, 0.08);
+            border-color: var(--accent-cyan);
+        }
+
+        .event-card.critical {
+            border-left-color: var(--accent-red);
+        }
+
+        .event-card.warning {
+            border-left-color: var(--accent-amber);
+        }
+
+        .event-time {
+            font-size: 10px;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+
+        /* Map UI Pulsing Markers */
+        .pulse-marker {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-red);
+            box-shadow: 0 0 10px var(--accent-red);
+            animation: pulse 1.5s infinite ease-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 1; }
+            100% { transform: scale(2.2); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="brand">
+            <span class="status-badge">● LIVE OPS</span>
+            <span style="font-weight: bold; letter-spacing: 1px;">USACE OPERATIONS MONITOR</span>
+        </div>
+        <div class="top-controls">
+            <span id="utc-clock">00:00:00 UTC</span>
+            <span style="color: var(--text-dim);">FEEDS: <span id="feed-count" style="color: var(--accent-green);">SYNCING</span></span>
+        </div>
+    </header>
+
+    <!-- Breaking News Ticker -->
+    <div class="ticker-bar">
+        <span class="label">PRIORITY ALERTS ❯❯</span>
+        <marquee scrollamount="5" id="news-marquee">Monitoring U.S. disasters, river gauges, weather, and emergency operations in real-time...</marquee>
+    </div>
+
+    <!-- Workspace -->
+    <div class="workspace">
+        <div id="map"></div>
+
+        <aside>
+            <div class="sidebar-header">
+                <span>OPERATIONAL ALERTS</span>
+                <span id="total-events-count" style="color: var(--accent-cyan);">0 ACTIVE</span>
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-btn active" onclick="filterEvents('all', this)">ALL</button>
+                <button class="filter-btn" onclick="filterEvents('contingency', this)">CONTINGENCY</button>
+                <button class="filter-btn" onclick="filterEvents('environmental', this)">ENV</button>
+            </div>
+
+            <!-- Radar controls: toggle + last-update -->
+            <div class="radar-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
+                <button id="radar-toggle" class="filter-btn" onclick="toggleRadarUI()">RADAR</button>
+                <span id="radar-status" style="color: var(--text-dim); font-size:11px;">last: N/A</span>
+            </div>
+
+            <!-- Satellite (NASA GIBS) controls: date selector + toggle -->
+            <div class="sat-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
+                <button id="sat-toggle" class="filter-btn" onclick="toggleGIBS()">SAT</button>
+                <input type="date" id="sat-date" style="background:transparent;color:var(--text-main);border:1px solid var(--border);padding:4px;font-size:11px;">
+                <span id="sat-status" style="color: var(--text-dim); font-size:11px;">date</span>
+            </div>
+
+            <div class="events-list" id="events-feed">
+                <div style="padding: 12px; color: var(--text-dim); text-align: center;">Fetching telemetry data...</div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Load radar.js (must come before main inline script so UI can call functions) -->
+    <script src="radar.js"></script>
+
+    <script>
+        // 1. Clock Tracker
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('utc-clock').innerText = now.toUTCString().split(' ')[4] + ' UTC';
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // 2. Initialize Map (centered on USA)
+        const map = L.map('map', {
+            center: [39, -98],
+            zoom: 4,
+            zoomControl: false
+        });
+
+        // Use CartoDB Dark Matter for the tactical dark theme
+        const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; CARTO, OpenStreetMap contributors',
+            maxZoom: 19,
+            subdomains: 'abcd'
+        }).addTo(map);
+
+        let eventMarkers = [];
+        let allEvents = [];
+
+        // GIBS satellite layer variable
+        let gibsLayer = null;
+
+        // 4. Fetch USGS Water Data (River Gauges)
+        async function fetchRiverGaugeData() {
+            try {
+                // Query for sites with streamflow data in US (focusing on high-priority areas)
+                const url = new URL('https://waterservices.usgs.gov/nwis/iv/');
+                url.searchParams.append('format', 'json');
+                url.searchParams.append('stateCd', 'all'); // all US states
+                url.searchParams.append('parameterCd', '00060'); // streamflow parameter code
+                url.searchParams.append('siteStatus', 'active');
+                url.searchParams.append('hasDataTypeCd', 'iv');
+                
+                const res = await fetch(url.toString());
+                if (!res.ok) throw new Error('Failed to fetch USGS water data');
+                const data = await res.json();
+                
+                const events = [];
+                if (data.value && data.value.timeSeries) {
+                    data.value.timeSeries.slice(0, 100).forEach(ts => { // limit to 100 most critical
+                        const location = ts.sourceInfo;
+                        const geoLocation = location.geoLocation;
+                        const value = ts.values[0]?.value[0];
+                        
+                        if (value && geoLocation) {
+                            const flowRate = parseFloat(value.value);
+                            // Determine severity based on thresholds (this is simplified; in production use actual thresholds)
+                            let severity = 'info';
+                            if (flowRate < 1000) severity = 'warning'; // low flow
+                            if (flowRate > 50000) severity = 'critical'; // high flow (flood risk)
+                            
+                            events.push({
+                                id: location.siteCode[0].value,
+                                type: 'river-gauge',
+                                title: `${location.siteName} - ${flowRate.toFixed(0)} cfs`,
+                                coords: [parseFloat(geoLocation.geogLocation.srs.value.split()[0]), 
+                                        parseFloat(geoLocation.geogLocation.srs.value.split()[1])],
+                                time: new Date(value.dateTime).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+                                severity: severity,
+                                mag: flowRate // for marker sizing
+                            });
+                        }
+                    });
+                }
+                return events;
+            } catch (err) {
+                console.error("Failed to load USGS water data:", err);
+                return [];
+            }
+        }
+
+        // 3. Fetch Live Earthquakes (USGS GeoJSON) - US-focused
+        async function fetchSeismicData() {
+            try {
+                // Fetch earthquakes globally but we'll filter to US/territories
+                const res = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson');
+                const data = await res.json();
+                
+                // US bounding box: [lat_min, lon_min, lat_max, lon_max]
+                const usBBox = [24.5, -125, 49.4, -66.9]; // continental US + AK/HI bounds extended
+                
+                return data.features
+                    .filter(f => {
+                        const [lon, lat] = f.geometry.coordinates;
+                        return lat >= usBBox[0] && lat <= usBBox[2] && lon >= usBBox[1] && lon <= usBBox[3];
+                    })
+                    .map(f => ({
+                        id: f.id,
+                        type: 'seismic',
+                        title: `M ${f.properties.mag} - ${f.properties.place}`,
+                        mag: f.properties.mag,
+                        coords: [f.geometry.coordinates[1], f.geometry.coordinates[0]],
+                        time: new Date(f.properties.time).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+                        severity: f.properties.mag >= 6.0 ? 'critical' : 'warning'
+                    }));
+            } catch (err) {
+                console.error("Failed to load USGS feed:", err);
+                return [];
+            }
+        }
+
+        // 4. Render Markers & Feed Items
+        function renderEvents(events) {
+            // Clear existing markers
+            eventMarkers.forEach(m => map.removeLayer(m));
+            eventMarkers = [];
+
+            const feedContainer = document.getElementById('events-feed');
+            feedContainer.innerHTML = '';
+            document.getElementById('total-events-count').innerText = `${events.length} EVENTS`;
+
+            events.forEach(evt => {
+                // Tactical Marker
+                const marker = L.circleMarker(evt.coords, {
+                    radius: evt.mag ? Math.max(evt.mag * 2, 6) : 6,
+                    fillColor: evt.severity === 'critical' ? '#ff3344' : '#ffaa00',
+                    color: '#fff',
+                    weight: 1,
+                    opacity: 0.8,
+                    fillOpacity: 0.6
+                }).addTo(map);
+
+                marker.bindPopup(`<b>${evt.title}</b><br>Time: ${evt.time}`);
+                eventMarkers.push(marker);
+
+                // Sidebar Card
+                const card = document.createElement('div');
+                card.className = `event-card ${evt.severity}`;
+                card.innerHTML = `
+                    <div><strong>${evt.title}</strong></div>
+                    <div class="event-time">${evt.time}</div>
+                `;
+                card.onclick = () => {
+                    map.flyTo(evt.coords, 6, { duration: 1.5 });
+                    marker.openPopup();
+                };
+                feedContainer.appendChild(card);
+            });
+        }
+
+        // Filter Handlers
+        window.filterEvents = function(type, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            if (btn && btn.classList) btn.classList.add('active');
+
+            if (type === 'all') {
+                renderEvents(allEvents);
+            } else if (type === 'contingency') {
+                // Contingency ops: earthquakes, floods, storms, wildfires
+                renderEvents(allEvents.filter(e => ['seismic', 'river-gauge', 'hurricane'].includes(e.type)));
+            } else if (type === 'environmental') {
+                // Environmental monitoring
+                renderEvents(allEvents.filter(e => ['river-gauge', 'fire'].includes(e.type)));
+            } else {
+                renderEvents(allEvents.filter(e => e.type === type));
+            }
+        };
+
+        // Radar UI helpers
+        async function updateRadarStatus() {
+            try {
+                const res = await fetch('https://api.rainviewer.com/public/weather-maps.json');
+                if (!res.ok) throw new Error('network');
+                const data = await res.json();
+                if (data && data.radar && data.radar.past && data.radar.past.length) {
+                    const latest = data.radar.past[data.radar.past.length - 1].time;
+                    const d = new Date(latest * 1000);
+                    document.getElementById('radar-status').innerText = `last: ${d.toUTCString()}`;
+                } else {
+                    document.getElementById('radar-status').innerText = 'last: N/A';
+                }
+            } catch (err) {
+                document.getElementById('radar-status').innerText = 'last: error';
+            }
+        }
+
+        function setRadarButtonState(enabled) {
+            const btn = document.getElementById('radar-toggle');
+            if (!btn) return;
+            if (enabled) {
+                btn.classList.add('active');
+                btn.innerText = 'RADAR ON';
+            } else {
+                btn.classList.remove('active');
+                btn.innerText = 'RADAR';
+            }
+        }
+
+        function toggleRadarUI() {
+            // toggleWeatherRadar is provided by radar.js
+            if (typeof toggleWeatherRadar !== 'function') {
+                console.warn('radar.js not loaded');
+                return;
+            }
+            // If radarLayer exists (in radar.js) we can't inspect it here, so track by button state
+            const btn = document.getElementById('radar-toggle');
+            const enabled = btn.classList.contains('active');
+            if (enabled) {
+                removeWeatherRadar();
+                setRadarButtonState(false);
+            } else {
+                addWeatherRadar();
+                setRadarButtonState(true);
+                // update status immediately
+                updateRadarStatus();
+            }
+        }
+
+        // NASA GIBS helpers
+        function formatDateToYYYYMMDD(d) {
+            const y = d.getUTCFullYear();
+            const m = String(d.getUTCMonth() + 1).padStart(2, '0');
+            const day = String(d.getUTCDate()).padStart(2, '0');
+            return `${y}-${m}-${day}`;
+        }
+
+        function getDefaultGIBSDate() {
+            // GIBS tiles are available for recent dates; default to today (UTC)
+            return formatDateToYYYYMMDD(new Date());
+        }
+
+        function gibsTileUrlForDate(dateStr) {
+            // VIIRS True Color, GoogleMapsCompatible_Level9
+            return `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_CorrectedReflectance_TrueColor/default/${dateStr}/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg`;
+        }
+
+        function addGIBS(dateStr) {
+            try {
+                const url = gibsTileUrlForDate(dateStr);
+                if (gibsLayer) {
+                    // update URL
+                    gibsLayer.setUrl(url);
+                    console.log('GIBS: updated to', dateStr);
+                    document.getElementById('sat-status').innerText = dateStr;
+                    return;
+                }
+                gibsLayer = L.tileLayer(url, { attribution: 'NASA GIBS', opacity: 0.7, zIndex: 400 });
+                gibsLayer.addTo(map);
+                document.getElementById('sat-status').innerText = dateStr;
+                console.log('GIBS: added', dateStr);
+            } catch (err) {
+                console.error('Failed to add GIBS layer:', err);
+            }
+        }
+
+        function removeGIBS() {
+            if (gibsLayer) {
+                map.removeLayer(gibsLayer);
+                gibsLayer = null;
+                document.getElementById('sat-status').innerText = 'off';
+            }
+        }
+
+        function toggleGIBS() {
+            const btn = document.getElementById('sat-toggle');
+            const enabled = btn.classList.contains('active');
+            if (enabled) {
+                removeGIBS();
+                btn.classList.remove('active');
+                btn.innerText = 'SAT';
+            } else {
+                const dateInput = document.getElementById('sat-date');
+                const date = dateInput && dateInput.value ? dateInput.value : getDefaultGIBSDate();
+                addGIBS(date);
+                btn.classList.add('active');
+                btn.innerText = 'SAT ON';
+            }
+        }
+
+        // Wire up date input change to update GIBS layer when toggled on
+        function initGIBSControls() {
+            const dateInput = document.getElementById('sat-date');
+            const defaultDate = getDefaultGIBSDate();
+            if (dateInput) {
+                dateInput.value = defaultDate;
+                dateInput.max = defaultDate;
+                dateInput.addEventListener('change', () => {
+                    const dateVal = dateInput.value;
+                    document.getElementById('sat-status').innerText = dateVal;
+                    if (gibsLayer) addGIBS(dateVal);
+                });
+            }
+        }
+
+        // Initialize Feeds
+        async function init() {
+            const [seismic, riverGauges] = await Promise.all([
+                fetchSeismicData(),
+                fetchRiverGaugeData()
+            ]);
+            
+            allEvents = [...seismic, ...riverGauges];
+            renderEvents(allEvents);
+            document.getElementById('feed-count').innerText = 'ONLINE';
+
+            // Start radar auto-refresh (5 minutes) and status updater
+            if (typeof startRadarAutoRefresh === 'function') startRadarAutoRefresh(300000);
+            updateRadarStatus();
+            setInterval(updateRadarStatus, 60000);
+
+            // Init GIBS controls and set default date
+            initGIBSControls();
+        }
+
+        init();
+        // Auto refresh every 2 minutes
+        setInterval(init, 120000);
+    </script>
+</body>
+</html>
