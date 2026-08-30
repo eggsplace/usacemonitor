@@ -236,9 +236,30 @@
                 <span id="total-events-count" style="color: var(--accent-cyan);">0 ACTIVE</span>
             </div>
             <div class="filter-tabs">
-                <button class="filter-btn active" onclick="filterEvents('all', this)">ALL</button>
-                <button class="filter-btn" onclick="filterEvents('contingency', this)">CONTINGENCY</button>
-                <button class="filter-btn" onclick="filterEvents('environmental', this)">ENV</button>
+                <div style="display: flex; gap: 4px; margin-bottom: 6px;">
+                    <button class="filter-btn" onclick="toggleAllLayers(true)" style="flex: 0.5;">ALL</button>
+                    <button class="filter-btn" onclick="toggleAllLayers(false)" style="flex: 0.5;">NONE</button>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+                    <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+                        <input type="checkbox" id="filter-earthquakes" checked onchange="updateLayerDisplay()"> Earthquakes
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+                        <input type="checkbox" id="filter-gauges" checked onchange="updateLayerDisplay()"> River Gauges
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+                        <input type="checkbox" id="filter-wildfires" onchange="updateLayerDisplay()"> Wildfires
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+                        <input type="checkbox" id="filter-storms" onchange="updateLayerDisplay()"> Storms
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+                        <input type="checkbox" id="filter-precipitation" onchange="updateLayerDisplay()"> Precipitation
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+                        <input type="checkbox" id="filter-other" onchange="updateLayerDisplay()"> Other
+                    </label>
+                </div>
             </div>
 
             <!-- Radar controls: toggle + last-update -->
@@ -417,22 +438,53 @@
             });
         }
 
-        // Filter Handlers
-        window.filterEvents = function(type, btn) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            if (btn && btn.classList) btn.classList.add('active');
+        // Multi-layer filter state
+        const layerFilters = {
+            'earthquakes': true,
+            'gauges': true,
+            'wildfires': false,
+            'storms': false,
+            'precipitation': false,
+            'other': false
+        };
 
-            if (type === 'all') {
-                renderEvents(allEvents);
-            } else if (type === 'contingency') {
-                // Contingency ops: earthquakes, floods, storms, wildfires
-                renderEvents(allEvents.filter(e => ['seismic', 'river-gauge', 'hurricane'].includes(e.type)));
-            } else if (type === 'environmental') {
-                // Environmental monitoring
-                renderEvents(allEvents.filter(e => ['river-gauge', 'fire'].includes(e.type)));
-            } else {
-                renderEvents(allEvents.filter(e => e.type === type));
-            }
+        // Toggle all layers on/off
+        window.toggleAllLayers = function(enable) {
+            Object.keys(layerFilters).forEach(key => {
+                layerFilters[key] = enable;
+                const checkbox = document.getElementById(`filter-${key}`);
+                if (checkbox) checkbox.checked = enable;
+            });
+            updateLayerDisplay();
+        };
+
+        // Update displayed events based on checked filters
+        window.updateLayerDisplay = function() {
+            // Read checkbox states
+            layerFilters['earthquakes'] = document.getElementById('filter-earthquakes').checked;
+            layerFilters['gauges'] = document.getElementById('filter-gauges').checked;
+            layerFilters['wildfires'] = document.getElementById('filter-wildfires').checked;
+            layerFilters['storms'] = document.getElementById('filter-storms').checked;
+            layerFilters['precipitation'] = document.getElementById('filter-precipitation').checked;
+            layerFilters['other'] = document.getElementById('filter-other').checked;
+
+            // Filter events based on enabled layers
+            const filtered = allEvents.filter(evt => {
+                if (evt.type === 'seismic') return layerFilters['earthquakes'];
+                if (evt.type === 'river-gauge') return layerFilters['gauges'];
+                if (evt.type === 'fire') return layerFilters['wildfires'];
+                if (evt.type === 'hurricane') return layerFilters['storms'];
+                if (evt.type === 'precipitation') return layerFilters['precipitation'];
+                return layerFilters['other']; // catch-all for unmapped types
+            });
+
+            renderEvents(filtered);
+        };
+
+        // Legacy filter function (kept for backward compatibility)
+        window.filterEvents = function(type, btn) {
+            // No longer used - but kept in case
+            console.log('Legacy filterEvents called - use updateLayerDisplay instead');
         };
 
         // Radar UI helpers
