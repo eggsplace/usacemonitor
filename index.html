@@ -279,11 +279,11 @@
             zoomControl: false
         });
 
-        // Use CartoDB Dark Matter for the tactical dark theme
-        const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; CARTO, OpenStreetMap contributors',
+        // Use OpenStreetMap (free, no API key required)
+        const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
             maxZoom: 19,
-            subdomains: 'abcd'
+            subdomains: 'abc'
         }).addTo(map);
 
         let eventMarkers = [];
