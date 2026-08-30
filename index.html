@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+    <!-- Leaflet Terminator (Day/Night overlay) -->
+    <script src="https://unpkg.com/leaflet-terminator@0.2.2/L.Terminator.js"></script>
+
     <!-- Tactical Monospace Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -268,6 +271,12 @@
                 <span id="radar-status" style="color: var(--text-dim); font-size:11px;">last: N/A</span>
             </div>
 
+            <!-- Day/Night Terminator controls -->
+            <div class="daynight-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
+                <button id="daynight-toggle" class="filter-btn" onclick="toggleDayNight()">DAY/NIGHT</button>
+                <span id="daynight-status" style="color: var(--text-dim); font-size:11px;">off</span>
+            </div>
+
             <!-- Satellite (NASA GIBS) controls: date selector + toggle -->
             <div class="sat-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
                 <button id="sat-toggle" class="filter-btn" onclick="toggleGIBS()">SAT</button>
@@ -312,6 +321,9 @@
 
         // GIBS satellite layer variable
         let gibsLayer = null;
+
+        // Day/Night Terminator layer variable
+        let terminatorLayer = null;
 
         // 4. Fetch USGS Water Data (River Gauges)
         async function fetchRiverGaugeData() {
@@ -534,6 +546,60 @@
                 setRadarButtonState(true);
                 // update status immediately
                 updateRadarStatus();
+            }
+        }
+
+        // Day/Night Terminator helpers
+        function addDayNightTerminator() {
+            try {
+                if (terminatorLayer) {
+                    // Update existing terminator to current time
+                    map.removeLayer(terminatorLayer);
+                }
+                terminatorLayer = L.terminator({
+                    time: new Date(),
+                    opacity: 0.25,
+                    weight: 2,
+                    color: '#333333',
+                    fillColor: '#000000',
+                    fillOpacity: 0.15
+                }).addTo(map);
+                console.log('Day/Night terminator added');
+                document.getElementById('daynight-status').innerText = 'on';
+            } catch (err) {
+                console.error('Failed to add day/night terminator:', err);
+                document.getElementById('daynight-status').innerText = 'error';
+            }
+        }
+
+        function removeDayNightTerminator() {
+            if (terminatorLayer) {
+                map.removeLayer(terminatorLayer);
+                terminatorLayer = null;
+                console.log('Day/Night terminator removed');
+                document.getElementById('daynight-status').innerText = 'off';
+            }
+        }
+
+        function toggleDayNight() {
+            const btn = document.getElementById('daynight-toggle');
+            const enabled = btn.classList.contains('active');
+            if (enabled) {
+                removeDayNightTerminator();
+                btn.classList.remove('active');
+                btn.innerText = 'DAY/NIGHT';
+            } else {
+                addDayNightTerminator();
+                btn.classList.add('active');
+                btn.innerText = 'DAY/NIGHT ON';
+                // Auto-update terminator every minute to reflect current sun position
+                if (!window.terminatorInterval) {
+                    window.terminatorInterval = setInterval(() => {
+                        if (terminatorLayer) {
+                            addDayNightTerminator(); // refresh to current time
+                        }
+                    }, 60000); // update every minute
+                }
             }
         }
 
