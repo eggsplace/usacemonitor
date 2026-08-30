@@ -34,6 +34,40 @@ A real-time operational dashboard for U.S. Army Corps of Engineers emergency res
 
 ---
 
+## CORS Solutions
+
+### River Gauge Data (USGS Water Services)
+
+The USGS Water Services API has CORS restrictions that prevent direct browser requests. The current implementation uses a **free CORS proxy** (`allorigins.win`) to bypass this:
+
+```javascript
+const corsProxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(usgsUrl)}`;
+const res = await fetch(corsProxyUrl);
+```
+
+**Pros**: Free, no authentication required  
+**Cons**: Relies on third-party proxy service, slight latency overhead
+
+### Alternative: Backend Proxy (Production Recommended)
+
+For production USACE deployments, set up a dedicated backend proxy (Node.js/Python):
+
+```javascript
+// Replace proxy URL with your own backend
+const res = await fetch('/api/usgs-gauges');
+```
+
+Backend example (Node.js + Express):
+```javascript
+app.get('/api/usgs-gauges', async (req, res) => {
+  const usgsRes = await fetch('https://waterservices.usgs.gov/nwis/iv/?format=json&...');
+  const data = await usgsRes.json();
+  res.json(data);
+});
+```
+
+---
+
 ## Customization Guide
 
 ### Adding New Data Feeds

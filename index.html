@@ -296,14 +296,21 @@
         async function fetchRiverGaugeData() {
             try {
                 // Query for sites with streamflow data in US (focusing on high-priority areas)
-                const url = new URL('https://waterservices.usgs.gov/nwis/iv/');
-                url.searchParams.append('format', 'json');
-                url.searchParams.append('stateCd', 'all'); // all US states
-                url.searchParams.append('parameterCd', '00060'); // streamflow parameter code
-                url.searchParams.append('siteStatus', 'active');
-                url.searchParams.append('hasDataTypeCd', 'iv');
+                const baseUrl = 'https://waterservices.usgs.gov/nwis/iv/';
+                const params = new URLSearchParams({
+                    'format': 'json',
+                    'stateCd': 'all',           // all US states
+                    'parameterCd': '00060',     // streamflow parameter code
+                    'siteStatus': 'active',
+                    'hasDataTypeCd': 'iv'
+                });
                 
-                const res = await fetch(url.toString());
+                const usgsUrl = `${baseUrl}?${params}`;
+                
+                // Use CORS proxy to bypass browser restrictions
+                const corsProxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(usgsUrl)}`;
+                
+                const res = await fetch(corsProxyUrl);
                 if (!res.ok) throw new Error('Failed to fetch USGS water data');
                 const data = await res.json();
                 
