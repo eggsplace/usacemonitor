@@ -257,10 +257,10 @@
                         <input type="checkbox" id="filter-storms" onchange="updateLayerDisplay()"> Storms
                     </label>
                     <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-                        <input type="checkbox" id="filter-precipitation" onchange="updateLayerDisplay()"> Precipitation
+                        <input type="checkbox" id="filter-weather" onchange="updateLayerDisplay()"> Weather Alerts
                     </label>
                     <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-                        <input type="checkbox" id="filter-other" onchange="updateLayerDisplay()"> Other
+                        <input type="checkbox" id="filter-disasters" onchange="updateLayerDisplay()"> Disasters
                     </label>
                 </div>
             </div>
@@ -411,7 +411,74 @@
             }
         }
 
-        // 4. Render Markers & Feed Items
+        // 5. Fetch ReliefWeb Disasters API
+        async function fetchReliefWebDisasters() {
+            try {
+                // Query ReliefWeb for recent disasters and humanitarian crises
+                const res = await fetch('https://reliefweb.int/api/v1/disasters?appname=usace-monitor&limit=100&filter[field]=status&filter[value]=current');
+                if (!res.ok) throw new Error('Failed to fetch ReliefWeb data');
+                const data = await res.json();
+                
+                const events = [];
+                if (data.data) {
+                    data.data.slice(0, 50).forEach(disaster => {
+                        const primary = disaster.fields;
+                        if (primary.locations && primary.locations.length > 0) {
+                            const loc = primary.locations[0];
+                            
+                            events.push({
+                                id: disaster.id,
+                                type: 'disaster',
+                                title: `${primary.name}`,
+                                coords: loc.geolocation ? [loc.geolocation.latitude, loc.geolocation.longitude] : null,
+                                time: new Date(primary.date?.created).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+                                severity: primary.status === 'current' ? 'critical' : 'warning',
+                                mag: 5 // fixed size for disaster markers
+                            });
+                        }
+                    });
+                }
+                return events.filter(e => e.coords); // only return events with valid coordinates
+            } catch (err) {
+                console.error("Failed to load ReliefWeb disasters:", err);
+                return [];
+            }
+        }
+
+        // 6. Fetch NOAA Severe Weather Alerts
+        async function fetchNOAAAlerts() {
+            try {
+                // Query NOAA for active alerts across US
+                const res = await fetch('https://api.weather.gov/alerts/active?point=39,-98');
+                if (!res.ok) throw new Error('Failed to fetch NOAA alerts');
+                const data = await res.json();
+                
+                const events = [];
+                if (data.features) {
+                    data.features.slice(0, 50).forEach(alert => {
+                        const props = alert.properties;
+                        if (alert.geometry && alert.geometry.coordinates) {
+                            // Extract center point from polygon
+                            const coords = alert.geometry.coordinates[0][0];
+                            
+                            events.push({
+                                id: alert.id,
+                                type: 'weather',
+                                title: `${props.event} - ${props.areaDesc}`,
+                                coords: [coords[1], coords[0]],
+                                time: new Date(props.sent).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+                                severity: props.severity === 'Extreme' || props.severity === 'Severe' ? 'critical' : 'warning',
+                                mag: 4
+                            });
+                        }
+                    });
+                }
+                return events.filter(e => e.coords);
+            } catch (err) {
+                console.error("Failed to load NOAA alerts:", err);
+                return [];
+            }
+        }
         function renderEvents(events) {
             // Clear existing markers
             eventMarkers.forEach(m => map.removeLayer(m));
@@ -456,8 +523,8 @@
             'gauges': true,
             'wildfires': false,
             'storms': false,
-            'precipitation': false,
-            'other': false
+            'weather': false,
+            'disasters': false
         };
 
         // Toggle all layers on/off
@@ -477,8 +544,8 @@
             layerFilters['gauges'] = document.getElementById('filter-gauges').checked;
             layerFilters['wildfires'] = document.getElementById('filter-wildfires').checked;
             layerFilters['storms'] = document.getElementById('filter-storms').checked;
-            layerFilters['precipitation'] = document.getElementById('filter-precipitation').checked;
-            layerFilters['other'] = document.getElementById('filter-other').checked;
+            layerFilters['weather'] = document.getElementById('filter-weather').checked;
+            layerFilters['disasters'] = document.getElementById('filter-disasters').checked;
 
             // Filter events based on enabled layers
             const filtered = allEvents.filter(evt => {
@@ -486,8 +553,9 @@
                 if (evt.type === 'river-gauge') return layerFilters['gauges'];
                 if (evt.type === 'fire') return layerFilters['wildfires'];
                 if (evt.type === 'hurricane') return layerFilters['storms'];
-                if (evt.type === 'precipitation') return layerFilters['precipitation'];
-                return layerFilters['other']; // catch-all for unmapped types
+                if (evt.type === 'weather') return layerFilters['weather'];
+                if (evt.type === 'disaster') return layerFilters['disasters'];
+                return false; // unmapped types filtered out
             });
 
             renderEvents(filtered);
@@ -681,12 +749,14 @@
 
         // Initialize Feeds
         async function init() {
-            const [seismic, riverGauges] = await Promise.all([
+            const [seismic, riverGauges, reliefWeb, noaaAlerts] = await Promise.all([
                 fetchSeismicData(),
-                fetchRiverGaugeData()
+                fetchRiverGaugeData(),
+                fetchReliefWebDisasters(),
+                fetchNOAAAlerts()
             ]);
             
-            allEvents = [...seismic, ...riverGauges];
+            allEvents = [...seismic, ...riverGauges, ...reliefWeb, ...noaaAlerts];
             renderEvents(allEvents);
             document.getElementById('feed-count').innerText = 'ONLINE';
 
