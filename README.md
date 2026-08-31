@@ -2,35 +2,81 @@
 
 A real-time operational dashboard for U.S. Army Corps of Engineers emergency response and operations management.
 
-## Features
+## Structure
 
-### Data Feeds
+The dashboard is organized into five top-level categories, selected via tabs in the sidebar:
+
+- **Contingency Ops** — live, automated data feeds (no manual entry needed)
+- **Civil Works** — manually entered via the admin panel
+- **Military Ops** — manually entered via the admin panel
+- **Support Units** — manually entered via the admin panel
+- **Programs** — manually entered via the admin panel
+
+### Contingency Ops (live feeds)
+
 - **Seismic Events**: Live earthquake data from USGS (M4.5+, US-focused)
 - **River Gauges**: Real-time streamflow and water level data from USGS Water Services API
+- **Weather Alerts**: Active NOAA severe weather alerts
+- **Disasters**: Current disasters from ReliefWeb
 - **Weather Radar**: Integrated RainViewer radar overlay for precipitation tracking
 - **Satellite Imagery**: NASA GIBS (VIIRS) for thermal anomaly and fire detection
+- **Day/Night Terminator**: Solar terminator overlay
 
-### Operational Filtering
-- **Contingency Ops**: Earthquakes, flooding, storm tracking, and disaster response
-- **Environmental Monitoring**: River gauge status, flow rates, and water level alerts
-- **All Events**: Unified view across all data sources
+### Civil Works
 
-### Map Features
-- Interactive Leaflet.js map (centered on USA)
-- Real-time marker updates with severity indicators
-- Clickable event cards for detail navigation
-- Tactical dark theme UI optimized for operations centers
+Subcategories: major civil works project updates, project study terminations (CCIR to ASA(CW)), contracts/expense tracking.
+
+### Military Ops
+
+Subcategories: major MILCON project updates (e.g. West Point), projected requirements (especially OCONUS), contracts/expense tracking.
+
+### Support Units
+
+Units that do work for USACE, tracked by location/deployment status and project planning/route reconnaissance:
+
+- Forward Engineer Support Team – Advance (FEST-A)
+- Forward Engineer Support Team – Main (FEST-M), when necessary
+- Contingency Response Unit (CRU)
+- 249th Prime Power Battalion
+
+### Programs
+
+Longer-duration, multi-project efforts:
+
+- TF Castle support to TF Sentinel
+- Southwest Border support
+- Major recovery (e.g. Tinian, Sinlaku)
+
+---
+
+## Adding Data: Civil Works / Military Ops / Support Units / Programs
+
+These four categories have no public API — they're internal USACE status updates entered by hand.
+
+1. Open `admin.html` (linked as **+ ADD ENTRY** in the top-right of the dashboard).
+2. Select the category tab, fill out the entry (title, subcategory/unit, status, date, optional coordinates, details, optional reference link), and click **Save Entry**.
+3. Entries are saved to your browser's local storage as you work — repeat for as many entries as needed.
+4. When ready, click **Export `<category>.json`** to download the file.
+5. Commit that file into `/data/` in this repo, replacing the existing file of the same name. This is what pushes the update to the live site for everyone — the admin panel itself only saves locally.
+
+To resume editing a category later (or to add to entries someone else already exported), use **Import JSON** in the admin panel to load the current `/data/<category>.json` back in before making changes.
+
+**Coordinates are optional.** An entry without `lat`/`lon` still appears in the sidebar list for its category — it just won't get a map marker. Use this for things like contract/expense tracking that aren't tied to a single location.
+
+**Note on scale:** this is a local-then-commit workflow, not shared multi-user editing. If entry volume grows or multiple people need to add data concurrently, the next step would be a small backend (e.g. Netlify Forms + a serverless function) so entries save centrally instead of per-browser.
 
 ---
 
 ## API Data Sources
 
-| Data | Source | Endpoint | Update Frequency |
-|------|--------|----------|------------------|
-| Earthquakes | USGS GeoJSON | earthquake.usgs.gov | Real-time (2 min sync) |
-| River Gauges | USGS Water Services | waterservices.usgs.gov | Every 15 min (transmitted hourly) |
-| Weather Radar | RainViewer | rainviewer.com | Every 5 minutes |
-| Satellite Imagery | NASA GIBS | gibs.earthdata.nasa.gov | Daily |
+| Data              | Source              | Endpoint                | Update Frequency                  |
+| ----------------- | -------------------- | ------------------------ | ---------------------------------- |
+| Earthquakes       | USGS GeoJSON          | earthquake.usgs.gov      | Real-time (2 min sync)             |
+| River Gauges      | USGS Water Services   | waterservices.usgs.gov   | Every 15 min (transmitted hourly)  |
+| Weather Alerts    | NOAA                   | api.weather.gov          | Real-time                          |
+| Disasters         | ReliefWeb              | reliefweb.int             | Real-time                          |
+| Weather Radar     | RainViewer             | rainviewer.com            | Every 5 minutes                    |
+| Satellite Imagery | NASA GIBS               | gibs.earthdata.nasa.gov   | Daily                              |
 
 ---
 
@@ -40,160 +86,50 @@ A real-time operational dashboard for U.S. Army Corps of Engineers emergency res
 
 The USGS Water Services API has CORS restrictions that prevent direct browser requests. The current implementation uses a **free CORS proxy** (`allorigins.win`) to bypass this:
 
-```javascript
+```
 const corsProxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(usgsUrl)}`;
 const res = await fetch(corsProxyUrl);
 ```
 
-**Pros**: Free, no authentication required  
+**Pros**: Free, no authentication required
 **Cons**: Relies on third-party proxy service, slight latency overhead
 
 ### Alternative: Backend Proxy (Production Recommended)
 
 For production USACE deployments, set up a dedicated backend proxy (Node.js/Python):
 
-```javascript
+```
 // Replace proxy URL with your own backend
 const res = await fetch('/api/usgs-gauges');
-```
-
-Backend example (Node.js + Express):
-```javascript
-app.get('/api/usgs-gauges', async (req, res) => {
-  const usgsRes = await fetch('https://waterservices.usgs.gov/nwis/iv/?format=json&...');
-  const data = await usgsRes.json();
-  res.json(data);
-});
-```
-
----
-
-## Customization Guide
-
-### Adding New Data Feeds
-
-To add a new data feed (e.g., NOAA hurricane data), create a new async function following this pattern:
-
-```javascript
-async function fetchYourData() {
-  try {
-    const res = await fetch('YOUR_API_ENDPOINT');
-    const data = await res.json();
-    
-    return data.features.map(f => ({
-      id: f.id,
-      type: 'your-feed-type',       // e.g., 'hurricane', 'fire'
-      title: `Event: ${f.name}`,
-      coords: [latitude, longitude],
-      time: new Date(f.timestamp).toISOString().slice(0, 19) + ' UTC',
-      severity: 'critical' | 'warning' | 'info',
-      mag: numeric_value_for_marker_size
-    }));
-  } catch (err) {
-    console.error("Feed error:", err);
-    return [];
-  }
-}
-```
-
-Then add it to the `init()` function:
-
-```javascript
-async function init() {
-  const [seismic, riverGauges, yourNewFeed] = await Promise.all([
-    fetchSeismicData(),
-    fetchRiverGaugeData(),
-    fetchYourData()
-  ]);
-  
-  allEvents = [...seismic, ...riverGauges, ...yourNewFeed];
-  renderEvents(allEvents);
-  // ...
-}
-```
-
-### Configuring Severity Thresholds
-
-Thresholds are currently hardcoded in each fetch function. To modify:
-
-**River Gauge Thresholds** (in `fetchRiverGaugeData`):
-- **Warning**: Flow rate < 1000 cfs (low water)
-- **Critical**: Flow rate > 50000 cfs (flood risk)
-
-**Earthquake Thresholds** (in `fetchSeismicData`):
-- **Warning**: Magnitude < 6.0
-- **Critical**: Magnitude ≥ 6.0
-
-### Modifying Filter Categories
-
-Filter buttons in the sidebar are defined in `index.html` (around line 239):
-
-```html
-<button class="filter-btn active" onclick="filterEvents('all', this)">ALL</button>
-<button class="filter-btn" onclick="filterEvents('contingency', this)">CONTINGENCY</button>
-<button class="filter-btn" onclick="filterEvents('environmental', this)">ENV</button>
-```
-
-Add new buttons and update the `filterEvents()` function in the script section to define which feed types are included in each category.
-
-### Color Scheme & Styling
-
-Edit the CSS variables in the `<style>` section:
-
-```css
-:root {
-    --bg-base: #0a0c10;              /* Main background */
-    --accent-cyan: #00f0ff;          /* Active/selected elements */
-    --accent-red: #ff3344;           /* Critical events */
-    --accent-amber: #ffaa00;         /* Warning events */
-    --accent-green: #00ff66;         /* Active/online status */
-}
 ```
 
 ---
 
 ## Future Enhancements
 
-1. **Internal USACE Data Integration**: Connect to USACE-specific APIs for:
-   - Civil Works project status
-   - MILCON project tracking
-   - FEST deployment locations
-   - Long Duration Project updates
-
-2. **Advanced Filtering**: Expand filter tabs to match USACE categories:
-   - Contingency Ops (PRT, Wildfires, River Gauges, Storms, Disasters)
-   - Civil Works (Project Updates, Study Terminations, Contract Tracking)
-   - Military Ops (MILCON Projects, Requirements, Contracts)
-   - FEST (Deployments, Route Reconnaissance)
-   - Long Duration Projects (TF Castle, SW Border, Recovery Ops)
-
-3. **Real-time Alerts**: Email/SMS notifications for critical events
-
-4. **User Authentication**: Login system for restricted USACE operations data
-
-5. **Export/Reporting**: Generate operational summaries and event reports
+1. Nest FEST-A/FEST-M under a broader Military Ops umbrella if the taxonomy evolves that way
+2. Real-time alerts: email/SMS notifications for critical events
+3. User authentication for restricted USACE operations data
+4. Export/reporting: generate operational summaries from current entries
+5. Shared backend for Civil Works/Military Ops/Support Units/Programs entries (replacing the local-then-commit admin workflow) if multiple editors are needed
 
 ---
 
 ## Installation & Deployment
 
 ### Local Development
-```bash
-# Clone repository
-git clone <repo-url>
 
-# Serve locally (any HTTP server)
+```
+git clone <repo-url>
 python -m http.server 8000
 # or
 npx http-server
 ```
 
 ### Netlify Deployment
-```bash
-# Install Netlify CLI
-npm install -g netlify-cli
 
-# Deploy
+```
+npm install -g netlify-cli
 netlify deploy --prod
 ```
 
@@ -204,20 +140,28 @@ netlify deploy --prod
 ```
 .
 ├── index.html          # Main UI and event rendering logic
-├── radar.js            # RainViewer radar overlay module
-└── README.md           # This file
+├── admin.html           # Entry form for Civil Works / Military Ops / Support Units / Programs
+├── radar.js             # RainViewer radar overlay module
+├── data/
+│   ├── civil-works.json
+│   ├── military-ops.json
+│   ├── support-units.json
+│   └── programs.json
+└── README.md            # This file
 ```
 
 ---
 
 ## Support & Documentation
 
-- **USGS Water Services**: https://waterservices.usgs.gov/docs/
-- **USGS Earthquake API**: https://earthquake.usgs.gov/fdsnws/event/1/
-- **Leaflet.js Docs**: https://leafletjs.com/
-- **NASA GIBS**: https://wiki.earthdata.nasa.gov/display/GIBS/
+- **USGS Water Services**: <https://waterservices.usgs.gov/docs/>
+- **USGS Earthquake API**: <https://earthquake.usgs.gov/fdsnws/event/1/>
+- **NOAA Weather Alerts**: <https://www.weather.gov/documentation/services-web-api>
+- **ReliefWeb API**: <https://reliefweb.int/help/api>
+- **Leaflet.js Docs**: <https://leafletjs.com/>
+- **NASA GIBS**: <https://wiki.earthdata.nasa.gov/display/GIBS/>
 
 ---
 
-**Last Updated**: 2026-08-29  
+**Last Updated**: 2026-08-30
 **Status**: Beta (Production Ready)

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USACE Operations Monitor — Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-base: #0a0c10;
+  --bg-panel: rgba(14, 18, 24, 0.92);
+  --border: #1e2638;
+  --accent-cyan: #00f0ff;
+  --accent-red: #ff3344;
+  --accent-amber: #ffaa00;
+  --accent-green: #00ff66;
+  --text-main: #c0caf5;
+  --text-dim: #565f89;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Share Tech Mono', monospace; }
+body {
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  min-height: 100vh;
+  padding: 0 0 60px 0;
+}
+header {
+  background: #05070a;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .brand { font-weight: bold; letter-spacing: 1px; font-size: 15px; }
+header a { color: var(--accent-cyan); text-decoration: none; font-size: 12px; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 20px; }
+.category-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.cat-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 10px 6px;
+  font-size: 12px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+.cat-btn.active {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  background: rgba(0, 240, 255, 0.06);
+}
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  padding: 18px;
+  margin-bottom: 20px;
+}
+.panel h2 { font-size: 14px; color: var(--accent-cyan); margin-bottom: 14px; letter-spacing: 0.5px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.field-row.full { grid-template-columns: 1fr; }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label { font-size: 11px; color: var(--text-dim); }
+.field input, .field select, .field textarea {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 8px;
+  font-size: 13px;
+  font-family: 'Share Tech Mono', monospace;
+}
+.field textarea { resize: vertical; min-height: 60px; }
+.btn {
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  padding: 10px 18px;
+  font-size: 12px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+.btn:hover { background: rgba(0, 240, 255, 0.18); }
+.btn.secondary { border-color: var(--border); color: var(--text-dim); }
+.btn.danger { border-color: var(--accent-red); color: var(--accent-red); background: rgba(255,51,68,0.05); }
+.actions { display: flex; gap: 10px; margin-top: 6px; }
+.entry-list { margin-top: 24px; }
+.entry-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-cyan);
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.entry-card.status-at-risk { border-left-color: var(--accent-amber); }
+.entry-card.status-delayed { border-left-color: var(--accent-red); }
+.entry-card.status-complete { border-left-color: var(--accent-green); }
+.entry-meta { color: var(--text-dim); font-size: 10px; margin-top: 4px; }
+.entry-buttons { display: flex; gap: 6px; flex-shrink: 0; }
+.entry-buttons button {
+  background: transparent; border: 1px solid var(--border); color: var(--text-dim);
+  padding: 4px 8px; font-size: 10px; cursor: pointer;
+}
+.entry-buttons button:hover { color: var(--accent-cyan); border-color: var(--accent-cyan); }
+.export-row { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
+.note {
+  font-size: 11px; color: var(--text-dim); border: 1px dashed var(--border);
+  padding: 10px; margin-bottom: 20px; line-height: 1.5;
+}
+.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="brand">USACE OPS MONITOR — ADMIN</span>
+  <a href="index.html">&larr; Back to dashboard</a>
+</header>
+
+<div class="wrap">
+
+  <div class="note">
+    Entries save to this browser's local storage as you work. When ready, use <strong>Export JSON</strong>
+    below to download the file for a category and commit it into <code>/data/</code> in the repo
+    (replacing the existing file of the same name) — that's what makes it show up on the live dashboard
+    for everyone, not just this browser.
+  </div>
+
+  <div class="category-tabs">
+    <button class="cat-btn active" data-cat="civil-works">CIVIL WORKS</button>
+    <button class="cat-btn" data-cat="military-ops">MILITARY OPS</button>
+    <button class="cat-btn" data-cat="support-units">SUPPORT UNITS</button>
+    <button class="cat-btn" data-cat="programs">PROGRAMS</button>
+  </div>
+
+  <div class="panel">
+    <h2 id="form-title">New Civil Works Entry</h2>
+    <form id="entry-form">
+      <input type="hidden" id="entry-id">
+
+      <div class="field-row full">
+        <div class="field">
+          <label>Title</label>
+          <input type="text" id="f-title" required placeholder="e.g. Herbert Hoover Dike Rehabilitation">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label id="subcat-label">Subcategory</label>
+          <select id="f-subcat"></select>
+        </div>
+        <div class="field">
+          <label>Status</label>
+          <select id="f-status">
+            <option value="on-track">On Track</option>
+            <option value="at-risk">At Risk</option>
+            <option value="delayed">Delayed</option>
+            <option value="complete">Complete</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Date (status as-of)</label>
+          <input type="date" id="f-date">
+        </div>
+        <div class="field">
+          <label>Reference link (optional)</label>
+          <input type="url" id="f-link" placeholder="https://">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Latitude (optional — leave blank if not mappable)</label>
+          <input type="text" id="f-lat" placeholder="e.g. 38.8977">
+        </div>
+        <div class="field">
+          <label>Longitude (optional)</label>
+          <input type="text" id="f-lon" placeholder="e.g. -77.0365">
+        </div>
+      </div>
+
+      <div class="field-row full">
+        <div class="field">
+          <label>Details / notes</label>
+          <textarea id="f-details" placeholder="Short operational summary"></textarea>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn">Save Entry</button>
+        <button type="button" class="btn secondary" id="cancel-edit">Clear Form</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="panel entry-list">
+    <h2 id="list-title">Civil Works Entries</h2>
+    <div id="entries-container"></div>
+
+    <div class="export-row">
+      <button class="btn" id="export-btn">Export civil-works.json</button>
+      <label class="btn secondary" style="cursor:pointer;">
+        Import JSON
+        <input type="file" id="import-input" accept="application/json" class="hidden">
+      </label>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const CATEGORIES = {
+  'civil-works': {
+    label: 'Civil Works',
+    filename: 'civil-works.json',
+    subcatLabel: 'Subcategory',
+    subcats: [
+      'Major Project Update',
+      'Project Study Termination (CCIR to ASA(CW))',
+      'Contract / Expense Tracking'
+    ]
+  },
+  'military-ops': {
+    label: 'Military Ops',
+    filename: 'military-ops.json',
+    subcatLabel: 'Subcategory',
+    subcats: [
+      'Major MILCON Project Update',
+      'Projected Requirement (OCONUS)',
+      'Contract / Expense Tracking'
+    ]
+  },
+  'support-units': {
+    label: 'Support Units',
+    filename: 'support-units.json',
+    subcatLabel: 'Unit',
+    subcats: [
+      'FEST-A',
+      'FEST-M',
+      'Contingency Response Unit (CRU)',
+      '249th Prime Power Battalion'
+    ]
+  },
+  'programs': {
+    label: 'Programs',
+    filename: 'programs.json',
+    subcatLabel: 'Program',
+    subcats: [
+      'TF Castle support to TF Sentinel',
+      'Southwest Border Support',
+      'Major Recovery (e.g. Tinian, Sinlaku)'
+    ]
+  }
+};
+
+let activeCat = 'civil-works';
+let editingId = null;
+
+function storageKey(cat) { return `usace-admin-${cat}`; }
+
+function loadEntries(cat) {
+  try {
+    return JSON.parse(localStorage.getItem(storageKey(cat))) || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveEntries(cat, entries) {
+  localStorage.setItem(storageKey(cat), JSON.stringify(entries));
+}
+
+function uid() {
+  return 'evt-' + Math.random().toString(36).slice(2, 10);
+}
+
+function populateSubcatOptions() {
+  const cfg = CATEGORIES[activeCat];
+  const sel = document.getElementById('f-subcat');
+  sel.innerHTML = '';
+  cfg.subcats.forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s;
+    opt.textContent = s;
+    sel.appendChild(opt);
+  });
+  document.getElementById('subcat-label').textContent = cfg.subcatLabel;
+}
+
+function switchCategory(cat) {
+  activeCat = cat;
+  editingId = null;
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  document.getElementById('form-title').textContent = `New ${CATEGORIES[cat].label} Entry`;
+  document.getElementById('list-title').textContent = `${CATEGORIES[cat].label} Entries`;
+  document.getElementById('export-btn').textContent = `Export ${CATEGORIES[cat].filename}`;
+  populateSubcatOptions();
+  document.getElementById('entry-form').reset();
+  renderEntries();
+}
+
+function renderEntries() {
+  const container = document.getElementById('entries-container');
+  const entries = loadEntries(activeCat);
+  container.innerHTML = '';
+
+  if (entries.length === 0) {
+    container.innerHTML = '<div style="color: var(--text-dim); font-size: 12px; padding: 8px 0;">No entries yet.</div>';
+    return;
+  }
+
+  entries.slice().reverse().forEach(entry => {
+    const card = document.createElement('div');
+    card.className = `entry-card status-${entry.status}`;
+    card.innerHTML = `
+      <div>
+        <strong>${escapeHtml(entry.title)}</strong>
+        <div class="entry-meta">${escapeHtml(entry.subcategory)} · ${entry.status.replace('-', ' ').toUpperCase()} · ${entry.date || 'no date'}</div>
+      </div>
+      <div class="entry-buttons">
+        <button data-action="edit" data-id="${entry.id}">EDIT</button>
+        <button data-action="delete" data-id="${entry.id}">DEL</button>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str || '';
+  return div.innerHTML;
+}
+
+document.getElementById('entries-container').addEventListener('click', (e) => {
+  const btn = e.target.closest('button[data-action]');
+  if (!btn) return;
+  const id = btn.dataset.id;
+  const entries = loadEntries(activeCat);
+  const entry = entries.find(x => x.id === id);
+  if (!entry) return;
+
+  if (btn.dataset.action === 'delete') {
+    if (confirm(`Delete "${entry.title}"?`)) {
+      saveEntries(activeCat, entries.filter(x => x.id !== id));
+      renderEntries();
+    }
+  } else if (btn.dataset.action === 'edit') {
+    editingId = id;
+    document.getElementById('f-title').value = entry.title;
+    document.getElementById('f-subcat').value = entry.subcategory;
+    document.getElementById('f-status').value = entry.status;
+    document.getElementById('f-date').value = entry.date || '';
+    document.getElementById('f-link').value = entry.link || '';
+    document.getElementById('f-lat').value = entry.lat ?? '';
+    document.getElementById('f-lon').value = entry.lon ?? '';
+    document.getElementById('f-details').value = entry.details || '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+
+document.getElementById('entry-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const entries = loadEntries(activeCat);
+
+  const lat = document.getElementById('f-lat').value.trim();
+  const lon = document.getElementById('f-lon').value.trim();
+
+  const record = {
+    id: editingId || uid(),
+    category: activeCat,
+    subcategory: document.getElementById('f-subcat').value,
+    title: document.getElementById('f-title').value.trim(),
+    status: document.getElementById('f-status').value,
+    date: document.getElementById('f-date').value,
+    link: document.getElementById('f-link').value.trim(),
+    lat: lat ? parseFloat(lat) : null,
+    lon: lon ? parseFloat(lon) : null,
+    details: document.getElementById('f-details').value.trim()
+  };
+
+  if (editingId) {
+    const idx = entries.findIndex(x => x.id === editingId);
+    if (idx > -1) entries[idx] = record;
+  } else {
+    entries.push(record);
+  }
+
+  saveEntries(activeCat, entries);
+  editingId = null;
+  e.target.reset();
+  populateSubcatOptions();
+  renderEntries();
+});
+
+document.getElementById('cancel-edit').addEventListener('click', () => {
+  editingId = null;
+  document.getElementById('entry-form').reset();
+  populateSubcatOptions();
+});
+
+document.getElementById('export-btn').addEventListener('click', () => {
+  const entries = loadEntries(activeCat);
+  const blob = new Blob([JSON.stringify(entries, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = CATEGORIES[activeCat].filename;
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById('import-input').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const imported = JSON.parse(reader.result);
+      if (!Array.isArray(imported)) throw new Error('not an array');
+      saveEntries(activeCat, imported);
+      renderEntries();
+      alert(`Imported ${imported.length} entries into ${CATEGORIES[activeCat].label}.`);
+    } catch (err) {
+      alert('Could not parse that file as a valid entries JSON array.');
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+});
+
+document.querySelectorAll('.cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchCategory(btn.dataset.cat));
+});
+
+// Init
+populateSubcatOptions();
+renderEntries();
+</script>
+
+</body>
+</html>

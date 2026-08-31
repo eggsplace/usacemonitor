@@ -1,830 +1,819 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USACE Operations Monitor</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USACE Operations Monitor</title>
 
-    <!-- Leaflet CSS & JS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Leaflet CSS & JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <!-- Leaflet Terminator (Day/Night overlay) - from CDN -->
-    <script src="https://unpkg.com/leaflet-terminator/L.Terminator.js"></script>
+<!-- Leaflet Terminator (Day/Night overlay) - from CDN -->
+<script src="https://unpkg.com/leaflet-terminator/L.Terminator.js"></script>
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    <!-- Tactical Monospace Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<!-- Tactical Monospace Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --bg-base: #0a0c10;
-            --bg-panel: rgba(14, 18, 24, 0.92);
-            --border: #1e2638;
-            --accent-cyan: #00f0ff;
-            --accent-red: #ff3344;
-            --accent-amber: #ffaa00;
-            --accent-green: #00ff66;
-            --text-main: #c0caf5;
-            --text-dim: #565f89;
-        }
+<style>
+:root {
+  --bg-base: #0a0c10;
+  --bg-panel: rgba(14, 18, 24, 0.92);
+  --border: #1e2638;
+  --accent-cyan: #00f0ff;
+  --accent-red: #ff3344;
+  --accent-amber: #ffaa00;
+  --accent-green: #00ff66;
+  --text-main: #c0caf5;
+  --text-dim: #565f89;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Share Tech Mono', monospace; }
+body {
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Share Tech Mono', monospace;
-        }
+/* Top Bar */
+header {
+  background: #05070a;
+  border-bottom: 1px solid var(--border);
+  padding: 6px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  z-index: 1000;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.status-badge {
+  background: rgba(0, 255, 102, 0.15);
+  border: 1px solid var(--accent-green);
+  color: var(--accent-green);
+  padding: 2px 6px;
+  font-size: 10px;
+  border-radius: 2px;
+  letter-spacing: 1px;
+}
+.top-controls { display: flex; align-items: center; gap: 15px; }
+.top-controls a.admin-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 11px;
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+}
+.top-controls a.admin-link:hover { color: var(--accent-cyan); border-color: var(--accent-cyan); }
 
-        body {
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
+/* Breaking Marquee */
+.ticker-bar {
+  background: rgba(255, 51, 68, 0.1);
+  border-bottom: 1px solid rgba(255, 51, 68, 0.3);
+  color: #ff8899;
+  font-size: 12px;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.ticker-bar span.label { color: var(--accent-red); font-weight: bold; margin-right: 12px; }
 
-        /* Top Bar */
-        header {
-            background: #05070a;
-            border-bottom: 1px solid var(--border);
-            padding: 6px 14px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            z-index: 1000;
-        }
+/* Main Workspace Layout */
+.workspace { flex: 1; display: flex; position: relative; height: calc(100vh - 65px); }
+#map { flex: 1; height: 100%; background: #000; }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+/* Tactical Sidebar */
+aside {
+  width: 400px;
+  background: var(--bg-panel);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  backdrop-filter: blur(8px);
+}
+.sidebar-header {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.02);
+}
 
-        .status-badge {
-            background: rgba(0, 255, 102, 0.15);
-            border: 1px solid var(--accent-green);
-            color: var(--accent-green);
-            padding: 2px 6px;
-            font-size: 10px;
-            border-radius: 2px;
-            letter-spacing: 1px;
-        }
+/* Top-level category tabs */
+.top-cat-tabs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3px;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.top-cat-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 8px 2px;
+  font-size: 9.5px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.3;
+}
+.top-cat-btn.active, .top-cat-btn:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  background: rgba(0, 240, 255, 0.05);
+}
 
-        .top-controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+.filter-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 6px;
+  font-size: 11px;
+  cursor: pointer;
+  text-align: center;
+}
+.filter-btn.active, .filter-btn:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  background: rgba(0, 240, 255, 0.05);
+}
 
-        /* Breaking Marquee */
-        .ticker-bar {
-            background: rgba(255, 51, 68, 0.1);
-            border-bottom: 1px solid rgba(255, 51, 68, 0.3);
-            color: #ff8899;
-            font-size: 12px;
-            padding: 4px 12px;
-            display: flex;
-            align-items: center;
-            white-space: nowrap;
-            overflow: hidden;
-        }
+.events-list { flex: 1; overflow-y: auto; padding: 8px; }
+.event-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-cyan);
+  padding: 8px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+.event-card:hover { background: rgba(0, 240, 255, 0.08); border-color: var(--accent-cyan); }
+.event-card.critical { border-left-color: var(--accent-red); }
+.event-card.warning { border-left-color: var(--accent-amber); }
+.event-card.good { border-left-color: var(--accent-green); }
+.event-subline { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
+.event-time { font-size: 10px; color: var(--text-dim); margin-top: 4px; }
+.event-details { font-size: 11px; color: var(--text-main); margin-top: 6px; line-height: 1.4; }
+.event-link { font-size: 10px; color: var(--accent-cyan); margin-top: 4px; display: inline-block; }
 
-        .ticker-bar span.label {
-            color: var(--accent-red);
-            font-weight: bold;
-            margin-right: 12px;
-        }
+.empty-state {
+  padding: 24px 12px;
+  color: var(--text-dim);
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.empty-state a { color: var(--accent-cyan); }
 
-        /* Main Workspace Layout */
-        .workspace {
-            flex: 1;
-            display: flex;
-            position: relative;
-            height: calc(100vh - 65px);
-        }
-
-        #map {
-            flex: 1;
-            height: 100%;
-            background: #000;
-        }
-
-        /* Tactical Sidebar */
-        aside {
-            width: 380px;
-            background: var(--bg-panel);
-            border-left: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            z-index: 999;
-            backdrop-filter: blur(8px);
-        }
-
-        .sidebar-header {
-            padding: 10px 14px;
-            border-bottom: 1px solid var(--border);
-            font-size: 13px;
-            display: flex;
-            justify-content: space-between;
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .filter-tabs {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 4px;
-            padding: 8px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-dim);
-            padding: 6px;
-            font-size: 11px;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            color: var(--accent-cyan);
-            border-color: var(--accent-cyan);
-            background: rgba(0, 240, 255, 0.05);
-        }
-
-        .events-list {
-            flex: 1;
-            overflow-y: auto;
-            padding: 8px;
-        }
-
-        .event-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--accent-cyan);
-            padding: 8px;
-            margin-bottom: 8px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.15s ease-in-out;
-        }
-
-        .event-card:hover {
-            background: rgba(0, 240, 255, 0.08);
-            border-color: var(--accent-cyan);
-        }
-
-        .event-card.critical {
-            border-left-color: var(--accent-red);
-        }
-
-        .event-card.warning {
-            border-left-color: var(--accent-amber);
-        }
-
-        .event-time {
-            font-size: 10px;
-            color: var(--text-dim);
-            margin-top: 4px;
-        }
-
-        /* Map UI Pulsing Markers */
-        .pulse-marker {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--accent-red);
-            box-shadow: 0 0 10px var(--accent-red);
-            animation: pulse 1.5s infinite ease-out;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 1; }
-            100% { transform: scale(2.2); opacity: 0; }
-        }
-    </style>
+/* Map UI Pulsing Markers */
+.pulse-marker {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent-red); box-shadow: 0 0 10px var(--accent-red);
+  animation: pulse 1.5s infinite ease-out;
+}
+@keyframes pulse { 0% { transform: scale(0.9); opacity: 1; } 100% { transform: scale(2.2); opacity: 0; } }
+</style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="brand">
-            <span class="status-badge">● LIVE OPS</span>
-            <span style="font-weight: bold; letter-spacing: 1px;">USACE OPERATIONS MONITOR</span>
-        </div>
-        <div class="top-controls">
-            <span id="utc-clock">00:00:00 UTC</span>
-            <span style="color: var(--text-dim);">FEEDS: <span id="feed-count" style="color: var(--accent-green);">SYNCING</span></span>
-        </div>
-    </header>
+<!-- Header -->
+<header>
+  <div class="brand">
+    <span class="status-badge">● LIVE OPS</span>
+    <span style="font-weight: bold; letter-spacing: 1px;">USACE OPERATIONS MONITOR</span>
+  </div>
+  <div class="top-controls">
+    <span id="utc-clock">00:00:00 UTC</span>
+    <span style="color: var(--text-dim);">FEEDS: <span id="feed-count" style="color: var(--accent-green);">SYNCING</span></span>
+    <a class="admin-link" href="admin.html">+ ADD ENTRY</a>
+  </div>
+</header>
 
-    <!-- Breaking News Ticker -->
-    <div class="ticker-bar">
-        <span class="label">PRIORITY ALERTS ❯❯</span>
-        <marquee scrollamount="5" id="news-marquee">Monitoring U.S. disasters, river gauges, weather, and emergency operations in real-time...</marquee>
+<!-- Breaking News Ticker -->
+<div class="ticker-bar">
+  <span class="label">PRIORITY ALERTS ❯❯</span>
+  <marquee scrollamount="5" id="news-marquee">Monitoring U.S. disasters, river gauges, weather, and emergency operations in real-time...</marquee>
+</div>
+
+<!-- Workspace -->
+<div class="workspace">
+  <div id="map"></div>
+
+  <aside>
+    <div class="sidebar-header">
+      <span id="section-label">CONTINGENCY OPS</span>
+      <span id="total-events-count" style="color: var(--accent-cyan);">0 ACTIVE</span>
     </div>
 
-    <!-- Workspace -->
-    <div class="workspace">
-        <div id="map"></div>
-
-        <aside>
-            <div class="sidebar-header">
-                <span>OPERATIONAL ALERTS</span>
-                <span id="total-events-count" style="color: var(--accent-cyan);">0 ACTIVE</span>
-            </div>
-            <div class="filter-tabs">
-                <div style="display: flex; gap: 4px; margin-bottom: 6px;">
-                    <button class="filter-btn" onclick="toggleAllLayers(true)" style="flex: 0.5;">ALL</button>
-                    <button class="filter-btn" onclick="toggleAllLayers(false)" style="flex: 0.5;">NONE</button>
-                </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
-                    <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-                        <input type="checkbox" id="filter-earthquakes" checked onchange="updateLayerDisplay()"> Earthquakes
-                    </label>
-                    <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-                        <input type="checkbox" id="filter-gauges" checked onchange="updateLayerDisplay()"> River Gauges
-                    </label>
-                    <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-                        <input type="checkbox" id="filter-wildfires" onchange="updateLayerDisplay()"> Wildfires
-                    </label>
-                    <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-                        <input type="checkbox" id="filter-storms" onchange="updateLayerDisplay()"> Storms
-                    </label>
-                    <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-                        <input type="checkbox" id="filter-weather" onchange="updateLayerDisplay()"> Weather Alerts
-                    </label>
-                    <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-                        <input type="checkbox" id="filter-disasters" onchange="updateLayerDisplay()"> Disasters
-                    </label>
-                </div>
-            </div>
-
-            <!-- Radar controls: toggle + last-update -->
-            <div class="radar-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
-                <button id="radar-toggle" class="filter-btn" onclick="toggleRadarUI()">RADAR</button>
-                <span id="radar-status" style="color: var(--text-dim); font-size:11px;">last: N/A</span>
-            </div>
-
-            <!-- Day/Night Terminator controls -->
-            <div class="daynight-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
-                <button id="daynight-toggle" class="filter-btn" onclick="toggleDayNight()">DAY/NIGHT</button>
-                <span id="daynight-status" style="color: var(--text-dim); font-size:11px;">off</span>
-            </div>
-
-            <!-- Satellite (NASA GIBS) controls: date selector + toggle -->
-            <div class="sat-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
-                <button id="sat-toggle" class="filter-btn" onclick="toggleGIBS()">SAT</button>
-                <input type="date" id="sat-date" style="background:transparent;color:var(--text-main);border:1px solid var(--border);padding:4px;font-size:11px;">
-                <span id="sat-status" style="color: var(--text-dim); font-size:11px;">date</span>
-            </div>
-
-            <div class="events-list" id="events-feed">
-                <div style="padding: 12px; color: var(--text-dim); text-align: center;">Fetching telemetry data...</div>
-            </div>
-        </aside>
+    <!-- Top-level category tabs -->
+    <div class="top-cat-tabs">
+      <button class="top-cat-btn active" data-cat="contingency">CONTIN-<br>GENCY</button>
+      <button class="top-cat-btn" data-cat="civil-works">CIVIL<br>WORKS</button>
+      <button class="top-cat-btn" data-cat="military-ops">MIL<br>OPS</button>
+      <button class="top-cat-btn" data-cat="support-units">SUPPORT<br>UNITS</button>
+      <button class="top-cat-btn" data-cat="programs">PRO-<br>GRAMS</button>
     </div>
 
-    <!-- Load radar.js (must come before main inline script so UI can call functions) -->
-    <script src="radar.js"></script>
+    <!-- Contingency Ops sub-layer controls (only shown for this category) -->
+    <div id="contingency-controls">
+      <div class="filter-tabs">
+        <div style="display: flex; gap: 4px; margin-bottom: 6px;">
+          <button class="filter-btn" onclick="toggleAllLayers(true)" style="flex: 0.5;">ALL</button>
+          <button class="filter-btn" onclick="toggleAllLayers(false)" style="flex: 0.5;">NONE</button>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-earthquakes" checked onchange="updateLayerDisplay()"> Earthquakes
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-gauges" checked onchange="updateLayerDisplay()"> River Gauges
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-wildfires" onchange="updateLayerDisplay()"> Wildfires
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-storms" onchange="updateLayerDisplay()"> Storms
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-weather" onchange="updateLayerDisplay()"> Weather Alerts
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-disasters" onchange="updateLayerDisplay()"> Disasters
+          </label>
+        </div>
+      </div>
 
-    <script>
-        // 1. Clock Tracker
-        function updateClock() {
-            const now = new Date();
-            document.getElementById('utc-clock').innerText = now.toUTCString().split(' ')[4] + ' UTC';
+      <!-- Radar controls -->
+      <div class="radar-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
+        <button id="radar-toggle" class="filter-btn" onclick="toggleRadarUI()">RADAR</button>
+        <span id="radar-status" style="color: var(--text-dim); font-size:11px;">last: N/A</span>
+      </div>
+
+      <!-- Day/Night Terminator controls -->
+      <div class="daynight-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
+        <button id="daynight-toggle" class="filter-btn" onclick="toggleDayNight()">DAY/NIGHT</button>
+        <span id="daynight-status" style="color: var(--text-dim); font-size:11px;">off</span>
+      </div>
+
+      <!-- Satellite (NASA GIBS) controls -->
+      <div class="sat-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
+        <button id="sat-toggle" class="filter-btn" onclick="toggleGIBS()">SAT</button>
+        <input type="date" id="sat-date" style="background:transparent;color:var(--text-main);border:1px solid var(--border);padding:4px;font-size:11px;">
+        <span id="sat-status" style="color: var(--text-dim); font-size:11px;">date</span>
+      </div>
+    </div>
+
+    <div class="events-list" id="events-feed">
+      <div style="padding: 12px; color: var(--text-dim); text-align: center;">Fetching telemetry data...</div>
+    </div>
+  </aside>
+</div>
+
+<!-- Load radar.js (must come before main inline script so UI can call functions) -->
+<script src="radar.js"></script>
+
+<script>
+// 1. Clock Tracker
+function updateClock() {
+  const now = new Date();
+  document.getElementById('utc-clock').innerText = now.toUTCString().split(' ')[4] + ' UTC';
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// 2. Initialize Map (centered on USA)
+const map = L.map('map', { center: [39, -98], zoom: 4, zoomControl: false });
+const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 19,
+  subdomains: 'abc'
+}).addTo(map);
+
+let eventMarkers = [];
+let allEvents = [];
+let gibsLayer = null;
+let terminatorLayer = null;
+
+// ---- Live data feeds (Contingency Ops) ----
+
+async function fetchRiverGaugeData() {
+  try {
+    const baseUrl = 'https://waterservices.usgs.gov/nwis/iv/';
+    const params = new URLSearchParams({
+      'format': 'json', 'stateCd': 'all', 'parameterCd': '00060',
+      'siteStatus': 'active', 'hasDataTypeCd': 'iv'
+    });
+    const usgsUrl = `${baseUrl}?${params}`;
+    const corsProxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(usgsUrl)}`;
+    const res = await fetch(corsProxyUrl);
+    if (!res.ok) throw new Error('Failed to fetch USGS water data');
+    const data = await res.json();
+    const events = [];
+    if (data.value && data.value.timeSeries) {
+      data.value.timeSeries.slice(0, 100).forEach(ts => {
+        const location = ts.sourceInfo;
+        const geoLocation = location.geoLocation;
+        const value = ts.values[0]?.value[0];
+        if (value && geoLocation) {
+          const flowRate = parseFloat(value.value);
+          let severity = 'info';
+          if (flowRate < 1000) severity = 'warning';
+          if (flowRate > 50000) severity = 'critical';
+          events.push({
+            id: location.siteCode[0].value,
+            type: 'river-gauge',
+            topCategory: 'contingency',
+            title: `${location.siteName} - ${flowRate.toFixed(0)} cfs`,
+            coords: [parseFloat(geoLocation.geogLocation.srs.value.split()[0]),
+                     parseFloat(geoLocation.geogLocation.srs.value.split()[1])],
+            time: new Date(value.dateTime).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+            severity: severity,
+            mag: flowRate
+          });
         }
-        setInterval(updateClock, 1000);
-        updateClock();
+      });
+    }
+    return events;
+  } catch (err) {
+    console.error("Failed to load USGS water data:", err);
+    return [];
+  }
+}
 
-        // 2. Initialize Map (centered on USA)
-        const map = L.map('map', {
-            center: [39, -98],
-            zoom: 4,
-            zoomControl: false
-        });
+async function fetchSeismicData() {
+  try {
+    const res = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson');
+    const data = await res.json();
+    const usBBox = [24.5, -125, 49.4, -66.9];
+    return data.features
+      .filter(f => {
+        const [lon, lat] = f.geometry.coordinates;
+        return lat >= usBBox[0] && lat <= usBBox[2] && lon >= usBBox[1] && lon <= usBBox[3];
+      })
+      .map(f => ({
+        id: f.id,
+        type: 'seismic',
+        topCategory: 'contingency',
+        title: `M ${f.properties.mag} - ${f.properties.place}`,
+        mag: f.properties.mag,
+        coords: [f.geometry.coordinates[1], f.geometry.coordinates[0]],
+        time: new Date(f.properties.time).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+        severity: f.properties.mag >= 6.0 ? 'critical' : 'warning'
+      }));
+  } catch (err) {
+    console.error("Failed to load USGS feed:", err);
+    return [];
+  }
+}
 
-        // Use OpenStreetMap (free, no API key required)
-        const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors',
-            maxZoom: 19,
-            subdomains: 'abc'
-        }).addTo(map);
-
-        let eventMarkers = [];
-        let allEvents = [];
-
-        // GIBS satellite layer variable
-        let gibsLayer = null;
-
-        // Day/Night Terminator layer variable
-        let terminatorLayer = null;
-
-        // 4. Fetch USGS Water Data (River Gauges)
-        async function fetchRiverGaugeData() {
-            try {
-                // Query for sites with streamflow data in US (focusing on high-priority areas)
-                const baseUrl = 'https://waterservices.usgs.gov/nwis/iv/';
-                const params = new URLSearchParams({
-                    'format': 'json',
-                    'stateCd': 'all',           // all US states
-                    'parameterCd': '00060',     // streamflow parameter code
-                    'siteStatus': 'active',
-                    'hasDataTypeCd': 'iv'
-                });
-                
-                const usgsUrl = `${baseUrl}?${params}`;
-                
-                // Use CORS proxy to bypass browser restrictions
-                const corsProxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(usgsUrl)}`;
-                
-                const res = await fetch(corsProxyUrl);
-                if (!res.ok) throw new Error('Failed to fetch USGS water data');
-                const data = await res.json();
-                
-                const events = [];
-                if (data.value && data.value.timeSeries) {
-                    data.value.timeSeries.slice(0, 100).forEach(ts => { // limit to 100 most critical
-                        const location = ts.sourceInfo;
-                        const geoLocation = location.geoLocation;
-                        const value = ts.values[0]?.value[0];
-                        
-                        if (value && geoLocation) {
-                            const flowRate = parseFloat(value.value);
-                            // Determine severity based on thresholds (this is simplified; in production use actual thresholds)
-                            let severity = 'info';
-                            if (flowRate < 1000) severity = 'warning'; // low flow
-                            if (flowRate > 50000) severity = 'critical'; // high flow (flood risk)
-                            
-                            events.push({
-                                id: location.siteCode[0].value,
-                                type: 'river-gauge',
-                                title: `${location.siteName} - ${flowRate.toFixed(0)} cfs`,
-                                coords: [parseFloat(geoLocation.geogLocation.srs.value.split()[0]), 
-                                        parseFloat(geoLocation.geogLocation.srs.value.split()[1])],
-                                time: new Date(value.dateTime).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
-                                severity: severity,
-                                mag: flowRate // for marker sizing
-                            });
-                        }
-                    });
-                }
-                return events;
-            } catch (err) {
-                console.error("Failed to load USGS water data:", err);
-                return [];
+async function fetchReliefWebDisasters() {
+  try {
+    const res = await fetch('https://reliefweb.int/api/v1/disasters?appname=usace-monitor&limit=50&filter[operator]=AND&filter[0][field]=status&filter[0][value]=current');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const events = [];
+    if (data.data && Array.isArray(data.data)) {
+      data.data.forEach(disaster => {
+        const primary = disaster.fields;
+        if (primary.locations && Array.isArray(primary.locations) && primary.locations.length > 0) {
+          primary.locations.forEach(loc => {
+            if (loc.geolocation && loc.geolocation.latitude && loc.geolocation.longitude) {
+              events.push({
+                id: disaster.id,
+                type: 'disaster',
+                topCategory: 'contingency',
+                title: `${primary.name}`,
+                coords: [loc.geolocation.latitude, loc.geolocation.longitude],
+                time: primary.date && primary.date.created ?
+                  new Date(primary.date.created).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' :
+                  new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+                severity: primary.status === 'current' ? 'critical' : 'warning',
+                mag: 5
+              });
             }
+          });
         }
+      });
+    }
+    return events;
+  } catch (err) {
+    console.error("Failed to load ReliefWeb disasters:", err);
+    return [];
+  }
+}
 
-        // 3. Fetch Live Earthquakes (USGS GeoJSON) - US-focused
-        async function fetchSeismicData() {
-            try {
-                // Fetch earthquakes globally but we'll filter to US/territories
-                const res = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson');
-                const data = await res.json();
-                
-                // US bounding box: [lat_min, lon_min, lat_max, lon_max]
-                const usBBox = [24.5, -125, 49.4, -66.9]; // continental US + AK/HI bounds extended
-                
-                return data.features
-                    .filter(f => {
-                        const [lon, lat] = f.geometry.coordinates;
-                        return lat >= usBBox[0] && lat <= usBBox[2] && lon >= usBBox[1] && lon <= usBBox[3];
-                    })
-                    .map(f => ({
-                        id: f.id,
-                        type: 'seismic',
-                        title: `M ${f.properties.mag} - ${f.properties.place}`,
-                        mag: f.properties.mag,
-                        coords: [f.geometry.coordinates[1], f.geometry.coordinates[0]],
-                        time: new Date(f.properties.time).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
-                        severity: f.properties.mag >= 6.0 ? 'critical' : 'warning'
-                    }));
-            } catch (err) {
-                console.error("Failed to load USGS feed:", err);
-                return [];
-            }
-        }
-
-        // 5. Fetch ReliefWeb Disasters API
-        async function fetchReliefWebDisasters() {
-            try {
-                // Query ReliefWeb for recent disasters - US-focused
-                // ReliefWeb API format: simplified disaster query
-                const res = await fetch('https://reliefweb.int/api/v1/disasters?appname=usace-monitor&limit=50&filter[operator]=AND&filter[0][field]=status&filter[0][value]=current');
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                const data = await res.json();
-                
-                const events = [];
-                if (data.data && Array.isArray(data.data)) {
-                    data.data.forEach(disaster => {
-                        const primary = disaster.fields;
-                        // Try to get a US-relevant location
-                        if (primary.locations && Array.isArray(primary.locations) && primary.locations.length > 0) {
-                            primary.locations.forEach(loc => {
-                                if (loc.geolocation && loc.geolocation.latitude && loc.geolocation.longitude) {
-                                    events.push({
-                                        id: disaster.id,
-                                        type: 'disaster',
-                                        title: `${primary.name}`,
-                                        coords: [loc.geolocation.latitude, loc.geolocation.longitude],
-                                        time: primary.date && primary.date.created ? 
-                                            new Date(primary.date.created).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : 
-                                            new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
-                                        severity: primary.status === 'current' ? 'critical' : 'warning',
-                                        mag: 5
-                                    });
-                                }
-                            });
-                        }
-                    });
-                }
-                console.log(`ReliefWeb: loaded ${events.length} disasters`);
-                return events;
-            } catch (err) {
-                console.error("Failed to load ReliefWeb disasters:", err);
-                return [];
-            }
-        }
-
-        // 6. Fetch NOAA Severe Weather Alerts
-        async function fetchNOAAAlerts() {
-            try {
-                // Get all active alerts (no point filter - get everything)
-                const res = await fetch('https://api.weather.gov/alerts/active');
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                const data = await res.json();
-                
-                const events = [];
-                if (data.features && Array.isArray(data.features)) {
-                    data.features.slice(0, 100).forEach(alert => {
-                        try {
-                            const props = alert.properties;
-                            if (alert.geometry && alert.geometry.coordinates && alert.geometry.coordinates.length > 0) {
-                                // Handle different geometry types
-                                let coords;
-                                if (alert.geometry.type === 'Polygon') {
-                                    // Get first point of polygon ring
-                                    const ring = alert.geometry.coordinates[0];
-                                    coords = ring[Math.floor(ring.length / 2)]; // use middle point
-                                } else if (alert.geometry.type === 'MultiPolygon') {
-                                    const ring = alert.geometry.coordinates[0][0];
-                                    coords = ring[Math.floor(ring.length / 2)];
-                                } else {
-                                    return; // skip unsupported geometry
-                                }
-                                
-                                if (coords && coords.length >= 2) {
-                                    events.push({
-                                        id: alert.id,
-                                        type: 'weather',
-                                        title: `${props.event} - ${props.areaDesc || 'Regional'}`,
-                                        coords: [coords[1], coords[0]], // [lat, lon]
-                                        time: props.sent ? 
-                                            new Date(props.sent).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' :
-                                            new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
-                                        severity: (props.severity === 'Extreme' || props.severity === 'Severe') ? 'critical' : 'warning',
-                                        mag: 4
-                                    });
-                                }
-                            }
-                        } catch (itemErr) {
-                            console.warn('Error parsing NOAA alert:', itemErr);
-                        }
-                    });
-                }
-                console.log(`NOAA: loaded ${events.length} weather alerts`);
-                return events;
-            } catch (err) {
-                console.error("Failed to load NOAA alerts:", err);
-                return [];
-            }
-        }
-        function renderEvents(events) {
-            // Clear existing markers
-            eventMarkers.forEach(m => map.removeLayer(m));
-            eventMarkers = [];
-
-            const feedContainer = document.getElementById('events-feed');
-            feedContainer.innerHTML = '';
-            document.getElementById('total-events-count').innerText = `${events.length} EVENTS`;
-
-            events.forEach(evt => {
-                // Create custom icon based on event type
-                const iconColor = evt.severity === 'critical' ? '#ff3344' : '#ffaa00';
-                const iconBgColor = evt.severity === 'critical' ? 'rgba(255, 51, 68, 0.2)' : 'rgba(255, 170, 0, 0.2)';
-                
-                let faIcon = 'fa-circle';
-                switch(evt.type) {
-                    case 'seismic': faIcon = 'fa-wave-square'; break;
-                    case 'river-gauge': faIcon = 'fa-water'; break;
-                    case 'fire': faIcon = 'fa-fire'; break;
-                    case 'hurricane': faIcon = 'fa-wind'; break;
-                    case 'weather': faIcon = 'fa-cloud-bolt'; break;
-                    case 'disaster': faIcon = 'fa-triangle-exclamation'; break;
-                    default: faIcon = 'fa-circle';
-                }
-                
-                const icon = L.divIcon({
-                    html: `<div style="background: ${iconBgColor}; border: 2px solid ${iconColor}; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas ${faIcon}" style="color: ${iconColor}; font-size: 16px;"></i>
-                    </div>`,
-                    iconSize: [32, 32],
-                    iconAnchor: [16, 16],
-                    popupAnchor: [0, -16],
-                    className: 'event-icon'
-                });
-                
-                const marker = L.marker(evt.coords, { icon: icon }).addTo(map);
-
-                marker.bindPopup(`<b>${evt.title}</b><br>Type: ${evt.type}<br>Time: ${evt.time}`);
-                eventMarkers.push(marker);
-
-                // Sidebar Card
-                const card = document.createElement('div');
-                card.className = `event-card ${evt.severity}`;
-                card.innerHTML = `
-                    <div><strong>${evt.title}</strong></div>
-                    <div class="event-time">${evt.time}</div>
-                `;
-                card.onclick = () => {
-                    map.flyTo(evt.coords, 6, { duration: 1.5 });
-                    marker.openPopup();
-                };
-                feedContainer.appendChild(card);
-            });
-        }
-
-        // Multi-layer filter state
-        const layerFilters = {
-            'earthquakes': true,
-            'gauges': true,
-            'wildfires': false,
-            'storms': false,
-            'weather': false,
-            'disasters': false
-        };
-
-        // Toggle all layers on/off
-        window.toggleAllLayers = function(enable) {
-            Object.keys(layerFilters).forEach(key => {
-                layerFilters[key] = enable;
-                const checkbox = document.getElementById(`filter-${key}`);
-                if (checkbox) checkbox.checked = enable;
-            });
-            updateLayerDisplay();
-        };
-
-        // Update displayed events based on checked filters
-        window.updateLayerDisplay = function() {
-            // Read checkbox states
-            layerFilters['earthquakes'] = document.getElementById('filter-earthquakes').checked;
-            layerFilters['gauges'] = document.getElementById('filter-gauges').checked;
-            layerFilters['wildfires'] = document.getElementById('filter-wildfires').checked;
-            layerFilters['storms'] = document.getElementById('filter-storms').checked;
-            layerFilters['weather'] = document.getElementById('filter-weather').checked;
-            layerFilters['disasters'] = document.getElementById('filter-disasters').checked;
-
-            // Filter events based on enabled layers
-            const filtered = allEvents.filter(evt => {
-                if (evt.type === 'seismic') return layerFilters['earthquakes'];
-                if (evt.type === 'river-gauge') return layerFilters['gauges'];
-                if (evt.type === 'fire') return layerFilters['wildfires'];
-                if (evt.type === 'hurricane') return layerFilters['storms'];
-                if (evt.type === 'weather') return layerFilters['weather'];
-                if (evt.type === 'disaster') return layerFilters['disasters'];
-                return false; // unmapped types filtered out
-            });
-
-            renderEvents(filtered);
-        };
-
-        // Legacy filter function (kept for backward compatibility)
-        window.filterEvents = function(type, btn) {
-            // No longer used - but kept in case
-            console.log('Legacy filterEvents called - use updateLayerDisplay instead');
-        };
-
-        // Radar UI helpers
-        async function updateRadarStatus() {
-            try {
-                const res = await fetch('https://api.rainviewer.com/public/weather-maps.json');
-                if (!res.ok) throw new Error('network');
-                const data = await res.json();
-                if (data && data.radar && data.radar.past && data.radar.past.length) {
-                    const latest = data.radar.past[data.radar.past.length - 1].time;
-                    const d = new Date(latest * 1000);
-                    document.getElementById('radar-status').innerText = `last: ${d.toUTCString()}`;
-                } else {
-                    document.getElementById('radar-status').innerText = 'last: N/A';
-                }
-            } catch (err) {
-                document.getElementById('radar-status').innerText = 'last: error';
-            }
-        }
-
-        function setRadarButtonState(enabled) {
-            const btn = document.getElementById('radar-toggle');
-            if (!btn) return;
-            if (enabled) {
-                btn.classList.add('active');
-                btn.innerText = 'RADAR ON';
+async function fetchNOAAAlerts() {
+  try {
+    const res = await fetch('https://api.weather.gov/alerts/active');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const events = [];
+    if (data.features && Array.isArray(data.features)) {
+      data.features.slice(0, 100).forEach(alert => {
+        try {
+          const props = alert.properties;
+          if (alert.geometry && alert.geometry.coordinates && alert.geometry.coordinates.length > 0) {
+            let coords;
+            if (alert.geometry.type === 'Polygon') {
+              const ring = alert.geometry.coordinates[0];
+              coords = ring[Math.floor(ring.length / 2)];
+            } else if (alert.geometry.type === 'MultiPolygon') {
+              const ring = alert.geometry.coordinates[0][0];
+              coords = ring[Math.floor(ring.length / 2)];
             } else {
-                btn.classList.remove('active');
-                btn.innerText = 'RADAR';
+              return;
             }
-        }
-
-        function toggleRadarUI() {
-            // toggleWeatherRadar is provided by radar.js
-            if (typeof toggleWeatherRadar !== 'function') {
-                console.warn('radar.js not loaded');
-                return;
+            if (coords && coords.length >= 2) {
+              events.push({
+                id: alert.id,
+                type: 'weather',
+                topCategory: 'contingency',
+                title: `${props.event} - ${props.areaDesc || 'Regional'}`,
+                coords: [coords[1], coords[0]],
+                time: props.sent ?
+                  new Date(props.sent).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' :
+                  new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+                severity: (props.severity === 'Extreme' || props.severity === 'Severe') ? 'critical' : 'warning',
+                mag: 4
+              });
             }
-            // If radarLayer exists (in radar.js) we can't inspect it here, so track by button state
-            const btn = document.getElementById('radar-toggle');
-            const enabled = btn.classList.contains('active');
-            if (enabled) {
-                removeWeatherRadar();
-                setRadarButtonState(false);
-            } else {
-                addWeatherRadar();
-                setRadarButtonState(true);
-                // update status immediately
-                updateRadarStatus();
-            }
+          }
+        } catch (itemErr) {
+          console.warn('Error parsing NOAA alert:', itemErr);
         }
+      });
+    }
+    return events;
+  } catch (err) {
+    console.error("Failed to load NOAA alerts:", err);
+    return [];
+  }
+}
 
-        // Day/Night Terminator helpers
-        function addDayNightTerminator() {
-            try {
-                // Check if L.terminator is available
-                if (!window.L || !window.L.terminator) {
-                    console.error('Leaflet Terminator library not loaded');
-                    document.getElementById('daynight-status').innerText = 'lib error';
-                    return;
-                }
-                
-                if (terminatorLayer) {
-                    // Update existing terminator to current time
-                    map.removeLayer(terminatorLayer);
-                }
-                terminatorLayer = L.terminator({
-                    time: new Date(),
-                    opacity: 0.25,
-                    weight: 2,
-                    color: '#333333',
-                    fillColor: '#000000',
-                    fillOpacity: 0.15
-                }).addTo(map);
-                console.log('Day/Night terminator added');
-                document.getElementById('daynight-status').innerText = 'on';
-            } catch (err) {
-                console.error('Failed to add day/night terminator:', err);
-                document.getElementById('daynight-status').innerText = 'error: ' + err.message;
-            }
-        }
+// ---- Manually-entered data feeds (Civil Works / Military Ops / Support Units / Programs) ----
+// These are populated via admin.html and exported to /data/<file>.json, then committed to the repo.
 
-        function removeDayNightTerminator() {
-            if (terminatorLayer) {
-                map.removeLayer(terminatorLayer);
-                terminatorLayer = null;
-                console.log('Day/Night terminator removed');
-                document.getElementById('daynight-status').innerText = 'off';
-            }
-        }
+const MANUAL_CATEGORIES = {
+  'civil-works': { file: 'data/civil-works.json', label: 'Civil Works' },
+  'military-ops': { file: 'data/military-ops.json', label: 'Military Ops' },
+  'support-units': { file: 'data/support-units.json', label: 'Support Units' },
+  'programs': { file: 'data/programs.json', label: 'Programs' }
+};
 
-        function toggleDayNight() {
-            const btn = document.getElementById('daynight-toggle');
-            const enabled = btn.classList.contains('active');
-            if (enabled) {
-                removeDayNightTerminator();
-                btn.classList.remove('active');
-                btn.innerText = 'DAY/NIGHT';
-            } else {
-                addDayNightTerminator();
-                btn.classList.add('active');
-                btn.innerText = 'DAY/NIGHT ON';
-                // Auto-update terminator every minute to reflect current sun position
-                if (!window.terminatorInterval) {
-                    window.terminatorInterval = setInterval(() => {
-                        if (terminatorLayer) {
-                            addDayNightTerminator(); // refresh to current time
-                        }
-                    }, 60000); // update every minute
-                }
-            }
-        }
+function statusToSeverity(status) {
+  if (status === 'delayed') return 'critical';
+  if (status === 'at-risk') return 'warning';
+  if (status === 'complete') return 'good';
+  return 'good'; // on-track
+}
 
-        // NASA GIBS helpers
-        function formatDateToYYYYMMDD(d) {
-            const y = d.getUTCFullYear();
-            const m = String(d.getUTCMonth() + 1).padStart(2, '0');
-            const day = String(d.getUTCDate()).padStart(2, '0');
-            return `${y}-${m}-${day}`;
-        }
+async function fetchManualCategory(catKey) {
+  const cfg = MANUAL_CATEGORIES[catKey];
+  try {
+    const res = await fetch(cfg.file, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    return data.map(entry => ({
+      id: entry.id,
+      type: catKey,
+      topCategory: catKey,
+      title: entry.title,
+      subcategory: entry.subcategory,
+      status: entry.status,
+      link: entry.link,
+      details: entry.details,
+      coords: (entry.lat != null && entry.lon != null) ? [entry.lat, entry.lon] : null,
+      time: entry.date || '',
+      severity: statusToSeverity(entry.status),
+      mag: 5
+    }));
+  } catch (err) {
+    console.warn(`No data yet for ${cfg.label} (${cfg.file}):`, err.message);
+    return [];
+  }
+}
 
-        function getDefaultGIBSDate() {
-            // GIBS tiles are available for recent dates; default to today (UTC)
-            return formatDateToYYYYMMDD(new Date());
-        }
+// ---- Rendering ----
 
-        function gibsTileUrlForDate(dateStr) {
-            // VIIRS True Color, GoogleMapsCompatible_Level9
-            return `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_CorrectedReflectance_TrueColor/default/${dateStr}/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg`;
-        }
+function renderEvents(events) {
+  eventMarkers.forEach(m => map.removeLayer(m));
+  eventMarkers = [];
 
-        function addGIBS(dateStr) {
-            try {
-                const url = gibsTileUrlForDate(dateStr);
-                if (gibsLayer) {
-                    // update URL
-                    gibsLayer.setUrl(url);
-                    console.log('GIBS: updated to', dateStr);
-                    document.getElementById('sat-status').innerText = dateStr;
-                    return;
-                }
-                gibsLayer = L.tileLayer(url, { attribution: 'NASA GIBS', opacity: 0.7, zIndex: 400 });
-                gibsLayer.addTo(map);
-                document.getElementById('sat-status').innerText = dateStr;
-                console.log('GIBS: added', dateStr);
-            } catch (err) {
-                console.error('Failed to add GIBS layer:', err);
-            }
-        }
+  const feedContainer = document.getElementById('events-feed');
+  feedContainer.innerHTML = '';
+  document.getElementById('total-events-count').innerText = `${events.length} ${topCategory === 'contingency' ? 'EVENTS' : 'ITEMS'}`;
 
-        function removeGIBS() {
-            if (gibsLayer) {
-                map.removeLayer(gibsLayer);
-                gibsLayer = null;
-                document.getElementById('sat-status').innerText = 'off';
-            }
-        }
+  if (events.length === 0) {
+    const cfg = MANUAL_CATEGORIES[topCategory];
+    feedContainer.innerHTML = `
+      <div class="empty-state">
+        No entries yet for this category.<br>
+        Add one via <a href="admin.html">the admin panel</a>, then export and commit
+        <code>${cfg ? cfg.file : ''}</code> to the repo.
+      </div>`;
+    return;
+  }
 
-        function toggleGIBS() {
-            const btn = document.getElementById('sat-toggle');
-            const enabled = btn.classList.contains('active');
-            if (enabled) {
-                removeGIBS();
-                btn.classList.remove('active');
-                btn.innerText = 'SAT';
-            } else {
-                const dateInput = document.getElementById('sat-date');
-                const date = dateInput && dateInput.value ? dateInput.value : getDefaultGIBSDate();
-                addGIBS(date);
-                btn.classList.add('active');
-                btn.innerText = 'SAT ON';
-            }
-        }
+  events.forEach(evt => {
+    if (evt.coords) {
+      const iconColor = evt.severity === 'critical' ? '#ff3344' : evt.severity === 'good' ? '#00ff66' : '#ffaa00';
+      const iconBgColor = evt.severity === 'critical' ? 'rgba(255, 51, 68, 0.2)' : evt.severity === 'good' ? 'rgba(0, 255, 102, 0.2)' : 'rgba(255, 170, 0, 0.2)';
+      let faIcon = 'fa-circle';
+      switch (evt.type) {
+        case 'seismic': faIcon = 'fa-wave-square'; break;
+        case 'river-gauge': faIcon = 'fa-water'; break;
+        case 'fire': faIcon = 'fa-fire'; break;
+        case 'hurricane': faIcon = 'fa-wind'; break;
+        case 'weather': faIcon = 'fa-cloud-bolt'; break;
+        case 'disaster': faIcon = 'fa-triangle-exclamation'; break;
+        case 'civil-works': faIcon = 'fa-diagram-project'; break;
+        case 'military-ops': faIcon = 'fa-helmet-un'; break;
+        case 'support-units': faIcon = 'fa-people-group'; break;
+        case 'programs': faIcon = 'fa-layer-group'; break;
+        default: faIcon = 'fa-circle';
+      }
+      const icon = L.divIcon({
+        html: `<div style="background: ${iconBgColor}; border: 2px solid ${iconColor}; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">
+                 <i class="fas ${faIcon}" style="color: ${iconColor}; font-size: 16px;"></i>
+               </div>`,
+        iconSize: [32, 32], iconAnchor: [16, 16], popupAnchor: [0, -16], className: 'event-icon'
+      });
+      const marker = L.marker(evt.coords, { icon: icon }).addTo(map);
+      marker.bindPopup(`<b>${evt.title}</b><br>Type: ${evt.type}<br>Time: ${evt.time}`);
+      eventMarkers.push(marker);
+    }
 
-        // Wire up date input change to update GIBS layer when toggled on
-        function initGIBSControls() {
-            const dateInput = document.getElementById('sat-date');
-            const defaultDate = getDefaultGIBSDate();
-            if (dateInput) {
-                dateInput.value = defaultDate;
-                dateInput.max = defaultDate;
-                dateInput.addEventListener('change', () => {
-                    const dateVal = dateInput.value;
-                    document.getElementById('sat-status').innerText = dateVal;
-                    if (gibsLayer) addGIBS(dateVal);
-                });
-            }
-        }
+    const card = document.createElement('div');
+    card.className = `event-card ${evt.severity}`;
+    let inner = `<div><strong>${evt.title}</strong></div>`;
+    if (evt.subcategory) inner += `<div class="event-subline">${evt.subcategory}</div>`;
+    if (evt.details) inner += `<div class="event-details">${evt.details}</div>`;
+    inner += `<div class="event-time">${evt.time}</div>`;
+    if (evt.link) inner += `<a class="event-link" href="${evt.link}" target="_blank" rel="noopener">Reference &rarr;</a>`;
+    card.innerHTML = inner;
+    if (evt.coords) {
+      card.onclick = () => {
+        map.flyTo(evt.coords, 6, { duration: 1.5 });
+        const marker = eventMarkers.find(m => m.getLatLng().lat === evt.coords[0] && m.getLatLng().lng === evt.coords[1]);
+        if (marker) marker.openPopup();
+      };
+    }
+    feedContainer.appendChild(card);
+  });
+}
 
-        // Initialize Feeds
-        async function init() {
-            const [seismic, riverGauges, reliefWeb, noaaAlerts] = await Promise.all([
-                fetchSeismicData(),
-                fetchRiverGaugeData(),
-                fetchReliefWebDisasters(),
-                fetchNOAAAlerts()
-            ]);
-            
-            allEvents = [...seismic, ...riverGauges, ...reliefWeb, ...noaaAlerts];
-            renderEvents(allEvents);
-            document.getElementById('feed-count').innerText = 'ONLINE';
+// Contingency sub-layer filter state
+const layerFilters = {
+  'earthquakes': true, 'gauges': true, 'wildfires': false,
+  'storms': false, 'weather': false, 'disasters': false
+};
 
-            // Start radar auto-refresh (5 minutes) and status updater
-            if (typeof startRadarAutoRefresh === 'function') startRadarAutoRefresh(300000);
-            updateRadarStatus();
-            setInterval(updateRadarStatus, 60000);
+window.toggleAllLayers = function(enable) {
+  Object.keys(layerFilters).forEach(key => {
+    layerFilters[key] = enable;
+    const checkbox = document.getElementById(`filter-${key}`);
+    if (checkbox) checkbox.checked = enable;
+  });
+  updateLayerDisplay();
+};
 
-            // Init GIBS controls and set default date
-            initGIBSControls();
-        }
+window.updateLayerDisplay = function() {
+  layerFilters['earthquakes'] = document.getElementById('filter-earthquakes').checked;
+  layerFilters['gauges'] = document.getElementById('filter-gauges').checked;
+  layerFilters['wildfires'] = document.getElementById('filter-wildfires').checked;
+  layerFilters['storms'] = document.getElementById('filter-storms').checked;
+  layerFilters['weather'] = document.getElementById('filter-weather').checked;
+  layerFilters['disasters'] = document.getElementById('filter-disasters').checked;
+  applyCurrentFilter();
+};
 
-        init();
-        // Auto refresh every 2 minutes
-        setInterval(init, 120000);
-    </script>
+// ---- Top-level category switching ----
+
+let topCategory = 'contingency';
+const CATEGORY_LABELS = {
+  'contingency': 'CONTINGENCY OPS',
+  'civil-works': 'CIVIL WORKS',
+  'military-ops': 'MILITARY OPS',
+  'support-units': 'SUPPORT UNITS',
+  'programs': 'PROGRAMS'
+};
+
+function applyCurrentFilter() {
+  let filtered;
+  if (topCategory === 'contingency') {
+    filtered = allEvents.filter(evt => {
+      if (evt.topCategory !== 'contingency') return false;
+      if (evt.type === 'seismic') return layerFilters['earthquakes'];
+      if (evt.type === 'river-gauge') return layerFilters['gauges'];
+      if (evt.type === 'fire') return layerFilters['wildfires'];
+      if (evt.type === 'hurricane') return layerFilters['storms'];
+      if (evt.type === 'weather') return layerFilters['weather'];
+      if (evt.type === 'disaster') return layerFilters['disasters'];
+      return false;
+    });
+  } else {
+    filtered = allEvents.filter(evt => evt.topCategory === topCategory);
+  }
+  renderEvents(filtered);
+}
+
+function switchTopCategory(cat) {
+  topCategory = cat;
+  document.querySelectorAll('.top-cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  document.getElementById('section-label').textContent = CATEGORY_LABELS[cat];
+  document.getElementById('contingency-controls').style.display = (cat === 'contingency') ? 'block' : 'none';
+  applyCurrentFilter();
+}
+
+document.querySelectorAll('.top-cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchTopCategory(btn.dataset.cat));
+});
+
+// ---- Radar UI helpers ----
+
+async function updateRadarStatus() {
+  try {
+    const res = await fetch('https://api.rainviewer.com/public/weather-maps.json');
+    if (!res.ok) throw new Error('network');
+    const data = await res.json();
+    if (data && data.radar && data.radar.past && data.radar.past.length) {
+      const latest = data.radar.past[data.radar.past.length - 1].time;
+      const d = new Date(latest * 1000);
+      document.getElementById('radar-status').innerText = `last: ${d.toUTCString()}`;
+    } else {
+      document.getElementById('radar-status').innerText = 'last: N/A';
+    }
+  } catch (err) {
+    document.getElementById('radar-status').innerText = 'last: error';
+  }
+}
+
+function setRadarButtonState(enabled) {
+  const btn = document.getElementById('radar-toggle');
+  if (!btn) return;
+  if (enabled) { btn.classList.add('active'); btn.innerText = 'RADAR ON'; }
+  else { btn.classList.remove('active'); btn.innerText = 'RADAR'; }
+}
+
+function toggleRadarUI() {
+  if (typeof toggleWeatherRadar !== 'function') { console.warn('radar.js not loaded'); return; }
+  const btn = document.getElementById('radar-toggle');
+  const enabled = btn.classList.contains('active');
+  if (enabled) { removeWeatherRadar(); setRadarButtonState(false); }
+  else { addWeatherRadar(); setRadarButtonState(true); updateRadarStatus(); }
+}
+
+// ---- Day/Night Terminator helpers ----
+
+function addDayNightTerminator() {
+  try {
+    if (!window.L || !window.L.terminator) {
+      console.error('Leaflet Terminator library not loaded');
+      document.getElementById('daynight-status').innerText = 'lib error';
+      return;
+    }
+    if (terminatorLayer) map.removeLayer(terminatorLayer);
+    terminatorLayer = L.terminator({
+      time: new Date(), opacity: 0.25, weight: 2, color: '#333333',
+      fillColor: '#000000', fillOpacity: 0.15
+    }).addTo(map);
+    document.getElementById('daynight-status').innerText = 'on';
+  } catch (err) {
+    console.error('Failed to add day/night terminator:', err);
+    document.getElementById('daynight-status').innerText = 'error: ' + err.message;
+  }
+}
+
+function removeDayNightTerminator() {
+  if (terminatorLayer) {
+    map.removeLayer(terminatorLayer);
+    terminatorLayer = null;
+    document.getElementById('daynight-status').innerText = 'off';
+  }
+}
+
+function toggleDayNight() {
+  const btn = document.getElementById('daynight-toggle');
+  const enabled = btn.classList.contains('active');
+  if (enabled) {
+    removeDayNightTerminator();
+    btn.classList.remove('active');
+    btn.innerText = 'DAY/NIGHT';
+  } else {
+    addDayNightTerminator();
+    btn.classList.add('active');
+    btn.innerText = 'DAY/NIGHT ON';
+    if (!window.terminatorInterval) {
+      window.terminatorInterval = setInterval(() => {
+        if (terminatorLayer) addDayNightTerminator();
+      }, 60000);
+    }
+  }
+}
+
+// ---- NASA GIBS helpers ----
+
+function formatDateToYYYYMMDD(d) {
+  const y = d.getUTCFullYear();
+  const m = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(d.getUTCDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+function getDefaultGIBSDate() { return formatDateToYYYYMMDD(new Date()); }
+function gibsTileUrlForDate(dateStr) {
+  return `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_CorrectedReflectance_TrueColor/default/${dateStr}/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg`;
+}
+function addGIBS(dateStr) {
+  try {
+    const url = gibsTileUrlForDate(dateStr);
+    if (gibsLayer) { gibsLayer.setUrl(url); document.getElementById('sat-status').innerText = dateStr; return; }
+    gibsLayer = L.tileLayer(url, { attribution: 'NASA GIBS', opacity: 0.7, zIndex: 400 });
+    gibsLayer.addTo(map);
+    document.getElementById('sat-status').innerText = dateStr;
+  } catch (err) {
+    console.error('Failed to add GIBS layer:', err);
+  }
+}
+function removeGIBS() {
+  if (gibsLayer) { map.removeLayer(gibsLayer); gibsLayer = null; document.getElementById('sat-status').innerText = 'off'; }
+}
+function toggleGIBS() {
+  const btn = document.getElementById('sat-toggle');
+  const enabled = btn.classList.contains('active');
+  if (enabled) { removeGIBS(); btn.classList.remove('active'); btn.innerText = 'SAT'; }
+  else {
+    const dateInput = document.getElementById('sat-date');
+    const date = dateInput && dateInput.value ? dateInput.value : getDefaultGIBSDate();
+    addGIBS(date);
+    btn.classList.add('active');
+    btn.innerText = 'SAT ON';
+  }
+}
+function initGIBSControls() {
+  const dateInput = document.getElementById('sat-date');
+  const defaultDate = getDefaultGIBSDate();
+  if (dateInput) {
+    dateInput.value = defaultDate;
+    dateInput.max = defaultDate;
+    dateInput.addEventListener('change', () => {
+      const dateVal = dateInput.value;
+      document.getElementById('sat-status').innerText = dateVal;
+      if (gibsLayer) addGIBS(dateVal);
+    });
+  }
+}
+
+// ---- Initialize Feeds ----
+
+async function init() {
+  const [seismic, riverGauges, reliefWeb, noaaAlerts, civilWorks, militaryOps, supportUnits, programs] = await Promise.all([
+    fetchSeismicData(),
+    fetchRiverGaugeData(),
+    fetchReliefWebDisasters(),
+    fetchNOAAAlerts(),
+    fetchManualCategory('civil-works'),
+    fetchManualCategory('military-ops'),
+    fetchManualCategory('support-units'),
+    fetchManualCategory('programs')
+  ]);
+
+  allEvents = [...seismic, ...riverGauges, ...reliefWeb, ...noaaAlerts, ...civilWorks, ...militaryOps, ...supportUnits, ...programs];
+  applyCurrentFilter();
+  document.getElementById('feed-count').innerText = 'ONLINE';
+
+  if (typeof startRadarAutoRefresh === 'function') startRadarAutoRefresh(300000);
+  updateRadarStatus();
+  setInterval(updateRadarStatus, 60000);
+
+  initGIBSControls();
+}
+
+init();
+
+// Auto refresh every 2 minutes
+setInterval(init, 120000);
+</script>
+
 </body>
 </html>
