@@ -8,9 +8,8 @@ The dashboard is organized into five top-level categories, selected via tabs in 
 
 - **Contingency Ops** — live, automated data feeds (no manual entry needed)
 - **Civil Works** — manually entered via the admin panel
-- **Military Ops** — manually entered via the admin panel
+- **Military Programs** — manually entered via the admin panel
 - **Support Units** — manually entered via the admin panel
-- **Programs** — manually entered via the admin panel
 
 ### Contingency Ops (live feeds)
 
@@ -26,9 +25,13 @@ The dashboard is organized into five top-level categories, selected via tabs in 
 
 Subcategories: major civil works project updates, project study terminations (CCIR to ASA(CW)), contracts/expense tracking.
 
-### Military Ops
+### Military Programs
 
-Subcategories: major MILCON project updates (e.g. West Point), projected requirements (especially OCONUS), contracts/expense tracking.
+Longer-duration, multi-project efforts:
+
+- TF Castle support to TF Sentinel
+- Southwest Border support
+- Major recovery (e.g. Tinian, Sinlaku)
 
 ### Support Units
 
@@ -39,19 +42,11 @@ Units that do work for USACE, tracked by location/deployment status and project 
 - Contingency Response Unit (CRU)
 - 249th Prime Power Battalion
 
-### Programs
-
-Longer-duration, multi-project efforts:
-
-- TF Castle support to TF Sentinel
-- Southwest Border support
-- Major recovery (e.g. Tinian, Sinlaku)
-
 ---
 
-## Adding Data: Civil Works / Military Ops / Support Units / Programs
+## Adding Data: Civil Works / Military Programs / Support Units
 
-These four categories have no public API — they're internal USACE status updates entered by hand.
+These three categories have no public API — they're internal USACE status updates entered by hand.
 
 1. Open `admin.html` (linked as **+ ADD ENTRY** in the top-right of the dashboard).
 2. Select the category tab, fill out the entry (title, subcategory/unit, status, date, optional coordinates, details, optional reference link), and click **Save Entry**.
@@ -111,7 +106,7 @@ const res = await fetch('/api/usgs-gauges');
 2. Real-time alerts: email/SMS notifications for critical events
 3. User authentication for restricted USACE operations data
 4. Export/reporting: generate operational summaries from current entries
-5. Shared backend for Civil Works/Military Ops/Support Units/Programs entries (replacing the local-then-commit admin workflow) if multiple editors are needed
+5. Shared backend for Civil Works/Military Programs/Support Units entries (replacing the local-then-commit admin workflow) if multiple editors are needed
 
 ---
 
@@ -144,9 +139,8 @@ netlify deploy --prod
 ├── radar.js             # RainViewer radar overlay module
 ├── data/
 │   ├── civil-works.json
-│   ├── military-ops.json
-│   ├── support-units.json
-│   └── programs.json
+│   ├── military-programs.json
+│   └── support-units.json
 └── README.md            # This file
 ```
 

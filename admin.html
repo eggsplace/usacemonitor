@@ -37,7 +37,7 @@ header a { color: var(--accent-cyan); text-decoration: none; font-size: 12px; }
 .wrap { max-width: 960px; margin: 0 auto; padding: 20px; }
 .category-tabs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 6px;
   margin-bottom: 20px;
 }
@@ -137,9 +137,8 @@ header a { color: var(--accent-cyan); text-decoration: none; font-size: 12px; }
 
   <div class="category-tabs">
     <button class="cat-btn active" data-cat="civil-works">CIVIL WORKS</button>
-    <button class="cat-btn" data-cat="military-ops">MILITARY OPS</button>
+    <button class="cat-btn" data-cat="programs">MILITARY PROGRAMS</button>
     <button class="cat-btn" data-cat="support-units">SUPPORT UNITS</button>
-    <button class="cat-btn" data-cat="programs">PROGRAMS</button>
   </div>
 
   <div class="panel">
@@ -233,16 +232,6 @@ const CATEGORIES = {
       'Contract / Expense Tracking'
     ]
   },
-  'military-ops': {
-    label: 'Military Ops',
-    filename: 'military-ops.json',
-    subcatLabel: 'Subcategory',
-    subcats: [
-      'Major MILCON Project Update',
-      'Projected Requirement (OCONUS)',
-      'Contract / Expense Tracking'
-    ]
-  },
   'support-units': {
     label: 'Support Units',
     filename: 'support-units.json',
@@ -255,8 +244,8 @@ const CATEGORIES = {
     ]
   },
   'programs': {
-    label: 'Programs',
-    filename: 'programs.json',
+    label: 'Military Programs',
+    filename: 'military-programs.json',
     subcatLabel: 'Program',
     subcats: [
       'TF Castle support to TF Sentinel',

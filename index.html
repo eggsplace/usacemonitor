@@ -113,7 +113,7 @@ aside {
 /* Top-level category tabs */
 .top-cat-tabs {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 3px;
   padding: 8px;
   border-bottom: 1px solid var(--border);
@@ -230,9 +230,8 @@ aside {
     <div class="top-cat-tabs">
       <button class="top-cat-btn active" data-cat="contingency">CONTIN-<br>GENCY</button>
       <button class="top-cat-btn" data-cat="civil-works">CIVIL<br>WORKS</button>
-      <button class="top-cat-btn" data-cat="military-ops">MIL<br>OPS</button>
+      <button class="top-cat-btn" data-cat="programs">MIL<br>PROGRAMS</button>
       <button class="top-cat-btn" data-cat="support-units">SUPPORT<br>UNITS</button>
-      <button class="top-cat-btn" data-cat="programs">PRO-<br>GRAMS</button>
     </div>
 
     <!-- Contingency Ops sub-layer controls (only shown for this category) -->
@@ -476,9 +475,8 @@ async function fetchNOAAAlerts() {
 
 const MANUAL_CATEGORIES = {
   'civil-works': { file: 'data/civil-works.json', label: 'Civil Works' },
-  'military-ops': { file: 'data/military-ops.json', label: 'Military Ops' },
   'support-units': { file: 'data/support-units.json', label: 'Support Units' },
-  'programs': { file: 'data/programs.json', label: 'Programs' }
+  'programs': { file: 'data/military-programs.json', label: 'Military Programs' }
 };
 
 function statusToSeverity(status) {
@@ -548,7 +546,6 @@ function renderEvents(events) {
         case 'weather': faIcon = 'fa-cloud-bolt'; break;
         case 'disaster': faIcon = 'fa-triangle-exclamation'; break;
         case 'civil-works': faIcon = 'fa-diagram-project'; break;
-        case 'military-ops': faIcon = 'fa-helmet-un'; break;
         case 'support-units': faIcon = 'fa-people-group'; break;
         case 'programs': faIcon = 'fa-layer-group'; break;
         default: faIcon = 'fa-circle';
@@ -614,9 +611,8 @@ let topCategory = 'contingency';
 const CATEGORY_LABELS = {
   'contingency': 'CONTINGENCY OPS',
   'civil-works': 'CIVIL WORKS',
-  'military-ops': 'MILITARY OPS',
   'support-units': 'SUPPORT UNITS',
-  'programs': 'PROGRAMS'
+  'programs': 'MILITARY PROGRAMS'
 };
 
 function applyCurrentFilter() {
@@ -787,18 +783,17 @@ function initGIBSControls() {
 // ---- Initialize Feeds ----
 
 async function init() {
-  const [seismic, riverGauges, reliefWeb, noaaAlerts, civilWorks, militaryOps, supportUnits, programs] = await Promise.all([
+  const [seismic, riverGauges, reliefWeb, noaaAlerts, civilWorks, supportUnits, programs] = await Promise.all([
     fetchSeismicData(),
     fetchRiverGaugeData(),
     fetchReliefWebDisasters(),
     fetchNOAAAlerts(),
     fetchManualCategory('civil-works'),
-    fetchManualCategory('military-ops'),
     fetchManualCategory('support-units'),
     fetchManualCategory('programs')
   ]);
 
-  allEvents = [...seismic, ...riverGauges, ...reliefWeb, ...noaaAlerts, ...civilWorks, ...militaryOps, ...supportUnits, ...programs];
+  allEvents = [...seismic, ...riverGauges, ...reliefWeb, ...noaaAlerts, ...civilWorks, ...supportUnits, ...programs];
   applyCurrentFilter();
   document.getElementById('feed-count').innerText = 'ONLINE';
 
