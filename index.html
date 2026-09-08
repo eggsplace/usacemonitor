@@ -173,7 +173,7 @@ aside {
 .event-card.warning { border-left-color: var(--accent-amber); }
 .event-card.good { border-left-color: var(--accent-green); }
 .event-card.flood-stage { border-left-color: #3aa0ff; }
-.event-card.low-water { border-left-color: #c9a300; }
+.event-card.low-water { border-left-color: #FFC000; }
 .event-subline { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
 .event-time { font-size: 10px; color: var(--text-dim); margin-top: 4px; }
 .event-details { font-size: 11px; color: var(--text-main); margin-top: 6px; line-height: 1.4; }
@@ -318,116 +318,53 @@ let terminatorLayer = null;
 
 // ---- Live data feeds (Contingency Ops) ----
 
-// USGS Water Data API key (optional but recommended — raises rate limits).
-// Get a free key at https://api.waterdata.usgs.gov/signup/ and paste it below.
-const USGS_API_KEY = ''; // e.g. 'abc123...'
-
-// Roughly CONUS bounding box: minLon,minLat,maxLon,maxLat
-const CONUS_BBOX = '-125,24,-66,50';
-
-// River gauge alert thresholds, in cubic feet per second (cfs).
-// NOTE: a single national cutoff is a blunt instrument — a "normal" flow for a small
-// creek and a major river differ by orders of magnitude. This flags absolute extremes
-// (near-dry gauges and major flood-level discharge) rather than every gauge running
-// below the old 1,000 cfs bar, which caught a lot of ordinary small streams.
-// If you want gauge-specific accuracy later, USGS's percentile-of-record flow
-// classification (via the Daily Values endpoint's historical stats per site) is the
-// correct long-term approach — this is a quick, tunable stand-in.
-const LOW_WATER_THRESHOLD_CFS = 20;
-const FLOOD_STAGE_THRESHOLD_CFS = 50000;
-
+// River gauge data comes from a static file (data/river-gauges-cache.json) that a GitHub
+// Actions workflow (.github/workflows/update-river-gauges.yml) regenerates once an hour by
+// calling the Xweather Rivers API server-side. This keeps the API credentials out of the
+// browser entirely, and avoids every visitor's page load counting against the API quota.
+// Only gauges in low-water or flood-stage status are included — see scripts/fetch-river-gauges.js.
 async function fetchRiverGaugeData() {
   try {
-    const commonParams = USGS_API_KEY ? { api_key: USGS_API_KEY } : {};
-
-    // 1. Latest streamflow reading per site (modern replacement for the old /nwis/iv IV service)
-    const latestParams = new URLSearchParams({
-      f: 'json',
-      parameter_code: '00060', // discharge, cfs
-      bbox: CONUS_BBOX,
-      limit: '1000',
-      properties: 'monitoring_location_id,value,unit_of_measure,time,approval_status',
-      ...commonParams
-    });
-    const latestUrl = `https://api.waterdata.usgs.gov/ogcapi/v0/collections/latest-continuous/items?${latestParams}`;
-
-    // 2. Site names for the same bbox, so we're not just showing raw site IDs
-    const locationParams = new URLSearchParams({
-      f: 'json',
-      bbox: CONUS_BBOX,
-      limit: '10000',
-      properties: 'id,monitoring_location_name',
-      ...commonParams
-    });
-    const locationsUrl = `https://api.waterdata.usgs.gov/ogcapi/v0/collections/monitoring-locations/items?${locationParams}`;
-
-    async function fetchWithFallback(url) {
-      // Modern USGS API — try direct first (should support CORS); fall back to proxy if not.
-      try {
-        const res = await fetch(url);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return await res.json();
-      } catch (directErr) {
-        console.warn('Direct USGS API fetch failed, retrying via CORS proxy:', directErr.message);
-        const proxied = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
-        const res = await fetch(proxied);
-        if (!res.ok) throw new Error(`Proxy HTTP ${res.status}`);
-        return await res.json();
-      }
-    }
-
-    const [latestData, locationsData] = await Promise.all([
-      fetchWithFallback(latestUrl),
-      fetchWithFallback(locationsUrl)
-    ]);
-
-    const nameById = {};
-    (locationsData.features || []).forEach(f => {
-      nameById[f.properties.id] = f.properties.monitoring_location_name;
-    });
-
-    const events = [];
-    (latestData.features || []).forEach(f => {
-      const p = f.properties;
-      const flowRate = parseFloat(p.value);
-      if (isNaN(flowRate) || !f.geometry || !f.geometry.coordinates) return;
-
-      let severity = 'info';
-      if (flowRate < LOW_WATER_THRESHOLD_CFS) severity = 'warning';    // low water
-      if (flowRate > FLOOD_STAGE_THRESHOLD_CFS) severity = 'critical'; // flood stage
-      if (severity === 'info') return; // skip normal-range gauges — only show actionable readings
-
-      const siteName = nameById[p.monitoring_location_id] || p.monitoring_location_id;
-      const [lon, lat] = f.geometry.coordinates;
-
-      events.push({
-        id: p.monitoring_location_id,
-        type: 'river-gauge',
-        topCategory: 'contingency',
-        title: `${siteName} - ${flowRate.toFixed(0)} ${p.unit_of_measure || 'cfs'}`,
-        coords: [lat, lon],
-        time: new Date(p.time).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
-        severity: severity,
-        mag: flowRate
-      });
-    });
-
-    return events;
+    const res = await fetch('data/river-gauges-cache.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    return (data.events || []).map(e => ({
+      id: e.id,
+      type: 'river-gauge',
+      topCategory: 'contingency',
+      title: e.title,
+      coords: [e.lat, e.lon],
+      time: e.time ? new Date(e.time).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
+      severity: e.severity,
+      mag: e.mag
+    }));
   } catch (err) {
-    console.error("Failed to load USGS water data:", err);
+    console.error("Failed to load cached river gauge data:", err);
     return [];
   }
 }
 
 async function fetchSeismicData() {
   try {
-    const res = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson');
+    // 2.5+ magnitude over the last day — the old 4.5+ threshold rarely triggers for the US on any
+    // given day, so real activity (which happens most often in Alaska) wasn't showing up at all.
+    const res = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson');
     const data = await res.json();
-    const usBBox = [24.5, -125, 49.4, -66.9];
+
+    // The old single bounding box only covered the Lower 48. US seismic activity is concentrated
+    // in Alaska and Hawaii, so we check against multiple regions instead of one CONUS box.
+    function isInUSTerritory(lat, lon) {
+      const conus = lat >= 24.5 && lat <= 49.4 && lon >= -125 && lon <= -66.9;
+      const alaska = lat >= 51 && lat <= 72 && (lon <= -129 || lon >= 165); // Aleutians cross the antimeridian
+      const hawaii = lat >= 18 && lat <= 23 && lon >= -161 && lon <= -154;
+      const puertoRico = lat >= 17 && lat <= 19 && lon >= -68 && lon <= -64;
+      return conus || alaska || hawaii || puertoRico;
+    }
+
     return data.features
       .filter(f => {
         const [lon, lat] = f.geometry.coordinates;
-        return lat >= usBBox[0] && lat <= usBBox[2] && lon >= usBBox[1] && lon <= usBBox[3];
+        return isInUSTerritory(lat, lon);
       })
       .map(f => ({
         id: f.id,
@@ -595,18 +532,18 @@ function renderEvents(events) {
   events.forEach(evt => {
     const isRiverGauge = evt.type === 'river-gauge';
 
-    // River gauges use water-specific colors (yellow=low water, blue=flood) and a smaller marker
-    // so a large number of active gauges doesn't overwhelm the map. Other event types are unchanged.
-    let iconColor, iconBgColor, iconSize;
+    // River gauges use water-specific colors (yellow=low water, blue=flood).
+    // All markers now share the same compact size/border weight (previously only river
+    // gauges used this smaller size — the original 32px/2px markers read as oversized).
+    let iconColor, iconBgColor;
     if (isRiverGauge) {
-      iconColor = evt.severity === 'critical' ? '#3aa0ff' : '#c9a300'; // flood = blue, low water = darker gold
-      iconBgColor = evt.severity === 'critical' ? 'rgba(58, 160, 255, 0.2)' : 'rgba(201, 163, 0, 0.2)';
-      iconSize = 16; // 50% of the standard 32px marker
+      iconColor = evt.severity === 'critical' ? '#3aa0ff' : '#FFC000'; // flood = blue, low water = FFC000
+      iconBgColor = evt.severity === 'critical' ? 'rgba(58, 160, 255, 0.2)' : 'rgba(255, 192, 0, 0.2)';
     } else {
       iconColor = evt.severity === 'critical' ? '#ff3344' : evt.severity === 'good' ? '#00ff66' : '#ffaa00';
       iconBgColor = evt.severity === 'critical' ? 'rgba(255, 51, 68, 0.2)' : evt.severity === 'good' ? 'rgba(0, 255, 102, 0.2)' : 'rgba(255, 170, 0, 0.2)';
-      iconSize = 32;
     }
+    const iconSize = 16;
 
     if (evt.coords) {
       let faIcon = 'fa-circle';
@@ -622,7 +559,7 @@ function renderEvents(events) {
         case 'programs': faIcon = 'fa-layer-group'; break;
         default: faIcon = 'fa-circle';
       }
-      const borderWidth = isRiverGauge ? 1 : 2;
+      const borderWidth = 1;
       const fontSize = Math.round(iconSize * 0.5);
       const half = iconSize / 2;
       const icon = L.divIcon({
