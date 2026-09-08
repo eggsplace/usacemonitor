@@ -1,0 +1,37 @@
+name: Update River Gauge Cache
+ 
+# Refreshes data/river-gauges-cache.json from the Xweather Rivers API once an hour.
+# Keeps XWEATHER_CLIENT_ID / XWEATHER_CLIENT_SECRET as repo secrets — never exposed
+# to site visitors, unlike calling the API directly from the browser.
+ 
+on:
+  schedule:
+    - cron: '5 * * * *'   # 5 minutes past every hour (UTC)
+  workflow_dispatch: {}    # lets you trigger a run manually from the Actions tab
+ 
+permissions:
+  contents: write
+ 
+jobs:
+  update-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+ 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+ 
+      - name: Fetch river gauge data
+        env:
+          XWEATHER_CLIENT_ID: ${{ secrets.XWEATHER_CLIENT_ID }}
+          XWEATHER_CLIENT_SECRET: ${{ secrets.XWEATHER_CLIENT_SECRET }}
+        run: node scripts/fetch-river-gauges.js
+ 
+      - name: Commit updated cache
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update river gauge cache [automated]"
+          file_pattern: data/river-gauges-cache.json
