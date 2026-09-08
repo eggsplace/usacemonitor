@@ -316,43 +316,88 @@ let terminatorLayer = null;
 
 // ---- Live data feeds (Contingency Ops) ----
 
+// USGS Water Data API key (optional but recommended — raises rate limits).
+// Get a free key at https://api.waterdata.usgs.gov/signup/ and paste it below.
+const USGS_API_KEY = ''; // e.g. 'abc123...'
+
+// Roughly CONUS bounding box: minLon,minLat,maxLon,maxLat
+const CONUS_BBOX = '-125,24,-66,50';
+
 async function fetchRiverGaugeData() {
   try {
-    const baseUrl = 'https://waterservices.usgs.gov/nwis/iv/';
-    const params = new URLSearchParams({
-      'format': 'json', 'stateCd': 'all', 'parameterCd': '00060',
-      'siteStatus': 'active', 'hasDataTypeCd': 'iv'
+    const commonParams = USGS_API_KEY ? { api_key: USGS_API_KEY } : {};
+
+    // 1. Latest streamflow reading per site (modern replacement for the old /nwis/iv IV service)
+    const latestParams = new URLSearchParams({
+      f: 'json',
+      parameter_code: '00060', // discharge, cfs
+      bbox: CONUS_BBOX,
+      limit: '1000',
+      properties: 'monitoring_location_id,value,unit_of_measure,time,approval_status',
+      ...commonParams
     });
-    const usgsUrl = `${baseUrl}?${params}`;
-    const corsProxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(usgsUrl)}`;
-    const res = await fetch(corsProxyUrl);
-    if (!res.ok) throw new Error('Failed to fetch USGS water data');
-    const data = await res.json();
-    const events = [];
-    if (data.value && data.value.timeSeries) {
-      data.value.timeSeries.slice(0, 100).forEach(ts => {
-        const location = ts.sourceInfo;
-        const geoLocation = location.geoLocation;
-        const value = ts.values[0]?.value[0];
-        if (value && geoLocation) {
-          const flowRate = parseFloat(value.value);
-          let severity = 'info';
-          if (flowRate < 1000) severity = 'warning';
-          if (flowRate > 50000) severity = 'critical';
-          events.push({
-            id: location.siteCode[0].value,
-            type: 'river-gauge',
-            topCategory: 'contingency',
-            title: `${location.siteName} - ${flowRate.toFixed(0)} cfs`,
-            coords: [parseFloat(geoLocation.geogLocation.srs.value.split()[0]),
-                     parseFloat(geoLocation.geogLocation.srs.value.split()[1])],
-            time: new Date(value.dateTime).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
-            severity: severity,
-            mag: flowRate
-          });
-        }
-      });
+    const latestUrl = `https://api.waterdata.usgs.gov/ogcapi/v0/collections/latest-continuous/items?${latestParams}`;
+
+    // 2. Site names for the same bbox, so we're not just showing raw site IDs
+    const locationParams = new URLSearchParams({
+      f: 'json',
+      bbox: CONUS_BBOX,
+      limit: '10000',
+      properties: 'id,monitoring_location_name',
+      ...commonParams
+    });
+    const locationsUrl = `https://api.waterdata.usgs.gov/ogcapi/v0/collections/monitoring-locations/items?${locationParams}`;
+
+    async function fetchWithFallback(url) {
+      // Modern USGS API — try direct first (should support CORS); fall back to proxy if not.
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return await res.json();
+      } catch (directErr) {
+        console.warn('Direct USGS API fetch failed, retrying via CORS proxy:', directErr.message);
+        const proxied = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+        const res = await fetch(proxied);
+        if (!res.ok) throw new Error(`Proxy HTTP ${res.status}`);
+        return await res.json();
+      }
     }
+
+    const [latestData, locationsData] = await Promise.all([
+      fetchWithFallback(latestUrl),
+      fetchWithFallback(locationsUrl)
+    ]);
+
+    const nameById = {};
+    (locationsData.features || []).forEach(f => {
+      nameById[f.properties.id] = f.properties.monitoring_location_name;
+    });
+
+    const events = [];
+    (latestData.features || []).forEach(f => {
+      const p = f.properties;
+      const flowRate = parseFloat(p.value);
+      if (isNaN(flowRate) || !f.geometry || !f.geometry.coordinates) return;
+
+      let severity = 'info';
+      if (flowRate < 1000) severity = 'warning';
+      if (flowRate > 50000) severity = 'critical';
+
+      const siteName = nameById[p.monitoring_location_id] || p.monitoring_location_id;
+      const [lon, lat] = f.geometry.coordinates;
+
+      events.push({
+        id: p.monitoring_location_id,
+        type: 'river-gauge',
+        topCategory: 'contingency',
+        title: `${siteName} - ${flowRate.toFixed(0)} ${p.unit_of_measure || 'cfs'}`,
+        coords: [lat, lon],
+        time: new Date(p.time).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+        severity: severity,
+        mag: flowRate
+      });
+    });
+
     return events;
   } catch (err) {
     console.error("Failed to load USGS water data:", err);
