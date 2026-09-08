@@ -13,8 +13,8 @@ The dashboard is organized into five top-level categories, selected via tabs in 
 
 ### Contingency Ops (live feeds)
 
-- **Seismic Events**: Live earthquake data from USGS (M4.5+, US-focused)
-- **River Gauges**: Real-time streamflow and water level data from USGS Water Services API
+- **Seismic Events**: Live earthquake data from USGS (M2.5+, last 24 hrs — covers CONUS, Alaska, Hawaii, and Puerto Rico)
+- **River Gauges**: Gauges currently in low-water or flood-stage status, per NOAA's AHPS via the Xweather Rivers API (fetched hourly server-side — see "River Gauge Data Pipeline" below)
 - **Weather Alerts**: Active NOAA severe weather alerts
 - **Disasters**: Current disasters from ReliefWeb
 - **Weather Radar**: Integrated RainViewer radar overlay for precipitation tracking
@@ -67,7 +67,7 @@ To resume editing a category later (or to add to entries someone else already ex
 | Data              | Source              | Endpoint                | Update Frequency                  |
 | ----------------- | -------------------- | ------------------------ | ---------------------------------- |
 | Earthquakes       | USGS GeoJSON          | earthquake.usgs.gov      | Real-time (2 min sync)             |
-| River Gauges      | USGS Water Services   | waterservices.usgs.gov   | Every 15 min (transmitted hourly)  |
+| River Gauges      | Xweather Rivers API    | data.api.xweather.com    | Hourly (fetched server-side)       |
 | Weather Alerts    | NOAA                   | api.weather.gov          | Real-time                          |
 | Disasters         | ReliefWeb              | reliefweb.int             | Real-time                          |
 | Weather Radar     | RainViewer             | rainviewer.com            | Every 5 minutes                    |
@@ -75,28 +75,33 @@ To resume editing a category later (or to add to entries someone else already ex
 
 ---
 
-## CORS Solutions
+## River Gauge Data Pipeline
 
-### River Gauge Data (USGS Water Services)
+River gauge data is **not** fetched from the browser. Instead, a GitHub Actions workflow
+(`.github/workflows/update-river-gauges.yml`) runs a script (`scripts/fetch-river-gauges.js`)
+once an hour that:
 
-The USGS Water Services API has CORS restrictions that prevent direct browser requests. The current implementation uses a **free CORS proxy** (`allorigins.win`) to bypass this:
+1. Calls the Xweather Rivers API server-side, using credentials stored as encrypted repo secrets
+2. Filters the results down to only gauges in `low_threshold` (low water) or `action`/`minor`/`moderate`/`major` (flood stage) status
+3. Writes the filtered result to `data/river-gauges-cache.json`
+4. Commits that file back to the repo automatically
 
-```
-const corsProxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(usgsUrl)}`;
-const res = await fetch(corsProxyUrl);
-```
+`index.html` just fetches `data/river-gauges-cache.json` like a normal static file — the same
+pattern used for Civil Works, Support Units, and Military Programs. This means:
 
-**Pros**: Free, no authentication required
-**Cons**: Relies on third-party proxy service, slight latency overhead
+- Your Xweather `client_id`/`client_secret` are **never sent to visitors' browsers** — they only
+  ever live in GitHub's encrypted secrets and the Actions runner.
+- Every site visitor's page load costs **zero** Xweather API requests — only the hourly scheduled
+  run does, so traffic to the dashboard has no effect on your API quota.
 
-### Alternative: Backend Proxy (Production Recommended)
+### One-time setup
 
-For production USACE deployments, set up a dedicated backend proxy (Node.js/Python):
+1. Sign up for a free Xweather account at [xweather.com](https://www.xweather.com) and get a `client_id`/`client_secret` pair.
+2. In this repo, go to **Settings → Secrets and variables → Actions → New repository secret** and add two secrets: `XWEATHER_CLIENT_ID` and `XWEATHER_CLIENT_SECRET`.
+3. Go to **Settings → Actions → General → Workflow permissions** and set it to **Read and write permissions** (needed so the workflow can commit the updated cache file back to the repo).
+4. Trigger the first run manually: go to the **Actions** tab → **Update River Gauge Cache** → **Run workflow**. After that, it runs automatically every hour.
 
-```
-// Replace proxy URL with your own backend
-const res = await fetch('/api/usgs-gauges');
-```
+Until the first successful run, `data/river-gauges-cache.json` is just an empty placeholder and the River Gauges layer will show no entries — that's expected, not a bug.
 
 ---
 
@@ -135,12 +140,18 @@ netlify deploy --prod
 ```
 .
 ├── index.html          # Main UI and event rendering logic
-├── admin.html           # Entry form for Civil Works / Military Ops / Support Units / Programs
+├── admin.html           # Entry form for Civil Works / Military Programs / Support Units
 ├── radar.js             # RainViewer radar overlay module
+├── .github/
+│   └── workflows/
+│       └── update-river-gauges.yml   # Hourly job that refreshes the river gauge cache
+├── scripts/
+│   └── fetch-river-gauges.js         # Script the workflow runs (Xweather → filtered JSON)
 ├── data/
 │   ├── civil-works.json
 │   ├── military-programs.json
-│   └── support-units.json
+│   ├── support-units.json
+│   └── river-gauges-cache.json       # Auto-generated hourly — don't hand-edit
 └── README.md            # This file
 ```
 
@@ -148,7 +159,7 @@ netlify deploy --prod
 
 ## Support & Documentation
 
-- **USGS Water Services**: <https://waterservices.usgs.gov/docs/>
+- **Xweather Rivers API**: <https://www.xweather.com/docs/weather-api/endpoints/rivers>
 - **USGS Earthquake API**: <https://earthquake.usgs.gov/fdsnws/event/1/>
 - **NOAA Weather Alerts**: <https://www.weather.gov/documentation/services-web-api>
 - **ReliefWeb API**: <https://reliefweb.int/help/api>
