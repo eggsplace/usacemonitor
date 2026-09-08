@@ -173,7 +173,7 @@ aside {
 .event-card.warning { border-left-color: var(--accent-amber); }
 .event-card.good { border-left-color: var(--accent-green); }
 .event-card.flood-stage { border-left-color: #3aa0ff; }
-.event-card.low-water { border-left-color: #ffee00; }
+.event-card.low-water { border-left-color: #c9a300; }
 .event-subline { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
 .event-time { font-size: 10px; color: var(--text-dim); margin-top: 4px; }
 .event-details { font-size: 11px; color: var(--text-main); margin-top: 6px; line-height: 1.4; }
@@ -325,6 +325,17 @@ const USGS_API_KEY = ''; // e.g. 'abc123...'
 // Roughly CONUS bounding box: minLon,minLat,maxLon,maxLat
 const CONUS_BBOX = '-125,24,-66,50';
 
+// River gauge alert thresholds, in cubic feet per second (cfs).
+// NOTE: a single national cutoff is a blunt instrument — a "normal" flow for a small
+// creek and a major river differ by orders of magnitude. This flags absolute extremes
+// (near-dry gauges and major flood-level discharge) rather than every gauge running
+// below the old 1,000 cfs bar, which caught a lot of ordinary small streams.
+// If you want gauge-specific accuracy later, USGS's percentile-of-record flow
+// classification (via the Daily Values endpoint's historical stats per site) is the
+// correct long-term approach — this is a quick, tunable stand-in.
+const LOW_WATER_THRESHOLD_CFS = 20;
+const FLOOD_STAGE_THRESHOLD_CFS = 50000;
+
 async function fetchRiverGaugeData() {
   try {
     const commonParams = USGS_API_KEY ? { api_key: USGS_API_KEY } : {};
@@ -382,8 +393,8 @@ async function fetchRiverGaugeData() {
       if (isNaN(flowRate) || !f.geometry || !f.geometry.coordinates) return;
 
       let severity = 'info';
-      if (flowRate < 1000) severity = 'warning';   // low water
-      if (flowRate > 50000) severity = 'critical'; // flood stage
+      if (flowRate < LOW_WATER_THRESHOLD_CFS) severity = 'warning';    // low water
+      if (flowRate > FLOOD_STAGE_THRESHOLD_CFS) severity = 'critical'; // flood stage
       if (severity === 'info') return; // skip normal-range gauges — only show actionable readings
 
       const siteName = nameById[p.monitoring_location_id] || p.monitoring_location_id;
@@ -588,8 +599,8 @@ function renderEvents(events) {
     // so a large number of active gauges doesn't overwhelm the map. Other event types are unchanged.
     let iconColor, iconBgColor, iconSize;
     if (isRiverGauge) {
-      iconColor = evt.severity === 'critical' ? '#3aa0ff' : '#ffee00'; // flood = blue, low water = yellow
-      iconBgColor = evt.severity === 'critical' ? 'rgba(58, 160, 255, 0.2)' : 'rgba(255, 238, 0, 0.2)';
+      iconColor = evt.severity === 'critical' ? '#3aa0ff' : '#c9a300'; // flood = blue, low water = darker gold
+      iconBgColor = evt.severity === 'critical' ? 'rgba(58, 160, 255, 0.2)' : 'rgba(201, 163, 0, 0.2)';
       iconSize = 16; // 50% of the standard 32px marker
     } else {
       iconColor = evt.severity === 'critical' ? '#ff3344' : evt.severity === 'good' ? '#00ff66' : '#ffaa00';
