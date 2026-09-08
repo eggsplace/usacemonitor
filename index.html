@@ -172,6 +172,8 @@ aside {
 .event-card.critical { border-left-color: var(--accent-red); }
 .event-card.warning { border-left-color: var(--accent-amber); }
 .event-card.good { border-left-color: var(--accent-green); }
+.event-card.flood-stage { border-left-color: #3aa0ff; }
+.event-card.low-water { border-left-color: #ffee00; }
 .event-subline { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
 .event-time { font-size: 10px; color: var(--text-dim); margin-top: 4px; }
 .event-details { font-size: 11px; color: var(--text-main); margin-top: 6px; line-height: 1.4; }
@@ -380,8 +382,9 @@ async function fetchRiverGaugeData() {
       if (isNaN(flowRate) || !f.geometry || !f.geometry.coordinates) return;
 
       let severity = 'info';
-      if (flowRate < 1000) severity = 'warning';
-      if (flowRate > 50000) severity = 'critical';
+      if (flowRate < 1000) severity = 'warning';   // low water
+      if (flowRate > 50000) severity = 'critical'; // flood stage
+      if (severity === 'info') return; // skip normal-range gauges — only show actionable readings
 
       const siteName = nameById[p.monitoring_location_id] || p.monitoring_location_id;
       const [lon, lat] = f.geometry.coordinates;
@@ -579,9 +582,22 @@ function renderEvents(events) {
   }
 
   events.forEach(evt => {
+    const isRiverGauge = evt.type === 'river-gauge';
+
+    // River gauges use water-specific colors (yellow=low water, blue=flood) and a smaller marker
+    // so a large number of active gauges doesn't overwhelm the map. Other event types are unchanged.
+    let iconColor, iconBgColor, iconSize;
+    if (isRiverGauge) {
+      iconColor = evt.severity === 'critical' ? '#3aa0ff' : '#ffee00'; // flood = blue, low water = yellow
+      iconBgColor = evt.severity === 'critical' ? 'rgba(58, 160, 255, 0.2)' : 'rgba(255, 238, 0, 0.2)';
+      iconSize = 16; // 50% of the standard 32px marker
+    } else {
+      iconColor = evt.severity === 'critical' ? '#ff3344' : evt.severity === 'good' ? '#00ff66' : '#ffaa00';
+      iconBgColor = evt.severity === 'critical' ? 'rgba(255, 51, 68, 0.2)' : evt.severity === 'good' ? 'rgba(0, 255, 102, 0.2)' : 'rgba(255, 170, 0, 0.2)';
+      iconSize = 32;
+    }
+
     if (evt.coords) {
-      const iconColor = evt.severity === 'critical' ? '#ff3344' : evt.severity === 'good' ? '#00ff66' : '#ffaa00';
-      const iconBgColor = evt.severity === 'critical' ? 'rgba(255, 51, 68, 0.2)' : evt.severity === 'good' ? 'rgba(0, 255, 102, 0.2)' : 'rgba(255, 170, 0, 0.2)';
       let faIcon = 'fa-circle';
       switch (evt.type) {
         case 'seismic': faIcon = 'fa-wave-square'; break;
@@ -595,11 +611,14 @@ function renderEvents(events) {
         case 'programs': faIcon = 'fa-layer-group'; break;
         default: faIcon = 'fa-circle';
       }
+      const borderWidth = isRiverGauge ? 1 : 2;
+      const fontSize = Math.round(iconSize * 0.5);
+      const half = iconSize / 2;
       const icon = L.divIcon({
-        html: `<div style="background: ${iconBgColor}; border: 2px solid ${iconColor}; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">
-                 <i class="fas ${faIcon}" style="color: ${iconColor}; font-size: 16px;"></i>
+        html: `<div style="background: ${iconBgColor}; border: ${borderWidth}px solid ${iconColor}; border-radius: 50%; width: ${iconSize}px; height: ${iconSize}px; display: flex; align-items: center; justify-content: center;">
+                 <i class="fas ${faIcon}" style="color: ${iconColor}; font-size: ${fontSize}px;"></i>
                </div>`,
-        iconSize: [32, 32], iconAnchor: [16, 16], popupAnchor: [0, -16], className: 'event-icon'
+        iconSize: [iconSize, iconSize], iconAnchor: [half, half], popupAnchor: [0, -half], className: 'event-icon'
       });
       const marker = L.marker(evt.coords, { icon: icon }).addTo(map);
       marker.bindPopup(`<b>${evt.title}</b><br>Type: ${evt.type}<br>Time: ${evt.time}`);
@@ -607,7 +626,8 @@ function renderEvents(events) {
     }
 
     const card = document.createElement('div');
-    card.className = `event-card ${evt.severity}`;
+    const cardClass = isRiverGauge ? (evt.severity === 'critical' ? 'flood-stage' : 'low-water') : evt.severity;
+    card.className = `event-card ${cardClass}`;
     let inner = `<div><strong>${evt.title}</strong></div>`;
     if (evt.subcategory) inner += `<div class="event-subline">${evt.subcategory}</div>`;
     if (evt.details) inner += `<div class="event-details">${evt.details}</div>`;
