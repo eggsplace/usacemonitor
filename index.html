@@ -366,6 +366,48 @@ async function fetchRiverGaugeData() {
   }
 }
 
+// Wildfire incident data from NIFC's Wildland Fire Interagency Geospatial Services (WFIGS) —
+// the authoritative federal source, free and public with no API key needed. Reference:
+// https://data-nifc.opendata.arcgis.com/
+const WILDFIRE_MIN_ACRES = 10; // fires under this size are numerous and rarely operationally
+                                // significant; tune this up/down if the layer feels too sparse/busy
+
+async function fetchWildfireData() {
+  try {
+    const params = new URLSearchParams({
+      // WF = Wildfire only (excludes RX prescribed burns and CX complexes) above the acreage floor
+      where: `IncidentTypeCategory='WF' AND DailyAcres>=${WILDFIRE_MIN_ACRES}`,
+      outFields: 'IncidentName,DailyAcres,PercentContained,FireDiscoveryDateTime,UniqueFireIdentifier',
+      outSR: '4326',
+      f: 'geojson'
+    });
+    const url = `https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations_Current/FeatureServer/0/query?${params}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    return (data.features || []).map(f => {
+      const p = f.properties;
+      const acres = p.DailyAcres || 0;
+      const contained = p.PercentContained;
+      const containedText = (contained != null) ? `, ${Math.round(contained)}% contained` : '';
+      return {
+        id: p.UniqueFireIdentifier || f.id,
+        type: 'fire',
+        topCategory: 'contingency',
+        title: `${p.IncidentName || 'Unnamed Fire'} - ${Math.round(acres).toLocaleString()} ac${containedText}`,
+        coords: [f.geometry.coordinates[1], f.geometry.coordinates[0]],
+        time: p.FireDiscoveryDateTime ? new Date(p.FireDiscoveryDateTime).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
+        severity: acres >= 10000 ? 'critical' : 'warning',
+        mag: acres
+      };
+    });
+  } catch (err) {
+    console.error("Failed to load WFIGS wildfire data:", err);
+    return [];
+  }
+}
+
 async function fetchSeismicData() {
   try {
     // 2.5+ magnitude over the last day — the old 4.5+ threshold rarely triggers for the US on any
@@ -612,7 +654,8 @@ function renderEvents(events) {
         'hurricane': 'hurricane.png',
         'tropical-storm': 'tropical_storm.png',
         'tsunami': 'tsunami.png',
-        'flood-alert': 'flood.png'
+        'flood-alert': 'flood.png',
+        'fire': 'wildfire.png'
       };
       let innerHtml;
       if (CUSTOM_ICON_BY_TYPE[evt.type]) {
@@ -869,9 +912,10 @@ function initGIBSControls() {
 // ---- Initialize Feeds ----
 
 async function init() {
-  const [seismic, riverGauges, reliefWeb, noaaAlerts, civilWorks, supportUnits, programs] = await Promise.all([
+  const [seismic, riverGauges, wildfires, reliefWeb, noaaAlerts, civilWorks, supportUnits, programs] = await Promise.all([
     fetchSeismicData(),
     fetchRiverGaugeData(),
+    fetchWildfireData(),
     fetchReliefWebDisasters(),
     fetchNOAAAlerts(),
     fetchManualCategory('civil-works'),
@@ -879,7 +923,7 @@ async function init() {
     fetchManualCategory('programs')
   ]);
 
-  allEvents = [...seismic, ...riverGauges, ...reliefWeb, ...noaaAlerts, ...civilWorks, ...supportUnits, ...programs];
+  allEvents = [...seismic, ...riverGauges, ...wildfires, ...reliefWeb, ...noaaAlerts, ...civilWorks, ...supportUnits, ...programs];
   applyCurrentFilter();
   document.getElementById('feed-count').innerText = 'ONLINE';
 
