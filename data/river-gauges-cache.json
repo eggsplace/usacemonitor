@@ -1,42 +1,51 @@
 {
-  "generatedAt": "2026-09-09T14:30:37.717Z",
-  "count": 4,
+  "generatedAt": "2026-09-09T18:32:20.627Z",
+  "count": 5,
   "events": [
     {
       "id": "CJXA2",
-      "title": "Kuskokwim River at Crooked Creek - action (15.62 ft)",
+      "title": "Kuskokwim River at Crooked Creek - action (15.66 ft)",
       "lat": 61.869444444444,
       "lon": -158.11138888889,
-      "time": "2026-09-09T13:45:00Z",
+      "time": "2026-09-09T17:45:00Z",
       "severity": "critical",
-      "mag": 15.62
+      "mag": 15.66
+    },
+    {
+      "id": "MCGA2",
+      "title": "Kuskokwim River at McGrath - action (19.58 ft)",
+      "lat": 62.9521517,
+      "lon": -155.5887347,
+      "time": "2026-09-09T17:00:00Z",
+      "severity": "critical",
+      "mag": 19.58
     },
     {
       "id": "YLKA2",
-      "title": "Yentna River near Lake Creek - action (19.04 ft)",
+      "title": "Yentna River near Lake Creek - action (19.13 ft)",
       "lat": 61.897841,
       "lon": -150.857312,
-      "time": "2026-09-09T12:57:00Z",
+      "time": "2026-09-09T16:50:00Z",
       "severity": "critical",
-      "mag": 19.04
+      "mag": 19.13
     },
     {
       "id": "FAJP4",
       "title": "Rio Fajardo near Fajardo - low threshold (2.81 ft)",
       "lat": 18.29696026,
       "lon": -65.693434,
-      "time": "2026-09-09T13:45:00Z",
+      "time": "2026-09-09T17:45:00Z",
       "severity": "warning",
       "mag": 2.81
     },
     {
       "id": "SALP4",
-      "title": "Rio Lapa near Rabo del Buey - low threshold (5.22 ft)",
+      "title": "Rio Lapa near Rabo del Buey - low threshold (5.21 ft)",
       "lat": 18.05774042,
       "lon": -66.2407232,
-      "time": "2026-09-09T11:45:00Z",
+      "time": "2026-09-09T17:45:00Z",
       "severity": "warning",
-      "mag": 5.22
+      "mag": 5.21
     }
   ]
 }
