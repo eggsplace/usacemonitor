@@ -441,9 +441,18 @@ async function fetchNOAAAlerts() {
               return;
             }
             if (coords && coords.length >= 2) {
+              // NOAA's alerts feed lumps everything under one generic feed — categorize by the
+              // event name so hurricanes, tropical storms, and tsunamis get their own icons
+              // instead of the generic weather-alert glyph.
+              const eventName = (props.event || '').toLowerCase();
+              let alertType = 'weather';
+              if (eventName.includes('hurricane')) alertType = 'hurricane';
+              else if (eventName.includes('tropical storm')) alertType = 'tropical-storm';
+              else if (eventName.includes('tsunami')) alertType = 'tsunami';
+
               events.push({
                 id: alert.id,
-                type: 'weather',
+                type: alertType,
                 topCategory: 'contingency',
                 title: `${props.event} - ${props.areaDesc || 'Regional'}`,
                 coords: [coords[1], coords[0]],
@@ -564,14 +573,22 @@ function renderEvents(events) {
       const fontSize = Math.round(iconSize * 0.5);
       const half = iconSize / 2;
 
-      // Earthquakes and river gauges (flood or low-water) use custom illustrated icons
-      // instead of Font Awesome glyphs. The colored ring (from iconBgColor/iconColor
-      // above) still reflects severity; only the inner symbol changes.
+      // Earthquakes, river gauges (flood or low-water), hurricanes, tropical storms, and
+      // tsunamis all use custom illustrated icons instead of Font Awesome glyphs. The
+      // colored ring (from iconBgColor/iconColor above) still reflects severity; only the
+      // inner symbol changes.
       const isFloodGauge = isRiverGauge && evt.severity === 'critical';
       const isLowWaterGauge = isRiverGauge && evt.severity === 'warning';
+      const CUSTOM_ICON_BY_TYPE = {
+        'seismic': 'earthquake.png',
+        'hurricane': 'hurricane.png',
+        'tropical-storm': 'tropical_storm.png',
+        'tsunami': 'tsunami.png'
+      };
       let innerHtml;
-      if (evt.type === 'seismic') {
-        innerHtml = `<img src="assets/icons/earthquake.png" alt="Earthquake" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
+      if (CUSTOM_ICON_BY_TYPE[evt.type]) {
+        const file = CUSTOM_ICON_BY_TYPE[evt.type];
+        innerHtml = `<img src="assets/icons/${file}" alt="${evt.type}" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
       } else if (isFloodGauge) {
         innerHtml = `<img src="assets/icons/flood.png" alt="Flood stage" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
       } else if (isLowWaterGauge) {
@@ -654,8 +671,8 @@ function applyCurrentFilter() {
       if (evt.type === 'seismic') return layerFilters['earthquakes'];
       if (evt.type === 'river-gauge') return layerFilters['gauges'];
       if (evt.type === 'fire') return layerFilters['wildfires'];
-      if (evt.type === 'hurricane') return layerFilters['storms'];
-      if (evt.type === 'weather') return layerFilters['weather'];
+      if (evt.type === 'hurricane' || evt.type === 'tropical-storm') return layerFilters['storms'];
+      if (evt.type === 'weather' || evt.type === 'tsunami') return layerFilters['weather'];
       if (evt.type === 'disaster') return layerFilters['disasters'];
       return false;
     });
