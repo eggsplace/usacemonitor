@@ -311,6 +311,27 @@ const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
   subdomains: 'abc'
 }).addTo(map);
 
+// Base marker size (20px — 25% larger than the previous fixed 16px) at the map's starting
+// zoom level (4). Markers scale up when zooming in and down when zooming out, clamped to a
+// sensible range so they never disappear or get comically large.
+const BASE_ICON_SIZE = 20;
+const BASE_ZOOM = 4;
+const MIN_ICON_SIZE = 14;
+const MAX_ICON_SIZE = 44;
+
+function getZoomScaledIconSize() {
+  const zoom = map.getZoom();
+  const scale = Math.pow(1.15, zoom - BASE_ZOOM);
+  const size = Math.round(BASE_ICON_SIZE * scale);
+  return Math.min(MAX_ICON_SIZE, Math.max(MIN_ICON_SIZE, size));
+}
+
+// Leaflet doesn't automatically resize divIcon markers on zoom — rebuild them at the
+// newly-scaled size whenever the zoom level changes.
+map.on('zoomend', () => {
+  if (typeof applyCurrentFilter === 'function') applyCurrentFilter();
+});
+
 let eventMarkers = [];
 let allEvents = [];
 let gibsLayer = null;
@@ -449,6 +470,7 @@ async function fetchNOAAAlerts() {
               if (eventName.includes('hurricane')) alertType = 'hurricane';
               else if (eventName.includes('tropical storm')) alertType = 'tropical-storm';
               else if (eventName.includes('tsunami')) alertType = 'tsunami';
+              else if (eventName.includes('flash flood') || eventName.includes('flood advisory')) alertType = 'flood-alert';
 
               events.push({
                 id: alert.id,
@@ -549,11 +571,14 @@ function renderEvents(events) {
     if (isRiverGauge) {
       iconColor = evt.severity === 'critical' ? '#3aa0ff' : '#FFC000'; // flood = blue, low water = FFC000
       iconBgColor = evt.severity === 'critical' ? 'rgba(58, 160, 255, 0.2)' : 'rgba(255, 192, 0, 0.2)';
+    } else if (evt.type === 'flood-alert') {
+      iconColor = '#3aa0ff'; // same flood blue as flood-stage river gauges, overriding severity color
+      iconBgColor = 'rgba(58, 160, 255, 0.2)';
     } else {
       iconColor = evt.severity === 'critical' ? '#ff3344' : evt.severity === 'good' ? '#00ff66' : '#ffaa00';
       iconBgColor = evt.severity === 'critical' ? 'rgba(255, 51, 68, 0.2)' : evt.severity === 'good' ? 'rgba(0, 255, 102, 0.2)' : 'rgba(255, 170, 0, 0.2)';
     }
-    const iconSize = 16;
+    const iconSize = getZoomScaledIconSize();
 
     if (evt.coords) {
       let faIcon = 'fa-circle';
@@ -563,27 +588,31 @@ function renderEvents(events) {
         case 'fire': faIcon = 'fa-fire'; break;
         case 'hurricane': faIcon = 'fa-wind'; break;
         case 'weather': faIcon = 'fa-cloud-bolt'; break;
+        case 'flood-alert': faIcon = 'fa-water'; break;
         case 'disaster': faIcon = 'fa-triangle-exclamation'; break;
         case 'civil-works': faIcon = 'fa-diagram-project'; break;
         case 'support-units': faIcon = 'fa-people-group'; break;
         case 'programs': faIcon = 'fa-layer-group'; break;
         default: faIcon = 'fa-circle';
       }
-      const borderWidth = 1;
+      // Flash flood / flood advisory alerts get a thicker ring so they stand out from the
+      // rest of the weather-alert markers, matching the flood-blue used elsewhere.
+      const borderWidth = evt.type === 'flood-alert' ? 3 : 1;
       const fontSize = Math.round(iconSize * 0.5);
       const half = iconSize / 2;
 
-      // Earthquakes, river gauges (flood or low-water), hurricanes, tropical storms, and
-      // tsunamis all use custom illustrated icons instead of Font Awesome glyphs. The
-      // colored ring (from iconBgColor/iconColor above) still reflects severity; only the
-      // inner symbol changes.
+      // Earthquakes, river gauges (flood or low-water), hurricanes, tropical storms,
+      // tsunamis, and flash flood/flood advisory alerts all use custom illustrated icons
+      // instead of Font Awesome glyphs. The colored ring (from iconBgColor/iconColor
+      // above) still reflects severity; only the inner symbol changes.
       const isFloodGauge = isRiverGauge && evt.severity === 'critical';
       const isLowWaterGauge = isRiverGauge && evt.severity === 'warning';
       const CUSTOM_ICON_BY_TYPE = {
         'seismic': 'earthquake.png',
         'hurricane': 'hurricane.png',
         'tropical-storm': 'tropical_storm.png',
-        'tsunami': 'tsunami.png'
+        'tsunami': 'tsunami.png',
+        'flood-alert': 'flood.png'
       };
       let innerHtml;
       if (CUSTOM_ICON_BY_TYPE[evt.type]) {
@@ -609,7 +638,7 @@ function renderEvents(events) {
     }
 
     const card = document.createElement('div');
-    const cardClass = isRiverGauge ? (evt.severity === 'critical' ? 'flood-stage' : 'low-water') : evt.severity;
+    const cardClass = isRiverGauge ? (evt.severity === 'critical' ? 'flood-stage' : 'low-water') : (evt.type === 'flood-alert' ? 'flood-stage' : evt.severity);
     card.className = `event-card ${cardClass}`;
     let inner = `<div><strong>${evt.title}</strong></div>`;
     if (evt.subcategory) inner += `<div class="event-subline">${evt.subcategory}</div>`;
@@ -672,7 +701,7 @@ function applyCurrentFilter() {
       if (evt.type === 'river-gauge') return layerFilters['gauges'];
       if (evt.type === 'fire') return layerFilters['wildfires'];
       if (evt.type === 'hurricane' || evt.type === 'tropical-storm') return layerFilters['storms'];
-      if (evt.type === 'weather' || evt.type === 'tsunami') return layerFilters['weather'];
+      if (evt.type === 'weather' || evt.type === 'tsunami' || evt.type === 'flood-alert') return layerFilters['weather'];
       if (evt.type === 'disaster') return layerFilters['disasters'];
       return false;
     });
