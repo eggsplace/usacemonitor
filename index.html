@@ -821,7 +821,16 @@ function addGIBS(dateStr) {
   try {
     const url = gibsTileUrlForDate(dateStr);
     if (gibsLayer) { gibsLayer.setUrl(url); document.getElementById('sat-status').innerText = dateStr; return; }
-    gibsLayer = L.tileLayer(url, { attribution: 'NASA GIBS', opacity: 0.7, zIndex: 400 });
+    gibsLayer = L.tileLayer(url, {
+      attribution: 'NASA GIBS',
+      opacity: 0.7,
+      zIndex: 400,
+      // This GIBS product (Level9) only has imagery through zoom 9. Without maxNativeZoom,
+      // Leaflet keeps requesting tiles at higher zoom levels, and GIBS returns an actual
+      // "Zoom Level Not Supported" placeholder image instead of just nothing. Capping it
+      // here makes Leaflet stretch the zoom-9 tile for closer zooms instead.
+      maxNativeZoom: 9
+    });
     gibsLayer.addTo(map);
     document.getElementById('sat-status').innerText = dateStr;
   } catch (err) {
