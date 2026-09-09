@@ -14,7 +14,7 @@ The dashboard is organized into five top-level categories, selected via tabs in 
 ### Contingency Ops (live feeds)
 
 - **Seismic Events**: Live earthquake data from USGS (M2.5+, last 24 hrs — covers CONUS, Alaska, Hawaii, and Puerto Rico)
-- **River Gauges**: Gauges currently in low-water or flood-stage status, per NOAA's AHPS via the Xweather Rivers API (fetched hourly server-side — see "River Gauge Data Pipeline" below)
+- **River Gauges**: Gauges currently in low-water or flood-stage status, from NOAA's National Water Prediction Service (NWPS) API (fetched hourly server-side — see "River Gauge Data Pipeline" below)
 - **Weather Alerts**: Active NOAA severe weather alerts
 - **Disasters**: Current disasters from ReliefWeb
 - **Weather Radar**: Integrated RainViewer radar overlay for precipitation tracking
@@ -67,7 +67,7 @@ To resume editing a category later (or to add to entries someone else already ex
 | Data              | Source              | Endpoint                | Update Frequency                  |
 | ----------------- | -------------------- | ------------------------ | ---------------------------------- |
 | Earthquakes       | USGS GeoJSON          | earthquake.usgs.gov      | Real-time (2 min sync)             |
-| River Gauges      | Xweather Rivers API    | data.api.xweather.com    | Hourly (fetched server-side)       |
+| River Gauges      | NOAA NWPS API          | api.water.noaa.gov       | Hourly (fetched server-side)       |
 | Weather Alerts    | NOAA                   | api.weather.gov          | Real-time                          |
 | Disasters         | ReliefWeb              | reliefweb.int             | Real-time                          |
 | Weather Radar     | RainViewer             | rainviewer.com            | Every 5 minutes                    |
@@ -81,25 +81,33 @@ River gauge data is **not** fetched from the browser. Instead, a GitHub Actions 
 (`.github/workflows/update-river-gauges.yml`) runs a script (`scripts/fetch-river-gauges.js`)
 once an hour that:
 
-1. Calls the Xweather Rivers API server-side, using credentials stored as encrypted repo secrets
-2. Filters the results down to only gauges in `low_threshold` (low water) or `action`/`minor`/`moderate`/`major` (flood stage) status
-3. Writes the filtered result to `data/river-gauges-cache.json`
-4. Commits that file back to the repo automatically
+1. Calls NOAA's National Water Prediction Service (NWPS) API server-side — a free, public API
+   that requires no key or account (this is the same underlying data that commercial products
+   like Xweather and AccuWeather resell)
+2. Queries five regional bounding boxes (CONUS, the two halves of Alaska split at the
+   antimeridian, Hawaii, and Puerto Rico) and merges the results
+3. Filters the results down to only gauges in `low_threshold` (low water) or
+   `action`/`minor`/`moderate`/`major` (flood stage) status
+4. Writes the filtered result to `data/river-gauges-cache.json`
+5. Commits that file back to the repo automatically
 
 `index.html` just fetches `data/river-gauges-cache.json` like a normal static file — the same
 pattern used for Civil Works, Support Units, and Military Programs. This means:
 
-- Your Xweather `client_id`/`client_secret` are **never sent to visitors' browsers** — they only
-  ever live in GitHub's encrypted secrets and the Actions runner.
-- Every site visitor's page load costs **zero** Xweather API requests — only the hourly scheduled
-  run does, so traffic to the dashboard has no effect on your API quota.
+- Every site visitor's page load costs **zero** NWPS API requests — only the hourly scheduled
+  run does, so traffic to the dashboard has no effect on any quota (not that NWPS has one).
+- No credentials of any kind are involved — nothing to sign up for, no secrets to manage, no
+  billing risk.
+
+NOAA's own documentation notes this API "is not supported 24/7 and may be modified without
+advance notice." That's an acceptable tradeoff here: this dashboard is a nice-to-have, not a
+mission-critical system, so an occasional failed hourly refresh just means the cache keeps
+showing the last known-good data until the next run succeeds.
 
 ### One-time setup
 
-1. Sign up for a free Xweather account at [xweather.com](https://www.xweather.com) and get a `client_id`/`client_secret` pair.
-2. In this repo, go to **Settings → Secrets and variables → Actions → New repository secret** and add two secrets: `XWEATHER_CLIENT_ID` and `XWEATHER_CLIENT_SECRET`.
-3. Go to **Settings → Actions → General → Workflow permissions** and set it to **Read and write permissions** (needed so the workflow can commit the updated cache file back to the repo).
-4. Trigger the first run manually: go to the **Actions** tab → **Update River Gauge Cache** → **Run workflow**. After that, it runs automatically every hour.
+1. Go to **Settings → Actions → General → Workflow permissions** and set it to **Read and write permissions** (needed so the workflow can commit the updated cache file back to the repo).
+2. Trigger the first run manually: go to the **Actions** tab → **Update River Gauge Cache** → **Run workflow**. After that, it runs automatically every hour.
 
 Until the first successful run, `data/river-gauges-cache.json` is just an empty placeholder and the River Gauges layer will show no entries — that's expected, not a bug.
 
@@ -146,7 +154,7 @@ netlify deploy --prod
 │   └── workflows/
 │       └── update-river-gauges.yml   # Hourly job that refreshes the river gauge cache
 ├── scripts/
-│   └── fetch-river-gauges.js         # Script the workflow runs (Xweather → filtered JSON)
+│   └── fetch-river-gauges.js         # Script the workflow runs (NOAA NWPS → filtered JSON)
 ├── data/
 │   ├── civil-works.json
 │   ├── military-programs.json
@@ -159,7 +167,7 @@ netlify deploy --prod
 
 ## Support & Documentation
 
-- **Xweather Rivers API**: <https://www.xweather.com/docs/weather-api/endpoints/rivers>
+- **NOAA NWPS API**: <https://water.noaa.gov/about/api>
 - **USGS Earthquake API**: <https://earthquake.usgs.gov/fdsnws/event/1/>
 - **NOAA Weather Alerts**: <https://www.weather.gov/documentation/services-web-api>
 - **ReliefWeb API**: <https://reliefweb.int/help/api>
