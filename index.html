@@ -513,6 +513,7 @@ async function fetchNOAAAlerts() {
               else if (eventName.includes('tropical storm')) alertType = 'tropical-storm';
               else if (eventName.includes('tsunami')) alertType = 'tsunami';
               else if (eventName.includes('flash flood') || eventName.includes('flood advisory')) alertType = 'flood-alert';
+              else if (eventName.includes('severe thunderstorm')) alertType = 'severe-weather';
 
               events.push({
                 id: alert.id,
@@ -631,6 +632,7 @@ function renderEvents(events) {
         case 'hurricane': faIcon = 'fa-wind'; break;
         case 'weather': faIcon = 'fa-cloud-bolt'; break;
         case 'flood-alert': faIcon = 'fa-water'; break;
+        case 'severe-weather': faIcon = 'fa-cloud-bolt'; break;
         case 'disaster': faIcon = 'fa-triangle-exclamation'; break;
         case 'civil-works': faIcon = 'fa-diagram-project'; break;
         case 'support-units': faIcon = 'fa-people-group'; break;
@@ -655,7 +657,8 @@ function renderEvents(events) {
         'tropical-storm': 'tropical_storm.png',
         'tsunami': 'tsunami.png',
         'flood-alert': 'flood.png',
-        'fire': 'wildfire.png'
+        'fire': 'wildfire.png',
+        'severe-weather': 'storm.png'
       };
       let innerHtml;
       if (CUSTOM_ICON_BY_TYPE[evt.type]) {
@@ -744,7 +747,7 @@ function applyCurrentFilter() {
       if (evt.type === 'river-gauge') return layerFilters['gauges'];
       if (evt.type === 'fire') return layerFilters['wildfires'];
       if (evt.type === 'hurricane' || evt.type === 'tropical-storm') return layerFilters['storms'];
-      if (evt.type === 'weather' || evt.type === 'tsunami' || evt.type === 'flood-alert') return layerFilters['weather'];
+      if (evt.type === 'weather' || evt.type === 'tsunami' || evt.type === 'flood-alert' || evt.type === 'severe-weather') return layerFilters['weather'];
       if (evt.type === 'disaster') return layerFilters['disasters'];
       return false;
     });
