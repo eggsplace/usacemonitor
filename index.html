@@ -563,9 +563,26 @@ function renderEvents(events) {
       const borderWidth = 1;
       const fontSize = Math.round(iconSize * 0.5);
       const half = iconSize / 2;
+
+      // Earthquakes and river gauges (flood or low-water) use custom illustrated icons
+      // instead of Font Awesome glyphs. The colored ring (from iconBgColor/iconColor
+      // above) still reflects severity; only the inner symbol changes.
+      const isFloodGauge = isRiverGauge && evt.severity === 'critical';
+      const isLowWaterGauge = isRiverGauge && evt.severity === 'warning';
+      let innerHtml;
+      if (evt.type === 'seismic') {
+        innerHtml = `<img src="assets/icons/earthquake.png" alt="Earthquake" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
+      } else if (isFloodGauge) {
+        innerHtml = `<img src="assets/icons/flood.png" alt="Flood stage" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
+      } else if (isLowWaterGauge) {
+        innerHtml = `<img src="assets/icons/drought.png" alt="Low water" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
+      } else {
+        innerHtml = `<i class="fas ${faIcon}" style="color: ${iconColor}; font-size: ${fontSize}px;"></i>`;
+      }
+
       const icon = L.divIcon({
         html: `<div style="background: ${iconBgColor}; border: ${borderWidth}px solid ${iconColor}; border-radius: 50%; width: ${iconSize}px; height: ${iconSize}px; display: flex; align-items: center; justify-content: center;">
-                 <i class="fas ${faIcon}" style="color: ${iconColor}; font-size: ${fontSize}px;"></i>
+                 ${innerHtml}
                </div>`,
         iconSize: [iconSize, iconSize], iconAnchor: [half, half], popupAnchor: [0, -half], className: 'event-icon'
       });
