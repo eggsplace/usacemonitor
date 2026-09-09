@@ -320,8 +320,9 @@ let terminatorLayer = null;
 
 // River gauge data comes from a static file (data/river-gauges-cache.json) that a GitHub
 // Actions workflow (.github/workflows/update-river-gauges.yml) regenerates once an hour by
-// calling the Xweather Rivers API server-side. This keeps the API credentials out of the
-// browser entirely, and avoids every visitor's page load counting against the API quota.
+// calling NOAA's National Water Prediction Service (NWPS) API server-side. NWPS is free and
+// requires no API key, but we still fetch it server-side rather than from the browser to
+// keep visitor page loads from generating repeated calls to a small government service.
 // Only gauges in low-water or flood-stage status are included — see scripts/fetch-river-gauges.js.
 async function fetchRiverGaugeData() {
   try {
