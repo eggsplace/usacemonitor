@@ -305,22 +305,25 @@ updateClock();
 
 // 2. Initialize Map (centered on USA)
 const map = L.map('map', { center: [39, -98], zoom: 4, zoomControl: false });
-// Using CARTO's dark basemap instead of OpenStreetMap's own tile server. OSM's public
-// tile.openstreetmap.org is meant for light, personal use only — a live, publicly-hosted
-// site with recurring traffic runs into their usage policy and gets served literal
-// "Zoom Level Not Supported" placeholder tiles instead of real map data past a certain
-// point. CARTO's basemaps are built for exactly this kind of production use, and the dark
-// style matches the dashboard's existing tactical theme better than OSM's light default.
-//
-// CARTO now requires a (free) API key for basemap tiles — sign up at
-// https://carto.com/basemaps/apikey and paste it below. Unlike the Xweather situation
-// earlier, this kind of key is meant to be public/client-side (it's for usage tracking and
-// rate limiting, not a secret credential), so embedding it directly here is normal and fine.
-const CARTO_API_KEY = 'cb1_34cx_1_38840d9956a0a9fcbf7943d1';
-const osmLayer = L.tileLayer(`https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=${CARTO_API_KEY}`, {
-  attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+// Base map: Esri's dark gray canvas basemap. We tried OpenStreetMap's own tile server
+// first (blocked by their usage policy for a live public site — served literal "Zoom Level
+// Not Supported" placeholders), then CARTO's dark basemap (now requires an API key, and
+// even with a valid key still hit the same zoom-cap placeholder — CARTO is actively
+// retiring this raster tile service in favor of a vector-based one). Esri's legacy
+// World_Dark_Gray_Base/Reference pair needs no API key at all, is a neutral dark
+// background purpose-built for exactly this kind of ops dashboard, and covers North
+// America through zoom 16 — deep enough for any realistic use here. Reference is layered
+// on top of Base to add place labels, since Esri splits background and labels into two
+// layers rather than baking labels into one image like CARTO/OSM do.
+const osmLayer = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
+  maxNativeZoom: 16,
+  maxZoom: 20
+}).addTo(map);
+const darkGrayLabels = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+  maxNativeZoom: 16,
   maxZoom: 20,
-  subdomains: 'abcd'
+  zIndex: 350 // above the base tiles, below the event markers
 }).addTo(map);
 
 // Base marker size (20px — 25% larger than the previous fixed 16px) at the map's starting
