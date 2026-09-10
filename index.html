@@ -302,6 +302,11 @@ updateClock();
 
 // 2. Initialize Map (centered on USA)
 const map = L.map('map', { center: [39, -98], zoom: 4, zoomControl: false });
+// Removes Leaflet's own "Leaflet" self-promotional prefix (which includes a Ukraine-flag
+// credit by default) from the attribution control. This is separate from — and doesn't
+// affect — the actual required attributions for MapTiler, OpenStreetMap, and RainViewer,
+// which are set per-layer below and stay intact.
+map.attributionControl.setPrefix(false);
 // Base map: MapTiler's hybrid satellite imagery (raster tiles). We went through three
 // free/unauthenticated options before this — OpenStreetMap's own tile server (blocked by
 // their usage policy for a live public site), CARTO's dark basemap (now requires a key,
