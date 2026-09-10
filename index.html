@@ -305,10 +305,16 @@ updateClock();
 
 // 2. Initialize Map (centered on USA)
 const map = L.map('map', { center: [39, -98], zoom: 4, zoomControl: false });
-const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors',
-  maxZoom: 19,
-  subdomains: 'abc'
+// Using CARTO's dark basemap instead of OpenStreetMap's own tile server. OSM's public
+// tile.openstreetmap.org is meant for light, personal use only — a live, publicly-hosted
+// site with recurring traffic runs into their usage policy and gets served literal
+// "Zoom Level Not Supported" placeholder tiles instead of real map data past a certain
+// point. CARTO's basemaps are built for exactly this kind of production use, and the dark
+// style matches the dashboard's existing tactical theme better than OSM's light default.
+const osmLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+  maxZoom: 20,
+  subdomains: 'abcd'
 }).addTo(map);
 
 // Base marker size (20px — 25% larger than the previous fixed 16px) at the map's starting
