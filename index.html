@@ -376,8 +376,8 @@ async function fetchWildfireData() {
   try {
     const params = new URLSearchParams({
       // WF = Wildfire only (excludes RX prescribed burns and CX complexes) above the acreage floor
-      where: `IncidentTypeCategory='WF' AND DailyAcres>=${WILDFIRE_MIN_ACRES}`,
-      outFields: 'IncidentName,DailyAcres,PercentContained,FireDiscoveryDateTime,UniqueFireIdentifier',
+      where: `IncidentTypeCategory='WF' AND IncidentSize>=${WILDFIRE_MIN_ACRES}`,
+      outFields: 'IncidentName,IncidentSize,PercentContained,FireDiscoveryDateTime,UniqueFireIdentifier',
       outSR: '4326',
       f: 'geojson'
     });
@@ -388,7 +388,7 @@ async function fetchWildfireData() {
 
     return (data.features || []).map(f => {
       const p = f.properties;
-      const acres = p.DailyAcres || 0;
+      const acres = p.IncidentSize || 0;
       const contained = p.PercentContained;
       const containedText = (contained != null) ? `, ${Math.round(contained)}% contained` : '';
       return {
