@@ -277,12 +277,9 @@ aside {
         <span id="daynight-status" style="color: var(--text-dim); font-size:11px;">off</span>
       </div>
 
-      <!-- Satellite (NASA GIBS) controls -->
-      <div class="sat-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
-        <button id="sat-toggle" class="filter-btn" onclick="toggleGIBS()">SAT</button>
-        <input type="date" id="sat-date" style="background:transparent;color:var(--text-main);border:1px solid var(--border);padding:4px;font-size:11px;">
-        <span id="sat-status" style="color: var(--text-dim); font-size:11px;">date</span>
-      </div>
+      <!-- SAT toggle removed — the base map itself is now MapTiler's satellite hybrid imagery,
+           making a separate NASA GIBS overlay redundant (it would just layer one satellite
+           image over another). -->
     </div>
 
     <div class="events-list" id="events-feed">
@@ -322,6 +319,15 @@ const map = L.map('map', { center: [39, -98], zoom: 4, zoomControl: false });
 const MAPTILER_API_KEY = 'qUsMKrQQt9RdGj760Jgm';
 const osmLayer = L.tileLayer(`https://api.maptiler.com/maps/hybrid-v4/256/{z}/{x}/{y}.jpg?key=${MAPTILER_API_KEY}`, {
   attribution: '&copy; MapTiler &copy; OpenStreetMap contributors',
+  // Unlike a drawn/cartographic map style, satellite imagery resolution isn't uniform —
+  // cities and populated areas often have much higher-resolution source photography than
+  // remote rural regions. Zooming in over a sparsely populated area can hit tiles where
+  // that deeper resolution was never captured, and MapTiler serves a "Zoom Level Not
+  // Supported" placeholder for that specific tile (while a nearby city tile at the same
+  // zoom loads fine). Capping maxNativeZoom conservatively avoids relying on deeper zoom
+  // levels that aren't reliably available everywhere; Leaflet stretches the zoom-13 tile
+  // for closer zooms instead of requesting resolution that may not exist for that spot.
+  maxNativeZoom: 13,
   maxZoom: 20
 }).addTo(map);
 
@@ -348,7 +354,6 @@ map.on('zoomend', () => {
 
 let eventMarkers = [];
 let allEvents = [];
-let gibsLayer = null;
 let terminatorLayer = null;
 
 // ---- Live data feeds (Contingency Ops) ----
@@ -875,67 +880,6 @@ function toggleDayNight() {
   }
 }
 
-// ---- NASA GIBS helpers ----
-
-function formatDateToYYYYMMDD(d) {
-  const y = d.getUTCFullYear();
-  const m = String(d.getUTCMonth() + 1).padStart(2, '0');
-  const day = String(d.getUTCDate()).padStart(2, '0');
-  return `${y}-${m}-${day}`;
-}
-function getDefaultGIBSDate() { return formatDateToYYYYMMDD(new Date()); }
-function gibsTileUrlForDate(dateStr) {
-  return `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_CorrectedReflectance_TrueColor/default/${dateStr}/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg`;
-}
-function addGIBS(dateStr) {
-  try {
-    const url = gibsTileUrlForDate(dateStr);
-    if (gibsLayer) { gibsLayer.setUrl(url); document.getElementById('sat-status').innerText = dateStr; return; }
-    gibsLayer = L.tileLayer(url, {
-      attribution: 'NASA GIBS',
-      opacity: 0.7,
-      zIndex: 400,
-      // This GIBS product (Level9) only has imagery through zoom 9. Without maxNativeZoom,
-      // Leaflet keeps requesting tiles at higher zoom levels, and GIBS returns an actual
-      // "Zoom Level Not Supported" placeholder image instead of just nothing. Capping it
-      // here makes Leaflet stretch the zoom-9 tile for closer zooms instead.
-      maxNativeZoom: 9
-    });
-    gibsLayer.addTo(map);
-    document.getElementById('sat-status').innerText = dateStr;
-  } catch (err) {
-    console.error('Failed to add GIBS layer:', err);
-  }
-}
-function removeGIBS() {
-  if (gibsLayer) { map.removeLayer(gibsLayer); gibsLayer = null; document.getElementById('sat-status').innerText = 'off'; }
-}
-function toggleGIBS() {
-  const btn = document.getElementById('sat-toggle');
-  const enabled = btn.classList.contains('active');
-  if (enabled) { removeGIBS(); btn.classList.remove('active'); btn.innerText = 'SAT'; }
-  else {
-    const dateInput = document.getElementById('sat-date');
-    const date = dateInput && dateInput.value ? dateInput.value : getDefaultGIBSDate();
-    addGIBS(date);
-    btn.classList.add('active');
-    btn.innerText = 'SAT ON';
-  }
-}
-function initGIBSControls() {
-  const dateInput = document.getElementById('sat-date');
-  const defaultDate = getDefaultGIBSDate();
-  if (dateInput) {
-    dateInput.value = defaultDate;
-    dateInput.max = defaultDate;
-    dateInput.addEventListener('change', () => {
-      const dateVal = dateInput.value;
-      document.getElementById('sat-status').innerText = dateVal;
-      if (gibsLayer) addGIBS(dateVal);
-    });
-  }
-}
-
 // ---- Initialize Feeds ----
 
 async function init() {
@@ -957,8 +901,6 @@ async function init() {
   if (typeof startRadarAutoRefresh === 'function') startRadarAutoRefresh(300000);
   updateRadarStatus();
   setInterval(updateRadarStatus, 60000);
-
-  initGIBSControls();
 }
 
 init();
