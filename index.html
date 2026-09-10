@@ -369,14 +369,24 @@ async function fetchRiverGaugeData() {
 // Wildfire incident data from NIFC's Wildland Fire Interagency Geospatial Services (WFIGS) —
 // the authoritative federal source, free and public with no API key needed. Reference:
 // https://data-nifc.opendata.arcgis.com/
-const WILDFIRE_MIN_ACRES = 10; // fires under this size are numerous and rarely operationally
-                                // significant; tune this up/down if the layer feels too sparse/busy
+const WILDFIRE_MIN_ACRES = 10000;       // only large fires
+const WILDFIRE_MAX_CONTAINMENT_PCT = 90; // drop fires that are effectively wrapped up
+const WILDFIRE_MAX_AGE_DAYS = 14;        // drop stale/lingering records
 
 async function fetchWildfireData() {
   try {
+    // Each added condition is wrapped with "field IS NULL OR ..." so a fire isn't excluded
+    // just because WFIGS hasn't populated that particular field yet for it — per the request,
+    // these filters only apply "if that data is available."
+    const whereClause = [
+      `IncidentTypeCategory='WF'`, // wildfires only — excludes RX prescribed burns and CX complexes
+      `IncidentSize>=${WILDFIRE_MIN_ACRES}`,
+      `(PercentContained IS NULL OR PercentContained<${WILDFIRE_MAX_CONTAINMENT_PCT})`,
+      `(FireDiscoveryDateTime IS NULL OR FireDiscoveryDateTime>=CURRENT_TIMESTAMP - INTERVAL '${WILDFIRE_MAX_AGE_DAYS}' DAY)`
+    ].join(' AND ');
+
     const params = new URLSearchParams({
-      // WF = Wildfire only (excludes RX prescribed burns and CX complexes) above the acreage floor
-      where: `IncidentTypeCategory='WF' AND IncidentSize>=${WILDFIRE_MIN_ACRES}`,
+      where: whereClause,
       outFields: 'IncidentName,IncidentSize,PercentContained,FireDiscoveryDateTime,UniqueFireIdentifier',
       outSR: '4326',
       f: 'geojson'
@@ -398,7 +408,7 @@ async function fetchWildfireData() {
         title: `${p.IncidentName || 'Unnamed Fire'} - ${Math.round(acres).toLocaleString()} ac${containedText}`,
         coords: [f.geometry.coordinates[1], f.geometry.coordinates[0]],
         time: p.FireDiscoveryDateTime ? new Date(p.FireDiscoveryDateTime).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
-        severity: acres >= 10000 ? 'critical' : 'warning',
+        severity: acres >= 50000 ? 'critical' : 'warning',
         mag: acres
       };
     });
