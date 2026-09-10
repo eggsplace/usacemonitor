@@ -305,25 +305,24 @@ updateClock();
 
 // 2. Initialize Map (centered on USA)
 const map = L.map('map', { center: [39, -98], zoom: 4, zoomControl: false });
-// Base map: Esri's dark gray canvas basemap. We tried OpenStreetMap's own tile server
-// first (blocked by their usage policy for a live public site — served literal "Zoom Level
-// Not Supported" placeholders), then CARTO's dark basemap (now requires an API key, and
-// even with a valid key still hit the same zoom-cap placeholder — CARTO is actively
-// retiring this raster tile service in favor of a vector-based one). Esri's legacy
-// World_Dark_Gray_Base/Reference pair needs no API key at all, is a neutral dark
-// background purpose-built for exactly this kind of ops dashboard, and covers North
-// America through zoom 16 — deep enough for any realistic use here. Reference is layered
-// on top of Base to add place labels, since Esri splits background and labels into two
-// layers rather than baking labels into one image like CARTO/OSM do.
-const osmLayer = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-  attribution: 'Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
-  maxNativeZoom: 16,
+// Base map: MapTiler's hybrid satellite imagery (raster tiles). We went through three
+// free/unauthenticated options before this — OpenStreetMap's own tile server (blocked by
+// their usage policy for a live public site), CARTO's dark basemap (now requires a key,
+// and even with one still hit the same zoom-cap issue — CARTO is retiring this raster
+// service), and Esri's legacy dark gray canvas (Esri has been pushing developers off this
+// exact legacy endpoint too, toward their own newer key-based service). All three "free"
+// options turned out to be in some stage of the same industry-wide move away from free
+// unauthenticated tile serving. MapTiler is used here as a properly-provisioned, key-based
+// provider from the start rather than continuing to chase free options likely to hit the
+// same wall eventually.
+//
+// Sign up for a free key at https://cloud.maptiler.com and paste it below. The key shown
+// in MapTiler's own documentation examples is their public demo key — it won't work here,
+// since it's typically restricted to MapTiler's own domain.
+const MAPTILER_API_KEY = 'qUsMKrQQt9RdGj760Jgm';
+const osmLayer = L.tileLayer(`https://api.maptiler.com/maps/hybrid-v4/256/{z}/{x}/{y}.jpg?key=${MAPTILER_API_KEY}`, {
+  attribution: '&copy; MapTiler &copy; OpenStreetMap contributors',
   maxZoom: 20
-}).addTo(map);
-const darkGrayLabels = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
-  maxNativeZoom: 16,
-  maxZoom: 20,
-  zIndex: 350 // above the base tiles, below the event markers
 }).addTo(map);
 
 // Base marker size (20px — 25% larger than the previous fixed 16px) at the map's starting
