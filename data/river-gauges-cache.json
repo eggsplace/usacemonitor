@@ -1,24 +1,24 @@
 {
-  "generatedAt": "2026-09-10T22:31:26.784Z",
+  "generatedAt": "2026-09-11T01:00:53.003Z",
   "count": 2,
   "events": [
     {
       "id": "CJXA2",
-      "title": "Kuskokwim River at Crooked Creek - action (15.48 ft)",
+      "title": "Kuskokwim River at Crooked Creek - action (15.47 ft)",
       "lat": 61.869444444444,
       "lon": -158.11138888889,
-      "time": "2026-09-10T21:45:00Z",
+      "time": "2026-09-10T23:45:00Z",
       "severity": "critical",
-      "mag": 15.48
+      "mag": 15.47
     },
     {
       "id": "MCGA2",
-      "title": "Kuskokwim River at McGrath - action (19.89 ft)",
+      "title": "Kuskokwim River at McGrath - action (19.95 ft)",
       "lat": 62.9521517,
       "lon": -155.5887347,
-      "time": "2026-09-10T21:00:00Z",
+      "time": "2026-09-11T00:00:00Z",
       "severity": "critical",
-      "mag": 19.89
+      "mag": 19.95
     }
   ]
 }
