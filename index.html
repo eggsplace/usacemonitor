@@ -807,7 +807,7 @@ document.querySelectorAll('.top-cat-btn').forEach(btn => {
 
 async function updateRadarStatus() {
   try {
-    const res = await fetch('https://api.rainviewer.com/public/weather-maps.json');
+    const res = await fetch('https://api.rainviewer.com/public/weather-maps.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('network');
     const data = await res.json();
     if (data && data.radar && data.radar.past && data.radar.past.length) {
@@ -829,12 +829,28 @@ function setRadarButtonState(enabled) {
   else { btn.classList.remove('active'); btn.innerText = 'RADAR'; }
 }
 
+// Only running while RADAR is toggled on — previously startRadarAutoRefresh ran
+// unconditionally from page load regardless of this button's state, silently requesting
+// radar tiles in the background even when the UI showed "off".
+let radarRefreshHandle = null;
+
 function toggleRadarUI() {
   if (typeof toggleWeatherRadar !== 'function') { console.warn('radar.js not loaded'); return; }
   const btn = document.getElementById('radar-toggle');
   const enabled = btn.classList.contains('active');
-  if (enabled) { removeWeatherRadar(); setRadarButtonState(false); }
-  else { addWeatherRadar(); setRadarButtonState(true); updateRadarStatus(); }
+  if (enabled) {
+    removeWeatherRadar();
+    setRadarButtonState(false);
+    if (radarRefreshHandle) { clearInterval(radarRefreshHandle); radarRefreshHandle = null; }
+  } else {
+    setRadarButtonState(true);
+    if (typeof startRadarAutoRefresh === 'function') {
+      radarRefreshHandle = startRadarAutoRefresh(300000);
+    } else {
+      addWeatherRadar();
+    }
+    updateRadarStatus();
+  }
 }
 
 // ---- Day/Night Terminator helpers ----
@@ -903,7 +919,6 @@ async function init() {
   applyCurrentFilter();
   document.getElementById('feed-count').innerText = 'ONLINE';
 
-  if (typeof startRadarAutoRefresh === 'function') startRadarAutoRefresh(300000);
   updateRadarStatus();
   setInterval(updateRadarStatus, 60000);
 }
