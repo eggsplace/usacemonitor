@@ -1,58 +1,49 @@
 {
-  "generatedAt": "2026-09-11T22:31:46.256Z",
-  "count": 9,
+  "generatedAt": "2026-09-12T01:04:47.140Z",
+  "count": 8,
   "events": [
     {
+      "id": "BETA2",
+      "title": "Kuskokwim River at Bethel - action (7.29 ft)",
+      "lat": 60.793333333333,
+      "lon": -161.74555555556,
+      "time": "2026-09-11T23:50:00Z",
+      "severity": "critical",
+      "mag": 7.29
+    },
+    {
       "id": "CJXA2",
-      "title": "Kuskokwim River at Crooked Creek - action (15.44 ft)",
+      "title": "Kuskokwim River at Crooked Creek - action (15.41 ft)",
       "lat": 61.869444444444,
       "lon": -158.11138888889,
-      "time": "2026-09-11T21:45:00Z",
+      "time": "2026-09-11T23:45:00Z",
       "severity": "critical",
-      "mag": 15.44
+      "mag": 15.41
     },
     {
       "id": "MCGA2",
-      "title": "Kuskokwim River at McGrath - action (19.98 ft)",
+      "title": "Kuskokwim River at McGrath - action (19.99 ft)",
       "lat": 62.9521517,
       "lon": -155.5887347,
-      "time": "2026-09-11T21:00:00Z",
+      "time": "2026-09-12T00:00:00Z",
       "severity": "critical",
-      "mag": 19.98
-    },
-    {
-      "id": "ULRA2",
-      "title": "Norton Sound Tide Gauge at Unalakleet (MHHW datum) - minor (4.07 ft)",
-      "lat": 63.871388888889,
-      "lon": -160.78388888889,
-      "time": "2026-09-11T21:30:00Z",
-      "severity": "critical",
-      "mag": 4.07
+      "mag": 19.99
     },
     {
       "id": "WULA2",
-      "title": "Wulik River below Tutak Creek near Kivalina - minor (11.75 ft)",
+      "title": "Wulik River below Tutak Creek near Kivalina - minor (12.48 ft)",
       "lat": 67.876111111111,
       "lon": -163.67444444444,
-      "time": "2026-09-11T21:30:00Z",
+      "time": "2026-09-11T23:30:00Z",
       "severity": "critical",
-      "mag": 11.75
-    },
-    {
-      "id": "CRBP4",
-      "title": "Canal de Riego de Lajas at Bo. Betances - action (1.7 ft)",
-      "lat": 18.036870653,
-      "lon": -67.1317676,
-      "time": "2026-09-11T21:45:00Z",
-      "severity": "critical",
-      "mag": 1.7
+      "mag": 12.48
     },
     {
       "id": "FAJP4",
       "title": "Rio Fajardo near Fajardo - low threshold (2.78 ft)",
       "lat": 18.29696026,
       "lon": -65.693434,
-      "time": "2026-09-11T21:45:00Z",
+      "time": "2026-09-12T00:45:00Z",
       "severity": "warning",
       "mag": 2.78
     },
@@ -61,7 +52,7 @@
       "title": "Rio Mameyes near Sabana - low threshold (2 ft)",
       "lat": 18.3268221,
       "lon": -65.75042089,
-      "time": "2026-09-11T22:00:00Z",
+      "time": "2026-09-12T00:00:00Z",
       "severity": "warning",
       "mag": 2
     },
@@ -70,7 +61,7 @@
       "title": "Rio Guadiana near Guadiana - low threshold (1.63 ft)",
       "lat": 18.29941118,
       "lon": -66.2281929,
-      "time": "2026-09-11T21:30:00Z",
+      "time": "2026-09-11T23:30:00Z",
       "severity": "warning",
       "mag": 1.63
     },
@@ -79,7 +70,7 @@
       "title": "Rio Humacao at Las Piedras - low threshold (0.38 ft)",
       "lat": 18.17207287,
       "lon": -65.8690463,
-      "time": "2026-09-11T22:00:00Z",
+      "time": "2026-09-12T00:00:00Z",
       "severity": "warning",
       "mag": 0.38
     }
