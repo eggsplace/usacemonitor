@@ -6,7 +6,13 @@ let radarTimestamp = null; // track current timestamp so we only update when it 
 
 async function addWeatherRadar() {
   try {
-    const res = await fetch('https://api.rainviewer.com/public/weather-maps.json');
+    // { cache: 'no-store' } forces a genuinely fresh request every time. Without it, the
+    // browser's normal HTTP caching can silently reuse an old cached response to this same
+    // URL — which is exactly what was happening: tile requests were being built from a
+    // metadata response cached months earlier, producing a frame timestamp RainViewer had
+    // long since purged (their frames only live ~2 hours), which is why those tiles came
+    // back 410 Gone.
+    const res = await fetch('https://api.rainviewer.com/public/weather-maps.json', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
@@ -38,7 +44,8 @@ async function addWeatherRadar() {
       radarLayer = L.tileLayer(tileUrl, {
         opacity: 0.65,
         zIndex: 500,
-        attribution: 'Radar © RainViewer'
+        attribution: 'Radar © RainViewer',
+        maxNativeZoom: 7 // RainViewer's documented max zoom for these tiles
       }).addTo(map);
       radarTimestamp = latestTime;
       console.log('RainViewer: radar overlay added', latestTime);
