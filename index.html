@@ -399,6 +399,16 @@ const WILDFIRE_MAX_AGE_DAYS = 14;        // drop stale/lingering records
 
 async function fetchWildfireData() {
   try {
+    // NIFC's own service documentation explicitly warns against relative-date queries —
+    // "any reference to CURRENT_TIMESTAMP... puts undue load on the service and may render
+    // it temporarily unavailable." An earlier version of this query used exactly that
+    // pattern (CURRENT_TIMESTAMP - INTERVAL), which was likely being silently rejected —
+    // producing zero results with no visible error, since a failed/empty response looks the
+    // same as "no fires currently match." Computing the cutoff date here instead and
+    // sending it as a fixed literal avoids the discouraged pattern entirely.
+    const cutoff = new Date(Date.now() - WILDFIRE_MAX_AGE_DAYS * 24 * 60 * 60 * 1000);
+    const cutoffStr = cutoff.toISOString().slice(0, 19).replace('T', ' '); // "YYYY-MM-DD HH:MM:SS"
+
     // Each added condition is wrapped with "field IS NULL OR ..." so a fire isn't excluded
     // just because WFIGS hasn't populated that particular field yet for it — per the request,
     // these filters only apply "if that data is available."
@@ -406,7 +416,7 @@ async function fetchWildfireData() {
       `IncidentTypeCategory='WF'`, // wildfires only — excludes RX prescribed burns and CX complexes
       `IncidentSize>=${WILDFIRE_MIN_ACRES}`,
       `(PercentContained IS NULL OR PercentContained<${WILDFIRE_MAX_CONTAINMENT_PCT})`,
-      `(FireDiscoveryDateTime IS NULL OR FireDiscoveryDateTime>=CURRENT_TIMESTAMP - INTERVAL '${WILDFIRE_MAX_AGE_DAYS}' DAY)`
+      `(FireDiscoveryDateTime IS NULL OR FireDiscoveryDateTime>=TIMESTAMP '${cutoffStr}')`
     ].join(' AND ');
 
     const params = new URLSearchParams({
