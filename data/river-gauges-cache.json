@@ -1,87 +1,105 @@
 {
-  "generatedAt": "2026-09-13T16:12:00.763Z",
-  "count": 9,
+  "generatedAt": "2026-09-13T19:24:55.907Z",
+  "count": 11,
   "events": [
     {
       "id": "BETA2",
-      "title": "Kuskokwim River at Bethel - action (7.26 ft)",
+      "title": "Kuskokwim River at Bethel - action (7.17 ft)",
       "lat": 60.793333333333,
       "lon": -161.74555555556,
-      "time": "2026-09-13T14:50:00Z",
+      "time": "2026-09-13T18:50:00Z",
       "severity": "critical",
-      "mag": 7.26
+      "mag": 7.17
     },
     {
       "id": "MCGA2",
-      "title": "Kuskokwim River at McGrath - action (19.82 ft)",
+      "title": "Kuskokwim River at McGrath - action (19.72 ft)",
       "lat": 62.9521517,
       "lon": -155.5887347,
-      "time": "2026-09-13T15:00:00Z",
+      "time": "2026-09-13T18:00:00Z",
       "severity": "critical",
-      "mag": 19.82
+      "mag": 19.72
     },
     {
       "id": "CNAP4",
-      "title": "Rio Canovanas near Campo Rico - low threshold (2.18 ft)",
+      "title": "Rio Canovanas near Campo Rico - low threshold (2.17 ft)",
       "lat": 18.31648528,
       "lon": -65.88852228,
-      "time": "2026-09-13T15:15:00Z",
+      "time": "2026-09-13T18:15:00Z",
       "severity": "warning",
-      "mag": 2.18
+      "mag": 2.17
+    },
+    {
+      "id": "COAP4",
+      "title": "Rio Coamo at Coamo - low threshold (4.57 ft)",
+      "lat": 18.08152279,
+      "lon": -66.3544338,
+      "time": "2026-09-13T18:00:00Z",
+      "severity": "warning",
+      "mag": 4.57
     },
     {
       "id": "FAJP4",
-      "title": "Rio Fajardo near Fajardo - low threshold (2.77 ft)",
+      "title": "Rio Fajardo near Fajardo - low threshold (2.76 ft)",
       "lat": 18.29696026,
       "lon": -65.693434,
-      "time": "2026-09-13T15:45:00Z",
+      "time": "2026-09-13T18:45:00Z",
       "severity": "warning",
-      "mag": 2.77
+      "mag": 2.76
     },
     {
       "id": "GUTP4",
       "title": "Rio Gurabo below El Mango - low threshold (7.25 ft)",
       "lat": 18.23216426,
       "lon": -65.8849385,
-      "time": "2026-09-13T15:00:00Z",
+      "time": "2026-09-13T18:00:00Z",
       "severity": "warning",
       "mag": 7.25
     },
     {
       "id": "MSAP4",
-      "title": "Rio Mameyes near Sabana - low threshold (1.96 ft)",
+      "title": "Rio Mameyes near Sabana - low threshold (1.93 ft)",
       "lat": 18.3268221,
       "lon": -65.75042089,
-      "time": "2026-09-13T15:00:00Z",
+      "time": "2026-09-13T18:00:00Z",
       "severity": "warning",
-      "mag": 1.96
+      "mag": 1.93
     },
     {
       "id": "PIEP4",
-      "title": "Rio Humacao at Las Piedras - low threshold (0.36 ft)",
+      "title": "Rio Humacao at Las Piedras - low threshold (0.37 ft)",
       "lat": 18.17207287,
       "lon": -65.8690463,
-      "time": "2026-09-13T15:00:00Z",
+      "time": "2026-09-13T18:00:00Z",
       "severity": "warning",
-      "mag": 0.36
+      "mag": 0.37
     },
     {
       "id": "PRTP4",
       "title": "Rio Portugues near Tibes - low threshold (4.1 ft)",
       "lat": 18.09789468,
       "lon": -66.64248707,
-      "time": "2026-09-13T15:00:00Z",
+      "time": "2026-09-13T18:00:00Z",
       "severity": "warning",
       "mag": 4.1
     },
     {
       "id": "TRUP4",
-      "title": "Rio Grande De Loiza below Dam - low threshold (2.66 ft)",
+      "title": "Rio Grande De Loiza below Dam - low threshold (2.65 ft)",
       "lat": 18.3402753,
       "lon": -66.00558468,
-      "time": "2026-09-13T14:45:00Z",
+      "time": "2026-09-13T17:45:00Z",
       "severity": "warning",
-      "mag": 2.66
+      "mag": 2.65
+    },
+    {
+      "id": "VERP4",
+      "title": "Rio Grande nr Verde at Rio Grande - low threshold (4.78 ft)",
+      "lat": 18.34341485,
+      "lon": -65.8415914,
+      "time": "2026-09-13T18:45:00Z",
+      "severity": "warning",
+      "mag": 4.78
     }
   ]
 }
