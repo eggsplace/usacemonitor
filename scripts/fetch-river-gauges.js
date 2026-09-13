@@ -14,11 +14,15 @@ const path = require('path');
 const RIVER_FLOOD_STATUSES = ['action', 'minor', 'moderate', 'major'];
 const OUTPUT_PATH = path.join(__dirname, '..', 'data', 'river-gauges-cache.json');
 
-// Same regions used for the earthquake feed in index.html — NWPS covers CONUS, Alaska,
-// Hawaii, and Puerto Rico, so we query each bounding box separately and merge results
-// (the API doesn't support an antimeridian-crossing single box for Alaska's Aleutians).
+// Same regions used for the earthquake feed in index.html, but CONUS is split into four
+// quadrants rather than one request — a single bbox covering the entire Lower 48 is by far
+// the largest and heaviest of these queries, and the most likely one to silently fail,
+// time out, or get truncated server-side while the much smaller AK/HI/PR queries succeed.
 const REGIONS = {
-  conus:      { xmin: -125,   ymin: 24.5, xmax: -66.9, ymax: 49.4 },
+  conus_nw:   { xmin: -125,   ymin: 36.95,ymax: 49.4,  xmax: -95.95 },
+  conus_ne:   { xmin: -95.95, ymin: 36.95,ymax: 49.4,  xmax: -66.9 },
+  conus_sw:   { xmin: -125,   ymin: 24.5, ymax: 36.95, xmax: -95.95 },
+  conus_se:   { xmin: -95.95, ymin: 24.5, ymax: 36.95, xmax: -66.9 },
   alaska_w:   { xmin: -180,   ymin: 51,   xmax: -129,  ymax: 72 },
   alaska_e:   { xmin: 165,    ymin: 51,   xmax: 180,   ymax: 72 }, // Aleutians east of the antimeridian
   hawaii:     { xmin: -161,   ymin: 18,   xmax: -154,  ymax: 23 },
@@ -34,13 +38,24 @@ async function fetchRegion(name, box) {
     'srid': 'EPSG_4326'
   });
   const url = `https://api.water.noaa.gov/nwps/v1/gauges?${params}`;
-  const res = await fetch(url, { headers: { 'User-Agent': 'usacemonitor (github.com/eggsplace/usacemonitor)' } });
-  if (!res.ok) {
-    console.warn(`NWPS request failed for region "${name}": HTTP ${res.status}`);
+  try {
+    const res = await fetch(url, { headers: { 'User-Agent': 'usacemonitor (github.com/eggsplace/usacemonitor)' } });
+    if (!res.ok) {
+      console.warn(`NWPS request failed for region "${name}": HTTP ${res.status}`);
+      return [];
+    }
+    const data = await res.json();
+    const gauges = data.gauges || [];
+    // Visible in the Actions run log — makes it obvious at a glance if one region silently
+    // returned nothing while others succeeded, instead of only seeing the final merged total.
+    console.log(`NWPS region "${name}": ${gauges.length} gauge(s) returned`);
+    return gauges;
+  } catch (err) {
+    // A network-level failure (timeout, DNS, etc.) on one region shouldn't take down the
+    // whole run — log it and let the other regions still succeed.
+    console.warn(`NWPS request threw for region "${name}":`, err.message);
     return [];
   }
-  const data = await res.json();
-  return data.gauges || [];
 }
 
 async function main() {
