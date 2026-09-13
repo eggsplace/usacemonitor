@@ -257,7 +257,7 @@ aside {
             <input type="checkbox" id="filter-storms" onchange="updateLayerDisplay()"> Storms
           </label>
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-            <input type="checkbox" id="filter-weather" onchange="updateLayerDisplay()"> Weather Alerts
+            <input type="checkbox" id="filter-hurricanes" onchange="updateLayerDisplay()"> Hurricanes
           </label>
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
             <input type="checkbox" id="filter-disasters" onchange="updateLayerDisplay()"> Disasters
@@ -429,6 +429,10 @@ async function fetchWildfireData() {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
+    // Diagnostic: check the browser console (F12) if this layer is unexpectedly empty —
+    // this shows exactly how many raw features WFIGS returned before any client-side
+    // mapping, and the query URL you can paste directly into a browser tab to inspect.
+    console.log(`Wildfires: WFIGS returned ${(data.features || []).length} matching incident(s). Query: ${url}`);
 
     return (data.features || []).map(f => {
       const p = f.properties;
@@ -553,7 +557,7 @@ async function fetchNOAAAlerts() {
               // instead of the generic weather-alert glyph.
               const eventName = (props.event || '').toLowerCase();
               let alertType = 'weather';
-              if (eventName.includes('hurricane')) alertType = 'hurricane';
+              if (eventName.includes('hurricane') || eventName.includes('typhoon') || eventName.includes('cyclone')) alertType = 'hurricane';
               else if (eventName.includes('tropical storm')) alertType = 'tropical-storm';
               else if (eventName.includes('tsunami')) alertType = 'tsunami';
               else if (eventName.includes('flash flood') || eventName.includes('flood advisory')) alertType = 'flood-alert';
@@ -750,7 +754,7 @@ function renderEvents(events) {
 // Contingency sub-layer filter state
 const layerFilters = {
   'earthquakes': true, 'gauges': true, 'wildfires': false,
-  'storms': false, 'weather': false, 'disasters': false
+  'storms': false, 'hurricanes': false, 'disasters': false
 };
 
 window.toggleAllLayers = function(enable) {
@@ -767,7 +771,7 @@ window.updateLayerDisplay = function() {
   layerFilters['gauges'] = document.getElementById('filter-gauges').checked;
   layerFilters['wildfires'] = document.getElementById('filter-wildfires').checked;
   layerFilters['storms'] = document.getElementById('filter-storms').checked;
-  layerFilters['weather'] = document.getElementById('filter-weather').checked;
+  layerFilters['hurricanes'] = document.getElementById('filter-hurricanes').checked;
   layerFilters['disasters'] = document.getElementById('filter-disasters').checked;
   applyCurrentFilter();
 };
@@ -790,8 +794,12 @@ function applyCurrentFilter() {
       if (evt.type === 'seismic') return layerFilters['earthquakes'];
       if (evt.type === 'river-gauge') return layerFilters['gauges'];
       if (evt.type === 'fire') return layerFilters['wildfires'];
-      if (evt.type === 'hurricane' || evt.type === 'tropical-storm') return layerFilters['storms'];
-      if (evt.type === 'weather' || evt.type === 'tsunami' || evt.type === 'flood-alert' || evt.type === 'severe-weather') return layerFilters['weather'];
+      // "Storms" now covers general storm-related alerts (severe thunderstorm, flash
+      // flood/flood advisory, tsunamis, and any other generic NOAA alert). "Hurricanes"
+      // (renamed from the old generic "Weather Alerts") is now specifically tropical
+      // cyclone systems — hurricanes, tropical storms, typhoons/cyclones.
+      if (evt.type === 'severe-weather' || evt.type === 'weather' || evt.type === 'flood-alert' || evt.type === 'tsunami') return layerFilters['storms'];
+      if (evt.type === 'hurricane' || evt.type === 'tropical-storm') return layerFilters['hurricanes'];
       if (evt.type === 'disaster') return layerFilters['disasters'];
       return false;
     });
