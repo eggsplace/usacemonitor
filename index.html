@@ -93,7 +93,7 @@ header {
 
 /* Tactical Sidebar */
 aside {
-  width: 400px;
+  width: 300px;
   background: var(--bg-panel);
   border-left: 1px solid var(--border);
   display: flex;
@@ -496,38 +496,51 @@ async function fetchSeismicData() {
   }
 }
 
-async function fetchReliefWebDisasters() {
+async function fetchOpenFEMADisasters() {
   try {
-    const res = await fetch('https://reliefweb.int/api/v1/disasters?appname=usace-monitor&limit=50&filter[operator]=AND&filter[0][field]=status&filter[0][value]=current');
+    // FEMA's GIS-hosted "Designated Counties" layer, not the OpenFEMA REST API — this is a
+    // live snapshot of currently designated counties (no date filtering needed, unlike the
+    // REST API's full historical archive), and it's polygon-based per county with a
+    // centroid the query can return directly, giving real per-county coordinates instead of
+    // a rough state-level guess.
+    const params = new URLSearchParams({
+      where: '1=1',
+      outFields: 'name,state_name,dec_number,designate,fema_postdate,region',
+      returnCentroid: 'true',
+      outSR: '4326',
+      f: 'json'
+    });
+    const url = `https://gis.fema.gov/arcgis/rest/services/FEMA/DECS_ALL/FeatureServer/0/query?${params}`;
+    const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    const events = [];
-    if (data.data && Array.isArray(data.data)) {
-      data.data.forEach(disaster => {
-        const primary = disaster.fields;
-        if (primary.locations && Array.isArray(primary.locations) && primary.locations.length > 0) {
-          primary.locations.forEach(loc => {
-            if (loc.geolocation && loc.geolocation.latitude && loc.geolocation.longitude) {
-              events.push({
-                id: disaster.id,
-                type: 'disaster',
-                topCategory: 'contingency',
-                title: `${primary.name}`,
-                coords: [loc.geolocation.latitude, loc.geolocation.longitude],
-                time: primary.date && primary.date.created ?
-                  new Date(primary.date.created).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' :
-                  new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
-                severity: primary.status === 'current' ? 'critical' : 'warning',
-                mag: 5
-              });
-            }
-          });
-        }
-      });
-    }
-    return events;
+    const rows = data.features || [];
+    console.log(`Disasters: FEMA DECS_ALL returned ${rows.length} designated county record(s). Query: ${url}`);
+
+    return rows.map(f => {
+      const p = f.attributes;
+      const centroid = f.centroid;
+      if (!centroid) return null; // shouldn't happen with returnCentroid=true, but guard anyway
+
+      // "designate" holds the assistance type for this county — IA (Individual Assistance)
+      // means direct aid to residents/households, generally the more acute case; PA-only
+      // (Public Assistance) is infrastructure/government-facility focused.
+      const designation = p.designate || '';
+      const isIndividualAssistance = designation.includes('IA');
+
+      return {
+        id: `${p.dec_number}-${p.name}-${p.state_name}`,
+        type: 'disaster',
+        topCategory: 'contingency',
+        title: `${p.name || 'Unknown County'}, ${p.state_name || ''} - ${designation || 'Declared'} (${p.dec_number || 'n/a'})`,
+        coords: [centroid.y, centroid.x],
+        time: p.fema_postdate ? new Date(p.fema_postdate).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
+        severity: isIndividualAssistance ? 'critical' : 'warning',
+        mag: 5
+      };
+    }).filter(Boolean);
   } catch (err) {
-    console.error("Failed to load ReliefWeb disasters:", err);
+    console.error("Failed to load FEMA designated county data:", err);
     return [];
   }
 }
@@ -924,18 +937,18 @@ function toggleDayNight() {
 // ---- Initialize Feeds ----
 
 async function init() {
-  const [seismic, riverGauges, wildfires, reliefWeb, noaaAlerts, civilWorks, supportUnits, programs] = await Promise.all([
+  const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, civilWorks, supportUnits, programs] = await Promise.all([
     fetchSeismicData(),
     fetchRiverGaugeData(),
     fetchWildfireData(),
-    fetchReliefWebDisasters(),
+    fetchOpenFEMADisasters(),
     fetchNOAAAlerts(),
     fetchManualCategory('civil-works'),
     fetchManualCategory('support-units'),
     fetchManualCategory('programs')
   ]);
 
-  allEvents = [...seismic, ...riverGauges, ...wildfires, ...reliefWeb, ...noaaAlerts, ...civilWorks, ...supportUnits, ...programs];
+  allEvents = [...seismic, ...riverGauges, ...wildfires, ...openFemaDisasters, ...noaaAlerts, ...civilWorks, ...supportUnits, ...programs];
   applyCurrentFilter();
   document.getElementById('feed-count').innerText = 'ONLINE';
 
