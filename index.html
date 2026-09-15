@@ -393,7 +393,9 @@ async function fetchRiverGaugeData() {
 // Wildfire incident data from NIFC's Wildland Fire Interagency Geospatial Services (WFIGS) —
 // the authoritative federal source, free and public with no API key needed. Reference:
 // https://data-nifc.opendata.arcgis.com/
-const WILDFIRE_MIN_ACRES = 10000;       // only large fires
+const WILDFIRE_MIN_ACRES = 1000;        // lowered from 10,000 — that combined with the
+                                         // containment and age filters below was excluding
+                                         // nearly everything
 const WILDFIRE_MAX_CONTAINMENT_PCT = 90; // drop fires that are effectively wrapped up
 const WILDFIRE_MAX_AGE_DAYS = 14;        // drop stale/lingering records
 
