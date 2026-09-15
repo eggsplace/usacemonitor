@@ -396,7 +396,7 @@ async function fetchRiverGaugeData() {
 const WILDFIRE_MIN_ACRES = 1000;        // lowered from 10,000 — that combined with the
                                          // containment and age filters below was excluding
                                          // nearly everything
-const WILDFIRE_MAX_CONTAINMENT_PCT = 90; // drop fires that are effectively wrapped up
+const WILDFIRE_MAX_CONTAINMENT_PCT = 95; // drop fires that are effectively wrapped up
 const WILDFIRE_MAX_AGE_DAYS = 14;        // drop stale/lingering records
 
 async function fetchWildfireData() {
@@ -665,8 +665,8 @@ function renderEvents(events) {
       iconColor = evt.severity === 'critical' ? '#3aa0ff' : '#FFC000'; // flood = blue, low water = FFC000
       iconBgColor = evt.severity === 'critical' ? 'rgba(58, 160, 255, 0.2)' : 'rgba(255, 192, 0, 0.2)';
     } else if (evt.type === 'flood-alert') {
-      iconColor = '#3aa0ff'; // same flood blue as flood-stage river gauges, overriding severity color
-      iconBgColor = 'rgba(58, 160, 255, 0.2)';
+      iconColor = '#ff3344'; // red — distinguishes flash flood/flood advisory alerts from flood-stage river gauges (blue)
+      iconBgColor = 'rgba(255, 51, 68, 0.2)';
     } else {
       iconColor = evt.severity === 'critical' ? '#ff3344' : evt.severity === 'good' ? '#00ff66' : '#ffaa00';
       iconBgColor = evt.severity === 'critical' ? 'rgba(255, 51, 68, 0.2)' : evt.severity === 'good' ? 'rgba(0, 255, 102, 0.2)' : 'rgba(255, 170, 0, 0.2)';
@@ -734,7 +734,7 @@ function renderEvents(events) {
     }
 
     const card = document.createElement('div');
-    const cardClass = isRiverGauge ? (evt.severity === 'critical' ? 'flood-stage' : 'low-water') : (evt.type === 'flood-alert' ? 'flood-stage' : evt.severity);
+    const cardClass = isRiverGauge ? (evt.severity === 'critical' ? 'flood-stage' : 'low-water') : (evt.type === 'flood-alert' ? 'critical' : evt.severity);
     card.className = `event-card ${cardClass}`;
     let inner = `<div><strong>${evt.title}</strong></div>`;
     if (evt.subcategory) inner += `<div class="event-subline">${evt.subcategory}</div>`;
