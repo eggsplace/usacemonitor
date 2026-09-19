@@ -10,7 +10,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <!-- Leaflet Terminator (Day/Night overlay) - from CDN -->
-<script src="https://unpkg.com/leaflet-terminator/L.Terminator.js"></script>
+<script src="https://unpkg.com/@joergdietrich/leaflet.terminator"></script>
 
 <!-- Font Awesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -925,8 +925,12 @@ function addDayNightTerminator() {
       return;
     }
     if (terminatorLayer) map.removeLayer(terminatorLayer);
+    // Note: @joergdietrich/leaflet.terminator takes standard Leaflet Path style options
+    // (opacity, weight, color, fillColor, fillOpacity) — it computes the current time
+    // automatically on creation, so no 'time' option is needed; recreating it fresh on each
+    // periodic refresh (see the 60s interval below) is what keeps it up to date.
     terminatorLayer = L.terminator({
-      time: new Date(), opacity: 0.25, weight: 2, color: '#333333',
+      opacity: 0.25, weight: 2, color: '#333333',
       fillColor: '#000000', fillOpacity: 0.15
     }).addTo(map);
     document.getElementById('daynight-status').innerText = 'on';
