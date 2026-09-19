@@ -564,7 +564,7 @@ async function fetchNOAAAlerts() {
     const data = await res.json();
     const events = [];
     if (data.features && Array.isArray(data.features)) {
-      data.features.slice(0, 100).forEach(alert => {
+      data.features.forEach(alert => {
         try {
           const props = alert.properties;
           if (alert.geometry && alert.geometry.coordinates && alert.geometry.coordinates.length > 0) {
@@ -615,6 +615,12 @@ async function fetchNOAAAlerts() {
         }
       });
     }
+    // Diagnostic: breaks down how many alerts of each type came back this fetch. Check this
+    // if Hurricanes/Storms show nothing — an empty count for a given type most likely means
+    // no active NOAA alert of that kind right now, not a broken link.
+    const typeCounts = {};
+    events.forEach(e => { typeCounts[e.type] = (typeCounts[e.type] || 0) + 1; });
+    console.log('NOAA alerts by type:', typeCounts);
     return events;
   } catch (err) {
     console.error("Failed to load NOAA alerts:", err);
@@ -836,8 +842,8 @@ function applyCurrentFilter() {
       // flood/flood advisory, tsunamis, and any other generic NOAA alert). "Hurricanes"
       // (renamed from the old generic "Weather Alerts") is now specifically tropical
       // cyclone systems — hurricanes, tropical storms, typhoons/cyclones.
-      if (evt.type === 'severe-weather' || evt.type === 'weather' || evt.type === 'flash-flood' || evt.type === 'flood-warning' || evt.type === 'tsunami') return layerFilters['storms'];
-      if (evt.type === 'hurricane' || evt.type === 'tropical-storm') return layerFilters['hurricanes'];
+      if (evt.type === 'severe-weather' || evt.type === 'weather' || evt.type === 'flash-flood' || evt.type === 'flood-warning') return layerFilters['storms'];
+      if (evt.type === 'hurricane' || evt.type === 'tropical-storm' || evt.type === 'tsunami') return layerFilters['hurricanes'];
       if (evt.type === 'disaster') return layerFilters['disasters'];
       return false;
     });
