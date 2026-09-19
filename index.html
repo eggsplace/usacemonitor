@@ -580,14 +580,20 @@ async function fetchNOAAAlerts() {
             }
             if (coords && coords.length >= 2) {
               // NOAA's alerts feed lumps everything under one generic feed — categorize by the
-              // event name so hurricanes, tropical storms, and tsunamis get their own icons
-              // instead of the generic weather-alert glyph.
+              // event name so hurricanes, tropical storms, tsunamis, and flood alerts get their
+              // own icons instead of the generic weather-alert glyph.
               const eventName = (props.event || '').toLowerCase();
+
+              // Special Weather Statements are too vague to be operationally meaningful on
+              // their own — skip them entirely rather than marking them with any icon.
+              if (eventName.includes('special weather statement')) return;
+
               let alertType = 'weather';
               if (eventName.includes('hurricane') || eventName.includes('typhoon') || eventName.includes('cyclone')) alertType = 'hurricane';
               else if (eventName.includes('tropical storm')) alertType = 'tropical-storm';
               else if (eventName.includes('tsunami')) alertType = 'tsunami';
-              else if (eventName.includes('flash flood') || eventName.includes('flood advisory')) alertType = 'flood-alert';
+              else if (eventName.includes('flash flood')) alertType = 'flash-flood';
+              else if (eventName.includes('flood warning') || eventName.includes('flood advisory')) alertType = 'flood-warning';
               else if (eventName.includes('severe thunderstorm')) alertType = 'severe-weather';
 
               events.push({
@@ -689,9 +695,12 @@ function renderEvents(events) {
     if (isRiverGauge) {
       iconColor = evt.severity === 'critical' ? '#3aa0ff' : '#FFC000'; // flood = blue, low water = FFC000
       iconBgColor = evt.severity === 'critical' ? 'rgba(58, 160, 255, 0.2)' : 'rgba(255, 192, 0, 0.2)';
-    } else if (evt.type === 'flood-alert') {
-      iconColor = '#ff3344'; // red — distinguishes flash flood/flood advisory alerts from flood-stage river gauges (blue)
+    } else if (evt.type === 'flash-flood') {
+      iconColor = '#ff3344'; // red — flash floods are the more acute, fast-onset hazard
       iconBgColor = 'rgba(255, 51, 68, 0.2)';
+    } else if (evt.type === 'flood-warning') {
+      iconColor = '#3aa0ff'; // blue — flood warnings/advisories, matching flood-stage river gauges
+      iconBgColor = 'rgba(58, 160, 255, 0.2)';
     } else {
       iconColor = evt.severity === 'critical' ? '#ff3344' : evt.severity === 'good' ? '#00ff66' : '#ffaa00';
       iconBgColor = evt.severity === 'critical' ? 'rgba(255, 51, 68, 0.2)' : evt.severity === 'good' ? 'rgba(0, 255, 102, 0.2)' : 'rgba(255, 170, 0, 0.2)';
@@ -706,7 +715,8 @@ function renderEvents(events) {
         case 'fire': faIcon = 'fa-fire'; break;
         case 'hurricane': faIcon = 'fa-wind'; break;
         case 'weather': faIcon = 'fa-cloud-bolt'; break;
-        case 'flood-alert': faIcon = 'fa-water'; break;
+        case 'flash-flood': faIcon = 'fa-water'; break;
+        case 'flood-warning': faIcon = 'fa-water'; break;
         case 'severe-weather': faIcon = 'fa-cloud-bolt'; break;
         case 'disaster': faIcon = 'fa-triangle-exclamation'; break;
         case 'civil-works': faIcon = 'fa-diagram-project'; break;
@@ -716,7 +726,7 @@ function renderEvents(events) {
       }
       // Flash flood / flood advisory alerts get a thicker ring so they stand out from the
       // rest of the weather-alert markers, matching the flood-blue used elsewhere.
-      const borderWidth = evt.type === 'flood-alert' ? 3 : 1;
+      const borderWidth = (evt.type === 'flash-flood' || evt.type === 'flood-warning') ? 3 : 1;
       const fontSize = Math.round(iconSize * 0.5);
       const half = iconSize / 2;
 
@@ -731,7 +741,8 @@ function renderEvents(events) {
         'hurricane': 'hurricane.png',
         'tropical-storm': 'tropical_storm.png',
         'tsunami': 'tsunami.png',
-        'flood-alert': 'flood.png',
+        'flash-flood': 'flood.png',
+        'flood-warning': 'flood.png',
         'fire': 'wildfire.png',
         'severe-weather': 'storm.png'
       };
@@ -740,9 +751,9 @@ function renderEvents(events) {
         const file = CUSTOM_ICON_BY_TYPE[evt.type];
         innerHtml = `<img src="assets/icons/${file}" alt="${evt.type}" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
       } else if (isFloodGauge) {
-        innerHtml = `<img src="assets/icons/flood.png" alt="Flood stage" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
+        innerHtml = `<img src="assets/icons/high_water.png" alt="High water" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
       } else if (isLowWaterGauge) {
-        innerHtml = `<img src="assets/icons/drought.png" alt="Low water" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
+        innerHtml = `<img src="assets/icons/low_water.png" alt="Low water" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
       } else {
         innerHtml = `<i class="fas ${faIcon}" style="color: ${iconColor}; font-size: ${fontSize}px;"></i>`;
       }
@@ -759,7 +770,7 @@ function renderEvents(events) {
     }
 
     const card = document.createElement('div');
-    const cardClass = isRiverGauge ? (evt.severity === 'critical' ? 'flood-stage' : 'low-water') : (evt.type === 'flood-alert' ? 'critical' : evt.severity);
+    const cardClass = isRiverGauge ? (evt.severity === 'critical' ? 'flood-stage' : 'low-water') : (evt.type === 'flash-flood' ? 'critical' : evt.type === 'flood-warning' ? 'flood-stage' : evt.severity);
     card.className = `event-card ${cardClass}`;
     let inner = `<div><strong>${evt.title}</strong></div>`;
     if (evt.subcategory) inner += `<div class="event-subline">${evt.subcategory}</div>`;
@@ -825,7 +836,7 @@ function applyCurrentFilter() {
       // flood/flood advisory, tsunamis, and any other generic NOAA alert). "Hurricanes"
       // (renamed from the old generic "Weather Alerts") is now specifically tropical
       // cyclone systems — hurricanes, tropical storms, typhoons/cyclones.
-      if (evt.type === 'severe-weather' || evt.type === 'weather' || evt.type === 'flood-alert' || evt.type === 'tsunami') return layerFilters['storms'];
+      if (evt.type === 'severe-weather' || evt.type === 'weather' || evt.type === 'flash-flood' || evt.type === 'flood-warning' || evt.type === 'tsunami') return layerFilters['storms'];
       if (evt.type === 'hurricane' || evt.type === 'tropical-storm') return layerFilters['hurricanes'];
       if (evt.type === 'disaster') return layerFilters['disasters'];
       return false;
