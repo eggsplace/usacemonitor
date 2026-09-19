@@ -496,15 +496,27 @@ async function fetchSeismicData() {
   }
 }
 
+// Only show counties designated within this window — the layer's own description calls it
+// "current" but it actually returns the full historical archive (confirmed by inspecting a
+// live response: results included a Puerto Rico earthquake declaration from January 2020),
+// and without a filter the query also hits FEMA's transfer limit and silently truncates.
+// 180 days is more generous than the wildfire/river-gauge windows since federal disaster
+// recovery designations commonly stay active for months, not days.
+const DISASTER_MAX_AGE_DAYS = 180;
+
 async function fetchOpenFEMADisasters() {
   try {
-    // FEMA's GIS-hosted "Designated Counties" layer, not the OpenFEMA REST API — this is a
-    // live snapshot of currently designated counties (no date filtering needed, unlike the
-    // REST API's full historical archive), and it's polygon-based per county with a
-    // centroid the query can return directly, giving real per-county coordinates instead of
-    // a rough state-level guess.
+    // FEMA's GIS-hosted "Designated Counties" layer, not the OpenFEMA REST API — it's
+    // polygon-based per county with a centroid the query can return directly, giving real
+    // per-county coordinates instead of a rough state-level guess. Cutoff computed here as a
+    // fixed literal date rather than a relative expression — same lesson learned from the
+    // wildfire query: passing something like CURRENT_TIMESTAMP to a government API's query
+    // parser is a good way to get silently empty or truncated results.
+    const cutoff = new Date(Date.now() - DISASTER_MAX_AGE_DAYS * 24 * 60 * 60 * 1000);
+    const cutoffStr = cutoff.toISOString().slice(0, 19).replace('T', ' ');
+
     const params = new URLSearchParams({
-      where: '1=1',
+      where: `fema_postdate >= TIMESTAMP '${cutoffStr}'`,
       outFields: 'name,state_name,dec_number,designate,fema_postdate,region',
       returnCentroid: 'true',
       outSR: '4326',
@@ -515,7 +527,7 @@ async function fetchOpenFEMADisasters() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     const rows = data.features || [];
-    console.log(`Disasters: FEMA DECS_ALL returned ${rows.length} designated county record(s). Query: ${url}`);
+    console.log(`Disasters: FEMA DECS_ALL returned ${rows.length} designated county record(s) within the last ${DISASTER_MAX_AGE_DAYS} days. exceededTransferLimit: ${data.exceededTransferLimit || false}. Query: ${url}`);
 
     return rows.map(f => {
       const p = f.attributes;
