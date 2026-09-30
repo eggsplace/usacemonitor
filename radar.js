@@ -24,11 +24,15 @@ async function addWeatherRadar() {
     }
 
     const latestFrame = data.radar.past[data.radar.past.length - 1];
-    const latestTime = String(latestFrame.time);
+    const latestTime = String(latestFrame.time); // used only to detect whether the frame changed
     const host = data.host || 'https://tilecache.rainviewer.com';
 
-    // Tile pattern used by RainViewer
-    const tileUrl = `${host}/v2/radar/${latestTime}/256/{z}/{x}/{y}/2/1_1.png`;
+    // RainViewer changed their tile URL scheme: it's no longer just /v2/radar/{timestamp}/...
+    // — each frame now carries its own official "path" segment (which can be a hash, not
+    // necessarily the raw timestamp), and that exact path must be used as provided. Building
+    // the URL by hand from the timestamp is what was silently breaking every tile request.
+    const tileUrl = `${host}${latestFrame.path}/256/{z}/{x}/{y}/2/1_1.png`;
+    console.log('RainViewer: latest frame path is', latestFrame.path, '— tile URL pattern:', tileUrl);
 
     // If we already have a layer, update URL (so browser re-requests new tiles)
     if (radarLayer) {
