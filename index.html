@@ -1017,13 +1017,13 @@ function toggleDayNight() {
 // ---- Initialize Feeds ----
 
 async function init() {
-  const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, civilWorks, supportUnits, programs] = await Promise.all([
+const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, civilWorks, supportUnits, programs] = await Promise.all([
     fetchSeismicData(),
     fetchRiverGaugeData(),
     fetchWildfireData(),
     fetchOpenFEMADisasters(),
     fetchNOAAAlerts(),
-    fetchManualCategory('civil-works'),
+    fetchCivilWorksData(), // Now hitting the live NID API
     fetchManualCategory('support-units'),
     fetchManualCategory('programs')
   ]);
