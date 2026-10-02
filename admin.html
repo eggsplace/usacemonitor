@@ -37,7 +37,7 @@ header a { color: var(--accent-cyan); text-decoration: none; font-size: 12px; }
 .wrap { max-width: 960px; margin: 0 auto; padding: 20px; }
 .category-tabs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 6px;
   margin-bottom: 20px;
 }
@@ -136,19 +136,19 @@ header a { color: var(--accent-cyan); text-decoration: none; font-size: 12px; }
   </div>
 
   <div class="category-tabs">
-    <button class="cat-btn" data-cat="programs">MILITARY PROGRAMS</button>
+    <button class="cat-btn active" data-cat="programs">MILITARY PROGRAMS</button>
     <button class="cat-btn" data-cat="support-units">SUPPORT UNITS</button>
   </div>
 
   <div class="panel">
-    <h2 id="form-title">New Civil Works Entry</h2>
+    <h2 id="form-title">New Entry</h2>
     <form id="entry-form">
       <input type="hidden" id="entry-id">
 
       <div class="field-row full">
         <div class="field">
           <label>Title</label>
-          <input type="text" id="f-title" required placeholder="e.g. Herbert Hoover Dike Rehabilitation">
+          <input type="text" id="f-title" required placeholder="e.g. TF Castle support to TF Sentinel">
         </div>
       </div>
 
@@ -205,11 +205,11 @@ header a { color: var(--accent-cyan); text-decoration: none; font-size: 12px; }
   </div>
 
   <div class="panel entry-list">
-    <h2 id="list-title">Civil Works Entries</h2>
+    <h2 id="list-title">Entries</h2>
     <div id="entries-container"></div>
 
     <div class="export-row">
-      <button class="btn" id="export-btn">Export civil-works.json</button>
+      <button class="btn" id="export-btn">Export</button>
       <label class="btn secondary" style="cursor:pointer;">
         Import JSON
         <input type="file" id="import-input" accept="application/json" class="hidden">
@@ -425,8 +425,7 @@ document.querySelectorAll('.cat-btn').forEach(btn => {
 });
 
 // Init
-populateSubcatOptions();
-renderEntries();
+switchCategory(activeCat); // Explicitly setup initial state
 </script>
 
 </body>
