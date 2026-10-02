@@ -631,11 +631,58 @@ async function fetchNOAAAlerts() {
 // ---- Manually-entered data feeds (Civil Works / Military Ops / Support Units / Programs) ----
 // These are populated via admin.html and exported to /data/<file>.json, then committed to the repo.
 
+// 'civil-works' is now automated via the NID API; only Support Units and Programs remain manual.
 const MANUAL_CATEGORIES = {
-  'civil-works': { file: 'data/civil-works.json', label: 'Civil Works' },
   'support-units': { file: 'data/support-units.json', label: 'Support Units' },
   'programs': { file: 'data/military-programs.json', label: 'Military Programs' }
 };
+
+// ---- Automated Civil Works Feed (National Inventory of Dams) ----
+async function fetchCivilWorksData() {
+  try {
+    // Querying the public USACE NID FeatureServer for Federal-owned dams.
+    const params = new URLSearchParams({
+      where: "PRIMARY_OWNER_TYPE = 'Federal'", 
+      outFields: 'NAME,NIDID,HAZARD_POTENTIAL,RIVER,DATA_UPDATED',
+      outSR: '4326',
+      f: 'geojson',
+      resultRecordCount: '1500' // Cap to prevent exceeding transfer limits
+    });
+    
+    const url = `https://geospatial.sec.usace.army.mil/dls/rest/services/NID/National_Inventory_of_Dams_Public_Service/FeatureServer/0/query?${params}`;
+    const res = await fetch(url);
+    
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    
+    console.log(`Civil Works: NID returned ${(data.features || []).length} Federal dam records.`);
+
+    return (data.features || []).map(f => {
+      const p = f.properties;
+      const hazard = p.HAZARD_POTENTIAL || 'Unknown';
+      
+      // Color code by hazard classification
+      const severity = hazard === 'High' ? 'critical' : (hazard === 'Significant' ? 'warning' : 'good');
+      
+      return {
+        id: p.NIDID || f.id,
+        type: 'civil-works',
+        topCategory: 'civil-works',
+        title: p.NAME ? `${p.NAME} Dam` : 'Unnamed Federal Dam',
+        subcategory: `Hazard Rating: ${hazard} | River: ${p.RIVER || 'N/A'}`,
+        coords: f.geometry && f.geometry.coordinates ? [f.geometry.coordinates[1], f.geometry.coordinates[0]] : null,
+        time: p.DATA_UPDATED ? new Date(p.DATA_UPDATED).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
+        severity: severity,
+        mag: hazard === 'High' ? 5 : 3,
+        // Link directly to the official NID dossier for this specific dam
+        link: `https://nid.sec.usace.army.mil/#/dams/system/${p.NIDID}/summary`
+      };
+    });
+  } catch (err) {
+    console.error("Failed to load NID Civil Works data:", err);
+    return [];
+  }
+}
 
 function statusToSeverity(status) {
   if (status === 'delayed') return 'critical';
