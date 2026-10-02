@@ -113,7 +113,7 @@ aside {
 /* Top-level category tabs */
 .top-cat-tabs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 3px;
   padding: 8px;
   border-bottom: 1px solid var(--border);
@@ -231,7 +231,6 @@ aside {
     <!-- Top-level category tabs -->
     <div class="top-cat-tabs">
       <button class="top-cat-btn active" data-cat="contingency">CONTIN-<br>GENCY</button>
-      <button class="top-cat-btn" data-cat="civil-works">CIVIL<br>WORKS</button>
       <button class="top-cat-btn" data-cat="programs">MIL<br>PROGRAMS</button>
       <button class="top-cat-btn" data-cat="support-units">SUPPORT<br>UNITS</button>
     </div>
@@ -262,6 +261,9 @@ aside {
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
             <input type="checkbox" id="filter-disasters" onchange="updateLayerDisplay()"> Disasters
           </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-civil-works" onchange="updateLayerDisplay()"> Civil Works
+          </label>
         </div>
       </div>
 
@@ -276,10 +278,6 @@ aside {
         <button id="daynight-toggle" class="filter-btn" onclick="toggleDayNight()">DAY/NIGHT</button>
         <span id="daynight-status" style="color: var(--text-dim); font-size:11px;">off</span>
       </div>
-
-      <!-- SAT toggle removed — the base map itself is now MapTiler's satellite hybrid imagery,
-           making a separate NASA GIBS overlay redundant (it would just layer one satellite
-           image over another). -->
     </div>
 
     <div class="events-list" id="events-feed">
@@ -302,43 +300,15 @@ updateClock();
 
 // 2. Initialize Map (centered on USA)
 const map = L.map('map', { center: [39, -98], zoom: 4, zoomControl: false });
-// Removes Leaflet's own "Leaflet" self-promotional prefix (which includes a Ukraine-flag
-// credit by default) from the attribution control. This is separate from — and doesn't
-// affect — the actual required attributions for MapTiler, OpenStreetMap, and RainViewer,
-// which are set per-layer below and stay intact.
 map.attributionControl.setPrefix(false);
-// Base map: MapTiler's hybrid satellite imagery (raster tiles). We went through three
-// free/unauthenticated options before this — OpenStreetMap's own tile server (blocked by
-// their usage policy for a live public site), CARTO's dark basemap (now requires a key,
-// and even with one still hit the same zoom-cap issue — CARTO is retiring this raster
-// service), and Esri's legacy dark gray canvas (Esri has been pushing developers off this
-// exact legacy endpoint too, toward their own newer key-based service). All three "free"
-// options turned out to be in some stage of the same industry-wide move away from free
-// unauthenticated tile serving. MapTiler is used here as a properly-provisioned, key-based
-// provider from the start rather than continuing to chase free options likely to hit the
-// same wall eventually.
-//
-// Sign up for a free key at https://cloud.maptiler.com and paste it below. The key shown
-// in MapTiler's own documentation examples is their public demo key — it won't work here,
-// since it's typically restricted to MapTiler's own domain.
+
 const MAPTILER_API_KEY = 'qUsMKrQQt9RdGj760Jgm';
 const osmLayer = L.tileLayer(`https://api.maptiler.com/maps/hybrid-v4/256/{z}/{x}/{y}.jpg?key=${MAPTILER_API_KEY}`, {
   attribution: '&copy; MapTiler &copy; OpenStreetMap contributors',
-  // Unlike a drawn/cartographic map style, satellite imagery resolution isn't uniform —
-  // cities and populated areas often have much higher-resolution source photography than
-  // remote rural regions. Zooming in over a sparsely populated area can hit tiles where
-  // that deeper resolution was never captured, and MapTiler serves a "Zoom Level Not
-  // Supported" placeholder for that specific tile (while a nearby city tile at the same
-  // zoom loads fine). Capping maxNativeZoom conservatively avoids relying on deeper zoom
-  // levels that aren't reliably available everywhere; Leaflet stretches the zoom-13 tile
-  // for closer zooms instead of requesting resolution that may not exist for that spot.
   maxNativeZoom: 13,
   maxZoom: 20
 }).addTo(map);
 
-// Base marker size (20px — 25% larger than the previous fixed 16px) at the map's starting
-// zoom level (4). Markers scale up when zooming in and down when zooming out, clamped to a
-// sensible range so they never disappear or get comically large.
 const BASE_ICON_SIZE = 20;
 const BASE_ZOOM = 4;
 const MIN_ICON_SIZE = 14;
@@ -351,8 +321,6 @@ function getZoomScaledIconSize() {
   return Math.min(MAX_ICON_SIZE, Math.max(MIN_ICON_SIZE, size));
 }
 
-// Leaflet doesn't automatically resize divIcon markers on zoom — rebuild them at the
-// newly-scaled size whenever the zoom level changes.
 map.on('zoomend', () => {
   if (typeof applyCurrentFilter === 'function') applyCurrentFilter();
 });
@@ -363,12 +331,6 @@ let terminatorLayer = null;
 
 // ---- Live data feeds (Contingency Ops) ----
 
-// River gauge data comes from a static file (data/river-gauges-cache.json) that a GitHub
-// Actions workflow (.github/workflows/update-river-gauges.yml) regenerates once an hour by
-// calling NOAA's National Water Prediction Service (NWPS) API server-side. NWPS is free and
-// requires no API key, but we still fetch it server-side rather than from the browser to
-// keep visitor page loads from generating repeated calls to a small government service.
-// Only gauges in low-water or flood-stage status are included — see scripts/fetch-river-gauges.js.
 async function fetchRiverGaugeData() {
   try {
     const res = await fetch('data/river-gauges-cache.json', { cache: 'no-store' });
@@ -390,32 +352,17 @@ async function fetchRiverGaugeData() {
   }
 }
 
-// Wildfire incident data from NIFC's Wildland Fire Interagency Geospatial Services (WFIGS) —
-// the authoritative federal source, free and public with no API key needed. Reference:
-// https://data-nifc.opendata.arcgis.com/
-const WILDFIRE_MIN_ACRES = 1000;        // lowered from 10,000 — that combined with the
-                                         // containment and age filters below was excluding
-                                         // nearly everything
-const WILDFIRE_MAX_CONTAINMENT_PCT = 95; // drop fires that are effectively wrapped up
-const WILDFIRE_MAX_AGE_DAYS = 14;        // drop stale/lingering records
+const WILDFIRE_MIN_ACRES = 1000;
+const WILDFIRE_MAX_CONTAINMENT_PCT = 95;
+const WILDFIRE_MAX_AGE_DAYS = 14;
 
 async function fetchWildfireData() {
   try {
-    // NIFC's own service documentation explicitly warns against relative-date queries —
-    // "any reference to CURRENT_TIMESTAMP... puts undue load on the service and may render
-    // it temporarily unavailable." An earlier version of this query used exactly that
-    // pattern (CURRENT_TIMESTAMP - INTERVAL), which was likely being silently rejected —
-    // producing zero results with no visible error, since a failed/empty response looks the
-    // same as "no fires currently match." Computing the cutoff date here instead and
-    // sending it as a fixed literal avoids the discouraged pattern entirely.
     const cutoff = new Date(Date.now() - WILDFIRE_MAX_AGE_DAYS * 24 * 60 * 60 * 1000);
-    const cutoffStr = cutoff.toISOString().slice(0, 19).replace('T', ' '); // "YYYY-MM-DD HH:MM:SS"
+    const cutoffStr = cutoff.toISOString().slice(0, 19).replace('T', ' ');
 
-    // Each added condition is wrapped with "field IS NULL OR ..." so a fire isn't excluded
-    // just because WFIGS hasn't populated that particular field yet for it — per the request,
-    // these filters only apply "if that data is available."
     const whereClause = [
-      `IncidentTypeCategory='WF'`, // wildfires only — excludes RX prescribed burns and CX complexes
+      `IncidentTypeCategory='WF'`,
       `IncidentSize>=${WILDFIRE_MIN_ACRES}`,
       `(PercentContained IS NULL OR PercentContained<${WILDFIRE_MAX_CONTAINMENT_PCT})`,
       `(FireDiscoveryDateTime IS NULL OR FireDiscoveryDateTime>=TIMESTAMP '${cutoffStr}')`
@@ -431,9 +378,6 @@ async function fetchWildfireData() {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    // Diagnostic: check the browser console (F12) if this layer is unexpectedly empty —
-    // this shows exactly how many raw features WFIGS returned before any client-side
-    // mapping, and the query URL you can paste directly into a browser tab to inspect.
     console.log(`Wildfires: WFIGS returned ${(data.features || []).length} matching incident(s). Query: ${url}`);
 
     return (data.features || []).map(f => {
@@ -460,16 +404,12 @@ async function fetchWildfireData() {
 
 async function fetchSeismicData() {
   try {
-    // 2.5+ magnitude over the last day — the old 4.5+ threshold rarely triggers for the US on any
-    // given day, so real activity (which happens most often in Alaska) wasn't showing up at all.
     const res = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson');
     const data = await res.json();
 
-    // The old single bounding box only covered the Lower 48. US seismic activity is concentrated
-    // in Alaska and Hawaii, so we check against multiple regions instead of one CONUS box.
     function isInUSTerritory(lat, lon) {
       const conus = lat >= 24.5 && lat <= 49.4 && lon >= -125 && lon <= -66.9;
-      const alaska = lat >= 51 && lat <= 72 && (lon <= -129 || lon >= 165); // Aleutians cross the antimeridian
+      const alaska = lat >= 51 && lat <= 72 && (lon <= -129 || lon >= 165);
       const hawaii = lat >= 18 && lat <= 23 && lon >= -161 && lon <= -154;
       const puertoRico = lat >= 17 && lat <= 19 && lon >= -68 && lon <= -64;
       return conus || alaska || hawaii || puertoRico;
@@ -496,22 +436,10 @@ async function fetchSeismicData() {
   }
 }
 
-// Only show counties designated within this window — the layer's own description calls it
-// "current" but it actually returns the full historical archive (confirmed by inspecting a
-// live response: results included a Puerto Rico earthquake declaration from January 2020),
-// and without a filter the query also hits FEMA's transfer limit and silently truncates.
-// 180 days is more generous than the wildfire/river-gauge windows since federal disaster
-// recovery designations commonly stay active for months, not days.
 const DISASTER_MAX_AGE_DAYS = 180;
 
 async function fetchOpenFEMADisasters() {
   try {
-    // FEMA's GIS-hosted "Designated Counties" layer, not the OpenFEMA REST API — it's
-    // polygon-based per county with a centroid the query can return directly, giving real
-    // per-county coordinates instead of a rough state-level guess. Cutoff computed here as a
-    // fixed literal date rather than a relative expression — same lesson learned from the
-    // wildfire query: passing something like CURRENT_TIMESTAMP to a government API's query
-    // parser is a good way to get silently empty or truncated results.
     const cutoff = new Date(Date.now() - DISASTER_MAX_AGE_DAYS * 24 * 60 * 60 * 1000);
     const cutoffStr = cutoff.toISOString().slice(0, 19).replace('T', ' ');
 
@@ -532,11 +460,8 @@ async function fetchOpenFEMADisasters() {
     return rows.map(f => {
       const p = f.attributes;
       const centroid = f.centroid;
-      if (!centroid) return null; // shouldn't happen with returnCentroid=true, but guard anyway
+      if (!centroid) return null;
 
-      // "designate" holds the assistance type for this county — IA (Individual Assistance)
-      // means direct aid to residents/households, generally the more acute case; PA-only
-      // (Public Assistance) is infrastructure/government-facility focused.
       const designation = p.designate || '';
       const isIndividualAssistance = designation.includes('IA');
 
@@ -579,13 +504,7 @@ async function fetchNOAAAlerts() {
               return;
             }
             if (coords && coords.length >= 2) {
-              // NOAA's alerts feed lumps everything under one generic feed — categorize by the
-              // event name so hurricanes, tropical storms, tsunamis, and flood alerts get their
-              // own icons instead of the generic weather-alert glyph.
               const eventName = (props.event || '').toLowerCase();
-
-              // Special Weather Statements are too vague to be operationally meaningful on
-              // their own — skip them entirely rather than marking them with any icon.
               if (eventName.includes('special weather statement')) return;
 
               let alertType = 'weather';
@@ -615,9 +534,6 @@ async function fetchNOAAAlerts() {
         }
       });
     }
-    // Diagnostic: breaks down how many alerts of each type came back this fetch. Check this
-    // if Hurricanes/Storms show nothing — an empty count for a given type most likely means
-    // no active NOAA alert of that kind right now, not a broken link.
     const typeCounts = {};
     events.forEach(e => { typeCounts[e.type] = (typeCounts[e.type] || 0) + 1; });
     console.log('NOAA alerts by type:', typeCounts);
@@ -628,25 +544,15 @@ async function fetchNOAAAlerts() {
   }
 }
 
-// ---- Manually-entered data feeds (Civil Works / Military Ops / Support Units / Programs) ----
-// These are populated via admin.html and exported to /data/<file>.json, then committed to the repo.
-
-// 'civil-works' is now automated via the NID API; only Support Units and Programs remain manual.
-const MANUAL_CATEGORIES = {
-  'support-units': { file: 'data/support-units.json', label: 'Support Units' },
-  'programs': { file: 'data/military-programs.json', label: 'Military Programs' }
-};
-
 // ---- Automated Civil Works Feed (National Inventory of Dams) ----
 async function fetchCivilWorksData() {
   try {
-    // Querying the public USACE NID FeatureServer for Federal-owned dams.
     const params = new URLSearchParams({
       where: "PRIMARY_OWNER_TYPE = 'Federal'", 
       outFields: 'NAME,NIDID,HAZARD_POTENTIAL,RIVER,DATA_UPDATED',
       outSR: '4326',
       f: 'geojson',
-      resultRecordCount: '1500' // Cap to prevent exceeding transfer limits
+      resultRecordCount: '1500' 
     });
     
     const url = `https://geospatial.sec.usace.army.mil/dls/rest/services/NID/National_Inventory_of_Dams_Public_Service/FeatureServer/0/query?${params}`;
@@ -660,21 +566,18 @@ async function fetchCivilWorksData() {
     return (data.features || []).map(f => {
       const p = f.properties;
       const hazard = p.HAZARD_POTENTIAL || 'Unknown';
-      
-      // Color code by hazard classification
       const severity = hazard === 'High' ? 'critical' : (hazard === 'Significant' ? 'warning' : 'good');
       
       return {
         id: p.NIDID || f.id,
         type: 'civil-works',
-        topCategory: 'civil-works',
+        topCategory: 'contingency',
         title: p.NAME ? `${p.NAME} Dam` : 'Unnamed Federal Dam',
         subcategory: `Hazard Rating: ${hazard} | River: ${p.RIVER || 'N/A'}`,
         coords: f.geometry && f.geometry.coordinates ? [f.geometry.coordinates[1], f.geometry.coordinates[0]] : null,
         time: p.DATA_UPDATED ? new Date(p.DATA_UPDATED).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
         severity: severity,
         mag: hazard === 'High' ? 5 : 3,
-        // Link directly to the official NID dossier for this specific dam
         link: `https://nid.sec.usace.army.mil/#/dams/system/${p.NIDID}/summary`
       };
     });
@@ -684,11 +587,17 @@ async function fetchCivilWorksData() {
   }
 }
 
+// ---- Manually-entered data feeds (Military Ops / Support Units / Programs) ----
+const MANUAL_CATEGORIES = {
+  'support-units': { file: 'data/support-units.json', label: 'Support Units' },
+  'programs': { file: 'data/military-programs.json', label: 'Military Programs' }
+};
+
 function statusToSeverity(status) {
   if (status === 'delayed') return 'critical';
   if (status === 'at-risk') return 'warning';
   if (status === 'complete') return 'good';
-  return 'good'; // on-track
+  return 'good';
 }
 
 async function fetchManualCategory(catKey) {
@@ -740,19 +649,15 @@ function renderEvents(events) {
 
   events.forEach(evt => {
     const isRiverGauge = evt.type === 'river-gauge';
-
-    // River gauges use water-specific colors (yellow=low water, blue=flood).
-    // All markers now share the same compact size/border weight (previously only river
-    // gauges used this smaller size — the original 32px/2px markers read as oversized).
     let iconColor, iconBgColor;
     if (isRiverGauge) {
-      iconColor = evt.severity === 'critical' ? '#3aa0ff' : '#FFC000'; // flood = blue, low water = FFC000
+      iconColor = evt.severity === 'critical' ? '#3aa0ff' : '#FFC000';
       iconBgColor = evt.severity === 'critical' ? 'rgba(58, 160, 255, 0.2)' : 'rgba(255, 192, 0, 0.2)';
     } else if (evt.type === 'flash-flood') {
-      iconColor = '#ff3344'; // red — flash floods are the more acute, fast-onset hazard
+      iconColor = '#ff3344';
       iconBgColor = 'rgba(255, 51, 68, 0.2)';
     } else if (evt.type === 'flood-warning') {
-      iconColor = '#3aa0ff'; // blue — flood warnings/advisories, matching flood-stage river gauges
+      iconColor = '#3aa0ff';
       iconBgColor = 'rgba(58, 160, 255, 0.2)';
     } else {
       iconColor = evt.severity === 'critical' ? '#ff3344' : evt.severity === 'good' ? '#00ff66' : '#ffaa00';
@@ -777,16 +682,10 @@ function renderEvents(events) {
         case 'programs': faIcon = 'fa-layer-group'; break;
         default: faIcon = 'fa-circle';
       }
-      // Flash flood / flood advisory alerts get a thicker ring so they stand out from the
-      // rest of the weather-alert markers, matching the flood-blue used elsewhere.
       const borderWidth = (evt.type === 'flash-flood' || evt.type === 'flood-warning') ? 3 : 1;
       const fontSize = Math.round(iconSize * 0.5);
       const half = iconSize / 2;
 
-      // Earthquakes, river gauges (flood or low-water), hurricanes, tropical storms,
-      // tsunamis, and flash flood/flood advisory alerts all use custom illustrated icons
-      // instead of Font Awesome glyphs. The colored ring (from iconBgColor/iconColor
-      // above) still reflects severity; only the inner symbol changes.
       const isFloodGauge = isRiverGauge && evt.severity === 'critical';
       const isLowWaterGauge = isRiverGauge && evt.severity === 'warning';
       const CUSTOM_ICON_BY_TYPE = {
@@ -842,10 +741,9 @@ function renderEvents(events) {
   });
 }
 
-// Contingency sub-layer filter state
 const layerFilters = {
   'earthquakes': true, 'gauges': true, 'wildfires': false,
-  'storms': false, 'hurricanes': false, 'disasters': false
+  'storms': false, 'hurricanes': false, 'disasters': false, 'civil-works': false
 };
 
 window.toggleAllLayers = function(enable) {
@@ -864,6 +762,7 @@ window.updateLayerDisplay = function() {
   layerFilters['storms'] = document.getElementById('filter-storms').checked;
   layerFilters['hurricanes'] = document.getElementById('filter-hurricanes').checked;
   layerFilters['disasters'] = document.getElementById('filter-disasters').checked;
+  layerFilters['civil-works'] = document.getElementById('filter-civil-works').checked;
   applyCurrentFilter();
 };
 
@@ -872,7 +771,6 @@ window.updateLayerDisplay = function() {
 let topCategory = 'contingency';
 const CATEGORY_LABELS = {
   'contingency': 'CONTINGENCY OPS',
-  'civil-works': 'CIVIL WORKS',
   'support-units': 'SUPPORT UNITS',
   'programs': 'MILITARY PROGRAMS'
 };
@@ -885,13 +783,10 @@ function applyCurrentFilter() {
       if (evt.type === 'seismic') return layerFilters['earthquakes'];
       if (evt.type === 'river-gauge') return layerFilters['gauges'];
       if (evt.type === 'fire') return layerFilters['wildfires'];
-      // "Storms" now covers general storm-related alerts (severe thunderstorm, flash
-      // flood/flood advisory, tsunamis, and any other generic NOAA alert). "Hurricanes"
-      // (renamed from the old generic "Weather Alerts") is now specifically tropical
-      // cyclone systems — hurricanes, tropical storms, typhoons/cyclones.
       if (evt.type === 'severe-weather' || evt.type === 'weather' || evt.type === 'flash-flood' || evt.type === 'flood-warning') return layerFilters['storms'];
       if (evt.type === 'hurricane' || evt.type === 'tropical-storm' || evt.type === 'tsunami') return layerFilters['hurricanes'];
       if (evt.type === 'disaster') return layerFilters['disasters'];
+      if (evt.type === 'civil-works') return layerFilters['civil-works'];
       return false;
     });
   } else {
@@ -938,9 +833,6 @@ function setRadarButtonState(enabled) {
   else { btn.classList.remove('active'); btn.innerText = 'RADAR'; }
 }
 
-// Only running while RADAR is toggled on — previously startRadarAutoRefresh ran
-// unconditionally from page load regardless of this button's state, silently requesting
-// radar tiles in the background even when the UI showed "off".
 let radarRefreshHandle = null;
 
 function toggleRadarUI() {
@@ -972,10 +864,6 @@ function addDayNightTerminator() {
       return;
     }
     if (terminatorLayer) map.removeLayer(terminatorLayer);
-    // Note: @joergdietrich/leaflet.terminator takes standard Leaflet Path style options
-    // (opacity, weight, color, fillColor, fillOpacity) — it computes the current time
-    // automatically on creation, so no 'time' option is needed; recreating it fresh on each
-    // periodic refresh (see the 60s interval below) is what keeps it up to date.
     terminatorLayer = L.terminator({
       opacity: 0.25, weight: 2, color: '#333333',
       fillColor: '#000000', fillOpacity: 0.15
@@ -1017,13 +905,13 @@ function toggleDayNight() {
 // ---- Initialize Feeds ----
 
 async function init() {
-const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, civilWorks, supportUnits, programs] = await Promise.all([
+  const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, civilWorks, supportUnits, programs] = await Promise.all([
     fetchSeismicData(),
     fetchRiverGaugeData(),
     fetchWildfireData(),
     fetchOpenFEMADisasters(),
     fetchNOAAAlerts(),
-    fetchCivilWorksData(), // Now hitting the live NID API
+    fetchCivilWorksData(),
     fetchManualCategory('support-units'),
     fetchManualCategory('programs')
   ]);
