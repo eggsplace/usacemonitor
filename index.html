@@ -199,7 +199,7 @@ aside {
 
 <div class="ticker-bar">
   <span class="label">PRIORITY ALERTS ❯❯</span>
-  <marquee scrollamount="5" id="news-marquee">Monitoring global crisis events, tropical cyclones, river gauges, weather, and civil works in real-time...</marquee>
+  <marquee scrollamount="5" id="news-marquee">Monitoring crisis events, river gauges, weather, hurricanes, civil works, and MILCON in real-time...</marquee>
 </div>
 
 <div class="workspace">
@@ -236,7 +236,7 @@ aside {
             <input type="checkbox" id="filter-storms" onchange="updateLayerDisplay()"> Storms
           </label>
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-            <input type="checkbox" id="filter-hurricanes" onchange="updateLayerDisplay()"> Cyclones / Trop
+            <input type="checkbox" id="filter-hurricanes" onchange="updateLayerDisplay()"> Hurricanes
           </label>
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
             <input type="checkbox" id="filter-disasters" onchange="updateLayerDisplay()"> Disasters
@@ -245,9 +245,15 @@ aside {
             <input type="checkbox" id="filter-civil-works" onchange="updateLayerDisplay()"> Civil Works
           </label>
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-            <input type="checkbox" id="filter-programs" onchange="updateLayerDisplay()"> MILCON / MIL
+            <input type="checkbox" id="filter-programs" onchange="updateLayerDisplay()"> MILCON
           </label>
         </div>
+      </div>
+
+      <!-- Basemap View Mode Switch -->
+      <div class="basemap-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
+        <button id="basemap-toggle" class="filter-btn active" onclick="toggleBasemap()">IMAGERY</button>
+        <span id="basemap-status" style="color: var(--accent-cyan); font-size:11px;">SATELLITE HYBRID</span>
       </div>
 
       <div class="radar-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
@@ -277,15 +283,50 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-const map = L.map('map', { center: [20, 0], zoom: 3, zoomControl: false });
+// Centered on the continental United States and zoomed in to fill frame
+const map = L.map('map', { center: [39.0, -96.5], zoom: 5, zoomControl: false });
 map.attributionControl.setPrefix(false);
 
 const MAPTILER_API_KEY = 'qUsMKrQQt9RdGj760Jgm';
-const osmLayer = L.tileLayer(`https://api.maptiler.com/maps/hybrid-v4/256/{z}/{x}/{y}.jpg?key=${MAPTILER_API_KEY}`, {
+
+// Basemap Layers
+const imageryLayer = L.tileLayer(`https://api.maptiler.com/maps/hybrid-v4/256/{z}/{x}/{y}.jpg?key=${MAPTILER_API_KEY}`, {
   attribution: '&copy; MapTiler &copy; OpenStreetMap',
   maxNativeZoom: 13,
   maxZoom: 20
-}).addTo(map);
+});
+
+const vectorMapLayer = L.tileLayer(`https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=${MAPTILER_API_KEY}`, {
+  attribution: '&copy; MapTiler &copy; OpenStreetMap',
+  maxNativeZoom: 19,
+  maxZoom: 20
+});
+
+// Default to Imagery
+imageryLayer.addTo(map);
+let currentBasemap = 'imagery';
+
+function toggleBasemap() {
+  const btn = document.getElementById('basemap-toggle');
+  const status = document.getElementById('basemap-status');
+  if (currentBasemap === 'imagery') {
+    map.removeLayer(imageryLayer);
+    vectorMapLayer.addTo(map);
+    vectorMapLayer.bringToBack();
+    currentBasemap = 'vector';
+    btn.innerText = 'VECTOR MAP';
+    status.innerText = 'STREETS / VECTOR';
+    status.style.color = 'var(--text-main)';
+  } else {
+    map.removeLayer(vectorMapLayer);
+    imageryLayer.addTo(map);
+    imageryLayer.bringToBack();
+    currentBasemap = 'imagery';
+    btn.innerText = 'IMAGERY';
+    status.innerText = 'SATELLITE HYBRID';
+    status.style.color = 'var(--accent-cyan)';
+  }
+}
 
 const BASE_ICON_SIZE = 20;
 const BASE_ZOOM = 4;
@@ -502,11 +543,10 @@ async function fetchNOAAAlerts() {
   }
 }
 
-// 6. Worldwide Tropical Cyclones / Typhoons / Hurricanes (NHC + CPHC + JTWC Global)
+// 6. Worldwide Hurricanes & Tropical Cyclones
 async function fetchTropicalCyclones() {
   const events = [];
   try {
-    // Queries all active tropical cyclones worldwide (Atlantic, Pacific, Indian Ocean, Southern Hemisphere)
     const pointsUrl = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Active_Hurricanes_v1/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson';
     const linesUrl = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Active_Hurricanes_v1/FeatureServer/2/query?where=1%3D1&outFields=*&f=geojson';
 
@@ -531,7 +571,6 @@ async function fetchTropicalCyclones() {
       const intensity = p.INTENSITY || p.MAXWIND || 0;
       const stormName = (p.STORMNAME || p.NAME || 'Unnamed').toUpperCase();
       
-      // Determine regional terminology (Typhoon for W-Pac, Cyclone for S-Hem/Indian, Hurricane for Atlantic/E-Pac)
       let classification = p.STORMTYPE;
       if (!classification) {
         if (intensity >= 64) {
@@ -558,7 +597,7 @@ async function fetchTropicalCyclones() {
       });
     });
   } catch (err) {
-    console.warn("Global Tropical Cyclone Feed error:", err);
+    console.warn("Tropical Cyclone Feed error:", err);
   }
   return events;
 }
