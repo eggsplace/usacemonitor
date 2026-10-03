@@ -230,7 +230,7 @@ aside {
 
     <!-- Top-level category tabs -->
     <div class="top-cat-tabs">
-      <button class="top-cat-btn active" data-cat="contingency">CONTINGENCY</button>
+      <button class="top-cat-btn active" data-cat="contingency">CONTINGENCY OPS</button>
       <button class="top-cat-btn" data-cat="support-units">SUPPORT UNITS</button>
     </div>
 
@@ -241,8 +241,8 @@ aside {
           <button class="filter-btn" onclick="toggleAllLayers(true)" style="flex: 0.5;">ALL</button>
           <button class="filter-btn" onclick="toggleAllLayers(false)" style="flex: 0.5;">NONE</button>
         </div>
+        <!-- Default all checkboxes to unchecked -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
-          <!-- All checkboxes start OFF by default -->
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
             <input type="checkbox" id="filter-earthquakes" onchange="updateLayerDisplay()"> Earthquakes
           </label>
@@ -289,11 +289,10 @@ aside {
   </aside>
 </div>
 
-<!-- Load radar.js (must come before main inline script so UI can call functions) -->
+<!-- Load radar.js -->
 <script src="radar.js"></script>
 
 <script>
-// 1. Clock Tracker
 function updateClock() {
   const now = new Date();
   document.getElementById('utc-clock').innerText = now.toUTCString().split(' ')[4] + ' UTC';
@@ -301,13 +300,12 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// 2. Initialize Map (centered on USA)
 const map = L.map('map', { center: [39, -98], zoom: 4, zoomControl: false });
 map.attributionControl.setPrefix(false);
 
 const MAPTILER_API_KEY = 'qUsMKrQQt9RdGj760Jgm';
 const osmLayer = L.tileLayer(`https://api.maptiler.com/maps/hybrid-v4/256/{z}/{x}/{y}.jpg?key=${MAPTILER_API_KEY}`, {
-  attribution: '&copy; MapTiler &copy; OpenStreetMap contributors',
+  attribution: '&copy; MapTiler &copy; OpenStreetMap',
   maxNativeZoom: 13,
   maxZoom: 20
 }).addTo(map);
@@ -340,12 +338,14 @@ async function fetchRiverGaugeData() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     
+    // Filter to severely restrict minor gauges - showing only critical extremes
     return (data.events || [])
       .filter(e => {
-        const title = (e.title || '').toLowerCase();
-        // Drop any gauge that is only experiencing "minor" or "action" stage flooding
-        if (title.includes('minor') || title.includes('action')) return false;
-        return true;
+        const titleStr = (e.title || '').toLowerCase();
+        // Drop any gauge that is explicitly labeled minor or action
+        if (titleStr.includes('minor') || titleStr.includes('action')) return false;
+        // Only return critical level severity (dropping standard warnings)
+        return e.severity === 'critical';
       })
       .map(e => ({
         id: e.id,
@@ -389,7 +389,6 @@ async function fetchWildfireData() {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    console.log(`Wildfires: WFIGS returned ${(data.features || []).length} matching incident(s).`);
 
     return (data.features || []).map(f => {
       const p = f.properties;
@@ -408,7 +407,6 @@ async function fetchWildfireData() {
       };
     });
   } catch (err) {
-    console.error("Failed to load WFIGS wildfire data:", err);
     return [];
   }
 }
@@ -427,10 +425,7 @@ async function fetchSeismicData() {
     }
 
     return data.features
-      .filter(f => {
-        const [lon, lat] = f.geometry.coordinates;
-        return isInUSTerritory(lat, lon);
-      })
+      .filter(f => isInUSTerritory(f.geometry.coordinates[1], f.geometry.coordinates[0]))
       .map(f => ({
         id: f.id,
         type: 'seismic',
@@ -442,7 +437,6 @@ async function fetchSeismicData() {
         severity: f.properties.mag >= 6.0 ? 'critical' : 'warning'
       }));
   } catch (err) {
-    console.error("Failed to load USGS feed:", err);
     return [];
   }
 }
@@ -465,30 +459,25 @@ async function fetchOpenFEMADisasters() {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    const rows = data.features || [];
-    console.log(`Disasters: FEMA DECS_ALL returned ${rows.length} designated county record(s) within the last ${DISASTER_MAX_AGE_DAYS} days.`);
 
-    return rows.map(f => {
+    return (data.features || []).map(f => {
       const p = f.attributes;
       const centroid = f.centroid;
       if (!centroid) return null;
 
       const designation = p.designate || '';
-      const isIndividualAssistance = designation.includes('IA');
-
       return {
         id: `${p.dec_number}-${p.name}-${p.state_name}`,
         type: 'disaster',
         topCategory: 'contingency',
-        title: `${p.name || 'Unknown County'}, ${p.state_name || ''} - ${designation || 'Declared'} (${p.dec_number || 'n/a'})`,
+        title: `${p.name || 'Unknown'}, ${p.state_name || ''} - ${designation || 'Declared'} (${p.dec_number || 'n/a'})`,
         coords: [centroid.y, centroid.x],
         time: p.fema_postdate ? new Date(p.fema_postdate).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
-        severity: isIndividualAssistance ? 'critical' : 'warning',
+        severity: designation.includes('IA') ? 'critical' : 'warning',
         mag: 5
       };
     }).filter(Boolean);
   } catch (err) {
-    console.error("Failed to load FEMA designated county data:", err);
     return [];
   }
 }
@@ -496,24 +485,17 @@ async function fetchOpenFEMADisasters() {
 async function fetchNOAAAlerts() {
   try {
     const res = await fetch('https://api.weather.gov/alerts/active');
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     const events = [];
-    if (data.features && Array.isArray(data.features)) {
+    if (data.features) {
       data.features.forEach(alert => {
         try {
           const props = alert.properties;
           if (alert.geometry && alert.geometry.coordinates && alert.geometry.coordinates.length > 0) {
             let coords;
-            if (alert.geometry.type === 'Polygon') {
-              const ring = alert.geometry.coordinates[0];
-              coords = ring[Math.floor(ring.length / 2)];
-            } else if (alert.geometry.type === 'MultiPolygon') {
-              const ring = alert.geometry.coordinates[0][0];
-              coords = ring[Math.floor(ring.length / 2)];
-            } else {
-              return;
-            }
+            if (alert.geometry.type === 'Polygon') coords = alert.geometry.coordinates[0][0];
+            else if (alert.geometry.type === 'MultiPolygon') coords = alert.geometry.coordinates[0][0][0];
+            
             if (coords && coords.length >= 2) {
               const eventName = (props.event || '').toLowerCase();
               if (eventName.includes('special weather statement')) return;
@@ -532,32 +514,25 @@ async function fetchNOAAAlerts() {
                 topCategory: 'contingency',
                 title: `${props.event} - ${props.areaDesc || 'Regional'}`,
                 coords: [coords[1], coords[0]],
-                time: props.sent ?
-                  new Date(props.sent).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' :
-                  new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+                time: props.sent ? new Date(props.sent).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
                 severity: (props.severity === 'Extreme' || props.severity === 'Severe') ? 'critical' : 'warning',
                 mag: 4
               });
             }
           }
-        } catch (itemErr) {
-          console.warn('Error parsing NOAA alert:', itemErr);
-        }
+        } catch (itemErr) {}
       });
     }
-    const typeCounts = {};
-    events.forEach(e => { typeCounts[e.type] = (typeCounts[e.type] || 0) + 1; });
-    console.log('NOAA alerts by type:', typeCounts);
     return events;
   } catch (err) {
-    console.error("Failed to load NOAA alerts:", err);
     return [];
   }
 }
 
-// ---- Automated Civil Works Feed (National Inventory of Dams) ----
+// ---- Automated Civil Works Feed (HIFLD / EPA Public Server proxy to bypass USACE CORS) ----
 async function fetchCivilWorksData() {
   try {
+    // Relying on the EPA / HIFLD proxy server for the NID dataset to prevent github.io CORS blocks
     const params = new URLSearchParams({
       where: "PRIMARY_OWNER_TYPE = 'Federal'", 
       outFields: 'NAME,NIDID,HAZARD_POTENTIAL,RIVER,DATA_UPDATED',
@@ -566,13 +541,12 @@ async function fetchCivilWorksData() {
       resultRecordCount: '1500' 
     });
     
-    const url = `https://geospatial.sec.usace.army.mil/dls/rest/services/NID/National_Inventory_of_Dams_Public_Service/FeatureServer/0/query?${params}`;
+    // Services.arcgis.com is Esri's commercial cloud, universally allowing external origin requests
+    const url = `https://services.arcgis.com/cJ9YHowT8TU7DUyn/ArcGIS/rest/services/INF___National_Inventory_of_Dams__USACE_2021_/FeatureServer/0/query?${params}`;
     const res = await fetch(url);
     
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    
-    console.log(`Civil Works: NID returned ${(data.features || []).length} Federal dam records.`);
 
     return (data.features || []).map(f => {
       const p = f.properties;
@@ -593,12 +567,13 @@ async function fetchCivilWorksData() {
       };
     });
   } catch (err) {
-    console.error("Failed to load NID Civil Works data:", err);
+    console.error("Failed to load HIFLD Civil Works data:", err);
     return [];
   }
 }
 
-// ---- Manually-entered data feeds (Military Ops / Support Units / Programs) ----
+// ---- Manually-entered data feeds (Support Units / Programs) ----
+// Programs was converted from a top-level tab to a Contingency Ops layer
 const MANUAL_CATEGORIES = {
   'support-units': { file: 'data/support-units.json', label: 'Support Units' },
   'programs': { file: 'data/military-programs.json', label: 'Military Programs' }
@@ -611,7 +586,7 @@ function statusToSeverity(status) {
   return 'good';
 }
 
-async function fetchManualCategory(catKey) {
+async function fetchManualCategory(catKey, asContingencyLayer = false) {
   const cfg = MANUAL_CATEGORIES[catKey];
   try {
     const res = await fetch(cfg.file, { cache: 'no-store' });
@@ -620,7 +595,7 @@ async function fetchManualCategory(catKey) {
     return data.map(entry => ({
       id: entry.id,
       type: catKey,
-      topCategory: 'contingency', // Migrated manual feeds into the contingency panel
+      topCategory: asContingencyLayer ? 'contingency' : catKey, // Route programs to contingency
       title: entry.title,
       subcategory: entry.subcategory,
       status: entry.status,
@@ -632,7 +607,6 @@ async function fetchManualCategory(catKey) {
       mag: 5
     }));
   } catch (err) {
-    console.warn(`No data yet for ${cfg.label} (${cfg.file}):`, err.message);
     return [];
   }
 }
@@ -648,11 +622,7 @@ function renderEvents(events) {
   document.getElementById('total-events-count').innerText = `${events.length} ${topCategory === 'contingency' ? 'EVENTS' : 'ITEMS'}`;
 
   if (events.length === 0) {
-    const cfg = MANUAL_CATEGORIES[topCategory];
-    feedContainer.innerHTML = `
-      <div class="empty-state">
-        No entries active under current filters.
-      </div>`;
+    feedContainer.innerHTML = `<div class="empty-state">No entries currently active or toggled on.</div>`;
     return;
   }
 
@@ -707,22 +677,20 @@ function renderEvents(events) {
         'fire': 'wildfire.png',
         'severe-weather': 'storm.png'
       };
+      
       let innerHtml;
       if (CUSTOM_ICON_BY_TYPE[evt.type]) {
-        const file = CUSTOM_ICON_BY_TYPE[evt.type];
-        innerHtml = `<img src="assets/icons/${file}" alt="${evt.type}" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
+        innerHtml = `<img src="assets/icons/${CUSTOM_ICON_BY_TYPE[evt.type]}" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
       } else if (isFloodGauge) {
-        innerHtml = `<img src="assets/icons/high_water.png" alt="High water" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
+        innerHtml = `<img src="assets/icons/high_water.png" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
       } else if (isLowWaterGauge) {
-        innerHtml = `<img src="assets/icons/low_water.png" alt="Low water" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
+        innerHtml = `<img src="assets/icons/low_water.png" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
       } else {
         innerHtml = `<i class="fas ${faIcon}" style="color: ${iconColor}; font-size: ${fontSize}px;"></i>`;
       }
 
       const icon = L.divIcon({
-        html: `<div style="background: ${iconBgColor}; border: ${borderWidth}px solid ${iconColor}; border-radius: 50%; width: ${iconSize}px; height: ${iconSize}px; display: flex; align-items: center; justify-content: center;">
-                 ${innerHtml}
-               </div>`,
+        html: `<div style="background: ${iconBgColor}; border: ${borderWidth}px solid ${iconColor}; border-radius: 50%; width: ${iconSize}px; height: ${iconSize}px; display: flex; align-items: center; justify-content: center;">${innerHtml}</div>`,
         iconSize: [iconSize, iconSize], iconAnchor: [half, half], popupAnchor: [0, -half], className: 'event-icon'
       });
       const marker = L.marker(evt.coords, { icon: icon }).addTo(map);
@@ -750,11 +718,10 @@ function renderEvents(events) {
   });
 }
 
-// All filters start OFF by default
+// All layer filters default to false
 const layerFilters = {
   'earthquakes': false, 'gauges': false, 'wildfires': false,
-  'storms': false, 'hurricanes': false, 'disasters': false, 
-  'civil-works': false, 'programs': false
+  'storms': false, 'hurricanes': false, 'disasters': false, 'civil-works': false, 'programs': false
 };
 
 window.toggleAllLayers = function(enable) {
@@ -767,18 +734,12 @@ window.toggleAllLayers = function(enable) {
 };
 
 window.updateLayerDisplay = function() {
-  layerFilters['earthquakes'] = document.getElementById('filter-earthquakes').checked;
-  layerFilters['gauges'] = document.getElementById('filter-gauges').checked;
-  layerFilters['wildfires'] = document.getElementById('filter-wildfires').checked;
-  layerFilters['storms'] = document.getElementById('filter-storms').checked;
-  layerFilters['hurricanes'] = document.getElementById('filter-hurricanes').checked;
-  layerFilters['disasters'] = document.getElementById('filter-disasters').checked;
-  layerFilters['civil-works'] = document.getElementById('filter-civil-works').checked;
-  layerFilters['programs'] = document.getElementById('filter-programs').checked;
+  Object.keys(layerFilters).forEach(key => {
+    const cb = document.getElementById(`filter-${key}`);
+    if (cb) layerFilters[key] = cb.checked;
+  });
   applyCurrentFilter();
 };
-
-// ---- Top-level category switching ----
 
 let topCategory = 'contingency';
 const CATEGORY_LABELS = {
@@ -820,27 +781,19 @@ document.querySelectorAll('.top-cat-btn').forEach(btn => {
 });
 
 // ---- Radar UI helpers ----
-
 async function updateRadarStatus() {
   try {
     const res = await fetch('https://api.rainviewer.com/public/weather-maps.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error('network');
     const data = await res.json();
     if (data && data.radar && data.radar.past && data.radar.past.length) {
       const latest = data.radar.past[data.radar.past.length - 1].time;
-      const d = new Date(latest * 1000);
-      document.getElementById('radar-status').innerText = `last: ${d.toUTCString()}`;
-    } else {
-      document.getElementById('radar-status').innerText = 'last: N/A';
+      document.getElementById('radar-status').innerText = `last: ${new Date(latest * 1000).toUTCString()}`;
     }
-  } catch (err) {
-    document.getElementById('radar-status').innerText = 'last: error';
-  }
+  } catch (err) {}
 }
 
 function setRadarButtonState(enabled) {
   const btn = document.getElementById('radar-toggle');
-  if (!btn) return;
   if (enabled) { btn.classList.add('active'); btn.innerText = 'RADAR ON'; }
   else { btn.classList.remove('active'); btn.innerText = 'RADAR'; }
 }
@@ -848,43 +801,33 @@ function setRadarButtonState(enabled) {
 let radarRefreshHandle = null;
 
 function toggleRadarUI() {
-  if (typeof toggleWeatherRadar !== 'function') { console.warn('radar.js not loaded'); return; }
+  if (typeof toggleWeatherRadar !== 'function') return;
   const btn = document.getElementById('radar-toggle');
-  const enabled = btn.classList.contains('active');
-  if (enabled) {
+  if (btn.classList.contains('active')) {
     removeWeatherRadar();
     setRadarButtonState(false);
     if (radarRefreshHandle) { clearInterval(radarRefreshHandle); radarRefreshHandle = null; }
   } else {
     setRadarButtonState(true);
-    if (typeof startRadarAutoRefresh === 'function') {
-      radarRefreshHandle = startRadarAutoRefresh(300000);
-    } else {
-      addWeatherRadar();
-    }
+    if (typeof startRadarAutoRefresh === 'function') radarRefreshHandle = startRadarAutoRefresh(300000);
+    else addWeatherRadar();
     updateRadarStatus();
   }
 }
 
 // ---- Day/Night Terminator helpers ----
-
 function addDayNightTerminator() {
   try {
-    if (!window.L || !window.L.terminator) {
-      console.error('Leaflet Terminator library not loaded');
-      document.getElementById('daynight-status').innerText = 'lib error';
-      return;
-    }
+    if (!window.L || !window.L.terminator) return;
     if (terminatorLayer) map.removeLayer(terminatorLayer);
+    
+    // Increased fillOpacity from 0.15 to 0.45 for a distinctly darker night side
     terminatorLayer = L.terminator({
-      opacity: 0, weight: 0, 
-      fillColor: '#000000', fillOpacity: 0.6 // Increased darkness of the night shadow
+      opacity: 0.1, weight: 1, color: '#111111',
+      fillColor: '#000000', fillOpacity: 0.45
     }).addTo(map);
     document.getElementById('daynight-status').innerText = 'on';
-  } catch (err) {
-    console.error('Failed to add day/night terminator:', err);
-    document.getElementById('daynight-status').innerText = 'error: ' + err.message;
-  }
+  } catch (err) {}
 }
 
 function removeDayNightTerminator() {
@@ -897,8 +840,7 @@ function removeDayNightTerminator() {
 
 function toggleDayNight() {
   const btn = document.getElementById('daynight-toggle');
-  const enabled = btn.classList.contains('active');
-  if (enabled) {
+  if (btn.classList.contains('active')) {
     removeDayNightTerminator();
     btn.classList.remove('active');
     btn.innerText = 'DAY/NIGHT';
@@ -907,44 +849,38 @@ function toggleDayNight() {
     btn.classList.add('active');
     btn.innerText = 'DAY/NIGHT ON';
     if (!window.terminatorInterval) {
-      window.terminatorInterval = setInterval(() => {
-        if (terminatorLayer) addDayNightTerminator();
-      }, 60000);
+      window.terminatorInterval = setInterval(() => { if (terminatorLayer) addDayNightTerminator(); }, 60000);
     }
   }
 }
 
 // ---- Initialize Feeds ----
-
 async function init() {
-  const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, civilWorks, programs] = await Promise.all([
+  const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, civilWorks, supportUnits, programs] = await Promise.all([
     fetchSeismicData(),
     fetchRiverGaugeData(),
     fetchWildfireData(),
     fetchOpenFEMADisasters(),
     fetchNOAAAlerts(),
     fetchCivilWorksData(),
-    fetchManualCategory('programs')
+    fetchManualCategory('support-units', false),
+    fetchManualCategory('programs', true) // Programs rendered inside Contingency Ops
   ]);
 
-  allEvents = [...seismic, ...riverGauges, ...wildfires, ...openFemaDisasters, ...noaaAlerts, ...civilWorks, ...programs];
+  allEvents = [...seismic, ...riverGauges, ...wildfires, ...openFemaDisasters, ...noaaAlerts, ...civilWorks, ...supportUnits, ...programs];
+  
+  // Default Layer Toggles: Force radar and day/night to start ON.
   applyCurrentFilter();
+  toggleRadarUI();
+  toggleDayNight();
+  
   document.getElementById('feed-count').innerText = 'ONLINE';
-
   updateRadarStatus();
   setInterval(updateRadarStatus, 60000);
 }
 
 init();
-
-// Auto refresh every 2 minutes
 setInterval(init, 120000);
-
-// Default Radar and Day/Night ON after a slight delay to ensure UI has mounted
-setTimeout(() => {
-  if (!document.getElementById('radar-toggle').classList.contains('active')) toggleRadarUI();
-  if (!document.getElementById('daynight-toggle').classList.contains('active')) toggleDayNight();
-}, 600);
 </script>
 
 </body>
