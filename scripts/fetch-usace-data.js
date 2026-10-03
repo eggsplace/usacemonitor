@@ -137,20 +137,21 @@ async function fetchMilcon() {
   }
 }
 
-// 2. Civil Works Query: Targets EPA/HIFLD Major Federal Dams via ESRI Open Data Hub
+// 2. Civil Works Query: USGS National Hydrography Dataset (NHD) Water Structures & Dams
 async function fetchCivilWorks() {
-  console.log('Querying Public Federal Dams & Civil Works Layer...');
+  console.log('Querying USGS/EPA Public Water Control Structures & Dams...');
   
-  // Queries public Homeland Infrastructure (HIFLD) Open Data server with verified schema
+  // Directly targets USGS NHDPointEvent / Water Structure points (Dams, Locks, Reservoirs)
   const params = new URLSearchParams({
     where: "1=1",
-    outFields: "NAME,STATE,COUNTY,RIVER,HAZARD",
+    outFields: "GNIS_Name,Permanent_Identifier,FType,ReachCode",
+    returnGeometry: "true",
     outSR: "4326",
     f: "json",
     resultRecordCount: "250"
   });
 
-  const url = `https://services1.arcgis.com/Hp6G80Pky0om7QvQ/arcgis/rest/services/National_Inventory_of_Dams/FeatureServer/0/query?${params}`;
+  const url = `https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/0/query?${params}`;
 
   try {
     const res = await fetch(url);
@@ -168,20 +169,19 @@ async function fetchCivilWorks() {
       const geom = f.geometry || {};
       if (!geom.y || !geom.x) return null;
 
-      const hazard = p.HAZARD || 'Moderate';
-      const severity = hazard.toUpperCase().includes('H') ? 'critical' : (hazard.toUpperCase().includes('S') ? 'warning' : 'good');
+      const name = p.GNIS_Name || 'Federal Dam Structure';
 
       return {
-        id: `cw-${i}-${p.NAME ? p.NAME.replace(/\s+/g, '-').slice(0, 20) : i}`,
+        id: p.Permanent_Identifier || `cw-${i}-${Math.random().toString(36).substr(2, 6)}`,
         type: 'civil-works',
         topCategory: 'contingency',
-        title: p.NAME ? `${p.NAME} Dam / Reservoir` : 'Federal Civil Works Structure',
-        subcategory: `River: ${p.RIVER || 'N/A'} | State: ${p.STATE || ''} | Hazard: ${hazard}`,
+        title: `${name} (Civil Works)`,
+        subcategory: `Type: Water Control & Dam Structure | Reach: ${p.ReachCode || 'N/A'}`,
         coords: [geom.y, geom.x],
         time: '',
-        severity: severity,
+        severity: 'good',
         mag: 5,
-        link: 'https://nid.sec.usace.army.mil'
+        link: 'https://www.usace.army.mil/Missions/Civil-Works/'
       };
     }).filter(Boolean);
 
