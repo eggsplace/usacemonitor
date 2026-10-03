@@ -283,8 +283,8 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// Centered on the continental United States and zoomed in to fill frame
-const map = L.map('map', { center: [39.0, -96.5], zoom: 5, zoomControl: false });
+// Centered to frame CONUS, southern Canada, Mexico, the Gulf, and the Caribbean
+const map = L.map('map', { center: [34.0, -96.0], zoom: 4, zoomControl: false });
 map.attributionControl.setPrefix(false);
 
 const MAPTILER_API_KEY = 'qUsMKrQQt9RdGj760Jgm';
