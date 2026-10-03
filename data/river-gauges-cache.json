@@ -1,1057 +1,985 @@
 {
-  "generatedAt": "2026-10-03T06:24:38.432Z",
-  "count": 267,
+  "generatedAt": "2026-10-03T12:28:19.860Z",
+  "count": 255,
   "events": [
     {
       "id": "BANK1",
-      "title": "Little Blue River near Barnes - minor (18.12 ft)",
+      "title": "Little Blue River near Barnes - minor (18.56 ft)",
       "lat": 39.725833333333,
       "lon": -96.804444444444,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 18.12
+      "mag": 18.56
     },
     {
       "id": "BEAN1",
-      "title": "Big Blue River at Beatrice - action (17.93 ft)",
+      "title": "Big Blue River at Beatrice - minor (19.21 ft)",
       "lat": 40.256764,
       "lon": -96.746952,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "critical",
-      "mag": 17.93
+      "mag": 19.21
     },
     {
       "id": "BLRK1",
-      "title": "Big Blue River at Blue Rapids - minor (33.19 ft)",
+      "title": "Big Blue River at Blue Rapids - minor (33.68 ft)",
       "lat": 39.6872222222222,
       "lon": -96.6397222222222,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 33.19
+      "mag": 33.68
     },
     {
       "id": "CNGK1",
-      "title": "Neosho River at Council Grove Lake - action (1280.29 ft)",
+      "title": "Neosho River at Council Grove Lake - action (1280.35 ft)",
       "lat": 38.679166666667,
       "lon": -96.506944444444,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 1280.29
+      "mag": 1280.35
     },
     {
       "id": "CNKK1",
-      "title": "Republican River at Concordia - action (11.77 ft)",
+      "title": "Republican River at Concordia - action (11 ft)",
       "lat": 39.588611111111,
       "lon": -97.658055555556,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 11.77
+      "mag": 11
     },
     {
       "id": "CRTN1",
-      "title": "Big Blue River near Crete - moderate (26.7 ft)",
+      "title": "Big Blue River near Crete - moderate (26.71 ft)",
       "lat": 40.5965,
       "lon": -96.96072,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T10:45:00Z",
       "severity": "critical",
-      "mag": 26.7
+      "mag": 26.71
     },
     {
       "id": "CYCK1",
-      "title": "Republican River at Clay Center - action (13.32 ft)",
+      "title": "Republican River at Clay Center - action (14.26 ft)",
       "lat": 39.355555555556,
       "lon": -97.127222222222,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 13.32
+      "mag": 14.26
     },
     {
       "id": "DCBN8",
-      "title": "Devils Lake near Devils Lake - major (50.02 ft)",
+      "title": "Devils Lake near Devils Lake - major (50.05 ft)",
       "lat": 48.0994444444444,
       "lon": -98.9027777777778,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 50.02
+      "mag": 50.05
     },
     {
       "id": "DEWN1",
-      "title": "Turkey Creek near DeWitt - moderate (26.87 ft)",
+      "title": "Turkey Creek near DeWitt - moderate (26.61 ft)",
       "lat": 40.36718,
       "lon": -96.8896,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T10:45:00Z",
       "severity": "critical",
-      "mag": 26.87
+      "mag": 26.61
     },
     {
       "id": "DRGN1",
-      "title": "West Fork Big Blue River near Dorchester - minor (16.78 ft)",
+      "title": "West Fork Big Blue River near Dorchester - minor (16.46 ft)",
       "lat": 40.7308,
       "lon": -97.177922,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 16.78
+      "mag": 16.46
     },
     {
       "id": "EMPK1",
-      "title": "Cottonwood River at Emporia - action (16.93 ft)",
+      "title": "Cottonwood River at Emporia - action (15.33 ft)",
       "lat": 38.386111111111,
       "lon": -96.181666666667,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 16.93
+      "mag": 15.33
     },
     {
       "id": "ERLN1",
-      "title": "Pawnee Lake - action (1247.85 ft)",
+      "title": "Pawnee Lake - action (1247.66 ft)",
       "lat": 40.8386,
       "lon": -96.8658,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 1247.85
+      "mag": 1247.66
     },
     {
       "id": "ESLN8",
-      "title": "Eastern Stump Lake near Lakota - major (49.89 ft)",
+      "title": "Eastern Stump Lake near Lakota - major (49.92 ft)",
       "lat": 47.8686111111111,
       "lon": -98.3575,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 49.89
+      "mag": 49.92
     },
     {
       "id": "GRFN1",
-      "title": "West Fork Big Blue River near Grafton  - minor (12.82 ft)",
+      "title": "West Fork Big Blue River near Grafton  - minor (12.76 ft)",
       "lat": 40.6816,
       "lon": -97.6912,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 12.82
-    },
-    {
-      "id": "HBGK1",
-      "title": "Little Blue River near Hollenberg - action (15.43 ft)",
-      "lat": 39.980277777778,
-      "lon": -97.004722222222,
-      "time": "2026-10-03T05:00:00Z",
-      "severity": "critical",
-      "mag": 15.43
-    },
-    {
-      "id": "HBON1",
-      "title": "Little Blue River at Hebron - action (12.51 ft)",
-      "lat": 40.161944444444,
-      "lon": -97.576111111111,
-      "time": "2026-10-03T05:15:00Z",
-      "severity": "critical",
-      "mag": 12.51
+      "mag": 12.76
     },
     {
       "id": "HDYN1",
-      "title": "Republican River near Hardy - action (9.64 ft)",
+      "title": "Republican River near Hardy - action (9.98 ft)",
       "lat": 39.9925,
       "lon": -97.931388888889,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 9.64
+      "mag": 9.98
     },
     {
       "id": "HKMN1",
-      "title": "Stagecoach Lake - action (1273.21 ft)",
+      "title": "Stagecoach Lake - action (1273.1 ft)",
       "lat": 40.6058,
       "lon": -96.6372,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 1273.21
+      "mag": 1273.1
     },
     {
       "id": "LAPC2",
-      "title": "Purgatoire River near Las Animas - minor (9.05 ft)",
+      "title": "Purgatoire River near Las Animas - minor (9.3 ft)",
       "lat": 38.0342222,
       "lon": -103.2014167,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 9.05
+      "mag": 9.3
     },
     {
       "id": "LNCN1",
-      "title": "Holmes Lake - action (1245.56 ft)",
+      "title": "Holmes Lake - action (1245.31 ft)",
       "lat": 40.7822,
       "lon": -96.6375,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 1245.56
+      "mag": 1245.31
     },
     {
       "id": "MCBC1",
       "title": "Marsh Creek Reservoir   - action (169.29 ft)",
       "lat": 37.89,
       "lon": -121.72611111111,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
       "mag": 169.29
     },
     {
       "id": "MLDN1",
-      "title": "Wehrspann Lake - minor (1103.25 ft)",
+      "title": "Wehrspann Lake - minor (1103.03 ft)",
       "lat": 41.1727,
       "lon": -96.1508,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 1103.25
+      "mag": 1103.03
     },
     {
       "id": "NEOK1",
-      "title": "Neosho River at Neosho Rapids - action (20.77 ft)",
+      "title": "Neosho River at Neosho Rapids - action (21.14 ft)",
       "lat": 38.368055555556,
       "lon": -96,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 20.77
+      "mag": 21.14
     },
     {
       "id": "OAAN1",
-      "title": "Lake Zorinsky - action (1117.87 ft)",
+      "title": "Lake Zorinsky - action (1117.64 ft)",
       "lat": 41.2175,
       "lon": -96.1611,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 1117.87
+      "mag": 1117.64
     },
     {
       "id": "OAHN1",
-      "title": "Glenn Cunningham Dam - action (1125.64 ft)",
+      "title": "Glenn Cunningham Dam - action (1125.61 ft)",
       "lat": 41.3377,
       "lon": -96.0547,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 1125.64
+      "mag": 1125.61
     },
     {
       "id": "OMAN1",
-      "title": "Standing Bear Lake and Dam - minor (1109.32 ft)",
+      "title": "Standing Bear Lake and Dam - minor (1109.11 ft)",
       "lat": 41.315,
       "lon": -96.1216,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 1109.32
+      "mag": 1109.11
     },
     {
       "id": "PLDN1",
-      "title": "Twin Lakes Reservoir - action (1344.51 ft)",
+      "title": "Twin Lakes Reservoir - action (1344.28 ft)",
       "lat": 40.8253,
       "lon": -96.945,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 1344.51
+      "mag": 1344.28
     },
     {
       "id": "RAYN1",
-      "title": "Branched Oak Reservoir - action (1286.04 ft)",
+      "title": "Branched Oak Reservoir - action (1286.02 ft)",
       "lat": 40.9736,
       "lon": -96.8508,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 1286.04
+      "mag": 1286.02
+    },
+    {
+      "id": "SCRO3",
+      "title": "Steamboat Creek near Glide - low threshold (0 ft)",
+      "lat": 43.349842,
+      "lon": -122.7289415,
+      "time": "2026-10-03T11:30:00Z",
+      "severity": "warning",
+      "mag": 0
+    },
+    {
+      "id": "SHEN1",
+      "title": "Clear Creek near Shelby - action (6.55 ft)",
+      "lat": 41.351944444444,
+      "lon": -97.403055555556,
+      "time": "2026-10-03T11:45:00Z",
+      "severity": "critical",
+      "mag": 6.55
     },
     {
       "id": "SNDK1",
-      "title": "Republican River at Scandia - action (6.61 ft)",
+      "title": "Republican River at Scandia - action (7.02 ft)",
       "lat": 39.798611111111114,
       "lon": -97.79277777777777,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 6.61
+      "mag": 7.02
     },
     {
       "id": "SPGN1",
-      "title": "Bluestem Lake - action (1309.51 ft)",
+      "title": "Bluestem Lake - action (1309.43 ft)",
       "lat": 40.6289,
       "lon": -96.7888,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 1309.51
+      "mag": 1309.43
     },
     {
       "id": "SWDN1",
-      "title": "Lincoln Creek near Seward - action (14.71 ft)",
+      "title": "Lincoln Creek near Seward - action (13.4 ft)",
       "lat": 40.91583,
       "lon": -97.14527,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "critical",
-      "mag": 14.71
+      "mag": 13.4
     },
     {
       "id": "WLBN1",
-      "title": "Turkey Creek near Wilber - minor (14.66 ft)",
+      "title": "Turkey Creek near Wilber - minor (14.47 ft)",
       "lat": 40.48021,
       "lon": -97.0126,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "critical",
-      "mag": 14.66
+      "mag": 14.47
     },
     {
       "id": "AESI4",
-      "title": "South Skunk River near Ames US 30 - minor (22.59 ft)",
+      "title": "South Skunk River near Ames US 30 - minor (21.76 ft)",
       "lat": 42.0082222,
       "lon": -93.5959722,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 22.59
+      "mag": 21.76
     },
     {
       "id": "AGSI4",
-      "title": "Skunk River at Augusta - minor (16.91 ft)",
+      "title": "Skunk River at Augusta - minor (16.89 ft)",
       "lat": 40.7537,
       "lon": -91.2771,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "critical",
-      "mag": 16.91
+      "mag": 16.89
     },
     {
       "id": "AGYM7",
-      "title": "Platte River near Agency - moderate (27.29 ft)",
+      "title": "Platte River near Agency - moderate (26.36 ft)",
       "lat": 39.688028,
       "lon": -94.702611,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 27.29
+      "mag": 26.36
     },
     {
       "id": "AKFM7",
-      "title": "Current River at Akers - low threshold (0.78 ft)",
+      "title": "Current River at Akers - low threshold (0.76 ft)",
       "lat": 37.375694,
       "lon": -91.552778,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
-      "mag": 0.78
+      "mag": 0.76
     },
     {
       "id": "ALOI4",
-      "title": "Cedar River at Waterloo - action (11.01 ft)",
+      "title": "Cedar River at Waterloo - action (11.25 ft)",
       "lat": 42.49554444,
       "lon": -92.3343472,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "critical",
-      "mag": 11.01
+      "mag": 11.25
     },
     {
       "id": "ALYM7",
       "title": "Jacks Fork at Alley Spring - low threshold (1.08 ft)",
       "lat": 37.14817,
       "lon": -91.44308,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
       "mag": 1.08
     },
     {
       "id": "AMEI4",
-      "title": "South Skunk River near Ames W Riverside Rd - minor (12.99 ft)",
+      "title": "South Skunk River near Ames W Riverside Rd - action (11.82 ft)",
       "lat": 42.0665833,
       "lon": -93.62025,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "critical",
-      "mag": 12.99
+      "mag": 11.82
     },
     {
       "id": "ATCK1",
-      "title": "Missouri River at Atchison - minor (22.18 ft)",
+      "title": "Missouri River at Atchison - action (21.61 ft)",
       "lat": 39.559722,
       "lon": -95.113889,
-      "time": "2026-10-03T04:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 22.18
+      "mag": 21.61
     },
     {
       "id": "BAYI4",
-      "title": "Middle Raccoon River near Bayard - action (17.75 ft)",
+      "title": "Middle Raccoon River near Bayard - action (17.34 ft)",
       "lat": 41.7790833,
       "lon": -94.493,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 17.75
+      "mag": 17.34
     },
     {
       "id": "BOLI2",
-      "title": "East Branch Du Page River at Bolingbrook - action (18.79 ft)",
+      "title": "East Branch Du Page River at Bolingbrook - action (18.25 ft)",
       "lat": 41.718055555556,
       "lon": -88.070555555556,
-      "time": "2026-10-03T05:40:00Z",
+      "time": "2026-10-03T11:40:00Z",
       "severity": "critical",
-      "mag": 18.79
+      "mag": 18.25
     },
     {
       "id": "BOON4",
-      "title": "Rockaway River at Boonton - action (305.43 ft)",
+      "title": "Rockaway River at Boonton - action (305.44 ft)",
       "lat": 40.89527778,
       "lon": -74.39777778,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 305.43
+      "mag": 305.44
+    },
+    {
+      "id": "BOZM7",
+      "title": "Missouri River at Boonville - action (18.91 ft)",
+      "lat": 38.980278,
+      "lon": -92.745278,
+      "time": "2026-10-03T11:04:00Z",
+      "severity": "critical",
+      "mag": 18.91
     },
     {
       "id": "BPLI4",
-      "title": "Iowa River at Belle Plaine - minor (15.14 ft)",
+      "title": "Iowa River at Belle Plaine - minor (15.24 ft)",
       "lat": 41.859166666667,
       "lon": -92.278055555556,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 15.14
-    },
-    {
-      "id": "BRON1",
-      "title": "Missouri River at Brownville - action (33.59 ft)",
-      "lat": 40.398194,
-      "lon": -95.653667,
-      "time": "2026-10-03T05:15:00Z",
-      "severity": "critical",
-      "mag": 33.59
+      "mag": 15.24
     },
     {
       "id": "CEDI4",
-      "title": "Cedar River at Cedar Falls - action (87.1 ft)",
+      "title": "Cedar River at Cedar Falls - action (87.08 ft)",
       "lat": 42.53756944,
       "lon": -92.4434917,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T10:45:00Z",
       "severity": "critical",
-      "mag": 87.1
+      "mag": 87.08
     },
     {
       "id": "CFXI4",
-      "title": "South Skunk River at Colfax - action (16.64 ft)",
+      "title": "South Skunk River at Colfax - action (16.96 ft)",
       "lat": 41.68180556,
       "lon": -93.2468333,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T10:45:00Z",
       "severity": "critical",
-      "mag": 16.64
+      "mag": 16.96
     },
     {
       "id": "CHZM7",
-      "title": "Grand River near Chillicothe - moderate (29.81 ft)",
+      "title": "Grand River near Chillicothe - moderate (29.38 ft)",
       "lat": 39.755833,
       "lon": -93.558611,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T10:45:00Z",
       "severity": "critical",
-      "mag": 29.81
+      "mag": 29.38
     },
     {
       "id": "CJTI4",
-      "title": "Iowa River at Columbus Jct - action (20.22 ft)",
+      "title": "Iowa River at Columbus Jct - action (20.36 ft)",
       "lat": 41.278333333333,
       "lon": -91.345833333333,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 20.22
+      "mag": 20.36
     },
     {
       "id": "CLKM7",
-      "title": "Mississippi River at Clarksville Lock and Dam 24 - action (23.27 ft)",
+      "title": "Mississippi River at Clarksville Lock and Dam 24 - action (23.71 ft)",
       "lat": 39.373333333333,
       "lon": -90.904722222222,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 23.27
+      "mag": 23.71
     },
     {
       "id": "CNEI4",
-      "title": "Cedar River near Conesville - minor (13.6 ft)",
+      "title": "Cedar River near Conesville - minor (13.45 ft)",
       "lat": 41.409166666667,
       "lon": -91.290277777778,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 13.6
+      "mag": 13.45
     },
     {
       "id": "DAYI2",
-      "title": "Fox River at Dayton - action (11.78 ft)",
+      "title": "Fox River at Dayton - action (11.4 ft)",
       "lat": 41.384137,
       "lon": -88.788977,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T10:45:00Z",
       "severity": "critical",
-      "mag": 11.78
+      "mag": 11.4
     },
     {
       "id": "DEMI4",
-      "title": "Raccoon River at Des Moines Fleur Dr - minor (14.51 ft)",
+      "title": "Raccoon River at Des Moines Fleur Dr - minor (14.44 ft)",
       "lat": 41.5815,
       "lon": -93.6426667,
-      "time": "2026-10-03T05:47:00Z",
+      "time": "2026-10-03T11:47:00Z",
       "severity": "critical",
-      "mag": 14.51
+      "mag": 14.44
     },
     {
       "id": "DESI4",
-      "title": "Des Moines River at Des Moines SE 6th St - minor (24.16 ft)",
+      "title": "Des Moines River at Des Moines SE 6th St - minor (24.26 ft)",
       "lat": 41.5785833,
       "lon": -93.6056111,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "critical",
-      "mag": 24.16
+      "mag": 24.26
     },
     {
       "id": "DEWI4",
-      "title": "Wapsipinicon River near DeWitt - major (12.82 ft)",
+      "title": "Wapsipinicon River near DeWitt - major (12.93 ft)",
       "lat": 41.766944444444,
       "lon": -90.534722222222,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 12.82
+      "mag": 12.93
     },
     {
       "id": "DMOI4",
-      "title": "Des Moines River at Des Moines 2nd Ave - action (20.17 ft)",
+      "title": "Des Moines River at Des Moines 2nd Ave - action (20.24 ft)",
       "lat": 41.61194444,
       "lon": -93.6197222,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 20.17
+      "mag": 20.24
     },
     {
       "id": "DMPI2",
-      "title": "Des Plaines River at Des Plaines (Algonquin Road) - minor (13.68 ft)",
+      "title": "Des Plaines River at Des Plaines (Algonquin Road) - minor (13.55 ft)",
       "lat": 42.0317,
       "lon": -87.8781,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 13.68
+      "mag": 13.55
     },
     {
       "id": "DVSI4",
-      "title": "Thompson River at Davis City - action (8.82 ft)",
+      "title": "Thompson River at Davis City - action (8.75 ft)",
       "lat": 40.64027778,
       "lon": -93.8080556,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 8.82
+      "mag": 8.75
     },
     {
       "id": "DWEM7",
       "title": "East Fork Drywood Creek at Prairie State Park - low threshold (1.13 ft)",
       "lat": 37.53527,
       "lon": -94.55805,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "warning",
       "mag": 1.13
     },
     {
-      "id": "EISI4",
-      "title": "East Nishnabotna River near Riverton (IFC) - minor (929.75 ft)",
-      "lat": 40.6947,
-      "lon": -95.5624,
-      "time": "2026-10-03T05:30:00Z",
-      "severity": "critical",
-      "mag": 929.75
-    },
-    {
-      "id": "ESTK1",
-      "title": "Stranger Creek at Easton - minor (17.94 ft)",
-      "lat": 39.346389,
-      "lon": -95.108611,
-      "time": "2026-10-03T05:30:00Z",
-      "severity": "critical",
-      "mag": 17.94
-    },
-    {
       "id": "EVGI2",
-      "title": "Salt Creek (IL) at Elk Grove Village - action (15.24 ft)",
+      "title": "Salt Creek (IL) at Elk Grove Village - action (15.22 ft)",
       "lat": 42.012083,
       "lon": -88.001,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 15.24
+      "mag": 15.22
     },
     {
       "id": "EWMM7",
-      "title": "Middle Fabius River near Ewing - minor (12.78 ft)",
+      "title": "Middle Fabius River near Ewing - minor (13.23 ft)",
       "lat": 40.028888888889,
       "lon": -91.705555555556,
-      "time": "2026-10-03T03:30:00Z",
+      "time": "2026-10-03T09:30:00Z",
       "severity": "critical",
-      "mag": 12.78
-    },
-    {
-      "id": "EWNM7",
-      "title": "North Fabius River near Ewing - action (9.53 ft)",
-      "lat": 40.01888888888889,
-      "lon": -91.621944444444,
-      "time": "2026-10-03T05:30:00Z",
-      "severity": "critical",
-      "mag": 9.53
+      "mag": 13.23
     },
     {
       "id": "FMDI4",
-      "title": "Mississippi River at Fort Madison - action (527.24 ft)",
+      "title": "Mississippi River at Fort Madison - action (527.36 ft)",
       "lat": 40.628333333333,
       "lon": -91.292777777778,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 527.24
+      "mag": 527.36
     },
     {
       "id": "FNHI4",
-      "title": "West Fork Cedar River at Finchford - action (12.09 ft)",
+      "title": "West Fork Cedar River at Finchford - action (12.1 ft)",
       "lat": 42.62942778,
       "lon": -92.5435222,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T10:45:00Z",
       "severity": "critical",
-      "mag": 12.09
+      "mag": 12.1
     },
     {
       "id": "FYTM7",
-      "title": "Moniteau Creek near Fayette - low threshold (4.5 ft)",
+      "title": "Moniteau Creek near Fayette - low threshold (4.49 ft)",
       "lat": 39.120833,
       "lon": -92.567222,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
-      "mag": 4.5
+      "mag": 4.49
     },
     {
       "id": "GAZM7",
-      "title": "Grand River near Gallatin - action (25.72 ft)",
+      "title": "Grand River near Gallatin - action (22.1 ft)",
       "lat": 39.926944,
       "lon": -93.9425,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T10:45:00Z",
       "severity": "critical",
-      "mag": 25.72
+      "mag": 22.1
     },
     {
       "id": "GJTI4",
-      "title": "Buttrick Creek near Grand Junction - minor (14.3 ft)",
+      "title": "Buttrick Creek near Grand Junction - minor (14.26 ft)",
       "lat": 42.01806,
       "lon": -94.29444,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 14.3
+      "mag": 14.26
     },
     {
       "id": "GLZM7",
-      "title": "Missouri River at Glasgow - action (23.62 ft)",
+      "title": "Missouri River at Glasgow - minor (25.52 ft)",
       "lat": 39.222222,
       "lon": -92.848611,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 23.62
+      "mag": 25.52
     },
     {
-      "id": "GRBI4",
-      "title": "Turkey River at Garber - action (14.73 ft)",
-      "lat": 42.74,
-      "lon": -91.2618,
-      "time": "2026-10-03T05:15:00Z",
-      "severity": "critical",
-      "mag": 14.73
-    },
-    {
-      "id": "HMBI4",
-      "title": "Nishnabotna River above Hamburg - action (24.37 ft)",
-      "lat": 40.601161,
-      "lon": -95.644458,
-      "time": "2026-10-03T06:00:00Z",
-      "severity": "critical",
-      "mag": 24.37
+      "id": "GNVN6",
+      "title": "Seneca Lake at Geneva - low threshold (444.74 ft)",
+      "lat": 42.868,
+      "lon": -76.941,
+      "time": "2026-10-03T09:00:00Z",
+      "severity": "warning",
+      "mag": 444.74
     },
     {
       "id": "HNNM7",
-      "title": "Mississippi River at Hannibal - action (15.89 ft)",
+      "title": "Mississippi River at Hannibal - action (16.31 ft)",
       "lat": 39.7207,
       "lon": -91.362389,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 15.89
+      "mag": 16.31
     },
     {
       "id": "HUDI4",
-      "title": "Black Hawk Creek at Hudson - moderate (16.95 ft)",
+      "title": "Black Hawk Creek at Hudson - moderate (16.58 ft)",
       "lat": 42.40776389,
       "lon": -92.4632472,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T10:45:00Z",
       "severity": "critical",
-      "mag": 16.95
+      "mag": 16.58
     },
     {
       "id": "HZLM7",
       "title": "Gasconade River near Hazelgreen - low threshold (0.26 ft)",
       "lat": 37.75916,
       "lon": -92.45203,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "warning",
       "mag": 0.26
     },
     {
+      "id": "JOLI2",
+      "title": "Des Plaines River at Brandon Road Lock (tailwater) - action (506.5 ft)",
+      "lat": 41.502246,
+      "lon": -88.105081,
+      "time": "2026-10-03T11:00:00Z",
+      "severity": "critical",
+      "mag": 506.5
+    },
+    {
       "id": "KALI4",
-      "title": "English River at Kalona - moderate (17.08 ft)",
+      "title": "English River at Kalona - moderate (17 ft)",
       "lat": 41.4697387,
       "lon": -91.7146129,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "critical",
-      "mag": 17.08
+      "mag": 17
     },
     {
       "id": "KCKK1",
-      "title": "Kansas River at 23rd Street - Kansas City - KS - action (30.26 ft)",
+      "title": "Kansas River at 23rd Street - Kansas City - KS - action (31 ft)",
       "lat": 39.09,
       "lon": -94.608889,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "critical",
-      "mag": 30.26
+      "mag": 31
     },
     {
       "id": "LCPK1",
-      "title": "Kansas River at Lecompton - action (15.59 ft)",
+      "title": "Kansas River at Lecompton - action (13.67 ft)",
       "lat": 39.051111111111,
       "lon": -95.386111111111,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 15.59
+      "mag": 13.67
     },
     {
       "id": "LEMI2",
-      "title": "Des Plaines River near Lemont - action (9.83 ft)",
+      "title": "Des Plaines River near Lemont - action (9.79 ft)",
       "lat": 41.672383,
       "lon": -88.028522,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 9.83
+      "mag": 9.79
     },
     {
       "id": "LEVK1",
-      "title": "Missouri River at Leavenworth - action (18.83 ft)",
+      "title": "Missouri River at Leavenworth - action (18.62 ft)",
       "lat": 39.326999,
       "lon": -94.9095591,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 18.83
-    },
-    {
-      "id": "LNMI2",
-      "title": "Spoon River (W-IL) at London Mills - action (13.43 ft)",
-      "lat": 40.707722,
-      "lon": -90.279778,
-      "time": "2026-10-03T05:45:00Z",
-      "severity": "critical",
-      "mag": 13.43
+      "mag": 18.62
     },
     {
       "id": "LNTI4",
-      "title": "Iowa River near Lone Tree (Tri-County Bridge) - minor (16.71 ft)",
+      "title": "Iowa River near Lone Tree (Tri-County Bridge) - minor (16.73 ft)",
       "lat": 41.42377778,
       "lon": -91.4785278,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 16.71
+      "mag": 16.73
     },
     {
       "id": "LUSM7",
-      "title": "Mississippi River at Louisiana - action (13.7 ft)",
+      "title": "Mississippi River at Louisiana - action (14.28 ft)",
       "lat": 39.4525,
       "lon": -91.046666666667,
-      "time": "2026-10-03T06:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "critical",
-      "mag": 13.7
+      "mag": 14.28
     },
     {
       "id": "LWRK1",
-      "title": "Kansas River at Lawrence - action (17.7 ft)",
+      "title": "Kansas River at Lawrence - action (16.86 ft)",
       "lat": 38.974166666667,
       "lon": -95.235833333333,
-      "time": "2026-10-03T06:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "critical",
-      "mag": 17.7
+      "mag": 16.86
     },
     {
       "id": "LYNI2",
-      "title": "Des Plaines River at Lyons - action (16.31 ft)",
+      "title": "Des Plaines River at Lyons - action (16.14 ft)",
       "lat": 41.80608,
       "lon": -87.81122,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 16.31
+      "mag": 16.14
     },
     {
       "id": "MANI3",
       "title": "Mill Creek (IN) at Cagles Mill - low threshold (6.99 ft)",
       "lat": 39.4875,
       "lon": -86.9247,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "warning",
       "mag": 6.99
     },
     {
       "id": "MCCI2",
-      "title": "Mainstream Deep Tunnel at McCook Reservoir - action (-39.7 ft)",
+      "title": "Mainstream Deep Tunnel at McCook Reservoir - action (-42.47 ft)",
       "lat": 41.7775,
       "lon": -87.8366,
-      "time": "2026-10-03T06:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "critical",
-      "mag": -39.7
+      "mag": -42.47
     },
     {
       "id": "MFDP1",
-      "title": "Tioga River at Mansfield - low threshold (-0.1 ft)",
+      "title": "Tioga River at Mansfield - low threshold (-0.12 ft)",
       "lat": 41.7969444444444,
       "lon": -77.0805555555556,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "warning",
-      "mag": -0.1
+      "mag": -0.12
     },
     {
       "id": "MHYI2",
       "title": "Fox River at McHenry (Stratton Lock and Dam) tailwater - action (3.3 ft)",
       "lat": 42.309166666667,
       "lon": -88.251388888889,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
       "mag": 3.3
     },
     {
       "id": "MIWI4",
-      "title": "Iowa River at Marshalltown - action (18.83 ft)",
+      "title": "Iowa River at Marshalltown - action (18.93 ft)",
       "lat": 42.06582096,
       "lon": -92.9076997,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 18.83
+      "mag": 18.93
     },
     {
       "id": "MLII2",
-      "title": "Rock River at Moline - action (11.03 ft)",
+      "title": "Rock River at Moline - action (11.18 ft)",
       "lat": 41.4625,
       "lon": -90.5,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 11.03
+      "mag": 11.18
     },
     {
       "id": "MROI4",
-      "title": "Iowa River at Marengo - minor (15.52 ft)",
+      "title": "Iowa River at Marengo - minor (15.47 ft)",
       "lat": 41.81272566,
       "lon": -92.064792,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "critical",
-      "mag": 15.52
+      "mag": 15.47
     },
     {
       "id": "MSZM7",
-      "title": "Little Sac River near Morrisville - low threshold (1.51 ft)",
+      "title": "Little Sac River near Morrisville - low threshold (1.52 ft)",
       "lat": 37.48278,
       "lon": -93.48556,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
-      "mag": 1.51
+      "mag": 1.52
     },
     {
       "id": "NAPM7",
-      "title": "Missouri River at Napoleon - minor (22.11 ft)",
+      "title": "Missouri River at Napoleon - minor (22.8 ft)",
       "lat": 39.133169,
       "lon": -94.064225,
-      "time": "2026-10-03T06:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "critical",
-      "mag": 22.11
+      "mag": 22.8
     },
     {
       "id": "NDRI2",
-      "title": "Du Page River near Plainfield - action (10.26 ft)",
+      "title": "Du Page River near Plainfield - action (10.05 ft)",
       "lat": 41.69,
       "lon": -88.166388888889,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "critical",
-      "mag": 10.26
+      "mag": 10.05
+    },
+    {
+      "id": "NHRI3",
+      "title": "Wabash River at New Harmony - low threshold (3.3 ft)",
+      "lat": 38.130833333333335,
+      "lon": -87.9413888888889,
+      "time": "2026-10-03T11:30:00Z",
+      "severity": "warning",
+      "mag": 3.3
     },
     {
       "id": "NMSW3",
-      "title": "Fox River near New Munster - action (10.57 ft)",
+      "title": "Fox River near New Munster - action (10.61 ft)",
       "lat": 42.610833333333,
       "lon": -88.225833333333,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 10.57
+      "mag": 10.61
     },
     {
       "id": "NPVI4",
-      "title": "South Fork Iowa River near New Providence - action (10.2 ft)",
+      "title": "South Fork Iowa River near New Providence - action (10.01 ft)",
       "lat": 42.31530556,
       "lon": -93.1521944,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T10:45:00Z",
       "severity": "critical",
-      "mag": 10.2
+      "mag": 10.01
     },
     {
       "id": "NRWI4",
-      "title": "North River near Norwalk - action (18.78 ft)",
+      "title": "North River near Norwalk - action (18.91 ft)",
       "lat": 41.4581111,
       "lon": -93.6549722,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 18.78
+      "mag": 18.91
     },
     {
       "id": "NWBI2",
-      "title": "Edwards River near New Boston - minor (20.77 ft)",
+      "title": "Edwards River near New Boston - minor (20.06 ft)",
       "lat": 41.186947738,
       "lon": -90.9673663,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 20.77
+      "mag": 20.06
     },
     {
       "id": "OKVI4",
-      "title": "Iowa River at Oakville - minor (12.04 ft)",
+      "title": "Iowa River at Oakville - minor (12.1 ft)",
       "lat": 41.10319444,
       "lon": -91.0635278,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "critical",
-      "mag": 12.04
-    },
-    {
-      "id": "OKWI2",
-      "title": "Middle Fork Vermilion River above Oakwood - minor (23.4 ft)",
-      "lat": 40.136969,
-      "lon": -87.744694,
-      "time": "2026-10-03T05:45:00Z",
-      "severity": "critical",
-      "mag": 23.4
+      "mag": 12.1
     },
     {
       "id": "OOAI4",
-      "title": "South Skunk River near Oskaloosa - action (20.24 ft)",
+      "title": "South Skunk River near Oskaloosa - action (20.31 ft)",
       "lat": 41.35570278,
       "lon": -92.6573556,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 20.24
-    },
-    {
-      "id": "OQUI2",
-      "title": "Henderson Creek near Oquawka - action (20.05 ft)",
-      "lat": 41.0014258,
-      "lon": -90.8543072,
-      "time": "2026-10-03T05:30:00Z",
-      "severity": "critical",
-      "mag": 20.05
+      "mag": 20.31
     },
     {
       "id": "ORNI4",
-      "title": "Little Wapsipinicon River near Oran - action (88.18 ft)",
+      "title": "Little Wapsipinicon River near Oran - action (87.9 ft)",
       "lat": 42.7147,
       "lon": -92.0416,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 88.18
-    },
-    {
-      "id": "OTWI2",
-      "title": "Illinois River at Ottawa - action (461.03 ft)",
-      "lat": 41.344444444444,
-      "lon": -88.839166666667,
-      "time": "2026-10-03T05:30:00Z",
-      "severity": "critical",
-      "mag": 461.03
+      "mag": 87.9
     },
     {
       "id": "PARI4",
-      "title": "Beaver Creek near Parkersburg Hwy T47--IFC - action (918.14 ft)",
+      "title": "Beaver Creek near Parkersburg Hwy T47--IFC - action (917.97 ft)",
       "lat": 42.581216,
       "lon": -92.73164,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 918.14
-    },
-    {
-      "id": "PATM7",
-      "title": "Grand River near Pattonsburg - action (20.19 ft)",
-      "lat": 40.026111,
-      "lon": -94.127222,
-      "time": "2026-10-03T05:30:00Z",
-      "severity": "critical",
-      "mag": 20.19
+      "mag": 917.97
     },
     {
       "id": "PCKI2",
-      "title": "Pope Creek near Keithsburg - action (23.45 ft)",
+      "title": "Pope Creek near Keithsburg - action (23.11 ft)",
       "lat": 41.12892328,
       "lon": -90.9193094,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 23.45
+      "mag": 23.11
     },
     {
       "id": "PDVW3",
-      "title": "Fox River (North) at Pardeeville - action (8.64 ft)",
+      "title": "Fox River (North) at Pardeeville - action (8.67 ft)",
       "lat": 43.55616,
       "lon": -89.2719,
-      "time": "2026-10-03T03:30:00Z",
+      "time": "2026-10-03T08:30:00Z",
       "severity": "critical",
-      "mag": 8.64
+      "mag": 8.67
     },
     {
       "id": "PKVM7",
-      "title": "Missouri River above Parkville - action (24.5 ft)",
+      "title": "Missouri River above Parkville - action (24.52 ft)",
       "lat": 39.191653,
       "lon": -94.769842,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "critical",
-      "mag": 24.5
+      "mag": 24.52
     },
     {
       "id": "PLCM7",
-      "title": "Platte River near Platte City - minor (21.87 ft)",
+      "title": "Platte River near Platte City - minor (22.06 ft)",
       "lat": 39.368889,
       "lon": -94.786389,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 21.87
+      "mag": 22.06
     },
     {
       "id": "PLKM7",
       "title": "Lindley Creek near Polk - low threshold (2.48 ft)",
       "lat": 37.750556,
       "lon": -93.26611,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
       "mag": 2.48
     },
     {
-      "id": "PRIM7",
-      "title": "Chariton River near Prairie Hill - action (10.69 ft)",
-      "lat": 39.539944,
-      "lon": -92.79075,
-      "time": "2026-10-03T05:45:00Z",
-      "severity": "critical",
-      "mag": 10.69
-    },
-    {
       "id": "PROI4",
-      "title": "North Raccoon River near Perry - minor (15.09 ft)",
+      "title": "North Raccoon River near Perry - minor (15.03 ft)",
       "lat": 41.835433,
       "lon": -94.132002,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 15.09
+      "mag": 15.03
     },
     {
       "id": "PWDM7",
-      "title": "Current River above Powder Mill - low threshold (1.94 ft)",
+      "title": "Current River above Powder Mill - low threshold (1.93 ft)",
       "lat": 37.1855,
       "lon": -91.1779,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
-      "mag": 1.94
+      "mag": 1.93
     },
     {
       "id": "RAYW3",
-      "title": "Root River Canal near Raymond - action (7.76 ft)",
+      "title": "Root River Canal near Raymond - action (7.39 ft)",
       "lat": 42.815555555556,
       "lon": -87.994722222222,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 7.76
+      "mag": 7.39
     },
     {
       "id": "RBXM7",
       "title": "Roubidoux Creek near Waynesville - low threshold (-0.48 ft)",
       "lat": 37.79194,
       "lon": -92.18333,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
       "mag": -0.48
     },
@@ -1065,292 +993,274 @@
       "mag": 0
     },
     {
-      "id": "RRLW3",
-      "title": "Wisconsin River at Merrill - low threshold (3.9 ft)",
-      "lat": 45.178055555556,
-      "lon": -89.681111111111,
-      "time": "2026-10-03T05:00:00Z",
-      "severity": "warning",
-      "mag": 3.9
-    },
-    {
       "id": "RULN1",
-      "title": "Missouri River at Rulo - minor (18.2 ft)",
+      "title": "Missouri River at Rulo - minor (17.57 ft)",
       "lat": 40.05361,
       "lon": -95.4219,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 18.2
+      "mag": 17.57
     },
     {
       "id": "RUSI2",
-      "title": "Des Plaines River near Russell - minor (7.19 ft)",
+      "title": "Des Plaines River near Russell - minor (7.22 ft)",
       "lat": 42.489166666667,
       "lon": -87.926388888889,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 7.19
+      "mag": 7.22
     },
     {
       "id": "SIGI4",
-      "title": "North Skunk River near Sigourney - moderate (18.18 ft)",
+      "title": "North Skunk River near Sigourney - moderate (18.33 ft)",
       "lat": 41.3008452,
       "lon": -92.2046255,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 18.18
+      "mag": 18.33
     },
     {
       "id": "SJSM7",
-      "title": "Missouri River at St. Joseph - minor (19.91 ft)",
+      "title": "Missouri River at St. Joseph - minor (19.26 ft)",
       "lat": 39.75325,
       "lon": -94.856833,
-      "time": "2026-10-03T04:35:00Z",
+      "time": "2026-10-03T10:35:00Z",
       "severity": "critical",
-      "mag": 19.91
+      "mag": 19.26
     },
     {
       "id": "SNZM7",
-      "title": "Grand River near Sumner - moderate (33.75 ft)",
+      "title": "Grand River near Sumner - moderate (33.76 ft)",
       "lat": 39.640028,
       "lon": -93.273694,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "critical",
-      "mag": 33.75
-    },
-    {
-      "id": "SPGI2",
-      "title": "Spring Brook at Naperville (87th Street) - action (5.76 ft)",
-      "lat": 41.725833,
-      "lon": -88.163611,
-      "time": "2026-10-03T05:45:00Z",
-      "severity": "critical",
-      "mag": 5.76
+      "mag": 33.76
     },
     {
       "id": "SRDI2",
-      "title": "Illinois River at Starved Rock Lock (tailwater) - minor (450.31 ft)",
+      "title": "Illinois River at Starved Rock Lock (tailwater) - action (449.53 ft)",
       "lat": 41.325062,
       "lon": -88.987417,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 450.31
+      "mag": 449.53
     },
     {
       "id": "SSTM7",
-      "title": "Platte River at Sharps Station - minor (27.16 ft)",
+      "title": "Platte River at Sharps Station - minor (27.36 ft)",
       "lat": 39.400972,
       "lon": -94.726833,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 27.16
+      "mag": 27.36
+    },
+    {
+      "id": "SVRM7",
+      "title": "Mississippi River at Saverton Lock and Dam 22 - action (14.43 ft)",
+      "lat": 39.63457,
+      "lon": -91.248203,
+      "time": "2026-10-03T11:30:00Z",
+      "severity": "critical",
+      "mag": 14.43
     },
     {
       "id": "TMAI4",
-      "title": "Iowa River near Tama Hwy E49 - action (11.43 ft)",
+      "title": "Iowa River near Tama Hwy E49 - action (11.6 ft)",
       "lat": 41.96425556,
       "lon": -92.63655,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 11.43
+      "mag": 11.6
     },
     {
       "id": "TPAK1",
-      "title": "Kansas River at Topeka - action (19.33 ft)",
+      "title": "Kansas River at Topeka - action (17.51 ft)",
       "lat": 39.066666666667,
       "lon": -95.649444444444,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 19.33
+      "mag": 17.51
     },
     {
       "id": "UUUK1",
-      "title": "Marmaton River near Uniontown - low threshold (-0.32 ft)",
+      "title": "Marmaton River near Uniontown - low threshold (-0.33 ft)",
       "lat": 37.83556,
       "lon": -94.98111,
-      "time": "2026-10-03T06:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "warning",
-      "mag": -0.32
-    },
-    {
-      "id": "VLPI4",
-      "title": "Volga River at Littleport - action (10.03 ft)",
-      "lat": 42.7539,
-      "lon": -91.369,
-      "time": "2026-10-03T05:45:00Z",
-      "severity": "critical",
-      "mag": 10.03
+      "mag": -0.33
     },
     {
       "id": "WAPI4",
-      "title": "Iowa River at Wapello - minor (22.51 ft)",
+      "title": "Iowa River at Wapello - minor (22.62 ft)",
       "lat": 41.1780861,
       "lon": -91.1820939,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "critical",
-      "mag": 22.51
+      "mag": 22.62
     },
     {
       "id": "WBDI2",
-      "title": "West Branch Du Page River near West Chicago - low threshold (2.93 ft)",
+      "title": "West Branch Du Page River near West Chicago - low threshold (2.92 ft)",
       "lat": 41.910972,
       "lon": -88.179142,
-      "time": "2026-10-03T05:55:00Z",
+      "time": "2026-10-03T11:55:00Z",
       "severity": "warning",
-      "mag": 2.93
+      "mag": 2.92
     },
     {
       "id": "WBLM7",
       "title": "Weaubleau Creek near Weableau - low threshold (1.2 ft)",
       "lat": 37.89556,
       "lon": -93.51472,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "warning",
       "mag": 1.2
     },
     {
       "id": "WBOI2",
-      "title": "Waubonse Creek at Oswego - action (10.5 ft)",
+      "title": "Waubonse Creek at Oswego - action (10.11 ft)",
       "lat": 41.701314,
       "lon": -88.327042,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 10.5
+      "mag": 10.11
     },
     {
       "id": "WCRM7",
       "title": "Wilson Creek near Springfield - low threshold (0.4 ft)",
       "lat": 37.168611111111,
       "lon": -93.370277777778,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "warning",
       "mag": 0.4
     },
     {
       "id": "WISI4",
-      "title": "West Nishnabotna River near Riverton - minor (925.02 ft)",
+      "title": "West Nishnabotna River near Riverton - action (923.11 ft)",
       "lat": 40.696294,
       "lon": -95.597583,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "critical",
-      "mag": 925.02
+      "mag": 923.11
     },
     {
       "id": "WVYM7",
-      "title": "Missouri River near Waverly - minor (23.77 ft)",
+      "title": "Missouri River near Waverly - minor (25.06 ft)",
       "lat": 39.215,
       "lon": -93.515,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "critical",
-      "mag": 23.77
+      "mag": 25.06
     },
     {
       "id": "WYNI2",
-      "title": "Skillet Fork River at Wayne City - low threshold (3.4 ft)",
+      "title": "Skillet Fork River at Wayne City - low threshold (3.41 ft)",
       "lat": 38.363333333333,
       "lon": -88.587777777778,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "warning",
-      "mag": 3.4
+      "mag": 3.41
+    },
+    {
+      "id": "YRKI2",
+      "title": "Blackberry Creek at Yorkville - action (6.53 ft)",
+      "lat": 41.671667,
+      "lon": -88.441389,
+      "time": "2026-10-03T11:30:00Z",
+      "severity": "critical",
+      "mag": 6.53
     },
     {
       "id": "AICT2",
-      "title": "San Fernando Creek near Alice - action (9.96 ft)",
+      "title": "San Fernando Creek near Alice - action (8.18 ft)",
       "lat": 27.772222222222,
       "lon": -98.033333333333,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 9.96
+      "mag": 8.18
     },
     {
       "id": "BKCT2",
-      "title": "Devils River at Bakers Crossing near Juno - action (4.98 ft)",
+      "title": "Devils River at Bakers Crossing near Juno - action (4.52 ft)",
       "lat": 29.95,
       "lon": -101.13027777778,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 4.98
+      "mag": 4.52
     },
     {
-      "id": "BNDN5",
-      "title": "Rio Puerco near Bernardo - minor (19.68 ft)",
-      "lat": 34.410277777778,
-      "lon": -106.85444444444,
-      "time": "2026-10-03T04:00:00Z",
-      "severity": "critical",
-      "mag": 19.68
+      "id": "BOYT2",
+      "title": "West Fork Trinity River near Boyd - low threshold (3.09 ft)",
+      "lat": 33.085277777778,
+      "lon": -97.558333333333,
+      "time": "2026-10-03T11:15:00Z",
+      "severity": "warning",
+      "mag": 3.09
     },
     {
       "id": "BRPT2",
-      "title": "Big Sandy Creek (Trinity River Basin) near Bridgeport - low threshold (0.84 ft)",
+      "title": "Big Sandy Creek (Trinity River Basin) near Bridgeport - low threshold (0.75 ft)",
       "lat": 33.231666666667,
       "lon": -97.694444444444,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "warning",
-      "mag": 0.84
+      "mag": 0.75
     },
     {
       "id": "DLLT2",
-      "title": "Leon River near DeLeon - low threshold (0.07 ft)",
+      "title": "Leon River near DeLeon - low threshold (0.39 ft)",
       "lat": 32.173611111111,
       "lon": -98.532777777778,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
-      "mag": 0.07
+      "mag": 0.39
     },
     {
       "id": "GNDT2",
-      "title": "West Mustang Creek near Ganado - action (9.96 ft)",
+      "title": "West Mustang Creek near Ganado - action (10.71 ft)",
       "lat": 29.071388888889,
       "lon": -96.466944444444,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T10:45:00Z",
       "severity": "critical",
-      "mag": 9.96
+      "mag": 10.71
     },
     {
       "id": "MLRT2",
-      "title": "Llano River near Mason - action (11.69 ft)",
+      "title": "Llano River near Mason - action (11.09 ft)",
       "lat": 30.6605555555556,
       "lon": -99.1088888888889,
-      "time": "2026-10-03T06:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "critical",
-      "mag": 11.69
+      "mag": 11.09
     },
     {
       "id": "PKCN5",
-      "title": "Pecos River 6 miles NE of Lakewood - action (16.93 ft)",
+      "title": "Pecos River 6 miles NE of Lakewood - action (16.85 ft)",
       "lat": 32.689375,
       "lon": -104.2992194,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 16.93
+      "mag": 16.85
     },
     {
       "id": "ABBG1",
-      "title": "Ocmulgee River at Abbeville - low threshold (-0.32 ft)",
+      "title": "Ocmulgee River at Abbeville - low threshold (-0.3 ft)",
       "lat": 31.996666666667,
       "lon": -83.279166666667,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
-      "mag": -0.32
-    },
-    {
-      "id": "ABNG1",
-      "title": "Flint River (GA) at Albany - low threshold (1.87 ft)",
-      "lat": 31.594166666667,
-      "lon": -84.144166666667,
-      "time": "2026-10-03T05:15:00Z",
-      "severity": "warning",
-      "mag": 1.87
+      "mag": -0.3
     },
     {
       "id": "ALIN7",
-      "title": "North Fork Alligator River at Gum Neck (in MLLW) - action (1.54 ft)",
+      "title": "North Fork Alligator River at Gum Neck (in MLLW) - action (1.67 ft)",
       "lat": 35.7215,
       "lon": -76.1934,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 1.54
+      "mag": 1.67
     },
     {
       "id": "ALTF1",
@@ -1363,21 +1273,21 @@
     },
     {
       "id": "AMRL1",
-      "title": "Tide Station (LCH) at Amerada Pass - action (2.99 ft)",
+      "title": "Tide Station (LCH) at Amerada Pass - action (2.83 ft)",
       "lat": 29.449444444444,
       "lon": -91.338055555556,
-      "time": "2026-10-03T05:36:00Z",
+      "time": "2026-10-03T11:54:00Z",
       "severity": "critical",
-      "mag": 2.99
+      "mag": 2.83
     },
     {
       "id": "APCF1",
-      "title": "Tide Station at Apalachicola (in MHHW) - action (0.91 ft)",
+      "title": "Tide Station at Apalachicola (in MHHW) - action (1.21 ft)",
       "lat": 29.726666666667,
       "lon": -84.981666666667,
-      "time": "2026-10-03T05:24:00Z",
+      "time": "2026-10-03T11:54:00Z",
       "severity": "critical",
-      "mag": 0.91
+      "mag": 1.21
     },
     {
       "id": "ARTA1",
@@ -1399,66 +1309,66 @@
     },
     {
       "id": "ASTF1",
-      "title": "St. Johns River at Astor - minor (2.36 ft)",
+      "title": "St. Johns River at Astor - minor (2.3 ft)",
       "lat": 29.166666666667,
       "lon": -81.522222222222,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 2.36
+      "mag": 2.3
     },
     {
       "id": "BAXG1",
-      "title": "Altamaha River near Baxley - low threshold (62.98 ft)",
+      "title": "Altamaha River near Baxley - low threshold (62.96 ft)",
       "lat": 31.938888888889,
       "lon": -82.353611111111,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
-      "mag": 62.98
+      "mag": 62.96
     },
     {
       "id": "BBCM7",
-      "title": "Bull Creek near Walnut Shade - low threshold (0.78 ft)",
+      "title": "Bull Creek near Walnut Shade - low threshold (0.77 ft)",
       "lat": 36.717777777778,
       "lon": -93.206666666667,
-      "time": "2026-10-03T05:40:00Z",
+      "time": "2026-10-03T11:55:00Z",
       "severity": "warning",
-      "mag": 0.78
+      "mag": 0.77
     },
     {
       "id": "BELA1",
-      "title": "Choctawhatchee River near Bellwood (CR 45) - low threshold (3.71 ft)",
+      "title": "Choctawhatchee River near Bellwood (CR 45) - low threshold (3.74 ft)",
       "lat": 31.159166666667,
       "lon": -85.784444444444,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
-      "mag": 3.71
-    },
-    {
-      "id": "BLSF1",
-      "title": "Blue Spring at Blue Springs near Madison (in NAVD88) - low threshold (40.1 ft)",
-      "lat": 30.480277777778,
-      "lon": -83.244444444444,
-      "time": "2026-10-03T04:45:00Z",
-      "severity": "warning",
-      "mag": 40.1
+      "mag": 3.74
     },
     {
       "id": "BLXF1",
       "title": "Ochlockonee River near Bloxham (SR 20) - low threshold (2.71 ft)",
       "lat": 30.383055555556,
       "lon": -84.655,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "warning",
       "mag": 2.71
     },
     {
+      "id": "BNCF1",
+      "title": "Tide Gauge at Imperial Boat Ramp (in MHHW) - action (1.27 ft)",
+      "lat": 26.3393,
+      "lon": -81.8056,
+      "time": "2026-10-03T10:59:00Z",
+      "severity": "critical",
+      "mag": 1.27
+    },
+    {
       "id": "BOAF1",
-      "title": "Bokeelia Back Bay (In MHHW) - action (0.76 ft)",
+      "title": "Bokeelia Back Bay (In MHHW) - minor (1.03 ft)",
       "lat": 26.704196,
       "lon": -82.164427,
-      "time": "2026-10-03T04:54:00Z",
+      "time": "2026-10-03T10:54:00Z",
       "severity": "critical",
-      "mag": 0.76
+      "mag": 1.03
     },
     {
       "id": "BRUF1",
@@ -1471,12 +1381,12 @@
     },
     {
       "id": "CAPL1",
-      "title": "Tide Station (LCH) at Calcasieu Pass - action (3.38 ft)",
+      "title": "Tide Station (LCH) at Calcasieu Pass - action (3.27 ft)",
       "lat": 29.768055555556,
       "lon": -93.342777777778,
-      "time": "2026-10-03T05:36:00Z",
+      "time": "2026-10-03T11:36:00Z",
       "severity": "critical",
-      "mag": 3.38
+      "mag": 3.27
     },
     {
       "id": "CARF1",
@@ -1488,85 +1398,94 @@
       "mag": 0.77
     },
     {
-      "id": "CELF1",
-      "title": "Crescent Lake at Crescent City (in NAVD88) - action (1.25 ft)",
-      "lat": 29.43,
-      "lon": -81.5055555555556,
-      "time": "2026-10-03T04:54:00Z",
+      "id": "CAYF1",
+      "title": "Cayo Costa State Park (In MHHW) - action (1.1 ft)",
+      "lat": 26.685796,
+      "lon": -82.244514,
+      "time": "2026-10-03T10:54:00Z",
       "severity": "critical",
-      "mag": 1.25
+      "mag": 1.1
     },
     {
       "id": "CGFL1",
-      "title": "Calcasieu River at Goos Ferry Road - action (1.47 ft)",
+      "title": "Calcasieu River at Goos Ferry Road - action (1.69 ft)",
       "lat": 30.3055,
       "lon": -93.1515,
-      "time": "2026-10-03T04:20:00Z",
+      "time": "2026-10-03T10:20:00Z",
       "severity": "critical",
-      "mag": 1.47
+      "mag": 1.69
     },
     {
       "id": "CHAF1",
-      "title": "Apalachicola River at Chattahoochee - low threshold (39.41 ft)",
+      "title": "Apalachicola River at Chattahoochee - low threshold (39.28 ft)",
       "lat": 30.700833333333,
       "lon": -84.859166666667,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
-      "mag": 39.41
+      "mag": 39.28
     },
     {
       "id": "CHRG1",
-      "title": "Altamaha River near Charlotteville - low threshold (0.48 ft)",
+      "title": "Altamaha River near Charlotteville - low threshold (0.47 ft)",
       "lat": 31.95777777777778,
       "lon": -82.51722222222222,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
-      "mag": 0.48
+      "mag": 0.47
     },
     {
       "id": "CLDG1",
-      "title": "Ochlockonee River near Coolidge - low threshold (1.97 ft)",
+      "title": "Ochlockonee River near Coolidge - low threshold (1.96 ft)",
       "lat": 31.002222222222,
       "lon": -83.939166666667,
-      "time": "2026-10-03T04:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
-      "mag": 1.97
+      "mag": 1.96
     },
     {
       "id": "CONF1",
-      "title": "Ochlockonee River near Concord (CR 12) - low threshold (23.41 ft)",
+      "title": "Ochlockonee River near Concord (CR 12) - low threshold (23.39 ft)",
       "lat": 30.668888888889,
       "lon": -84.305277777778,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
-      "mag": 23.41
+      "mag": 23.39
+    },
+    {
+      "id": "CPTF1",
+      "title": "Clam Pass Tramway Bridge (in MHHW) - action (1.08 ft)",
+      "lat": 26.2165,
+      "lon": -81.814,
+      "time": "2026-10-03T10:48:00Z",
+      "severity": "critical",
+      "mag": 1.08
     },
     {
       "id": "CWOL1",
-      "title": "Calcasieu River at White Oak Park - action (1.66 ft)",
+      "title": "Calcasieu River at White Oak Park - action (1.86 ft)",
       "lat": 30.296944444444,
       "lon": -93.117777777778,
-      "time": "2026-10-03T04:35:00Z",
+      "time": "2026-10-03T10:35:00Z",
       "severity": "critical",
-      "mag": 1.66
+      "mag": 1.86
     },
     {
       "id": "DMKF1",
-      "title": "Tide Gauge at Demorest 1909 (In MHHW) - action (0.55 ft)",
+      "title": "Tide Gauge at Demorest 1909 (In MHHW) - action (0.78 ft)",
       "lat": 26.592911,
       "lon": -82.135699,
-      "time": "2026-10-03T04:54:00Z",
+      "time": "2026-10-03T10:48:00Z",
       "severity": "critical",
-      "mag": 0.55
+      "mag": 0.78
     },
     {
       "id": "DNZM7",
-      "title": "Current River at Doniphan - low threshold (-0.38 ft)",
+      "title": "Current River at Doniphan - low threshold (-0.5 ft)",
       "lat": 36.621944444444,
       "lon": -90.8475,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
-      "mag": -0.38
+      "mag": -0.5
     },
     {
       "id": "DSNG1",
@@ -1578,58 +1497,31 @@
       "mag": 2.44
     },
     {
-      "id": "EGHN7",
-      "title": "Far Creek at Engelhard (in MLLW) - action (2 ft)",
-      "lat": 35.5089,
-      "lon": -75.9969,
-      "time": "2026-10-03T05:30:00Z",
-      "severity": "critical",
-      "mag": 2
-    },
-    {
       "id": "ELBA1",
-      "title": "Pea River at Elba (US 84) - low threshold (-1.02 ft)",
+      "title": "Pea River at Elba (US 84) - low threshold (-0.98 ft)",
       "lat": 31.413333333333,
       "lon": -86.063055555556,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "warning",
-      "mag": -1.02
+      "mag": -0.98
     },
     {
       "id": "ELCF1",
-      "title": "Tide Gauge at Bokeelia (in MHHW) - action (0.73 ft)",
+      "title": "Tide Gauge at Bokeelia (in MHHW) - action (0.95 ft)",
       "lat": 26.7021,
       "lon": -82.1552,
-      "time": "2026-10-03T05:16:00Z",
+      "time": "2026-10-03T10:59:00Z",
       "severity": "critical",
-      "mag": 0.73
+      "mag": 0.95
     },
     {
       "id": "ELLF1",
-      "title": "Suwannee River at Ellaville - US 90 (in NAVD88) - low threshold (28.77 ft)",
+      "title": "Suwannee River at Ellaville - US 90 (in NAVD88) - low threshold (28.76 ft)",
       "lat": 30.384444444444,
       "lon": -83.171944444444,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
-      "mag": 28.77
-    },
-    {
-      "id": "ELMG1",
-      "title": "Chickasawhatchee Creek near ElModel - low threshold (-0.35 ft)",
-      "lat": 31.350555555556,
-      "lon": -84.4825,
-      "time": "2026-10-03T05:15:00Z",
-      "severity": "warning",
-      "mag": -0.35
-    },
-    {
-      "id": "EMOG1",
-      "title": "Ichawaynochaway Creek near ElModel - low threshold (3.47 ft)",
-      "lat": 31.293888888889,
-      "lon": -84.488611111111,
-      "time": "2026-10-03T05:00:00Z",
-      "severity": "warning",
-      "mag": 3.47
+      "mag": 28.76
     },
     {
       "id": "ERLF1",
@@ -1641,40 +1533,49 @@
       "mag": 136.56
     },
     {
+      "id": "FBFF1",
+      "title": "Flamingo at Florida Bay - action (1.15 ft)",
+      "lat": 25.1421,
+      "lon": -80.9221,
+      "time": "2026-10-03T10:48:00Z",
+      "severity": "critical",
+      "mag": 1.15
+    },
+    {
       "id": "FGOG1",
-      "title": "Suwannee River at Fargo - low threshold (93.05 ft)",
+      "title": "Suwannee River at Fargo - low threshold (93.08 ft)",
       "lat": 30.680555555556,
       "lon": -82.560555555556,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "warning",
-      "mag": 93.05
+      "mag": 93.08
     },
     {
       "id": "FLYF1",
-      "title": "Fenholloway River at Foley - low threshold (34.95 ft)",
+      "title": "Fenholloway River at Foley - low threshold (34.94 ft)",
       "lat": 30.065277777778,
       "lon": -83.558055555556,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
-      "mag": 34.95
+      "mag": 34.94
     },
     {
-      "id": "FPST2",
-      "title": "Tide Station (HGX) at Freeport - action (3.52 ft)",
-      "lat": 28.935,
-      "lon": -95.295,
-      "time": "2026-10-03T05:36:00Z",
+      "id": "FOMF1",
+      "title": "Four Mile Cove Ecological (In MHHW) - action (1.08 ft)",
+      "lat": 26.609895,
+      "lon": -81.91154,
+      "time": "2026-10-03T10:48:00Z",
       "severity": "critical",
-      "mag": 3.52
+      "mag": 1.08
     },
     {
       "id": "FRWL1",
-      "title": "Tide Station (LCH) at Fresh Water Canal Locks - action (3.73 ft)",
+      "title": "Tide Station (LCH) at Fresh Water Canal Locks - action (3.33 ft)",
       "lat": 29.555,
       "lon": -92.304722222222,
-      "time": "2026-10-03T05:36:00Z",
+      "time": "2026-10-03T11:36:00Z",
       "severity": "critical",
-      "mag": 3.73
+      "mag": 3.33
     },
     {
       "id": "FSRF1",
@@ -1687,30 +1588,30 @@
     },
     {
       "id": "FTWF1",
-      "title": "Santa Fe River near Hildreth (in NAVD88) - low threshold (6.45 ft)",
+      "title": "Santa Fe River near Hildreth (in NAVD88) - low threshold (6.42 ft)",
       "lat": 29.9113888888889,
       "lon": -82.8605555555555,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "warning",
-      "mag": 6.45
+      "mag": 6.42
     },
     {
       "id": "FWHF1",
-      "title": "Santa Fe River near Fort White (in NAVD88) - low threshold (20.11 ft)",
+      "title": "Santa Fe River near Fort White (in NAVD88) - low threshold (20.1 ft)",
       "lat": 29.848611111111,
       "lon": -82.715277777778,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T10:45:00Z",
       "severity": "warning",
-      "mag": 20.11
+      "mag": 20.1
     },
     {
       "id": "GNJT2",
-      "title": "Tide Station (HGX) at Galveston Bay Entrance North Jetty - action (3.29 ft)",
+      "title": "Tide Station (HGX) at Galveston Bay Entrance North Jetty - action (3.25 ft)",
       "lat": 29.3583,
       "lon": -94.725,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "critical",
-      "mag": 3.29
+      "mag": 3.25
     },
     {
       "id": "GNVA1",
@@ -1722,74 +1623,65 @@
       "mag": 2.09
     },
     {
-      "id": "GOBT2",
-      "title": "Goode Branch at CR 773 - minor (2.52 ft)",
-      "lat": 30.43,
-      "lon": -93.9732,
-      "time": "2026-10-03T05:50:00Z",
-      "severity": "critical",
-      "mag": 2.52
-    },
-    {
-      "id": "GRMF1",
-      "title": "Santa Fe River near Graham (in NAVD88) - low threshold (105.78 ft)",
-      "lat": 29.846111111111,
-      "lon": -82.219722222222,
-      "time": "2026-10-03T05:00:00Z",
-      "severity": "warning",
-      "mag": 105.78
-    },
-    {
       "id": "GTWF1",
-      "title": "Georgetown (in NAVD88) - action (1.51 ft)",
+      "title": "Georgetown (in NAVD88) - action (1.46 ft)",
       "lat": 29.3866666666667,
       "lon": -81.6408333333333,
-      "time": "2026-10-03T04:54:00Z",
+      "time": "2026-10-03T10:42:00Z",
       "severity": "critical",
-      "mag": 1.51
+      "mag": 1.46
     },
     {
-      "id": "HOPG1",
-      "title": "Flint River (GA) at Riverview Plantation - low threshold (3.66 ft)",
-      "lat": 31.140555555556,
-      "lon": -84.480833333333,
-      "time": "2026-10-03T05:00:00Z",
-      "severity": "warning",
-      "mag": 3.66
+      "id": "HBCF1",
+      "title": "Tide Gauge at Hancock Bridge (in MHHW) - action (1.04 ft)",
+      "lat": 26.6597,
+      "lon": -81.8975,
+      "time": "2026-10-03T10:59:00Z",
+      "severity": "critical",
+      "mag": 1.04
+    },
+    {
+      "id": "HNRF1",
+      "title": "Tide Gauge at Hancock Creek (in MHHW) - action (1.13 ft)",
+      "lat": 26.6622323,
+      "lon": -81.897179,
+      "time": "2026-10-03T11:42:00Z",
+      "severity": "critical",
+      "mag": 1.13
     },
     {
       "id": "HSPF1",
       "title": "Santa Fe River near High Springs (in NAVD88) - low threshold (30.41 ft)",
       "lat": 29.8525,
       "lon": -82.608611111111,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
       "mag": 30.41
     },
     {
       "id": "HVNF1",
-      "title": "Ochlockonee River near Havana (US 27) - low threshold (11.99 ft)",
+      "title": "Ochlockonee River near Havana (US 27) - low threshold (12 ft)",
       "lat": 30.553888888889,
       "lon": -84.384166666667,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "warning",
-      "mag": 11.99
+      "mag": 12
     },
     {
       "id": "ICHG1",
-      "title": "Ichawaynochaway Creek at GA-91  11 miles SW of Newton - low threshold (1.98 ft)",
+      "title": "Ichawaynochaway Creek at GA-91  11 miles SW of Newton - low threshold (2 ft)",
       "lat": 31.216666666667,
       "lon": -84.47,
-      "time": "2026-10-03T04:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
-      "mag": 1.98
+      "mag": 2
     },
     {
       "id": "ICSF1",
       "title": "Ichetucknee River below Ichetucknee Springs State Park - US-27 (in NAVD88) - low threshold (14.07 ft)",
       "lat": 29.9525,
       "lon": -82.786111111111,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
       "mag": 14.07
     },
@@ -1803,31 +1695,31 @@
       "mag": 1.41
     },
     {
-      "id": "IVLG1",
-      "title": "Alapaha River at Irwinville - low threshold (263.38 ft)",
-      "lat": 31.631111111111,
-      "lon": -83.418055555556,
-      "time": "2026-10-03T04:45:00Z",
-      "severity": "warning",
-      "mag": 263.38
-    },
-    {
       "id": "JNAF1",
-      "title": "Alapaha River near Jennings (in NAVD88) - low threshold (61.73 ft)",
+      "title": "Alapaha River near Jennings (in NAVD88) - low threshold (61.74 ft)",
       "lat": 30.598055555556,
       "lon": -83.073333333333,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "warning",
-      "mag": 61.73
+      "mag": 61.74
+    },
+    {
+      "id": "JYBT2",
+      "title": "Neches River at Downtown Beaumont - low threshold (-0.7 ft)",
+      "lat": 30.0868,
+      "lon": -94.0957,
+      "time": "2026-10-03T11:45:00Z",
+      "severity": "warning",
+      "mag": -0.7
     },
     {
       "id": "KITN7",
-      "title": "Albemarle Sound at Kitty Hawk (in MLLW) - action (1.4 ft)",
+      "title": "Albemarle Sound at Kitty Hawk (in MLLW) - action (1.14 ft)",
       "lat": 36.06071,
       "lon": -75.699941,
-      "time": "2026-10-03T06:05:00Z",
+      "time": "2026-10-03T12:05:00Z",
       "severity": "critical",
-      "mag": 1.4
+      "mag": 1.14
     },
     {
       "id": "KNSF1",
@@ -1857,20 +1749,11 @@
       "mag": 69.35
     },
     {
-      "id": "KYWF1",
-      "title": "Tide Station at the Western Tip of Key West (in MHHW) - action (1.03 ft)",
-      "lat": 24.555,
-      "lon": -81.8083,
-      "time": "2026-10-03T06:00:00Z",
-      "severity": "critical",
-      "mag": 1.03
-    },
-    {
       "id": "LAIF1",
       "title": "Lake Iamonia at Waterfront Drive - low threshold (92.33 ft)",
       "lat": 30.644444444444446,
       "lon": -84.20722222222223,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "warning",
       "mag": 92.33
     },
@@ -1879,7 +1762,7 @@
       "title": "Aucilla River at Lamont (US 27) - low threshold (45.25 ft)",
       "lat": 30.369722222222,
       "lon": -83.806666666667,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
       "mag": 45.25
     },
@@ -1893,22 +1776,31 @@
       "mag": 24.53
     },
     {
-      "id": "LCHL1",
-      "title": "Calcasieu River at Saltwater Barrier - minor (4.3 ft)",
-      "lat": 30.253611111111,
-      "lon": -93.218055555556,
-      "time": "2026-10-02T10:59:00Z",
+      "id": "LCLL1",
+      "title": "Tide Station (LCH) at Lake Charles - action (2.51 ft)",
+      "lat": 30.223611111111,
+      "lon": -93.221666666667,
+      "time": "2026-10-03T11:54:00Z",
       "severity": "critical",
-      "mag": 4.3
+      "mag": 2.51
+    },
+    {
+      "id": "LGBF1",
+      "title": "Choctawhatchee Bay at Lagrange Bayou (in MHHW) - action (1.5 ft)",
+      "lat": 30.46379,
+      "lon": -86.1444,
+      "time": "2026-10-03T11:48:00Z",
+      "severity": "critical",
+      "mag": 1.5
     },
     {
       "id": "LIKF1",
-      "title": "Suwannee River near Suwannee Springs (in NAVD88) - low threshold (37.49 ft)",
+      "title": "Suwannee River near Suwannee Springs (in NAVD88) - low threshold (37.46 ft)",
       "lat": 30.3927777777778,
       "lon": -82.9333333333333,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "warning",
-      "mag": 37.49
+      "mag": 37.46
     },
     {
       "id": "LJKF1",
@@ -1924,7 +1816,7 @@
       "title": "Lake Jackson near Lakeshore Drive (in NAVD88) - low threshold (78.63 ft)",
       "lat": 30.511098,
       "lon": -84.300095,
-      "time": "2026-10-03T04:54:00Z",
+      "time": "2026-10-03T11:48:00Z",
       "severity": "warning",
       "mag": 78.63
     },
@@ -1939,19 +1831,19 @@
     },
     {
       "id": "LMLF1",
-      "title": "Lake Miccosukee at Cypress Landing (in NAVD88) - low threshold (74.72 ft)",
+      "title": "Lake Miccosukee at Cypress Landing (in NAVD88) - low threshold (74.74 ft)",
       "lat": 30.562706,
       "lon": -83.99049,
-      "time": "2026-10-03T04:54:00Z",
+      "time": "2026-10-03T11:48:00Z",
       "severity": "warning",
-      "mag": 74.72
+      "mag": 74.74
     },
     {
       "id": "LPTF1",
       "title": "Lake Talquin at Coe Landing Park (in NGVD29) - low threshold (68.6 ft)",
       "lat": 30.4556,
       "lon": -84.483288,
-      "time": "2026-10-03T04:54:00Z",
+      "time": "2026-10-03T11:54:00Z",
       "severity": "warning",
       "mag": 68.6
     },
@@ -1975,75 +1867,48 @@
     },
     {
       "id": "MCKG1",
-      "title": "Muckalee Creek near Leesburg (SR 195) - low threshold (3.11 ft)",
+      "title": "Muckalee Creek near Leesburg (SR 195) - low threshold (3.13 ft)",
       "lat": 31.776111111111,
       "lon": -84.139444444444,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
-      "mag": 3.11
-    },
-    {
-      "id": "MDLF1",
-      "title": "North Fork Black Creek near Middleburg - low threshold (0.81 ft)",
-      "lat": 30.113055555556,
-      "lon": -81.906666666667,
-      "time": "2026-10-03T05:00:00Z",
-      "severity": "warning",
-      "mag": 0.81
-    },
-    {
-      "id": "MGEF1",
-      "title": "Middle River George English Park at Sunrise Blvd (in MHHW) - action (1.05 ft)",
-      "lat": 26.1384,
-      "lon": -80.1175,
-      "time": "2026-10-03T05:48:00Z",
-      "severity": "critical",
-      "mag": 1.05
-    },
-    {
-      "id": "MGNG1",
-      "title": "Ichawaynochaway Creek near Morgan - low threshold (6.16 ft)",
-      "lat": 31.526944444444,
-      "lon": -84.582777777778,
-      "time": "2026-10-03T05:00:00Z",
-      "severity": "warning",
-      "mag": 6.16
+      "mag": 3.13
     },
     {
       "id": "MIDF1",
-      "title": "Little River (Midway) near Midway (SR 268) - low threshold (68.34 ft)",
+      "title": "Little River (Midway) near Midway (SR 268) - low threshold (68.39 ft)",
       "lat": 30.512222222222,
       "lon": -84.523611111111,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "warning",
-      "mag": 68.34
+      "mag": 68.39
     },
     {
-      "id": "MLFG1",
-      "title": "Ichawaynochaway Creek at Milford - low threshold (0.53 ft)",
-      "lat": 31.382777777778,
-      "lon": -84.546388888889,
-      "time": "2026-10-03T05:00:00Z",
-      "severity": "warning",
-      "mag": 0.53
+      "id": "MKLF1",
+      "title": "Tide Station near Manatee Creek on Barnes Sound (in MHHW) - minor (1.14 ft)",
+      "lat": 25.2351879,
+      "lon": -80.430743,
+      "time": "2026-10-03T11:42:00Z",
+      "severity": "critical",
+      "mag": 1.14
     },
     {
       "id": "MLLA1",
-      "title": "Luxapallila Creek at Millport - minor (12.34 ft)",
+      "title": "Luxapallila Creek at Millport - minor (12.33 ft)",
       "lat": 33.57511416,
       "lon": -88.0833605,
-      "time": "2026-10-03T06:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "critical",
-      "mag": 12.34
+      "mag": 12.33
     },
     {
       "id": "MLUL1",
-      "title": "Ouachita River at Monroe - low threshold (18.3 ft)",
+      "title": "Ouachita River at Monroe - low threshold (18.21 ft)",
       "lat": 32.500277777778,
       "lon": -92.119722222222,
-      "time": "2026-10-03T06:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "warning",
-      "mag": 18.3
+      "mag": 18.21
     },
     {
       "id": "NBRF1",
@@ -2059,81 +1924,54 @@
       "title": "Choctawhatchee River near Newton (SR 134) - low threshold (2.92 ft)",
       "lat": 31.342777777778,
       "lon": -85.610555555556,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
       "mag": 2.92
     },
     {
       "id": "NSBT2",
-      "title": "Neches River at Saltwater Barrier - action (3.53 ft)",
+      "title": "Neches River at Saltwater Barrier - action (3.58 ft)",
       "lat": 30.156666666667,
       "lon": -94.114166666667,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 3.53
+      "mag": 3.58
     },
     {
-      "id": "OBCF1",
-      "title": "Tide Station at Ohio Key on Ohio Bahia Honda Channel (in MHHW) - minor (1.1 ft)",
-      "lat": 24.673306,
-      "lon": -81.250139,
-      "time": "2026-10-03T05:54:00Z",
+      "id": "ODCT2",
+      "title": "Terry Gully at FM 1442 - action (3.58 ft)",
+      "lat": 30.1025,
+      "lon": -93.9035,
+      "time": "2026-10-03T12:00:00Z",
       "severity": "critical",
-      "mag": 1.1
-    },
-    {
-      "id": "OFFG1",
-      "title": "Little Satilla River near Offerman - low threshold (1.93 ft)",
-      "lat": 31.457222222222,
-      "lon": -82.056111111111,
-      "time": "2026-10-03T05:45:00Z",
-      "severity": "warning",
-      "mag": 1.93
+      "mag": 3.58
     },
     {
       "id": "OLPF1",
-      "title": "Santa Fe River at O'leno State Park (in NAVD88) - low threshold (35.7 ft)",
+      "title": "Santa Fe River at O'leno State Park (in NAVD88) - low threshold (35.69 ft)",
       "lat": 29.926565,
       "lon": -82.559647,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "warning",
-      "mag": 35.7
-    },
-    {
-      "id": "PACF1",
-      "title": "Tide Station at Panama City Marina (in MHHW) - action (1.3 ft)",
-      "lat": 30.151944444444,
-      "lon": -85.666944444444,
-      "time": "2026-10-03T05:24:00Z",
-      "severity": "critical",
-      "mag": 1.3
-    },
-    {
-      "id": "PCBF1",
-      "title": "Tide Station at Panama City Beach Pier (in MHHW) - action (1.52 ft)",
-      "lat": 30.214722222222,
-      "lon": -85.878055555556,
-      "time": "2026-10-03T05:24:00Z",
-      "severity": "critical",
-      "mag": 1.52
+      "mag": 35.69
     },
     {
       "id": "PCHG1",
-      "title": "Pachitla Creek near Edison - low threshold (1.54 ft)",
+      "title": "Pachitla Creek near Edison - low threshold (1.57 ft)",
       "lat": 31.555,
       "lon": -84.680833333333,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
-      "mag": 1.54
+      "mag": 1.57
     },
     {
       "id": "PINF1",
-      "title": "Withlacoochee River near Pinetta - CR 150 (in NAVD88) - low threshold (52.63 ft)",
+      "title": "Withlacoochee River near Pinetta - CR 150 (in NAVD88) - low threshold (52.62 ft)",
       "lat": 30.595277777778,
       "lon": -83.259722222222,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
-      "mag": 52.63
+      "mag": 52.62
     },
     {
       "id": "PITF1",
@@ -2146,30 +1984,12 @@
     },
     {
       "id": "PLKT1",
-      "title": "Richland Creek near Pulaski - low threshold (5.18 ft)",
+      "title": "Richland Creek near Pulaski - low threshold (5.27 ft)",
       "lat": 35.195,
       "lon": -87.063888,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "warning",
-      "mag": 5.18
-    },
-    {
-      "id": "PNYF1",
-      "title": "South Fork Black Creek near Penney Farms - low threshold (0.41 ft)",
-      "lat": 29.979166666667,
-      "lon": -81.852222222222,
-      "time": "2026-10-03T05:30:00Z",
-      "severity": "warning",
-      "mag": 0.41
-    },
-    {
-      "id": "POEF1",
-      "title": "Santa Fe River at Poe Springs Pool (in NAVD88) - low threshold (24.3 ft)",
-      "lat": 29.825555555556,
-      "lon": -82.648888888889,
-      "time": "2026-10-03T05:00:00Z",
-      "severity": "warning",
-      "mag": 24.3
+      "mag": 5.27
     },
     {
       "id": "PRSG1",
@@ -2182,12 +2002,12 @@
     },
     {
       "id": "QCYF1",
-      "title": "Little  River near Quincy - low threshold (0.19 ft)",
+      "title": "Little  River near Quincy - low threshold (0.23 ft)",
       "lat": 30.587222222222,
       "lon": -84.496666666667,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
-      "mag": 0.19
+      "mag": 0.23
     },
     {
       "id": "QUTG1",
@@ -2200,12 +2020,12 @@
     },
     {
       "id": "RBBT2",
-      "title": "Tide Station (LCH) at Rainbow Bridge - action (2.17 ft)",
+      "title": "Tide Station (LCH) at Rainbow Bridge - action (2.43 ft)",
       "lat": 29.98,
       "lon": -93.8817,
-      "time": "2026-10-03T05:54:00Z",
+      "time": "2026-10-03T11:54:00Z",
       "severity": "critical",
-      "mag": 2.17
+      "mag": 2.43
     },
     {
       "id": "RCKF1",
@@ -2221,27 +2041,45 @@
       "title": "Rainbow River near Dunnellon (in NAVD88) - action (28.09 ft)",
       "lat": 29.049166666666668,
       "lon": -82.44777777777777,
-      "time": "2026-10-03T05:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "critical",
       "mag": 28.09
     },
     {
       "id": "RRZF1",
-      "title": "Santa Fe River at River Rise near High Springs (in NAVD88) - low threshold (32.42 ft)",
+      "title": "Santa Fe River at River Rise near High Springs (in NAVD88) - low threshold (32.43 ft)",
       "lat": 29.873333333333,
       "lon": -82.591388888889,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T11:00:00Z",
       "severity": "warning",
-      "mag": 32.42
+      "mag": 32.43
     },
     {
-      "id": "SAKF1",
-      "title": "Shell Bluff Park (in NAVD88) - action (1.25 ft)",
-      "lat": 29.4930555555556,
-      "lon": -81.4875,
-      "time": "2026-10-03T05:48:00Z",
+      "id": "RSPF1",
+      "title": "Caloosahatchee River at Shell Point (in MHHW) - action (1.19 ft)",
+      "lat": 26.51743,
+      "lon": -81.992556,
+      "time": "2026-10-03T11:54:00Z",
       "severity": "critical",
-      "mag": 1.25
+      "mag": 1.19
+    },
+    {
+      "id": "SARA1",
+      "title": "Bayou Sara at Saraland - action (3.07 ft)",
+      "lat": 30.824999,
+      "lon": -88.0699,
+      "time": "2026-10-03T11:30:00Z",
+      "severity": "critical",
+      "mag": 3.07
+    },
+    {
+      "id": "SBIF1",
+      "title": "Tide Station near Spring Creek Boat Ramp (In MHHW) - action (1.07 ft)",
+      "lat": 30.0725,
+      "lon": -84.3275,
+      "time": "2026-10-03T11:30:00Z",
+      "severity": "critical",
+      "mag": 1.07
     },
     {
       "id": "SBNF1",
@@ -2254,30 +2092,21 @@
     },
     {
       "id": "SCTF1",
-      "title": "Chipola River at Scott's Ferry - low threshold (14.61 ft)",
+      "title": "Chipola River at Scott's Ferry - low threshold (14.62 ft)",
       "lat": 30.286666666667,
       "lon": -85.144722222222,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "warning",
-      "mag": 14.61
+      "mag": 14.62
     },
     {
       "id": "SOPF1",
-      "title": "Sopchoppy River near Sopchoppy (FR 343) - low threshold (8.28 ft)",
+      "title": "Sopchoppy River near Sopchoppy (FR 343) - low threshold (8.3 ft)",
       "lat": 30.129166666667,
       "lon": -84.494444444444,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
-      "mag": 8.28
-    },
-    {
-      "id": "SRNF1",
-      "title": "Suwannee River at Nobles Ferry (in NAVD88) - low threshold (31.66 ft)",
-      "lat": 30.437222222222,
-      "lon": -83.091666666667,
-      "time": "2026-10-03T05:00:00Z",
-      "severity": "warning",
-      "mag": 31.66
+      "mag": 8.3
     },
     {
       "id": "SSSF1",
@@ -2298,13 +2127,40 @@
       "mag": 10.09
     },
     {
+      "id": "SUKF1",
+      "title": "Tide Station at Sunset Cove, Key Largo on Buttonwood Sound (in MHHW) - minor (1.16 ft)",
+      "lat": 25.094839,
+      "lon": -80.444001,
+      "time": "2026-10-03T11:42:00Z",
+      "severity": "critical",
+      "mag": 1.16
+    },
+    {
+      "id": "SUWF1",
+      "title": "Suwannee River above Gopher River Confluence (in MHHW) - action (0.94 ft)",
+      "lat": 29.339166666667,
+      "lon": -83.086666666667,
+      "time": "2026-10-03T11:45:00Z",
+      "severity": "critical",
+      "mag": 0.94
+    },
+    {
       "id": "TMLG1",
-      "title": "Ochlockonee River near Thomasville (US 84) - low threshold (2.03 ft)",
+      "title": "Ochlockonee River near Thomasville (US 84) - low threshold (2.05 ft)",
       "lat": 30.875555555556,
       "lon": -84.045555555556,
-      "time": "2026-10-03T04:45:00Z",
+      "time": "2026-10-03T11:45:00Z",
       "severity": "warning",
-      "mag": 2.03
+      "mag": 2.05
+    },
+    {
+      "id": "TNMF1",
+      "title": "Tide Gauge at Tarpon Point Marina (In MHHW) - action (1.22 ft)",
+      "lat": 26.537609,
+      "lon": -81.998759,
+      "time": "2026-10-03T11:48:00Z",
+      "severity": "critical",
+      "mag": 1.22
     },
     {
       "id": "TREF1",
@@ -2317,30 +2173,30 @@
     },
     {
       "id": "TXPT2",
-      "title": "Tide Station (LCH) at Texas Point - action (3.41 ft)",
+      "title": "Tide Station (LCH) at Texas Point - action (3.46 ft)",
       "lat": 29.6892,
       "lon": -93.8418,
-      "time": "2026-10-03T05:54:00Z",
+      "time": "2026-10-03T11:54:00Z",
       "severity": "critical",
-      "mag": 3.41
+      "mag": 3.46
     },
     {
       "id": "VCPL1",
-      "title": "Tide Station (LCH) at Vermilion Bay near Cypremort Point - action (3.66 ft)",
+      "title": "Tide Station (LCH) at Vermilion Bay near Cypremort Point - action (3.94 ft)",
       "lat": 29.7130555555556,
       "lon": -91.8802777777778,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "critical",
-      "mag": 3.66
+      "mag": 3.94
     },
     {
       "id": "VDSG1",
-      "title": "Withlacoochee River above Valdosta (Skipper Bridge Rd) - low threshold (122.57 ft)",
+      "title": "Withlacoochee River above Valdosta (Skipper Bridge Rd) - low threshold (122.6 ft)",
       "lat": 30.947222222222,
       "lon": -83.272777777778,
-      "time": "2026-10-03T03:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
-      "mag": 122.57
+      "mag": 122.6
     },
     {
       "id": "VRNF1",
@@ -2352,56 +2208,92 @@
       "mag": 11.09
     },
     {
+      "id": "WBLF1",
+      "title": "Black Creek at Black Creek Landing (in NAVD88) - action (2.06 ft)",
+      "lat": 30.451045,
+      "lon": -86.068033,
+      "time": "2026-10-03T11:12:00Z",
+      "severity": "critical",
+      "mag": 2.06
+    },
+    {
       "id": "WCKG1",
-      "title": "West Chickamauga Creek at GA 146 near Lakeview - low threshold (0.75 ft)",
+      "title": "West Chickamauga Creek at GA 146 near Lakeview - low threshold (0.76 ft)",
       "lat": 34.957222222222,
       "lon": -85.205555555556,
-      "time": "2026-10-03T05:15:00Z",
+      "time": "2026-10-03T11:15:00Z",
       "severity": "warning",
-      "mag": 0.75
+      "mag": 0.76
+    },
+    {
+      "id": "WDRF1",
+      "title": "Apalachicola River at Woodruff Dam (in NGVD29) - low threshold (39.38 ft)",
+      "lat": 30.708055555556,
+      "lon": -84.865555555556,
+      "time": "2026-10-03T12:00:00Z",
+      "severity": "warning",
+      "mag": 39.38
     },
     {
       "id": "WSPF1",
-      "title": "Suwannee River at White Springs (in NAVD88) - low threshold (50.48 ft)",
+      "title": "Suwannee River at White Springs (in NAVD88) - low threshold (50.55 ft)",
       "lat": 30.3255555555556,
       "lon": -82.7383333333333,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
-      "mag": 50.48
+      "mag": 50.55
+    },
+    {
+      "id": "WTHF1",
+      "title": "Withlacoochee River near Lee (in NAVD88) - low threshold (29.49 ft)",
+      "lat": 30.410277777778,
+      "lon": -83.180277777778,
+      "time": "2026-10-03T11:45:00Z",
+      "severity": "warning",
+      "mag": 29.49
     },
     {
       "id": "WWCF1",
-      "title": "Chipola River near Wewahitchka (Lands Landing) - low threshold (10.43 ft)",
+      "title": "Chipola River near Wewahitchka (Lands Landing) - low threshold (10.41 ft)",
       "lat": 30.088333333333,
       "lon": -85.178888888889,
-      "time": "2026-10-03T05:00:00Z",
+      "time": "2026-10-03T12:00:00Z",
       "severity": "warning",
-      "mag": 10.43
+      "mag": 10.41
     },
     {
       "id": "WWCG1",
-      "title": "Flint River (GA) at Lake Blackshear - action (237.02 ft)",
+      "title": "Flint River (GA) at Lake Blackshear - action (237.01 ft)",
       "lat": 31.845277777778,
       "lon": -83.940833333333,
-      "time": "2026-10-03T03:59:00Z",
+      "time": "2026-10-03T10:00:00Z",
       "severity": "critical",
-      "mag": 237.02
+      "mag": 237.01
     },
     {
-      "id": "MODP4",
-      "title": "Rio Culebrinas at Margarita Damsite nr Aguada - action (13.23 ft)",
-      "lat": 18.39450277,
-      "lon": -67.1512,
-      "time": "2026-10-03T05:30:00Z",
+      "id": "GULA2",
+      "title": "Gulkana River at the Richardson Highway near Gulkana - moderate (10.59 ft)",
+      "lat": 62.268888888889,
+      "lon": -145.38055555556,
+      "time": "2026-10-03T10:03:00Z",
       "severity": "critical",
-      "mag": 13.23
+      "mag": 10.59
+    },
+    {
+      "id": "COAP4",
+      "title": "Rio Coamo at Coamo - low threshold (4.55 ft)",
+      "lat": 18.08152279,
+      "lon": -66.3544338,
+      "time": "2026-10-03T11:00:00Z",
+      "severity": "warning",
+      "mag": 4.55
     },
     {
       "id": "NAMP4",
       "title": "Rio Guadiana near Guadiana - low threshold (1.61 ft)",
       "lat": 18.29941118,
       "lon": -66.2281929,
-      "time": "2026-10-03T05:30:00Z",
+      "time": "2026-10-03T11:30:00Z",
       "severity": "warning",
       "mag": 1.61
     }
