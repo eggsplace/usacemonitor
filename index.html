@@ -290,13 +290,13 @@ const osmLayer = L.tileLayer(`https://api.maptiler.com/maps/hybrid-v4/256/{z}/{x
 const BASE_ICON_SIZE = 20;
 const BASE_ZOOM = 4;
 const MIN_ICON_SIZE = 14;
-const MAX_ICON_SIZE = 44;
+const MAX_ICON_SIZE = 38;
 
 function getZoomScaledIconSize(base = BASE_ICON_SIZE) {
   const zoom = map.getZoom();
   const scale = Math.pow(1.15, zoom - BASE_ZOOM);
   const size = Math.round(base * scale);
-  return Math.min(MAX_ICON_SIZE * 1.5, Math.max(MIN_ICON_SIZE, size));
+  return Math.min(MAX_ICON_SIZE, Math.max(MIN_ICON_SIZE, size));
 }
 
 map.on('zoomend', () => {
@@ -579,20 +579,35 @@ async function fetchCivilWorksData() {
     const res = await fetch('data/civil-works-cache.json', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    return data.events || [];
+    return (data.events || []).map(e => ({
+      ...e,
+      baseSize: 20
+    }));
   } catch (err) {
     console.warn("Civil Works cache not ready yet:", err.message);
     return [];
   }
 }
 
-// 8. MILCON (Fetched from Cache)
+// 8. MILCON (Fetched from Cache — Scaled appropriately to ontology)
 async function fetchMilconSpendingData() {
   try {
     const res = await fetch('data/milcon-cache.json', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    return data.events || [];
+    return (data.events || []).map(e => {
+      // Normalizes size strictly between 18px and 24px based on dollar tier
+      const cost = e.cost || 0;
+      let base = 20;
+      if (cost >= 100000000) base = 24;      // Mega projects $100M+
+      else if (cost >= 25000000) base = 22;  // Major projects $25M-$100M
+      else base = 19;                        // Standard contracts
+
+      return {
+        ...e,
+        baseSize: base
+      };
+    });
   } catch (err) {
     console.warn("MILCON cache not ready yet:", err.message);
     return [];
@@ -617,7 +632,7 @@ async function fetchManualSupportUnits() {
       coords: (entry.lat != null && entry.lon != null) ? [entry.lat, entry.lon] : null,
       time: entry.date || '',
       severity: entry.status === 'delayed' ? 'critical' : 'good',
-      mag: 5
+      baseSize: 20
     }));
   } catch (err) {
     return [];
@@ -658,7 +673,8 @@ function renderEvents(events) {
       iconBgColor = evt.severity === 'critical' ? 'rgba(255, 51, 68, 0.2)' : evt.severity === 'good' ? 'rgba(0, 255, 102, 0.2)' : 'rgba(255, 170, 0, 0.2)';
     }
 
-    const iconSize = evt.type === 'programs' && evt.mag ? getZoomScaledIconSize(evt.mag) : getZoomScaledIconSize();
+    // Scaled proportional to standard ontology
+    const iconSize = getZoomScaledIconSize(evt.baseSize || BASE_ICON_SIZE);
 
     if (evt.coords) {
       let faIcon = 'fa-circle';
@@ -679,12 +695,13 @@ function renderEvents(events) {
         case 'programs': faIcon = 'fa-shield-halved'; break;
         default: faIcon = 'fa-circle';
       }
-      const borderWidth = (evt.type === 'flash-flood' || evt.type === 'flood-warning' || evt.type === 'programs') ? 2 : 1;
+      const borderWidth = (evt.type === 'flash-flood' || evt.type === 'flood-warning' || evt.type === 'programs' || evt.type === 'civil-works') ? 2 : 1;
       const fontSize = Math.round(iconSize * 0.5);
       const half = iconSize / 2;
 
       const isFloodGauge = isRiverGauge && evt.severity === 'critical';
       const isLowWaterGauge = isRiverGauge && evt.severity === 'warning';
+      
       const CUSTOM_ICON_BY_TYPE = {
         'seismic': 'earthquake.png',
         'hurricane': 'hurricane.png',
@@ -693,16 +710,18 @@ function renderEvents(events) {
         'flash-flood': 'flood.png',
         'flood-warning': 'flood.png',
         'fire': 'wildfire.png',
-        'severe-weather': 'storm.png'
+        'severe-weather': 'storm.png',
+        'civil-works': 'civil_works.png',
+        'programs': 'milcon.png'
       };
       
       let innerHtml;
       if (CUSTOM_ICON_BY_TYPE[evt.type]) {
-        innerHtml = `<img src="assets/icons/${CUSTOM_ICON_BY_TYPE[evt.type]}" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
+        innerHtml = `<img src="assets/icons/${CUSTOM_ICON_BY_TYPE[evt.type]}" style="width: ${Math.round(iconSize * 0.82)}px; height: ${Math.round(iconSize * 0.82)}px; border-radius: 50%; object-fit: cover;">`;
       } else if (isFloodGauge) {
-        innerHtml = `<img src="assets/icons/high_water.png" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
+        innerHtml = `<img src="assets/icons/high_water.png" style="width: ${Math.round(iconSize * 0.82)}px; height: ${Math.round(iconSize * 0.82)}px; border-radius: 50%; object-fit: cover;">`;
       } else if (isLowWaterGauge) {
-        innerHtml = `<img src="assets/icons/low_water.png" style="width: ${Math.round(iconSize * 0.85)}px; height: ${Math.round(iconSize * 0.85)}px; border-radius: 50%; object-fit: cover;">`;
+        innerHtml = `<img src="assets/icons/low_water.png" style="width: ${Math.round(iconSize * 0.82)}px; height: ${Math.round(iconSize * 0.82)}px; border-radius: 50%; object-fit: cover;">`;
       } else {
         innerHtml = `<i class="fas ${faIcon}" style="color: ${iconColor}; font-size: ${fontSize}px;"></i>`;
       }
