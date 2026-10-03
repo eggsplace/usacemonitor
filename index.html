@@ -113,7 +113,7 @@ aside {
 /* Top-level category tabs */
 .top-cat-tabs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 3px;
   padding: 8px;
   border-bottom: 1px solid var(--border);
@@ -230,9 +230,8 @@ aside {
 
     <!-- Top-level category tabs -->
     <div class="top-cat-tabs">
-      <button class="top-cat-btn active" data-cat="contingency">CONTIN-<br>GENCY</button>
-      <button class="top-cat-btn" data-cat="programs">MIL<br>PROGRAMS</button>
-      <button class="top-cat-btn" data-cat="support-units">SUPPORT<br>UNITS</button>
+      <button class="top-cat-btn active" data-cat="contingency">CONTINGENCY</button>
+      <button class="top-cat-btn" data-cat="support-units">SUPPORT UNITS</button>
     </div>
 
     <!-- Contingency Ops sub-layer controls (only shown for this category) -->
@@ -243,11 +242,12 @@ aside {
           <button class="filter-btn" onclick="toggleAllLayers(false)" style="flex: 0.5;">NONE</button>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+          <!-- All checkboxes start OFF by default -->
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-            <input type="checkbox" id="filter-earthquakes" checked onchange="updateLayerDisplay()"> Earthquakes
+            <input type="checkbox" id="filter-earthquakes" onchange="updateLayerDisplay()"> Earthquakes
           </label>
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-            <input type="checkbox" id="filter-gauges" checked onchange="updateLayerDisplay()"> River Gauges
+            <input type="checkbox" id="filter-gauges" onchange="updateLayerDisplay()"> River Gauges
           </label>
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
             <input type="checkbox" id="filter-wildfires" onchange="updateLayerDisplay()"> Wildfires
@@ -263,6 +263,9 @@ aside {
           </label>
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
             <input type="checkbox" id="filter-civil-works" onchange="updateLayerDisplay()"> Civil Works
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-programs" onchange="updateLayerDisplay()"> Mil Programs
           </label>
         </div>
       </div>
@@ -336,16 +339,24 @@ async function fetchRiverGaugeData() {
     const res = await fetch('data/river-gauges-cache.json', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    return (data.events || []).map(e => ({
-      id: e.id,
-      type: 'river-gauge',
-      topCategory: 'contingency',
-      title: e.title,
-      coords: [e.lat, e.lon],
-      time: e.time ? new Date(e.time).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
-      severity: e.severity,
-      mag: e.mag
-    }));
+    
+    return (data.events || [])
+      .filter(e => {
+        const title = (e.title || '').toLowerCase();
+        // Drop any gauge that is only experiencing "minor" or "action" stage flooding
+        if (title.includes('minor') || title.includes('action')) return false;
+        return true;
+      })
+      .map(e => ({
+        id: e.id,
+        type: 'river-gauge',
+        topCategory: 'contingency',
+        title: e.title,
+        coords: [e.lat, e.lon],
+        time: e.time ? new Date(e.time).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
+        severity: e.severity,
+        mag: e.mag
+      }));
   } catch (err) {
     console.error("Failed to load cached river gauge data:", err);
     return [];
@@ -378,7 +389,7 @@ async function fetchWildfireData() {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    console.log(`Wildfires: WFIGS returned ${(data.features || []).length} matching incident(s). Query: ${url}`);
+    console.log(`Wildfires: WFIGS returned ${(data.features || []).length} matching incident(s).`);
 
     return (data.features || []).map(f => {
       const p = f.properties;
@@ -455,7 +466,7 @@ async function fetchOpenFEMADisasters() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     const rows = data.features || [];
-    console.log(`Disasters: FEMA DECS_ALL returned ${rows.length} designated county record(s) within the last ${DISASTER_MAX_AGE_DAYS} days. exceededTransferLimit: ${data.exceededTransferLimit || false}. Query: ${url}`);
+    console.log(`Disasters: FEMA DECS_ALL returned ${rows.length} designated county record(s) within the last ${DISASTER_MAX_AGE_DAYS} days.`);
 
     return rows.map(f => {
       const p = f.attributes;
@@ -609,7 +620,7 @@ async function fetchManualCategory(catKey) {
     return data.map(entry => ({
       id: entry.id,
       type: catKey,
-      topCategory: catKey,
+      topCategory: 'contingency', // Migrated manual feeds into the contingency panel
       title: entry.title,
       subcategory: entry.subcategory,
       status: entry.status,
@@ -640,9 +651,7 @@ function renderEvents(events) {
     const cfg = MANUAL_CATEGORIES[topCategory];
     feedContainer.innerHTML = `
       <div class="empty-state">
-        No entries yet for this category.<br>
-        Add one via <a href="admin.html">the admin panel</a>, then export and commit
-        <code>${cfg ? cfg.file : ''}</code> to the repo.
+        No entries active under current filters.
       </div>`;
     return;
   }
@@ -741,9 +750,11 @@ function renderEvents(events) {
   });
 }
 
+// All filters start OFF by default
 const layerFilters = {
-  'earthquakes': true, 'gauges': true, 'wildfires': false,
-  'storms': false, 'hurricanes': false, 'disasters': false, 'civil-works': false
+  'earthquakes': false, 'gauges': false, 'wildfires': false,
+  'storms': false, 'hurricanes': false, 'disasters': false, 
+  'civil-works': false, 'programs': false
 };
 
 window.toggleAllLayers = function(enable) {
@@ -763,6 +774,7 @@ window.updateLayerDisplay = function() {
   layerFilters['hurricanes'] = document.getElementById('filter-hurricanes').checked;
   layerFilters['disasters'] = document.getElementById('filter-disasters').checked;
   layerFilters['civil-works'] = document.getElementById('filter-civil-works').checked;
+  layerFilters['programs'] = document.getElementById('filter-programs').checked;
   applyCurrentFilter();
 };
 
@@ -771,8 +783,7 @@ window.updateLayerDisplay = function() {
 let topCategory = 'contingency';
 const CATEGORY_LABELS = {
   'contingency': 'CONTINGENCY OPS',
-  'support-units': 'SUPPORT UNITS',
-  'programs': 'MILITARY PROGRAMS'
+  'support-units': 'SUPPORT UNITS'
 };
 
 function applyCurrentFilter() {
@@ -787,6 +798,7 @@ function applyCurrentFilter() {
       if (evt.type === 'hurricane' || evt.type === 'tropical-storm' || evt.type === 'tsunami') return layerFilters['hurricanes'];
       if (evt.type === 'disaster') return layerFilters['disasters'];
       if (evt.type === 'civil-works') return layerFilters['civil-works'];
+      if (evt.type === 'programs') return layerFilters['programs'];
       return false;
     });
   } else {
@@ -865,8 +877,8 @@ function addDayNightTerminator() {
     }
     if (terminatorLayer) map.removeLayer(terminatorLayer);
     terminatorLayer = L.terminator({
-      opacity: 0.25, weight: 2, color: '#333333',
-      fillColor: '#000000', fillOpacity: 0.15
+      opacity: 0, weight: 0, 
+      fillColor: '#000000', fillOpacity: 0.6 // Increased darkness of the night shadow
     }).addTo(map);
     document.getElementById('daynight-status').innerText = 'on';
   } catch (err) {
@@ -905,18 +917,17 @@ function toggleDayNight() {
 // ---- Initialize Feeds ----
 
 async function init() {
-  const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, civilWorks, supportUnits, programs] = await Promise.all([
+  const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, civilWorks, programs] = await Promise.all([
     fetchSeismicData(),
     fetchRiverGaugeData(),
     fetchWildfireData(),
     fetchOpenFEMADisasters(),
     fetchNOAAAlerts(),
     fetchCivilWorksData(),
-    fetchManualCategory('support-units'),
     fetchManualCategory('programs')
   ]);
 
-  allEvents = [...seismic, ...riverGauges, ...wildfires, ...openFemaDisasters, ...noaaAlerts, ...civilWorks, ...supportUnits, ...programs];
+  allEvents = [...seismic, ...riverGauges, ...wildfires, ...openFemaDisasters, ...noaaAlerts, ...civilWorks, ...programs];
   applyCurrentFilter();
   document.getElementById('feed-count').innerText = 'ONLINE';
 
@@ -928,6 +939,12 @@ init();
 
 // Auto refresh every 2 minutes
 setInterval(init, 120000);
+
+// Default Radar and Day/Night ON after a slight delay to ensure UI has mounted
+setTimeout(() => {
+  if (!document.getElementById('radar-toggle').classList.contains('active')) toggleRadarUI();
+  if (!document.getElementById('daynight-toggle').classList.contains('active')) toggleDayNight();
+}, 600);
 </script>
 
 </body>
