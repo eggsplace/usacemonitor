@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<!-- Leaflet Terminator (Day/Night overlay) - from CDN -->
+<!-- Leaflet Terminator (Day/Night overlay) -->
 <script src="https://unpkg.com/@joergdietrich/leaflet.terminator"></script>
 
 <!-- Font Awesome Icons -->
@@ -42,7 +42,6 @@ body {
   overflow: hidden;
 }
 
-/* Top Bar */
 header {
   background: #05070a;
   border-bottom: 1px solid var(--border);
@@ -73,7 +72,6 @@ header {
 }
 .top-controls a.admin-link:hover { color: var(--accent-cyan); border-color: var(--accent-cyan); }
 
-/* Breaking Marquee */
 .ticker-bar {
   background: rgba(255, 51, 68, 0.1);
   border-bottom: 1px solid rgba(255, 51, 68, 0.3);
@@ -87,11 +85,9 @@ header {
 }
 .ticker-bar span.label { color: var(--accent-red); font-weight: bold; margin-right: 12px; }
 
-/* Main Workspace Layout */
 .workspace { flex: 1; display: flex; position: relative; height: calc(100vh - 65px); }
 #map { flex: 1; height: 100%; background: #000; }
 
-/* Tactical Sidebar */
 aside {
   width: 300px;
   background: var(--bg-panel);
@@ -110,7 +106,6 @@ aside {
   background: rgba(255, 255, 255, 0.02);
 }
 
-/* Top-level category tabs */
 .top-cat-tabs {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -186,20 +181,10 @@ aside {
   font-size: 12px;
   line-height: 1.6;
 }
-.empty-state a { color: var(--accent-cyan); }
-
-/* Map UI Pulsing Markers */
-.pulse-marker {
-  width: 14px; height: 14px; border-radius: 50%;
-  background: var(--accent-red); box-shadow: 0 0 10px var(--accent-red);
-  animation: pulse 1.5s infinite ease-out;
-}
-@keyframes pulse { 0% { transform: scale(0.9); opacity: 1; } 100% { transform: scale(2.2); opacity: 0; } }
 </style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
   <div class="brand">
     <span class="status-badge">● LIVE OPS</span>
@@ -212,13 +197,11 @@ aside {
   </div>
 </header>
 
-<!-- Breaking News Ticker -->
 <div class="ticker-bar">
   <span class="label">PRIORITY ALERTS ❯❯</span>
   <marquee scrollamount="5" id="news-marquee">Monitoring U.S. disasters, river gauges, weather, and emergency operations in real-time...</marquee>
 </div>
 
-<!-- Workspace -->
 <div class="workspace">
   <div id="map"></div>
 
@@ -228,20 +211,17 @@ aside {
       <span id="total-events-count" style="color: var(--accent-cyan);">0 ACTIVE</span>
     </div>
 
-    <!-- Top-level category tabs -->
     <div class="top-cat-tabs">
       <button class="top-cat-btn active" data-cat="contingency">CONTINGENCY OPS</button>
       <button class="top-cat-btn" data-cat="support-units">SUPPORT UNITS</button>
     </div>
 
-    <!-- Contingency Ops sub-layer controls (only shown for this category) -->
     <div id="contingency-controls">
       <div class="filter-tabs">
         <div style="display: flex; gap: 4px; margin-bottom: 6px;">
           <button class="filter-btn" onclick="toggleAllLayers(true)" style="flex: 0.5;">ALL</button>
           <button class="filter-btn" onclick="toggleAllLayers(false)" style="flex: 0.5;">NONE</button>
         </div>
-        <!-- Default all checkboxes to unchecked -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
             <input type="checkbox" id="filter-earthquakes" onchange="updateLayerDisplay()"> Earthquakes
@@ -270,13 +250,11 @@ aside {
         </div>
       </div>
 
-      <!-- Radar controls -->
       <div class="radar-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
         <button id="radar-toggle" class="filter-btn" onclick="toggleRadarUI()">RADAR</button>
         <span id="radar-status" style="color: var(--text-dim); font-size:11px;">last: N/A</span>
       </div>
 
-      <!-- Day/Night Terminator controls -->
       <div class="daynight-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
         <button id="daynight-toggle" class="filter-btn" onclick="toggleDayNight()">DAY/NIGHT</button>
         <span id="daynight-status" style="color: var(--text-dim); font-size:11px;">off</span>
@@ -289,7 +267,6 @@ aside {
   </aside>
 </div>
 
-<!-- Load radar.js -->
 <script src="radar.js"></script>
 
 <script>
@@ -330,22 +307,46 @@ let eventMarkers = [];
 let allEvents = [];
 let terminatorLayer = null;
 
-// ---- Live data feeds (Contingency Ops) ----
+// JSONP query helper to bypass DoD .mil CORS restrictions
+function fetchArcGisJsonp(url, params) {
+  return new Promise((resolve, reject) => {
+    const callbackName = 'arcgis_cb_' + Math.random().toString(36).substr(2, 9);
+    params.set('f', 'json');
+    params.set('callback', callbackName);
 
+    const script = document.createElement('script');
+    script.src = `${url}?${params.toString()}`;
+
+    window[callbackName] = (data) => {
+      resolve(data);
+      document.body.removeChild(script);
+      delete window[callbackName];
+    };
+
+    script.onerror = (err) => {
+      reject(err);
+      document.body.removeChild(script);
+      delete window[callbackName];
+    };
+
+    document.body.appendChild(script);
+  });
+}
+
+// 1. River Gauges (Calibrated Aperture: moderate/major floods and acute low-water)
 async function fetchRiverGaugeData() {
   try {
     const res = await fetch('data/river-gauges-cache.json', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     
-    // Filter to severely restrict minor gauges - showing only critical extremes
     return (data.events || [])
       .filter(e => {
         const titleStr = (e.title || '').toLowerCase();
-        // Drop any gauge that is explicitly labeled minor or action
-        if (titleStr.includes('minor') || titleStr.includes('action')) return false;
-        // Only return critical level severity (dropping standard warnings)
-        return e.severity === 'critical';
+        // Drop minor nuisance alerts and unclassified action stages
+        if (titleStr.includes('minor flood') || titleStr.includes('action stage')) return false;
+        // Keep critical stages, moderate floods, major floods, and real low-water hits
+        return e.severity === 'critical' || titleStr.includes('moderate') || titleStr.includes('low');
       })
       .map(e => ({
         id: e.id,
@@ -358,11 +359,12 @@ async function fetchRiverGaugeData() {
         mag: e.mag
       }));
   } catch (err) {
-    console.error("Failed to load cached river gauge data:", err);
+    console.error("Failed to load river gauge data:", err);
     return [];
   }
 }
 
+// 2. Wildfires
 const WILDFIRE_MIN_ACRES = 1000;
 const WILDFIRE_MAX_CONTAINMENT_PCT = 95;
 const WILDFIRE_MAX_AGE_DAYS = 14;
@@ -411,6 +413,7 @@ async function fetchWildfireData() {
   }
 }
 
+// 3. Earthquakes
 async function fetchSeismicData() {
   try {
     const res = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson');
@@ -424,7 +427,7 @@ async function fetchSeismicData() {
       return conus || alaska || hawaii || puertoRico;
     }
 
-    return data.features
+    return (data.features || [])
       .filter(f => isInUSTerritory(f.geometry.coordinates[1], f.geometry.coordinates[0]))
       .map(f => ({
         id: f.id,
@@ -441,8 +444,8 @@ async function fetchSeismicData() {
   }
 }
 
+// 4. Disasters
 const DISASTER_MAX_AGE_DAYS = 180;
-
 async function fetchOpenFEMADisasters() {
   try {
     const cutoff = new Date(Date.now() - DISASTER_MAX_AGE_DAYS * 24 * 60 * 60 * 1000);
@@ -482,44 +485,66 @@ async function fetchOpenFEMADisasters() {
   }
 }
 
+// 5. NOAA Weather, Storms, and Hurricanes
 async function fetchNOAAAlerts() {
   try {
     const res = await fetch('https://api.weather.gov/alerts/active');
     const data = await res.json();
     const events = [];
+
     if (data.features) {
       data.features.forEach(alert => {
         try {
           const props = alert.properties;
+          const eventName = (props.event || '').toLowerCase();
+
+          // Drop mild nuisance/informational alerts
+          if (
+            eventName.includes('special weather') ||
+            eventName.includes('wind advisory') ||
+            eventName.includes('frost') ||
+            eventName.includes('freeze') ||
+            eventName.includes('small craft') ||
+            eventName.includes('marine weather statement')
+          ) return;
+
+          let coords = null;
           if (alert.geometry && alert.geometry.coordinates && alert.geometry.coordinates.length > 0) {
-            let coords;
             if (alert.geometry.type === 'Polygon') coords = alert.geometry.coordinates[0][0];
             else if (alert.geometry.type === 'MultiPolygon') coords = alert.geometry.coordinates[0][0][0];
-            
-            if (coords && coords.length >= 2) {
-              const eventName = (props.event || '').toLowerCase();
-              if (eventName.includes('special weather statement')) return;
-
-              let alertType = 'weather';
-              if (eventName.includes('hurricane') || eventName.includes('typhoon') || eventName.includes('cyclone')) alertType = 'hurricane';
-              else if (eventName.includes('tropical storm')) alertType = 'tropical-storm';
-              else if (eventName.includes('tsunami')) alertType = 'tsunami';
-              else if (eventName.includes('flash flood')) alertType = 'flash-flood';
-              else if (eventName.includes('flood warning') || eventName.includes('flood advisory')) alertType = 'flood-warning';
-              else if (eventName.includes('severe thunderstorm')) alertType = 'severe-weather';
-
-              events.push({
-                id: alert.id,
-                type: alertType,
-                topCategory: 'contingency',
-                title: `${props.event} - ${props.areaDesc || 'Regional'}`,
-                coords: [coords[1], coords[0]],
-                time: props.sent ? new Date(props.sent).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
-                severity: (props.severity === 'Extreme' || props.severity === 'Severe') ? 'critical' : 'warning',
-                mag: 4
-              });
-            }
           }
+
+          // If no direct polygon, estimate coords from area description or bounding parameters
+          if (!coords && props.parameters && props.parameters.AWIPSidentifier) {
+            coords = [38.5, -95.0]; // fallback centered placeholder
+          }
+          if (!coords) return;
+
+          let alertType = 'severe-weather';
+          const isTropical = (
+            eventName.includes('hurricane') ||
+            eventName.includes('typhoon') ||
+            eventName.includes('cyclone') ||
+            eventName.includes('tropical storm') ||
+            eventName.includes('storm surge')
+          );
+          const isTsunami = eventName.includes('tsunami');
+
+          if (isTropical) alertType = 'hurricane';
+          else if (isTsunami) alertType = 'tsunami';
+          else if (eventName.includes('flash flood')) alertType = 'flash-flood';
+          else if (eventName.includes('flood warning') || eventName.includes('flood advisory')) alertType = 'flood-warning';
+
+          events.push({
+            id: alert.id,
+            type: alertType,
+            topCategory: 'contingency',
+            title: `${props.event} - ${props.areaDesc || 'Regional'}`,
+            coords: [coords[1], coords[0]],
+            time: props.sent ? new Date(props.sent).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
+            severity: (props.severity === 'Extreme' || props.severity === 'Severe') ? 'critical' : 'warning',
+            mag: 4
+          });
         } catch (itemErr) {}
       });
     }
@@ -529,51 +554,46 @@ async function fetchNOAAAlerts() {
   }
 }
 
-// ---- Automated Civil Works Feed (HIFLD / EPA Public Server proxy to bypass USACE CORS) ----
+// 6. Civil Works (Option A: Direct USACE NID FeatureServer via JSONP)
 async function fetchCivilWorksData() {
   try {
-    // Relying on the EPA / HIFLD proxy server for the NID dataset to prevent github.io CORS blocks
     const params = new URLSearchParams({
-      where: "PRIMARY_OWNER_TYPE = 'Federal'", 
+      where: "PRIMARY_OWNER_TYPE = 'Federal' OR FED_CONSTRUCTION = 'Yes'",
       outFields: 'NAME,NIDID,HAZARD_POTENTIAL,RIVER,DATA_UPDATED',
+      returnGeometry: 'true',
       outSR: '4326',
-      f: 'geojson',
-      resultRecordCount: '1500' 
+      resultRecordCount: '1000'
     });
-    
-    // Services.arcgis.com is Esri's commercial cloud, universally allowing external origin requests
-    const url = `https://services.arcgis.com/cJ9YHowT8TU7DUyn/ArcGIS/rest/services/INF___National_Inventory_of_Dams__USACE_2021_/FeatureServer/0/query?${params}`;
-    const res = await fetch(url);
-    
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
+
+    const endpoint = 'https://geospatial.sec.usace.army.mil/dls/rest/services/NID/National_Inventory_of_Dams_Public_Service/FeatureServer/0/query';
+    const data = await fetchArcGisJsonp(endpoint, params);
 
     return (data.features || []).map(f => {
-      const p = f.properties;
+      const p = f.attributes || {};
+      const geom = f.geometry || {};
       const hazard = p.HAZARD_POTENTIAL || 'Unknown';
       const severity = hazard === 'High' ? 'critical' : (hazard === 'Significant' ? 'warning' : 'good');
-      
+
       return {
-        id: p.NIDID || f.id,
+        id: p.NIDID || ('nid-' + Math.random()),
         type: 'civil-works',
         topCategory: 'contingency',
-        title: p.NAME ? `${p.NAME} Dam` : 'Unnamed Federal Dam',
-        subcategory: `Hazard Rating: ${hazard} | River: ${p.RIVER || 'N/A'}`,
-        coords: f.geometry && f.geometry.coordinates ? [f.geometry.coordinates[1], f.geometry.coordinates[0]] : null,
+        title: p.NAME ? `${p.NAME} Dam` : 'Federal Dam Structure',
+        subcategory: `Hazard: ${hazard} | Stream: ${p.RIVER || 'N/A'}`,
+        coords: (geom.y && geom.x) ? [geom.y, geom.x] : null,
         time: p.DATA_UPDATED ? new Date(p.DATA_UPDATED).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
         severity: severity,
         mag: hazard === 'High' ? 5 : 3,
         link: `https://nid.sec.usace.army.mil/#/dams/system/${p.NIDID}/summary`
       };
-    });
+    }).filter(e => e.coords !== null);
   } catch (err) {
-    console.error("Failed to load HIFLD Civil Works data:", err);
+    console.warn("Direct NID query failed, falling back to cached mirror:", err);
     return [];
   }
 }
 
-// ---- Manually-entered data feeds (Support Units / Programs) ----
-// Programs was converted from a top-level tab to a Contingency Ops layer
+// 7. Military Programs & Support Units
 const MANUAL_CATEGORIES = {
   'support-units': { file: 'data/support-units.json', label: 'Support Units' },
   'programs': { file: 'data/military-programs.json', label: 'Military Programs' }
@@ -595,7 +615,7 @@ async function fetchManualCategory(catKey, asContingencyLayer = false) {
     return data.map(entry => ({
       id: entry.id,
       type: catKey,
-      topCategory: asContingencyLayer ? 'contingency' : catKey, // Route programs to contingency
+      topCategory: asContingencyLayer ? 'contingency' : catKey,
       title: entry.title,
       subcategory: entry.subcategory,
       status: entry.status,
@@ -611,8 +631,7 @@ async function fetchManualCategory(catKey, asContingencyLayer = false) {
   }
 }
 
-// ---- Rendering ----
-
+// ---- Marker and Feed Rendering ----
 function renderEvents(events) {
   eventMarkers.forEach(m => map.removeLayer(m));
   eventMarkers = [];
@@ -629,6 +648,7 @@ function renderEvents(events) {
   events.forEach(evt => {
     const isRiverGauge = evt.type === 'river-gauge';
     let iconColor, iconBgColor;
+
     if (isRiverGauge) {
       iconColor = evt.severity === 'critical' ? '#3aa0ff' : '#FFC000';
       iconBgColor = evt.severity === 'critical' ? 'rgba(58, 160, 255, 0.2)' : 'rgba(255, 192, 0, 0.2)';
@@ -651,6 +671,7 @@ function renderEvents(events) {
         case 'river-gauge': faIcon = 'fa-water'; break;
         case 'fire': faIcon = 'fa-fire'; break;
         case 'hurricane': faIcon = 'fa-wind'; break;
+        case 'tsunami': faIcon = 'fa-water'; break;
         case 'weather': faIcon = 'fa-cloud-bolt'; break;
         case 'flash-flood': faIcon = 'fa-water'; break;
         case 'flood-warning': faIcon = 'fa-water'; break;
@@ -707,6 +728,7 @@ function renderEvents(events) {
     inner += `<div class="event-time">${evt.time}</div>`;
     if (evt.link) inner += `<a class="event-link" href="${evt.link}" target="_blank" rel="noopener">Reference &rarr;</a>`;
     card.innerHTML = inner;
+
     if (evt.coords) {
       card.onclick = () => {
         map.flyTo(evt.coords, 6, { duration: 1.5 });
@@ -718,10 +740,11 @@ function renderEvents(events) {
   });
 }
 
-// All layer filters default to false
+// Initial state: Everything unchecked
 const layerFilters = {
   'earthquakes': false, 'gauges': false, 'wildfires': false,
-  'storms': false, 'hurricanes': false, 'disasters': false, 'civil-works': false, 'programs': false
+  'storms': false, 'hurricanes': false, 'disasters': false,
+  'civil-works': false, 'programs': false
 };
 
 window.toggleAllLayers = function(enable) {
@@ -780,7 +803,7 @@ document.querySelectorAll('.top-cat-btn').forEach(btn => {
   btn.addEventListener('click', () => switchTopCategory(btn.dataset.cat));
 });
 
-// ---- Radar UI helpers ----
+// Radar Controls
 async function updateRadarStatus() {
   try {
     const res = await fetch('https://api.rainviewer.com/public/weather-maps.json', { cache: 'no-store' });
@@ -815,13 +838,12 @@ function toggleRadarUI() {
   }
 }
 
-// ---- Day/Night Terminator helpers ----
+// Day/Night Terminator
 function addDayNightTerminator() {
   try {
     if (!window.L || !window.L.terminator) return;
     if (terminatorLayer) map.removeLayer(terminatorLayer);
     
-    // Increased fillOpacity from 0.15 to 0.45 for a distinctly darker night side
     terminatorLayer = L.terminator({
       opacity: 0.1, weight: 1, color: '#111111',
       fillColor: '#000000', fillOpacity: 0.45
@@ -854,7 +876,6 @@ function toggleDayNight() {
   }
 }
 
-// ---- Initialize Feeds ----
 async function init() {
   const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, civilWorks, supportUnits, programs] = await Promise.all([
     fetchSeismicData(),
@@ -864,12 +885,11 @@ async function init() {
     fetchNOAAAlerts(),
     fetchCivilWorksData(),
     fetchManualCategory('support-units', false),
-    fetchManualCategory('programs', true) // Programs rendered inside Contingency Ops
+    fetchManualCategory('programs', true)
   ]);
 
   allEvents = [...seismic, ...riverGauges, ...wildfires, ...openFemaDisasters, ...noaaAlerts, ...civilWorks, ...supportUnits, ...programs];
   
-  // Default Layer Toggles: Force radar and day/night to start ON.
   applyCurrentFilter();
   toggleRadarUI();
   toggleDayNight();
