@@ -199,7 +199,7 @@ aside {
 
 <div class="ticker-bar">
   <span class="label">PRIORITY ALERTS ❯❯</span>
-  <marquee scrollamount="5" id="news-marquee">Monitoring U.S. disasters, river gauges, weather, and emergency operations in real-time...</marquee>
+  <marquee scrollamount="5" id="news-marquee">Monitoring global crisis events, tropical cyclones, river gauges, weather, and civil works in real-time...</marquee>
 </div>
 
 <div class="workspace">
@@ -236,7 +236,7 @@ aside {
             <input type="checkbox" id="filter-storms" onchange="updateLayerDisplay()"> Storms
           </label>
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
-            <input type="checkbox" id="filter-hurricanes" onchange="updateLayerDisplay()"> Hurricanes
+            <input type="checkbox" id="filter-hurricanes" onchange="updateLayerDisplay()"> Cyclones / Trop
           </label>
           <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
             <input type="checkbox" id="filter-disasters" onchange="updateLayerDisplay()"> Disasters
@@ -277,7 +277,7 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-const map = L.map('map', { center: [39, -98], zoom: 4, zoomControl: false });
+const map = L.map('map', { center: [20, 0], zoom: 3, zoomControl: false });
 map.attributionControl.setPrefix(false);
 
 const MAPTILER_API_KEY = 'qUsMKrQQt9RdGj760Jgm';
@@ -307,28 +307,6 @@ let eventMarkers = [];
 let allEvents = [];
 let hurricaneTrackLayers = [];
 let terminatorLayer = null;
-
-function distanceNM(lat1, lon1, lat2, lon2) {
-  const rad = Math.PI / 180;
-  const dLat = (lat2 - lat1) * rad;
-  const dLon = (lon2 - lon1) * rad;
-  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-            Math.cos(lat1 * rad) * Math.cos(lat2 * rad) *
-            Math.sin(dLon / 2) * Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return 3440.065 * c;
-}
-
-function isWithin500NMOfUS(lat, lon) {
-  const anchors = [
-    { lat: 25.0, lon: -80.0 }, { lat: 29.5, lon: -89.0 }, { lat: 26.0, lon: -97.0 },
-    { lat: 35.0, lon: -75.5 }, { lat: 42.0, lon: -70.0 }, { lat: 32.7, lon: -117.2 },
-    { lat: 38.0, lon: -123.0 }, { lat: 46.0, lon: -124.0 }, { lat: 18.2, lon: -66.5 },
-    { lat: 21.3, lon: -157.8 }, { lat: 19.5, lon: -155.5 }, { lat: 13.4, lon: 144.8 },
-    { lat: 15.2, lon: 145.7 }, { lat: -14.3, lon: -170.7 }
-  ];
-  return anchors.some(a => distanceNM(lat, lon, a.lat, a.lon) <= 500);
-}
 
 // 1. River Gauges (via cache)
 async function fetchRiverGaugeData() {
@@ -524,10 +502,11 @@ async function fetchNOAAAlerts() {
   }
 }
 
-// 6. Hurricanes with Trajectory & Forecast (NHC / CPHC Service)
+// 6. Worldwide Tropical Cyclones / Typhoons / Hurricanes (NHC + CPHC + JTWC Global)
 async function fetchTropicalCyclones() {
   const events = [];
   try {
+    // Queries all active tropical cyclones worldwide (Atlantic, Pacific, Indian Ocean, Southern Hemisphere)
     const pointsUrl = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Active_Hurricanes_v1/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson';
     const linesUrl = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Active_Hurricanes_v1/FeatureServer/2/query?where=1%3D1&outFields=*&f=geojson';
 
@@ -549,27 +528,38 @@ async function fetchTropicalCyclones() {
       if (!coords || isNaN(coords[0]) || isNaN(coords[1])) return;
 
       const [lat, lon] = coords;
-      if (isWithin500NMOfUS(lat, lon)) {
-        const intensity = p.INTENSITY || p.MAXWIND || 0;
-        const stormName = (p.STORMNAME || p.NAME || 'Unnamed').toUpperCase();
-        const classification = p.STORMTYPE || (intensity >= 64 ? 'Hurricane' : 'Tropical Storm');
-        
-        events.push({
-          id: p.STORMID || `tc-${lat}-${lon}`,
-          type: intensity >= 64 ? 'hurricane' : 'tropical-storm',
-          topCategory: 'contingency',
-          title: `${classification} ${stormName} (${intensity} kts) [Within 500 NM]`,
-          subcategory: `Pressure: ${p.PRESSURE || 'N/A'} mb | Movement: ${p.MOVEMENT || 'Tracking'}`,
-          coords: [lat, lon],
-          time: p.DATELBL || new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
-          severity: intensity >= 64 ? 'critical' : 'warning',
-          mag: 5,
-          trackLines: linesByStorm[stormName] || [],
-          link: `https://www.nhc.noaa.gov/`
-        });
+      const intensity = p.INTENSITY || p.MAXWIND || 0;
+      const stormName = (p.STORMNAME || p.NAME || 'Unnamed').toUpperCase();
+      
+      // Determine regional terminology (Typhoon for W-Pac, Cyclone for S-Hem/Indian, Hurricane for Atlantic/E-Pac)
+      let classification = p.STORMTYPE;
+      if (!classification) {
+        if (intensity >= 64) {
+          if (lon >= 100 && lon <= 180 && lat >= 0) classification = 'Typhoon';
+          else if (lat < 0 || (lon >= 30 && lon < 100)) classification = 'Cyclone';
+          else classification = 'Hurricane';
+        } else {
+          classification = 'Tropical Storm';
+        }
       }
+
+      events.push({
+        id: p.STORMID || `tc-${stormName}-${lat}-${lon}`,
+        type: intensity >= 64 ? 'hurricane' : 'tropical-storm',
+        topCategory: 'contingency',
+        title: `${classification} ${stormName} (${intensity} kts)`,
+        subcategory: `Basin: ${p.BASIN || 'Global'} | Pressure: ${p.PRESSURE || 'N/A'} mb | Movement: ${p.MOVEMENT || 'Tracking'}`,
+        coords: [lat, lon],
+        time: p.DATELBL || new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+        severity: intensity >= 64 ? 'critical' : 'warning',
+        mag: 5,
+        trackLines: linesByStorm[stormName] || [],
+        link: `https://www.nhc.noaa.gov/`
+      });
     });
-  } catch (err) {}
+  } catch (err) {
+    console.warn("Global Tropical Cyclone Feed error:", err);
+  }
   return events;
 }
 
@@ -589,19 +579,18 @@ async function fetchCivilWorksData() {
   }
 }
 
-// 8. MILCON (Fetched from Cache — Scaled appropriately to ontology)
+// 8. MILCON (Fetched from Cache)
 async function fetchMilconSpendingData() {
   try {
     const res = await fetch('data/milcon-cache.json', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     return (data.events || []).map(e => {
-      // Normalizes size strictly between 18px and 24px based on dollar tier
       const cost = e.cost || 0;
       let base = 20;
-      if (cost >= 100000000) base = 24;      // Mega projects $100M+
-      else if (cost >= 25000000) base = 22;  // Major projects $25M-$100M
-      else base = 19;                        // Standard contracts
+      if (cost >= 100000000) base = 24;
+      else if (cost >= 25000000) base = 22;
+      else base = 19;
 
       return {
         ...e,
@@ -673,7 +662,6 @@ function renderEvents(events) {
       iconBgColor = evt.severity === 'critical' ? 'rgba(255, 51, 68, 0.2)' : evt.severity === 'good' ? 'rgba(0, 255, 102, 0.2)' : 'rgba(255, 170, 0, 0.2)';
     }
 
-    // Scaled proportional to standard ontology
     const iconSize = getZoomScaledIconSize(evt.baseSize || BASE_ICON_SIZE);
 
     if (evt.coords) {
