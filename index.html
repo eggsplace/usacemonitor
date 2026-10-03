@@ -307,33 +307,39 @@ let eventMarkers = [];
 let allEvents = [];
 let terminatorLayer = null;
 
-// JSONP query helper to bypass DoD .mil CORS restrictions
-function fetchArcGisJsonp(url, params) {
-  return new Promise((resolve, reject) => {
-    const callbackName = 'arcgis_cb_' + Math.random().toString(36).substr(2, 9);
-    params.set('f', 'json');
-    params.set('callback', callbackName);
-
-    const script = document.createElement('script');
-    script.src = `${url}?${params.toString()}`;
-
-    window[callbackName] = (data) => {
-      resolve(data);
-      document.body.removeChild(script);
-      delete window[callbackName];
-    };
-
-    script.onerror = (err) => {
-      reject(err);
-      document.body.removeChild(script);
-      delete window[callbackName];
-    };
-
-    document.body.appendChild(script);
-  });
+// Distance calculator for 500 NM bounds check
+function distanceNM(lat1, lon1, lat2, lon2) {
+  const rad = Math.PI / 180;
+  const dLat = (lat2 - lat1) * rad;
+  const dLon = (lon2 - lon1) * rad;
+  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * rad) * Math.cos(lat2 * rad) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return 3440.065 * c;
 }
 
-// 1. River Gauges (Calibrated Aperture: moderate/major floods and acute low-water)
+function isWithin500NMOfUS(lat, lon) {
+  const anchors = [
+    { lat: 25.0, lon: -80.0 }, // S. Florida
+    { lat: 29.5, lon: -89.0 }, // Gulf Coast
+    { lat: 26.0, lon: -97.0 }, // S. Texas
+    { lat: 35.0, lon: -75.5 }, // Mid-Atlantic
+    { lat: 42.0, lon: -70.0 }, // New England
+    { lat: 32.7, lon: -117.2 }, // S. California
+    { lat: 38.0, lon: -123.0 }, // Central California
+    { lat: 46.0, lon: -124.0 }, // Pacific NW
+    { lat: 18.2, lon: -66.5 },  // Puerto Rico / USVI
+    { lat: 21.3, lon: -157.8 }, // Hawaii
+    { lat: 19.5, lon: -155.5 }, // Hawaii Big Island
+    { lat: 13.4, lon: 144.8 },  // Guam / Rota
+    { lat: 15.2, lon: 145.7 },  // Saipan / CNMI
+    { lat: -14.3, lon: -170.7 } // American Samoa
+  ];
+  return anchors.some(a => distanceNM(lat, lon, a.lat, a.lon) <= 500);
+}
+
+// 1. River Gauges (Major/Moderate Flood & Critical Low Water)
 async function fetchRiverGaugeData() {
   try {
     const res = await fetch('data/river-gauges-cache.json', { cache: 'no-store' });
@@ -343,10 +349,8 @@ async function fetchRiverGaugeData() {
     return (data.events || [])
       .filter(e => {
         const titleStr = (e.title || '').toLowerCase();
-        // Drop minor nuisance alerts and unclassified action stages
-        if (titleStr.includes('minor flood') || titleStr.includes('action stage')) return false;
-        // Keep critical stages, moderate floods, major floods, and real low-water hits
-        return e.severity === 'critical' || titleStr.includes('moderate') || titleStr.includes('low');
+        if (titleStr.includes('minor') || titleStr.includes('action')) return false;
+        return e.severity === 'critical' || titleStr.includes('moderate') || titleStr.includes('major');
       })
       .map(e => ({
         id: e.id,
@@ -485,7 +489,7 @@ async function fetchOpenFEMADisasters() {
   }
 }
 
-// 5. NOAA Weather, Storms, and Hurricanes
+// 5. NOAA Weather, Storms, and In-Territory Alerts
 async function fetchNOAAAlerts() {
   try {
     const res = await fetch('https://api.weather.gov/alerts/active');
@@ -498,7 +502,6 @@ async function fetchNOAAAlerts() {
           const props = alert.properties;
           const eventName = (props.event || '').toLowerCase();
 
-          // Drop mild nuisance/informational alerts
           if (
             eventName.includes('special weather') ||
             eventName.includes('wind advisory') ||
@@ -510,14 +513,18 @@ async function fetchNOAAAlerts() {
 
           let coords = null;
           if (alert.geometry && alert.geometry.coordinates && alert.geometry.coordinates.length > 0) {
-            if (alert.geometry.type === 'Polygon') coords = alert.geometry.coordinates[0][0];
-            else if (alert.geometry.type === 'MultiPolygon') coords = alert.geometry.coordinates[0][0][0];
+            const geomType = alert.geometry.type;
+            if (geomType === 'Polygon') {
+              const ring = alert.geometry.coordinates[0];
+              coords = ring[Math.floor(ring.length / 2)];
+            } else if (geomType === 'MultiPolygon') {
+              const ring = alert.geometry.coordinates[0][0];
+              coords = ring[Math.floor(ring.length / 2)];
+            } else if (geomType === 'Point') {
+              coords = alert.geometry.coordinates;
+            }
           }
 
-          // If no direct polygon, estimate coords from area description or bounding parameters
-          if (!coords && props.parameters && props.parameters.AWIPSidentifier) {
-            coords = [38.5, -95.0]; // fallback centered placeholder
-          }
           if (!coords) return;
 
           let alertType = 'severe-weather';
@@ -554,46 +561,89 @@ async function fetchNOAAAlerts() {
   }
 }
 
-// 6. Civil Works (Option A: Direct USACE NID FeatureServer via JSONP)
+// 6. Tropical Cyclones within 500 Nautical Miles of US/Territories (NHC / CPHC Feed)
+async function fetchTropicalCyclones() {
+  const events = [];
+  try {
+    const res = await fetch('https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Active_Hurricanes_v1/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    (data.features || []).forEach(f => {
+      const p = f.properties || {};
+      const coords = f.geometry && f.geometry.coordinates ? [f.geometry.coordinates[1], f.geometry.coordinates[0]] : null;
+      if (!coords) return;
+
+      const [lat, lon] = coords;
+      if (isWithin500NMOfUS(lat, lon)) {
+        const intensity = p.INTENSITY || p.MAXWIND || 0;
+        const classification = p.STORMTYPE || (intensity >= 64 ? 'Hurricane' : 'Tropical Storm');
+        
+        events.push({
+          id: p.STORMID || `tc-${lat}-${lon}`,
+          type: intensity >= 64 ? 'hurricane' : 'tropical-storm',
+          topCategory: 'contingency',
+          title: `${classification} ${p.STORMNAME || ''} (${intensity} kts) [Within 500 NM]`,
+          subcategory: `Pressure: ${p.PRESSURE || 'N/A'} mb | Movement: ${p.MOVEMENT || 'Tracking'}`,
+          coords: [lat, lon],
+          time: p.DATELBL || new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+          severity: intensity >= 64 ? 'critical' : 'warning',
+          mag: 5,
+          link: `https://www.nhc.noaa.gov/`
+        });
+      }
+    });
+    console.log(`Tropical Cyclones (within 500 NM): ${events.length} active.`);
+  } catch (err) {
+    console.warn("NHC Active Tropical Feed check:", err.message);
+  }
+  return events;
+}
+
+// 7. Civil Works (Universal Public FeatureServer - USACE Major Infrastructure & Dams)
 async function fetchCivilWorksData() {
   try {
     const params = new URLSearchParams({
-      where: "PRIMARY_OWNER_TYPE = 'Federal' OR FED_CONSTRUCTION = 'Yes'",
-      outFields: 'NAME,NIDID,HAZARD_POTENTIAL,RIVER,DATA_UPDATED',
-      returnGeometry: 'true',
+      where: "1=1",
+      outFields: 'NAME,NIDID,HAZARD_POTENTIAL,RIVER,COUNTY,STATE',
       outSR: '4326',
+      f: 'geojson',
       resultRecordCount: '1000'
     });
 
-    const endpoint = 'https://geospatial.sec.usace.army.mil/dls/rest/services/NID/National_Inventory_of_Dams_Public_Service/FeatureServer/0/query';
-    const data = await fetchArcGisJsonp(endpoint, params);
+    const url = `https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/USA_Dams/FeatureServer/0/query?${params}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    console.log(`Civil Works: Loaded ${(data.features || []).length} dam facilities.`);
 
     return (data.features || []).map(f => {
-      const p = f.attributes || {};
-      const geom = f.geometry || {};
-      const hazard = p.HAZARD_POTENTIAL || 'Unknown';
-      const severity = hazard === 'High' ? 'critical' : (hazard === 'Significant' ? 'warning' : 'good');
+      const p = f.properties || {};
+      const hazard = p.HAZARD_POTENTIAL || p.HAZARD || 'Moderate';
+      const severity = (hazard.toLowerCase().includes('high')) ? 'critical' : (hazard.toLowerCase().includes('significant') ? 'warning' : 'good');
+      const coords = (f.geometry && f.geometry.coordinates) ? [f.geometry.coordinates[1], f.geometry.coordinates[0]] : null;
 
       return {
-        id: p.NIDID || ('nid-' + Math.random()),
+        id: p.NIDID || ('nid-' + Math.random().toString(36).substr(2, 8)),
         type: 'civil-works',
         topCategory: 'contingency',
-        title: p.NAME ? `${p.NAME} Dam` : 'Federal Dam Structure',
-        subcategory: `Hazard: ${hazard} | Stream: ${p.RIVER || 'N/A'}`,
-        coords: (geom.y && geom.x) ? [geom.y, geom.x] : null,
-        time: p.DATA_UPDATED ? new Date(p.DATA_UPDATED).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
+        title: p.NAME ? `${p.NAME} Dam` : 'Federal Dam Facility',
+        subcategory: `Hazard: ${hazard} | River: ${p.RIVER || 'N/A'}`,
+        coords: coords,
+        time: '',
         severity: severity,
-        mag: hazard === 'High' ? 5 : 3,
-        link: `https://nid.sec.usace.army.mil/#/dams/system/${p.NIDID}/summary`
+        mag: severity === 'critical' ? 5 : 3,
+        link: p.NIDID ? `https://nid.sec.usace.army.mil/#/dams/system/${p.NIDID}/summary` : 'https://nid.sec.usace.army.mil'
       };
     }).filter(e => e.coords !== null);
   } catch (err) {
-    console.warn("Direct NID query failed, falling back to cached mirror:", err);
+    console.error("Civil Works API failed:", err);
     return [];
   }
 }
 
-// 7. Military Programs & Support Units
+// 8. Military Programs & Support Units
 const MANUAL_CATEGORIES = {
   'support-units': { file: 'data/support-units.json', label: 'Support Units' },
   'programs': { file: 'data/military-programs.json', label: 'Military Programs' }
@@ -671,13 +721,14 @@ function renderEvents(events) {
         case 'river-gauge': faIcon = 'fa-water'; break;
         case 'fire': faIcon = 'fa-fire'; break;
         case 'hurricane': faIcon = 'fa-wind'; break;
+        case 'tropical-storm': faIcon = 'fa-wind'; break;
         case 'tsunami': faIcon = 'fa-water'; break;
         case 'weather': faIcon = 'fa-cloud-bolt'; break;
         case 'flash-flood': faIcon = 'fa-water'; break;
         case 'flood-warning': faIcon = 'fa-water'; break;
         case 'severe-weather': faIcon = 'fa-cloud-bolt'; break;
         case 'disaster': faIcon = 'fa-triangle-exclamation'; break;
-        case 'civil-works': faIcon = 'fa-diagram-project'; break;
+        case 'civil-works': faIcon = 'fa-landmark'; break;
         case 'support-units': faIcon = 'fa-people-group'; break;
         case 'programs': faIcon = 'fa-layer-group'; break;
         default: faIcon = 'fa-circle';
@@ -877,18 +928,29 @@ function toggleDayNight() {
 }
 
 async function init() {
-  const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, civilWorks, supportUnits, programs] = await Promise.all([
+  const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, tropicalCyclones, civilWorks, supportUnits, programs] = await Promise.all([
     fetchSeismicData(),
     fetchRiverGaugeData(),
     fetchWildfireData(),
     fetchOpenFEMADisasters(),
     fetchNOAAAlerts(),
+    fetchTropicalCyclones(),
     fetchCivilWorksData(),
     fetchManualCategory('support-units', false),
     fetchManualCategory('programs', true)
   ]);
 
-  allEvents = [...seismic, ...riverGauges, ...wildfires, ...openFemaDisasters, ...noaaAlerts, ...civilWorks, ...supportUnits, ...programs];
+  allEvents = [
+    ...seismic,
+    ...riverGauges,
+    ...wildfires,
+    ...openFemaDisasters,
+    ...noaaAlerts,
+    ...tropicalCyclones,
+    ...civilWorks,
+    ...supportUnits,
+    ...programs
+  ];
   
   applyCurrentFilter();
   toggleRadarUI();
