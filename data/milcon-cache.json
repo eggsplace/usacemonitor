@@ -1,4 +1,949 @@
 {
-  "updated": "2026-10-03T18:20:51.783Z",
-  "events": []
+  "updated": "2026-10-03T18:28:44.079Z",
+  "events": [
+    {
+      "id": "DEAC2701RV14136",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $17883.0M - BECHTEL NATIONAL, INC.",
+      "subcategory": "Installation, WA | USACE Construction Contract...",
+      "coords": [
+        47.0979936123923,
+        -121.84741861413208
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 17883024035.27,
+      "mag": 44,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002409C2104",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $16238.8M - ELECTRIC BOAT CORPORATION",
+      "subcategory": "Installation, CT | CONSTRUCTION OF VIRGINIA CLASS BLOCK III SUBMARINES....",
+      "coords": [
+        41.269053406312416,
+        -72.56133740816223
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 16238775949,
+      "mag": 44,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002406C2222",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $10029.6M - HUNTINGTON INGALLS INCORPORATED",
+      "subcategory": "Installation, MS | DETAIL DESIGN AND CONSTRUCTION OF LPD 17 CLASS SHIP (LPD 22)...",
+      "coords": [
+        32.521462251770444,
+        -90.02349583302231
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 10029620274.96,
+      "mag": 43,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002423C2307",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $8319.6M - HUNTINGTON INGALLS INCORPORATED",
+      "subcategory": "Installation, MS | CONSTRUCTION OF DDG 51 SHIPS FY23-27...",
+      "coords": [
+        32.51863770047392,
+        -89.74871586642561
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 8319625828.83,
+      "mag": 43,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002418C2307",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $6957.4M - HUNTINGTON INGALLS INCORPORATED",
+      "subcategory": "Installation, MS | FY18-FY22 DDG 51 CLASS SHIP CONSTRUCTION...",
+      "coords": [
+        32.44077414507231,
+        -89.90835187357195
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 6957381008.74,
+      "mag": 42,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002408C2110",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $6651.0M - HUNTINGTON INGALLS INC",
+      "subcategory": "Installation, VA | TAS::17 1611::TAS CVN 78 SHIP CONSTRUCTION...",
+      "coords": [
+        37.98826078927361,
+        -78.24755687725204
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 6651038755.11,
+      "mag": 42,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002423C2305",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $6589.9M - BATH IRON WORKS CORPORATION",
+      "subcategory": "Installation, ME | CONSTRUCTION OF DDG 51 SHIPS FY23-27...",
+      "coords": [
+        44.645334840442956,
+        -69.00969895445081
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 6589906685,
+      "mag": 42,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002416C2229",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $5912.3M - NATIONAL STEEL AND SHIPBUILDING COMPANY",
+      "subcategory": "Installation, CA | DETAIL DESIGN AND CONSTRUCTION (DD&C) FOR T-AO 205...",
+      "coords": [
+        36.06414809830475,
+        -119.80222272164801
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 5912347321.23,
+      "mag": 42,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002418C2305",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $5497.6M - BATH IRON WORKS CORPORATION",
+      "subcategory": "Installation, ME | FY18-FY22 DDG 51 CLASS SHIP CONSTRUCTION...",
+      "coords": [
+        45.01182672593673,
+        -69.03186459367309
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 5497625200.86,
+      "mag": 42,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002413C2305",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $5025.7M - BATH IRON WORKS CORPORATION",
+      "subcategory": "Installation, ME | FY13-FY17 DDG 51 CLASS SHIP CONSTRUCTION....",
+      "coords": [
+        45.088548217889574,
+        -69.35652343830935
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 5025697579.81,
+      "mag": 42,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "W52P1J09C0013",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $4996.3M - BECHTEL PARSONS BLUE GRASS, A JOINT VENTURE",
+      "subcategory": "Installation, KY | THE PURPOSE OF MODIFICATION P00003 - CLIN 0002 CONSTRUCTION IS TO DO THE FOLLOWING:  1. FY...",
+      "coords": [
+        38.04961129361839,
+        -84.34526821018257
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 4996275910.56,
+      "mag": 42,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002415C2114",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $4578.3M - HUNTINGTON INGALLS INC",
+      "subcategory": "Installation, VA | DETAIL DESIGN AND CONSTRUCTION CVN 79...",
+      "coords": [
+        37.63924206335663,
+        -78.35221687436176
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 4578338156.84,
+      "mag": 42,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002409C2116",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $4519.0M - HUNTINGTON INGALLS INC",
+      "subcategory": "Installation, VA | TAS::17 1611::TAS CVN79 CONSTRUCTION PREPARATION EFFORTS FY09...",
+      "coords": [
+        38.00997127833156,
+        -77.89360172780351
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 4519021712.83,
+      "mag": 42,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002416C2427",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $3373.8M - HUNTINGTON INGALLS INCORPORATED",
+      "subcategory": "Installation, MS | DETAIL DESIGN AND CONSTRUCTION (DD&C) FOR LHA 8 (INITIAL EFFORT LIMITED TO PLANNING, ADVAN...",
+      "coords": [
+        32.774293800679246,
+        -89.82447596857634
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 3373813422.4,
+      "mag": 41,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002418C2301",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $3365.4M - LOCKHEED MARTIN CORPORATION",
+      "subcategory": "Installation, MD | MMSC DETAILED DESIGN AND CONSTRUCTION...",
+      "coords": [
+        38.819083553590524,
+        -76.532794030766
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 3365358808.39,
+      "mag": 41,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002413C2307",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $3345.8M - HUNTINGTON INGALLS INCORPORATED",
+      "subcategory": "Installation, MS | FY13-FY17 DDG 51 CLASS SHIP CONSTRUCTION....",
+      "coords": [
+        32.799974236915844,
+        -90.02953166102465
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 3345822881,
+      "mag": 41,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N6274223F4007",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $3071.4M - DRAGADOS/HAWAIIAN DREDGING/ORION JV",
+      "subcategory": "Installation, HI | FY23 MCON PROJECT P-209, DRY DOCK 3 REPLACEMENT, JOINT BASE PEARL HARBOR HICKAM, HAWAII...",
+      "coords": [
+        21.482695082136058,
+        -157.82789979125437
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 3071394028.15,
+      "mag": 41,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002420C2300",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $2952.5M - MARINETTE MARINE CORPORATION",
+      "subcategory": "Installation, WI | DETAIL DESIGN AND CONSTRUCTION OF FFG(X) GUIDED MISSILE FRIGATE...",
+      "coords": [
+        44.59557329367171,
+        -89.61644793312149
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 2952523292,
+      "mag": 41,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "70B01C26F00000017",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $2833.5M - FISHER SAND & GRAVEL CO",
+      "subcategory": "Installation, AZ | CONSTRUCT VERTICAL BORDER BARRIER...",
+      "coords": [
+        33.53283653474853,
+        -111.64644296523777
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 2833494611.7,
+      "mag": 41,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002417C2301",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $2808.2M - AUSTAL USA, LLC",
+      "subcategory": "Installation, AL | CONSTRUCTION OF LCS FLIGHT 0+ SHIP...",
+      "coords": [
+        33.13049865640516,
+        -86.52388862373361
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 2808192322.4,
+      "mag": 41,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "70B01C26F00000405",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $2594.0M - FISHER SAND & GRAVEL CO",
+      "subcategory": "Installation, TX | BORDER BARRIER DESIGN BUILD FOR BBT-5...",
+      "coords": [
+        30.685858556483055,
+        -97.2492961274092
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 2594040000,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002411C2306",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $2551.3M - BATH IRON WORKS CORPORATION",
+      "subcategory": "Installation, ME | DDG 1001/1002 CONSTRUCTION AND FY11 CLASS SERVICES...",
+      "coords": [
+        44.89495206471612,
+        -69.57006487062941
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 2551316435,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "W912EP24C0018",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $2514.1M - THALLE CONSTRUCTION CO INC",
+      "subcategory": "Installation, FL | CENTRAL EVERGLADES PLANNING PROJECT (CEPP) CONTRACT 11B, EVERGLADES AGRICULTURAL AREA (EAA...",
+      "coords": [
+        27.476089406466954,
+        -82.03477004928558
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 2514144742.31,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "DEAC0902SR22210",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $2276.9M - PARSONS GOVERNMENT SERVICES INC.",
+      "subcategory": "Installation, SC | SALT WASTE PROCESSING FACILITY CONCEPTUAL DESIGN...",
+      "coords": [
+        34.164626103617834,
+        -81.28925766180433
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 2276893314.21,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "DAAA0997C0025",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $2143.1M - WASHINGTON DEMILITARIZATION COMPANY LLC",
+      "subcategory": "Installation, OR | 199712!2100!6004!AA09 !U.S. ARMY INDUSTRIAL OPERATIONS !DAAA0997C0025  !A!*!P00006        ...",
+      "coords": [
+        44.835321839027024,
+        -121.74151182376796
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 2143099331.38,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "70B01C26C00000006",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $2022.2M - AMI METALS, INC",
+      "subcategory": "Installation, TX | BULK STEEL FOR SOUTHWEST BORDER BARRIER CONSTRUCTION PROJECTS...",
+      "coords": [
+        30.81828651731046,
+        -97.66229697096446
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 2022176160.58,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002419C2210",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $2019.7M - BOLLINGER MISSISSIPPI SHIPBUILDING, LLC",
+      "subcategory": "Installation, MS | POLAR SECURITY CUTTER #1 (FORMERLY HPIB) DETAIL DESIGN AND CONSTRUCTION...",
+      "coords": [
+        32.65986761568463,
+        -89.46382925298738
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 2019738356.06,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "DAAA0997C0098",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1995.3M - WASHINGTON DEMILITARIZATION COMPANY, LLC",
+      "subcategory": "Installation, AR | 199710!2100!6000!AA09 !U.S. ARMY INDUSTRIAL OPERATIONS !DAAA0997C0098  !A!*!*             ...",
+      "coords": [
+        34.98920600733898,
+        -92.33342651729181
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1995254704.5,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "W911XK22C0006",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1938.6M - KOKOSING ALBERICI TRAYLOR, LLC",
+      "subcategory": "Installation, MI | CONSTRUCTION OF THE NEW THIRD LOCK, NEW LOCK AT THE SOO, SAULT STE. MARIE, MICHIGAN....",
+      "coords": [
+        43.08284591814147,
+        -84.31229193910562
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1938570149,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "W912QR04C0004",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1870.7M - WASHINGTON GROUP/ALBERICI JOINT VENTURE",
+      "subcategory": "Installation, IL | TAS::96 3134::TAS ARRA::YES::ARRA OLMSTED DAM CONSTRUCTION PROJECT (ARRA FUNDS ADDED 9/3/2...",
+      "coords": [
+        40.67848525207466,
+        -89.22358395488291
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1870676938.26,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "W912PL19C0015",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1857.2M - SOUTHWEST VALLEY CONSTRUCTORS CO",
+      "subcategory": "Installation, AZ | DESIGN BUILD OF TUCSON SECTOR BARRIER WALL REPLACEMENT PROJECT, VARIOUS LOCATIONS, AZ...",
+      "coords": [
+        33.37330026720635,
+        -111.55653098534609
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1857177427.39,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "DAAA0996C0018",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1842.1M - WASHINGTON GOVERNMENT ENVIRONMENTAL SERVICES COMPANY LLC",
+      "subcategory": "Installation, AL | 199712!2100!0084!AA09 !U.S. ARMY INDUSTRIAL OPERATIONS !DAAA0996C0018  !A!*!P00006        ...",
+      "coords": [
+        32.9215810658105,
+        -86.91097676687907
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1842081292.91,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N4008521C0077",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1822.3M - 381 CONSTRUCTORS",
+      "subcategory": "Installation, ME | P-381 MULTI-MISSION DRY DOCK #1, PORTSMOUTH NAVAL SHIPYARD, KITTERY, ME...",
+      "coords": [
+        44.59952066554656,
+        -69.04873206873152
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1822272580.37,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "70B01C26F00000073",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1787.5M - FISHER SAND & GRAVEL CO",
+      "subcategory": "Installation, NM | DESIGN AND CONSTRUCT NEW VERTICAL BARRIER AND POWER DISTRIBUTION, LIGHTING, CAMERAS, EQUIP...",
+      "coords": [
+        34.57552061406524,
+        -106.30889232074523
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1787500000,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "70B01C26F00000292",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1770.8M - BARNARD CONSTRUCTION COMPANY, INCORPORATED",
+      "subcategory": "Installation, TX | BORDER WALL CONSTRUCTION FOR EL PASO SECTOR - EPT-5...",
+      "coords": [
+        30.83858256300592,
+        -97.78777038712248
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1770847986,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "70B01C26F00000345",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1720.0M - SOUTHWEST VALLEY CONSTRUCTORS CO",
+      "subcategory": "Installation, TX | AWARD OF CONSTRUCTION TASK ORDER FOR BORDER WALL IN BIG BEND TEXAS, SEGMENT IDENTIFIED AS ...",
+      "coords": [
+        31.417040919591606,
+        -97.52577880061529
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1720040000,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "70B01C26F00000044",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1650.8M - FISHER SAND & GRAVEL CO",
+      "subcategory": "Installation, AZ | YUM-2 VERTICAL BORDER AND WATERBORNE BARRIER CONSTRUCTION...",
+      "coords": [
+        33.928151601667324,
+        -111.33374356856652
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1650754000,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002418C2300",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1639.1M - LOCKHEED MARTIN CORPORATION",
+      "subcategory": "Installation, MD | CONSTRUCTION OF LCS FLIGHT 0+ SHIP...",
+      "coords": [
+        39.168484839976394,
+        -77.04344396055195
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1639054125.45,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "MDA94701C2001",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1629.0M - HENSEL PHELPS CONSTRUCTION CO",
+      "subcategory": "Installation, VA | 200112!000146!9700!ZD47  !PENTAGON RENOVATION MANAGEMENT  !MDA94701C2001  !A!N!*!N!       ...",
+      "coords": [
+        37.782138985892395,
+        -78.07259020009826
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1629040561.35,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "80KSC019C0013",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1540.9M - BECHTEL NATIONAL, INC.",
+      "subcategory": "Installation, VA | DESIGN AND CONSTRUCTION OF THE NASA SPACE LAUNCH SYSTEM (SLS) MOBILE LAUNCHER 2 (ML2)....",
+      "coords": [
+        37.539128470177275,
+        -78.03757730278222
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1540889354.01,
+      "mag": 40,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "W912DR07C0027",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1433.8M - CLARK/BALFOUR BEATTY - NCE, A JOINT VENTURE",
+      "subcategory": "Installation, VA | PHASE SERVICES FOR NGA...",
+      "coords": [
+        37.85797411007557,
+        -78.44336771833085
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1433788456,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "HHSO100200900101C",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1430.6M - SEQIRUS INC",
+      "subcategory": "Installation, MA | TAS::75 0140::TAS CONSTRUCTION OF VACCINE MANUFACTURING FACILITY...",
+      "coords": [
+        42.20855746864187,
+        -71.67459237538507
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1430622665,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "N0002411C2305",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1403.3M - BATH IRON WORKS CORPORATION",
+      "subcategory": "Installation, ME | CONSTRUCTION OF DDG 51 CLASS DESTROYER...",
+      "coords": [
+        44.387560807925276,
+        -69.45238548758199
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1403317277,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "FA873017C0010",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1342.5M - RAYTHEON COMPANY",
+      "subcategory": "Installation, MA | QATAR EARLY WARNING RADAR- CONSTRUCTION OF RADAR AND SUPPORT BUILDINGS...",
+      "coords": [
+        42.45001330313691,
+        -71.61041202688236
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1342483317.71,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "70B01C26F00000385",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1313.2M - SLS FEDERAL SERVICES LLC",
+      "subcategory": "Installation, AZ | BORDER WALL CONSTRUCTION FOR TCA-5 TON....",
+      "coords": [
+        33.65971889487919,
+        -111.15605077127147
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1313227200,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "W912DR10C0094",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1251.3M - BALFOUR BEATTY/DPR/BIG-D, A JOINT VENTURE",
+      "subcategory": "Installation, UT | UTAH DATA CENTER, CAMP WILLIAMS, UT...",
+      "coords": [
+        39.83870750944857,
+        -112.12492711270357
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1251343793,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "W912P808C0038",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1249.8M - APTIM FEDERAL SERVICES, LLC",
+      "subcategory": "Installation, LA | IHNC 392 PERMANENT PROTECTION & ADVANCED...",
+      "coords": [
+        30.837516287410946,
+        -91.78132895780426
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1249801027.34,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "70B01C25F00001112",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1225.3M - FISHER SAND & GRAVEL CO",
+      "subcategory": "Installation, CA | CONSTRUCTION BORDER BARRIER EL CENTRO, CA...",
+      "coords": [
+        35.95337976426388,
+        -119.66016392492354
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1225325000,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "70B01C26F00000169",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1223.1M - FISHER SAND & GRAVEL CO",
+      "subcategory": "Installation, TX | BORDER WALL CONSTRUCTION - VERTICAL BARRIER, BIG BEND TEXAS SECTOR (BBT-2)...",
+      "coords": [
+        30.68004348357808,
+        -97.25337011059611
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1223124000,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "47QFCA21F0001",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1205.9M - SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+      "subcategory": "Installation, VA | THE SCOPE OF THE TO IS TO PROVIDE ENTERPRISE IT SERVICES FOR THE USACE....",
+      "coords": [
+        37.514429612647234,
+        -77.8663041632788
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1205937997.76,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "70B01C26F00000261",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1147.0M - SPENCER CONSTRUCTION LLC",
+      "subcategory": "Installation, TX | BORDER BARRIER CONSTRUCTION...",
+      "coords": [
+        30.67502268722875,
+        -97.19544567774163
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1147001057.42,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "70Z02326C93210001",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1122.6M - RAUMA MARINE CONSTRUCTIONS OY",
+      "subcategory": "Installation, VA | PURCHASE OF TWO ARCTIC SECURITY CUTTERS FOR THE USCG...",
+      "coords": [
+        37.63952076414908,
+        -78.11861595835828
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1122648775.26,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "W9126G13C0004",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1100.7M - CLARK MCCARTHY HEALTHCARE PARTNERS II",
+      "subcategory": "Installation, TX | IGF::OT::IGF DESIGN-BID-BUILD FORT BLISS REPLACEMENT HOSPITAL, EL PASO, TX...",
+      "coords": [
+        31.828332123979084,
+        -106.43965523781844
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1100727120.07,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "W912P809C0041",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1091.1M - GULF INTRACOASTAL CONSTRUCTORS, A JOINT VENTURE",
+      "subcategory": "Installation, LA | PRE- CONSTRUCTION SERVICES...",
+      "coords": [
+        31.07647497555963,
+        -91.70593336010911
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1091129786.56,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "W51DQV26CA003",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1079.0M - FERROVIAL CONSTRUCCION PR, LLC",
+      "subcategory": "Installation, PR | RIO PUERTO NUEVO FLOOD CONTROL PROJECT, SUPPLEMENTAL CONTRACT 3 CHANNEL BOTTOM AND WALL IM...",
+      "coords": [
+        18.1032126195196,
+        -66.98049988653325
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1078991952,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "W912PL19C0014",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1069.4M - BFBC LLC",
+      "subcategory": "Installation, AZ | UNDEFINITIZED CONTRACT ACTION FOR EL CENTRO (15 MILE) IN CALIFORNIA AND YUMA (5 MILE) IN A...",
+      "coords": [
+        33.42582680421576,
+        -111.64191490926929
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1069388598.08,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "HSFLBP09C00001",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1057.5M - MCCARTHY MORTENSON NBAF A JOINT VENTURE",
+      "subcategory": "Installation, KS | CONSTRUCTION OF NATIONAL BIO AND AGRO-DEFENSE FACILITY (NBAF), AT MANHATTAN, KANSAS...",
+      "coords": [
+        38.72334871891086,
+        -96.32120315453867
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1057506675.3,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "VA101CFMC0064",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1055.8M - CLARK MCCARTHY HEALTHCARE PARTNERS, A JOINT VENTURE",
+      "subcategory": "Installation, LA | SOUTHEAST LOUISIANA VETERANS HEALTHCARE SYSTEM REPLACEMENT MEDICAL CENTER, NEW ORLEANS, LA...",
+      "coords": [
+        31.22631428439766,
+        -91.52228575456662
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1055767843.54,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    },
+    {
+      "id": "70B01C26F00000152",
+      "type": "programs",
+      "topCategory": "contingency",
+      "title": "MILCON: $1030.2M - BARNARD CONSTRUCTION COMPANY, INCORPORATED",
+      "subcategory": "Installation, TX | BORDER BARRIER CONSTRUCTION IN HUDSPETH COUNTY, TX...",
+      "coords": [
+        30.80803826292354,
+        -97.88555076728824
+      ],
+      "time": "",
+      "severity": "critical",
+      "cost": 1030175506,
+      "mag": 39,
+      "link": "https://www.usaspending.gov/search"
+    }
+  ]
 }
