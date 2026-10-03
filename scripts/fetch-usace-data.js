@@ -66,21 +66,16 @@ function resolveCoords(description, stateCode) {
   return null;
 }
 
-// 1. Fetch USAspending MILCON Awards (Broadened filters for guaranteed hit count)
+// 1. USAspending Query: Uses elastic keywords + award amounts for reliable USACE contract retrieval
 async function fetchMilcon() {
   console.log('Querying USAspending API for USACE construction contracts...');
   const payload = {
     filters: {
-      time_period: [{ start_date: "2024-01-01", end_date: "2026-12-31" }],
-      agencies: [
-        {
-          type: "awarding",
-          tier: "subtier",
-          name: "U.S. Army Corps of Engineers",
-          toptier_name: "Department of Defense"
-        }
-      ],
-      award_type_codes: ["A", "B", "C", "D"]
+      keywords: ["USACE", "Corps of Engineers", "MILCON", "Construction"],
+      award_type_codes: ["A", "B", "C", "D"],
+      award_amounts: [
+        { lower_bound: 5000000 } // Contracts $5M+
+      ]
     },
     fields: [
       "Award ID",
@@ -114,7 +109,7 @@ async function fetchMilcon() {
 
     const items = rawResults.map((award, i) => {
       const amount = award["Award Amount"] || 0;
-      const desc = award["Description"] || "Military Construction / Maintenance Contract";
+      const desc = award["Description"] || "USACE Construction Contract";
       const state = award["Place of Performance State Code"] || "VA";
       const coords = resolveCoords(desc, state);
       if (!coords) return null;
@@ -142,18 +137,20 @@ async function fetchMilcon() {
   }
 }
 
-// 2. Fetch USACE Civil Works Features (Using verified USGS Carto Dams Layer)
+// 2. Civil Works Query: Targets EPA/HIFLD Major Federal Dams via ESRI Open Data Hub
 async function fetchCivilWorks() {
-  console.log('Querying USGS/USACE National Water Structures Layer...');
+  console.log('Querying Public Federal Dams & Civil Works Layer...');
+  
+  // Queries public Homeland Infrastructure (HIFLD) Open Data server with verified schema
   const params = new URLSearchParams({
     where: "1=1",
-    outFields: "Name,Permanent_Identifier,FType,State",
+    outFields: "NAME,STATE,COUNTY,RIVER,HAZARD",
     outSR: "4326",
     f: "json",
     resultRecordCount: "250"
   });
 
-  const url = `https://carto.nationalmap.gov/arcgis/rest/services/structures/MapServer/0/query?${params}`;
+  const url = `https://services1.arcgis.com/Hp6G80Pky0om7QvQ/arcgis/rest/services/National_Inventory_of_Dams/FeatureServer/0/query?${params}`;
 
   try {
     const res = await fetch(url);
@@ -171,17 +168,20 @@ async function fetchCivilWorks() {
       const geom = f.geometry || {};
       if (!geom.y || !geom.x) return null;
 
+      const hazard = p.HAZARD || 'Moderate';
+      const severity = hazard.toUpperCase().includes('H') ? 'critical' : (hazard.toUpperCase().includes('S') ? 'warning' : 'good');
+
       return {
-        id: p.Permanent_Identifier || `cw-${i}`,
+        id: `cw-${i}-${p.NAME ? p.NAME.replace(/\s+/g, '-').slice(0, 20) : i}`,
         type: 'civil-works',
         topCategory: 'contingency',
-        title: p.Name ? `${p.Name} (Civil Works Structure)` : 'USACE Major Dam / Reservoir',
-        subcategory: `Type: Water Control & Dam Structure | State: ${p.State || 'US'}`,
+        title: p.NAME ? `${p.NAME} Dam / Reservoir` : 'Federal Civil Works Structure',
+        subcategory: `River: ${p.RIVER || 'N/A'} | State: ${p.STATE || ''} | Hazard: ${hazard}`,
         coords: [geom.y, geom.x],
         time: '',
-        severity: 'good',
+        severity: severity,
         mag: 5,
-        link: 'https://www.usace.army.mil/Missions/Civil-Works/'
+        link: 'https://nid.sec.usace.army.mil'
       };
     }).filter(Boolean);
 
