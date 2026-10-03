@@ -1,4 +1,3755 @@
 {
-  "updated": "2026-10-03T18:28:44.223Z",
-  "events": []
+  "updated": "2026-10-03T18:32:29.560Z",
+  "events": [
+    {
+      "id": "cw-0-ubs0vy",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        31.880932019774548,
+        -95.86909166465898
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-1-tdl8be",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        31.56946495845995,
+        -95.88900011974054
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-2-cffzik",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        31.930307026657466,
+        -95.93249388320964
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-3-1sdczv",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        30.32203369021858,
+        -96.50745374620877
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-4-zluzv5",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        28.426190224246316,
+        -99.2400438034712
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-5-ya9h5q",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        29.034991204709204,
+        -103.39093013459532
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-6-guf9pz",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        29.563059202711486,
+        -94.59836089329569
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-7-90py7g",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        39.744229576310055,
+        -113.88969366359525
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-8-3iy906",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.25054371918569,
+        -101.49086772951372
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-9-j7kc1k",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.19931553162858,
+        -101.01400861442035
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-10-n82u12",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.3927121050929,
+        -100.87867072695425
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-11-ke0ev8",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.60087679884113,
+        -101.09483485844493
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-12-w7uzd4",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.5914611986793,
+        -101.0518871806675
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-13-uf3egs",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.53847858971962,
+        -101.05394177822795
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-14-2t0ywr",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        30.452180588127085,
+        -101.73267981964383
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-15-j5if4q",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        29.80226081337884,
+        -101.44261998747473
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-16-un2a8b",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        29.802332413018004,
+        -101.44261998747473
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-17-uk1bnt",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        31.400976912139722,
+        -106.02637870794665
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-18-yqy7cc",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        31.40060471266759,
+        -106.0146838379215
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-19-shctrr",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        31.495353789043197,
+        -106.15505567415741
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-20-4wiefo",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        31.403158712764352,
+        -106.02094063976153
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-21-5q71jw",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        29.520012526844624,
+        -104.28646215824958
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-22-u29lr6",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.215720587784766,
+        -98.19896966718763
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-23-vqwg8f",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.224182162519426,
+        -80.76652913695311
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-24-ncisxg",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.18029248352085,
+        -80.8288523531168
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-25-v13km7",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.16477047938871,
+        -80.85312622645566
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-26-y8p4rz",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.14153574297929,
+        -80.81989614841608
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-27-14otph",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.14014507227382,
+        -80.91104557559576
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-28-owjxz5",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.98416283663373,
+        -80.97415165300991
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-29-8i2gaj",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.565811149083125,
+        -80.92068681471645
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-30-yrk2xl",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        30.424443036613656,
+        -94.85140933076384
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-31-foqqtv",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        40.513576753306566,
+        -122.52489770661886
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-32-a28q9v",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        29.955414921928114,
+        -82.92914299098524
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-33-btx3ob",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.47332559068003,
+        -79.43896634206698
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-34-gt2lj2",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.601439497945606,
+        -79.0498726975993
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-35-nouy5p",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.78744819637695,
+        -100.38881603498226
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-36-5i49zn",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.35215821091968,
+        -99.8074558680387
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-37-7uko6v",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.0856496433845,
+        -97.55860196080307
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-38-wlijjx",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.60542766882383,
+        -93.30988299196832
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-39-5y2zbr",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.11382475154835,
+        -98.6059819621788
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-40-jzwcy6",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.552852841754614,
+        -78.59589355149593
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-41-byq4sj",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        31.18466259669051,
+        -99.84172487646613
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-42-tsjkrw",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.81279544014983,
+        -81.71191186065111
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-43-8pemns",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.28970188720117,
+        -108.04069053424276
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-44-suip9e",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.191624764391534,
+        -118.01754928775259
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-45-faxrn6",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.16751355773657,
+        -118.09167909814205
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-46-jeafca",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.98190393593031,
+        -118.11433808687717
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-47-wfhmyf",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.14105013865177,
+        -118.37960934355718
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-48-8atmnw",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.235202679533685,
+        -118.42134842565918
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-49-j9r4jm",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.23435087959126,
+        -118.41282462416483
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-50-ye1ojj",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.0569512804699,
+        -118.07179468563564
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-51-07k4jo",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.074558949906546,
+        -118.05577675124302
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-52-8rto0a",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.08200127356746,
+        -118.2277203802479
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-53-t1lhyu",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.13485709023796,
+        -118.0436989543555
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-54-v12z3t",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.02926754362659,
+        -118.06906448297298
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-55-1720k1",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.056053079474886,
+        -118.08746088837071
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-56-xcp7ji",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.30400975461419,
+        -118.40904676207587
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-57-z8cdzy",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.25639628349155,
+        -118.38803462106333
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-58-i1q1u6",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.23641708497319,
+        -118.33063361073924
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-59-2wln6n",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.1556291441618,
+        -118.31256220048174
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-60-481pyl",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.87272690463924,
+        -120.24501137461947
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-61-cabj0x",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.83981090608946,
+        -120.16795835918663
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-62-tviruc",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        38.17047642206651,
+        -82.63497427273381
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-63-1cqaje",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.464816354041545,
+        -82.52541919293208
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-64-on0zhd",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        38.286210030143735,
+        -82.977505782771
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-65-qy4jha",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.743344422394685,
+        -111.78293885485516
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-66-i4vb13",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.72086881121348,
+        -111.88672253977705
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-67-89686v",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.62166241306733,
+        -111.74032489501322
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-68-hov12p",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.51816293726808,
+        -111.71441367506638
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-69-1tu2ah",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.78231847802884,
+        -120.53053474453638
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-70-tmp75h",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.653466660900186,
+        -116.6782239423575
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-71-8mf7xi",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.55140076083552,
+        -117.08442920449687
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-72-zmh9un",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.5910398608368,
+        -116.52551811107048
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-73-udcilg",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.395626858292374,
+        -119.07642174618458
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-74-31bef2",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.401238681350314,
+        -118.70158901874392
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-75-fsglve",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.42617049030026,
+        -118.58664126820841
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-76-58e1fb",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.91259367824996,
+        -116.92483846975945
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-77-dakfce",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.086018232880406,
+        -116.91642301489284
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-78-exs8ia",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.04483941701286,
+        -117.12822244817563
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-79-wuljt6",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.04105021499469,
+        -117.15744071881954
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-80-s6t012",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.28864436510133,
+        -118.1945503254035
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-81-0n35z6",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.94890352908331,
+        -118.17390449392764
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-82-5bwb30",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.26406695761804,
+        -118.27059373581395
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-83-y4h1gj",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.22201935843028,
+        -118.17775191674508
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-84-23it5v",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.11815931016928,
+        -116.78703206140771
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-85-hwxzu3",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.9421426053792,
+        -117.12115903906212
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-86-zq9qw2",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.69166418138849,
+        -117.00761500198806
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-87-2mkrcz",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.63747244853563,
+        -116.88406164318691
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-88-4i7hv4",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.17467936441752,
+        -117.98868968184321
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-89-0gsdz9",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.99000310516921,
+        -116.58735101727846
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-90-qkmsv2",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        21.145646519246355,
+        -156.73516010990957
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-91-mg8w9g",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        21.142248388690845,
+        -156.91883210372424
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-92-c741r6",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        21.131997389312694,
+        -156.88398123813238
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-93-6ycpji",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.26641480468747,
+        -117.46406026742493
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-94-ud956e",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.33727605045425,
+        -117.13619567095309
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-95-e06vp0",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.212008998915934,
+        -117.45802219516506
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-96-2194me",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.13975960807717,
+        -117.14946620369905
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-97-z7zerk",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.14415280678959,
+        -117.18907921084883
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-98-lnvvv7",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.161620951589065,
+        -117.01550378232196
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-99-wicv90",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.14678614676945,
+        -117.06845892343304
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-100-wrwrf9",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.21334422379994,
+        -117.37667756966255
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-101-j1mei1",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.17876853931838,
+        -117.26578102633697
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-102-y5006q",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.11136260736584,
+        -117.09930779178237
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-103-gq82w2",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.08902180843537,
+        -117.03899431368372
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-104-yacfkk",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.708662465630574,
+        -117.6362555849197
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-105-vsx2n2",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.92330195862228,
+        -117.59783466225417
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-106-fde103",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        34.13569098558003,
+        -117.54096660296301
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-107-zat1v5",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.96472557066409,
+        -117.46618477637372
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-108-hlnpf4",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.28540719753596,
+        -78.25504405610387
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-109-txty5u",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.56429970475629,
+        -78.79418543298911
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-110-f2i4qt",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        44.11503049614077,
+        -110.68505520075541
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-111-f06rz3",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        43.858239078266486,
+        -110.58563720254854
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-112-ak3hgf",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        43.0795309592593,
+        -111.03736250446708
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-113-u5kv7s",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.165544595435485,
+        -83.30899987161008
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-114-qpwjvc",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.47899864135374,
+        -83.67723733444086
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-115-z3867i",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.81208591655726,
+        -83.46387549379801
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-116-cxr9mr",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.63978062438295,
+        -118.47001509182907
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-117-al5sc8",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.31087025110509,
+        -118.56961554348452
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-118-7ehjyk",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.63974902372616,
+        -118.48275849324794
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-119-q7e8xx",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        20.887944593800384,
+        -156.25329372845587
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-120-dx6x6y",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        20.885682927432757,
+        -156.25243926182793
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-121-ptbli4",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        20.848045795963763,
+        -156.26846666195698
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-122-daeqeu",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        20.85155119495673,
+        -156.18536613037907
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-123-t21wvk",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        20.803353531370465,
+        -156.22141973031913
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-124-xnf5o1",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        20.812264729677434,
+        -156.11808366641117
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-125-wr47wm",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        20.819710003162132,
+        -156.61794365116322
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-126-72xm33",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        20.890392731019396,
+        -156.50505885367497
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-127-vm10xm",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        21.56201630965088,
+        -158.00006232570644
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-128-yffgje",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        21.373643919784758,
+        -157.88039033297744
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-129-b7mzvq",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        21.32856872152441,
+        -157.8008271368052
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-130-yv1pzy",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        21.30665892314189,
+        -157.78836900398466
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-131-e05j3v",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        21.556100709170142,
+        -157.8991479295259
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-132-x3c8bb",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.26884890345255,
+        -85.88584156307957
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-133-xyk355",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.27408315487506,
+        -86.2507890680628
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-134-h2itqr",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.575764369314754,
+        -85.73979194255111
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-135-2tf6df",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.35922778283419,
+        -85.99802000144713
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-136-o0uwy0",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        40.960972965096445,
+        -110.57929109793129
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-137-ihxx9w",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.452251452770234,
+        -110.17287108105104
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-138-pdzdn5",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        30.535176080658236,
+        -86.38260699391692
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-139-rsog2m",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.96722133789961,
+        -89.35222940120248
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-140-cn1m6m",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        38.18766113345887,
+        -88.92712296653234
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-141-1a4z5p",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        38.038058570604385,
+        -88.961525097739
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-142-7tosfl",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        38.23689357664459,
+        -85.43586650257016
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-143-4up0z8",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.75727064337584,
+        -84.87295790388586
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-144-ldbtun",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        42.02082332646846,
+        -110.04990993584772
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-145-oaterj",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.0373931539686,
+        -116.38374008074041
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-146-l7iy04",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.32227733722281,
+        -120.42286604334959
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-147-xbkglz",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.303818069770934,
+        -120.40607317241233
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-148-gj8m39",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        36.26710131742169,
+        -121.06642943417427
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-149-il8c9a",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        35.33436713334043,
+        -120.50441279047148
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-150-fp8k5b",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.723759057373734,
+        -115.59459322334959
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-151-1zp5zf",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.70510314535425,
+        -115.1249526713722
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-152-u8acbn",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.70557047894674,
+        -115.12497247169084
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-153-xgj9y1",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.705485282851775,
+        -115.03290185469062
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-154-cdcg25",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.666314855043055,
+        -115.50349140371519
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-155-mcujhy",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.946711948296084,
+        -116.64094223361076
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-156-7urpqc",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.676115454466554,
+        -115.52496914096398
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-157-5aqwbw",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.7050171502921,
+        -115.02982025438185
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-158-5emwjn",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.66133205136965,
+        -115.55103881132447
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-159-wisfr7",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.44684953284207,
+        -115.8434476538638
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-160-gd6jkc",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.88633493192157,
+        -116.8033311230739
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-161-vkhycb",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.70868645901651,
+        -115.51544700863157
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-162-avji3i",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.731459718505455,
+        -115.71574384589624
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-163-s2hjca",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.717524323370974,
+        -115.59452622337498
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-164-exlyey",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.84302686405241,
+        -115.74046825790596
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-165-md1le8",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.76092993113418,
+        -116.55001826930581
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-166-3ltpr5",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.74476513069872,
+        -116.53550819852936
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-167-xhmg6b",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.717524323370974,
+        -115.59452622337498
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-168-8vxutm",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.705485282851775,
+        -115.03290185469062
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-169-dwtytk",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.70693752612733,
+        -115.51403040815836
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-170-12p08c",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.37362089262839,
+        -116.42822035146146
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-171-f5oi8x",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.676115454466554,
+        -115.52496914096398
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-172-l48z2n",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.823761685473315,
+        -115.284210775532
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-173-x57j5y",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.7050171502921,
+        -115.02982025438185
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-174-09pda6",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.6960885362442,
+        -115.28398696606556
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-175-k9jboh",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.67650986411111,
+        -115.34451150917205
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-176-sfaruv",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        32.70557047894674,
+        -115.12497247169084
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-177-gm0fyr",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.62188854334435,
+        -86.50407116573138
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-178-oe9t7j",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.58980940125603,
+        -86.55186437761165
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-179-9trr1h",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        39.83048440545283,
+        -110.96910803100539
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-180-hbod5t",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        39.77703047909759,
+        -110.79263765521296
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-181-0gw14w",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        39.674219829080386,
+        -111.30490527983987
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-182-vx417k",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        39.83048440545283,
+        -110.96910803100539
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-183-2i9yjq",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        40.62620165154722,
+        -109.82009029489708
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-184-dju5su",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        40.74319008056993,
+        -109.62233593550202
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-185-rck6at",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        40.62620165154722,
+        -109.82009029489708
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-186-mpxs08",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        40.569310387527906,
+        -109.69758472871061
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-187-al68sx",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        40.4085321954582,
+        -109.34101903293192
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-188-ri12dx",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        40.52616245648093,
+        -109.60583283659359
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-189-rcmnbh",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        40.679765670442976,
+        -109.66083466824838
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-190-5tm2mn",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        30.680759888907946,
+        -87.13175894222142
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-191-gcymtr",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.24594428330484,
+        -83.1835657728469
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-192-t2fg3z",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.232079286674406,
+        -83.03620279569499
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-193-syjzmi",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        42.645518457703815,
+        -111.69939657295527
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-194-bivub9",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        42.585156914855446,
+        -111.73341823712163
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-195-dda0nf",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        42.606860119805866,
+        -111.70610116853787
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-196-q529bk",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        42.16772619507517,
+        -111.8501047311672
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-197-ot6ov2",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.876654740542,
+        -79.9773990560896
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-198-8shlgo",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.50636026081792,
+        -80.10652287227873
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-199-i7amob",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        38.06986571592973,
+        -79.89758911084162
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-200-zp2728",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.792154732273204,
+        -79.75961965187608
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-201-sk4i6l",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        42.33198388564149,
+        -111.77466620701632
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-202-msks8h",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        30.72783298152542,
+        -86.65996527910075
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-203-wtmzur",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.34708364362823,
+        -88.91428609707927
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-204-0x2vm4",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.08944921037279,
+        -88.59452458825265
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-205-jzf2vd",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.041711129315686,
+        -88.71092175041524
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-206-cscn2m",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        33.751211712563666,
+        -116.87130465759863
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-207-wzpjk2",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        38.358912403278424,
+        -122.36634666394008
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-208-k2vc37",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        38.48813827701426,
+        -122.40236201801791
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-209-xzpr98",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        38.19944225514627,
+        -122.38554478089951
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-210-pozs8w",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.92926620814123,
+        -90.46129070820683
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-211-mkq3d3",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        46.91508647285419,
+        -116.95184139284942
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-212-jaskbn",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        42.23087931428587,
+        -111.29573322679721
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-213-jozxai",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        42.33070906339615,
+        -111.23383209590624
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-214-lhxala",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        42.53701632338101,
+        -111.57365053046796
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-215-n3805q",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        42.72877913996702,
+        -111.61722476882507
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-216-bd2ifl",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        46.90399645197912,
+        -115.84741211384768
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-217-fh1dk5",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        47.06866925304272,
+        -115.9543032376149
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-218-wef2yg",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        44.13855486959177,
+        -113.24522399796223
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-219-rnxs1u",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.25926081649608,
+        -79.93834267315833
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-220-b45mls",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.41734478280331,
+        -79.93462228183499
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-221-7yp10d",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        36.983891709639146,
+        -79.514095328208
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-222-jqjh0i",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        46.23284218343359,
+        -116.02254540572328
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-223-hnod56",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        44.95093944022494,
+        -113.64272442340634
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-224-ac1rdm",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        46.15049321976208,
+        -115.58742117209675
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-225-g1jxa5",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        39.43931745678489,
+        -121.05913820121471
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-226-s5s7v7",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        39.41320258199903,
+        -121.13964274338873
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-227-iupvy7",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        39.52479060700342,
+        -120.9381061943244
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-228-b8h4mv",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        39.43968082217521,
+        -120.66131893955027
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-229-f5893q",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        39.56241984110021,
+        -120.54778127054338
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-230-f6s1wd",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        39.224348822978506,
+        -121.26855860576624
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-231-hymywi",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.040686697317824,
+        -89.38223680543489
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-232-0ds2jz",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.08769177865081,
+        -89.26274797579853
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-233-k0t3m6",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.1468004832852,
+        -90.07626713998991
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-234-2s7t0i",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        36.542175456673924,
+        -83.63042145854718
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-235-6898jh",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        37.1839440320933,
+        -91.25984146831179
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-236-atc9st",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        45.7247847134234,
+        -114.2818229656806
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-237-eh586e",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        46.38110790741292,
+        -114.22040568511119
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-238-vos79v",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        46.53710372610741,
+        -114.15955970549027
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-239-44lw58",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        46.161122381991234,
+        -113.94894651929684
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-240-pj5km1",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        42.252445094718944,
+        -77.21649130294716
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-241-exgmrx",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.50376716606265,
+        -111.33752733024818
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-242-gcru5s",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        40.91350914096468,
+        -110.82411480934711
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-243-xzk1w8",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.86443903202819,
+        -111.00899951414856
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-244-ggg4sb",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.39035517967216,
+        -111.01235864668647
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-245-rhpgqm",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.72067400997842,
+        -111.0855687094353
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-246-nnsy4o",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.1441165684627,
+        -110.8057889698335
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-247-aml2nt",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        40.84149639155264,
+        -110.92719435356648
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-248-r52g19",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.57363265594696,
+        -111.14370176653924
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    },
+    {
+      "id": "cw-249-oe3fkg",
+      "type": "civil-works",
+      "topCategory": "contingency",
+      "title": "Federal Dam Structure (Civil Works)",
+      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "coords": [
+        41.50554945860611,
+        -111.01342446342849
+      ],
+      "time": "",
+      "severity": "good",
+      "mag": 5,
+      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+    }
+  ]
 }
