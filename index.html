@@ -330,7 +330,7 @@ function isWithin500NMOfUS(lat, lon) {
   return anchors.some(a => distanceNM(lat, lon, a.lat, a.lon) <= 500);
 }
 
-// 1. River Gauges
+// 1. River Gauges (via cache)
 async function fetchRiverGaugeData() {
   try {
     const res = await fetch('data/river-gauges-cache.json', { cache: 'no-store' });
@@ -524,13 +524,11 @@ async function fetchNOAAAlerts() {
   }
 }
 
-// 6. Hurricanes with Full Trajectory / Forecast Tracks (NHC / CPHC Service)
+// 6. Hurricanes with Trajectory & Forecast (NHC / CPHC Service)
 async function fetchTropicalCyclones() {
   const events = [];
   try {
-    // Query active storm points (Observed Position)
     const pointsUrl = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Active_Hurricanes_v1/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson';
-    // Query forecast and past tracks (Lines)
     const linesUrl = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Active_Hurricanes_v1/FeatureServer/2/query?where=1%3D1&outFields=*&f=geojson';
 
     const [ptsRes, linesRes] = await Promise.all([
@@ -571,123 +569,32 @@ async function fetchTropicalCyclones() {
         });
       }
     });
-  } catch (err) {
-    console.warn("NHC Feed:", err);
-  }
+  } catch (err) {}
   return events;
 }
 
-// 7. Civil Works (USGS National Structures FeatureServer - Unrestricted CORS)
+// 7. Civil Works (Fetched from Cache)
 async function fetchCivilWorksData() {
   try {
-    // Queries USGS National Map Dams and Water Control Structures with public open access
-    const params = new URLSearchParams({
-      where: "FCode=87300 OR FCode=87301 OR FType=873", // Dam / Reservoir / Water Control Structures
-      outFields: 'Name,Permanent_Identifier,FType,FCode',
-      outSR: '4326',
-      f: 'geojson',
-      resultRecordCount: '600'
-    });
-
-    const url = `https://carto.nationalmap.gov/arcgis/rest/services/structures/MapServer/0/query?${params}`;
-    const res = await fetch(url);
+    const res = await fetch('data/civil-works-cache.json', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-
-    return (data.features || []).map(f => {
-      const p = f.properties || {};
-      const coords = f.geometry && f.geometry.coordinates ? [f.geometry.coordinates[1], f.geometry.coordinates[0]] : null;
-      if (!coords || isNaN(coords[0])) return null;
-
-      return {
-        id: p.Permanent_Identifier || ('cw-' + Math.random().toString(36).substr(2, 8)),
-        type: 'civil-works',
-        topCategory: 'contingency',
-        title: p.Name ? `${p.Name} (Civil Structure)` : 'USACE Civil Works Project',
-        subcategory: `Facility Type: Water Control / Lock & Dam`,
-        coords: coords,
-        time: '',
-        severity: 'good',
-        mag: 4,
-        link: 'https://www.usace.army.mil/Missions/Civil-Works/'
-      };
-    }).filter(Boolean);
+    return data.events || [];
   } catch (err) {
-    console.error("Civil Works API error:", err);
+    console.warn("Civil Works cache not ready yet:", err.message);
     return [];
   }
 }
 
-// 8. MILCON / Military Programs via USAspending.gov API
+// 8. MILCON (Fetched from Cache)
 async function fetchMilconSpendingData() {
   try {
-    // USACE Subtier Agency Code is 2113. Pulling recent construction and military facility projects.
-    const payload = {
-      filters: {
-        time_period: [{ start_date: "2024-10-01", end_date: "2026-09-30" }],
-        agencies: [
-          {
-            type: "awarding",
-            tier: "subtier",
-            name: "U.S. Army Corps of Engineers",
-            toptier_name: "Department of Defense"
-          }
-        ],
-        award_type_codes: ["A", "B", "C", "D"] // Contracts
-      },
-      fields: ["Award ID", "Recipient Name", "Award Amount", "Description", "Place of Performance Zip5"],
-      page: 1,
-      limit: 50,
-      sort: "Award Amount",
-      order: "desc"
-    };
-
-    const res = await fetch('https://api.usaspending.gov/api/v2/search/spending_by_award/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-
+    const res = await fetch('data/milcon-cache.json', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-
-    // Map through results. For records lacking precise GPS, generate localized military hub offsets
-    return (data.results || []).map((award, index) => {
-      const amount = award["Award Amount"] || 0;
-      
-      // Known geographic coordinates for USACE Major Engineering Divisions / Districts as fallback anchors
-      const districtAnchors = [
-        [32.35, -90.88], // Vicksburg
-        [38.89, -77.03], // HQ / Baltimore
-        [34.74, -92.27], // Little Rock
-        [32.77, -96.79], // Fort Worth
-        [47.60, -122.33], // Seattle
-        [39.95, -75.16], // Philadelphia
-        [37.77, -122.41], // San Francisco
-        [21.30, -157.85], // Honolulu
-        [61.21, -149.90]  // Anchorage
-      ];
-      const anchor = districtAnchors[index % districtAnchors.length];
-      const latOffset = (Math.random() - 0.5) * 1.5;
-      const lonOffset = (Math.random() - 0.5) * 1.5;
-      const coords = [anchor[0] + latOffset, anchor[1] + lonOffset];
-
-      return {
-        id: award["Award ID"] || `mil-${index}`,
-        type: 'programs',
-        topCategory: 'contingency',
-        title: `MILCON: $${(amount / 1000000).toFixed(1)}M - ${award["Recipient Name"] || 'Prime Contractor'}`,
-        subcategory: award["Description"] ? award["Description"].slice(0, 70) + '...' : 'Military Construction Contract',
-        coords: coords,
-        time: '',
-        severity: amount > 50000000 ? 'critical' : 'warning',
-        cost: amount,
-        mag: Math.min(48, Math.max(18, Math.round(Math.log10(amount + 1) * 4))), // Dynamic sizing based on cost
-        link: `https://www.usaspending.gov/search`
-      };
-    });
+    return data.events || [];
   } catch (err) {
-    console.error("USAspending MILCON query failed:", err);
+    console.warn("MILCON cache not ready yet:", err.message);
     return [];
   }
 }
@@ -751,7 +658,6 @@ function renderEvents(events) {
       iconBgColor = evt.severity === 'critical' ? 'rgba(255, 51, 68, 0.2)' : evt.severity === 'good' ? 'rgba(0, 255, 102, 0.2)' : 'rgba(255, 170, 0, 0.2)';
     }
 
-    // Dynamic scale for MILCON items, standard zoom scaling for other markers
     const iconSize = evt.type === 'programs' && evt.mag ? getZoomScaledIconSize(evt.mag) : getZoomScaledIconSize();
 
     if (evt.coords) {
@@ -809,7 +715,6 @@ function renderEvents(events) {
       marker.bindPopup(`<b>${evt.title}</b><br>${evt.subcategory || ''}<br>Coords: [${evt.coords[0].toFixed(2)}, ${evt.coords[1].toFixed(2)}]`);
       eventMarkers.push(marker);
 
-      // Render predictive track lines if hurricane
       if (evt.trackLines && evt.trackLines.length > 0) {
         evt.trackLines.forEach(tl => {
           const trackLayer = L.geoJSON(tl, {
