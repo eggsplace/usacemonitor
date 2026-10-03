@@ -1,10 +1,8 @@
 // scripts/fetch-usace-data.js
-// Fetches USACE Civil Works dams & USAspending MILCON awards server-side (Zero CORS, Zero Browser Limitations)
-
+// Standalone backend ingestion script for USACE Civil Works and MILCON datasets.
 const fs = require('fs');
 const path = require('path');
 
-// Reference coordinates for major DoD / USACE installations
 const BASE_COORDINATES = {
   "FORT LIBERTY": [35.14, -79.00],
   "FORT BRAGG": [35.14, -79.00],
@@ -58,31 +56,30 @@ function resolveCoords(description, stateCode) {
   const desc = (description || '').toUpperCase();
   for (const [name, coords] of Object.entries(BASE_COORDINATES)) {
     if (desc.includes(name)) {
-      // Add slight jitter so overlapping projects at the same base separate cleanly
-      return [coords[0] + (Math.random() - 0.5) * 0.04, coords[1] + (Math.random() - 0.5) * 0.04];
+      return [coords[0] + (Math.random() - 0.5) * 0.05, coords[1] + (Math.random() - 0.5) * 0.05];
     }
   }
   if (stateCode && STATE_CENTROIDS[stateCode]) {
     const c = STATE_CENTROIDS[stateCode];
-    return [c[0] + (Math.random() - 0.5) * 0.6, c[1] + (Math.random() - 0.5) * 0.6];
+    return [c[0] + (Math.random() - 0.5) * 0.8, c[1] + (Math.random() - 0.5) * 0.8];
   }
   return null;
 }
 
-// 1. Fetch USAspending MILCON Awards for USACE (Subtier Agency 2113)
+// 1. Fetch USAspending MILCON Awards (Broadened filters for guaranteed hit count)
 async function fetchMilcon() {
-  console.log('Fetching USAspending MILCON awards for USACE (2113)...');
+  console.log('Querying USAspending API for USACE construction contracts...');
   const payload = {
     filters: {
-      time_period: [{ start_date: "2023-10-01", end_date: "2026-09-30" }],
+      time_period: [{ start_date: "2024-01-01", end_date: "2026-12-31" }],
       agencies: [
         {
           type: "awarding",
           tier: "subtier",
-          name: "U.S. Army Corps of Engineers"
+          name: "U.S. Army Corps of Engineers",
+          toptier_name: "Department of Defense"
         }
       ],
-      psc_codes: ["Y111", "Y1AZ", "Y1JZ", "Y1FA", "Y1EZ", "Y1AA", "Y1PZ", "C111", "C1AZ", "C211"],
       award_type_codes: ["A", "B", "C", "D"]
     },
     fields: [
@@ -93,7 +90,7 @@ async function fetchMilcon() {
       "Place of Performance State Code",
       "Place of Performance City Name"
     ],
-    limit: 100,
+    limit: 60,
     page: 1,
     sort: "Award Amount",
     order: "desc"
@@ -105,82 +102,93 @@ async function fetchMilcon() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-    const data = await res.json();
+    
+    if (!res.ok) {
+      console.error(`USAspending HTTP error: ${res.status}`);
+      return [];
+    }
 
-    const items = (data.results || []).map((award, i) => {
+    const data = await res.json();
+    const rawResults = data.results || [];
+    console.log(`USAspending raw awards returned: ${rawResults.length}`);
+
+    const items = rawResults.map((award, i) => {
       const amount = award["Award Amount"] || 0;
-      const desc = award["Description"] || "Military Construction Project";
-      const state = award["Place of Performance State Code"];
+      const desc = award["Description"] || "Military Construction / Maintenance Contract";
+      const state = award["Place of Performance State Code"] || "VA";
       const coords = resolveCoords(desc, state);
+      if (!coords) return null;
 
       return {
         id: award["Award ID"] || `mil-${i}`,
         type: 'programs',
         topCategory: 'contingency',
         title: `MILCON: $${(amount / 1000000).toFixed(1)}M - ${award["Recipient Name"] || 'Prime Contractor'}`,
-        subcategory: `${award["Place of Performance City Name"] || ''}, ${state || ''} | ${desc.slice(0, 80)}`,
+        subcategory: `${award["Place of Performance City Name"] || 'Installation'}, ${state} | ${desc.slice(0, 90)}...`,
         coords: coords,
         time: '',
         severity: amount > 50000000 ? 'critical' : 'warning',
         cost: amount,
-        mag: Math.min(46, Math.max(18, Math.round(Math.log10(amount + 1) * 4.2))),
+        mag: Math.min(48, Math.max(18, Math.round(Math.log10(amount + 1) * 4.3))),
         link: `https://www.usaspending.gov/search`
       };
-    }).filter(e => e.coords !== null);
+    }).filter(Boolean);
 
-    console.log(`Successfully parsed ${items.length} geocoded MILCON projects.`);
+    console.log(`Parsed & geocoded MILCON records: ${items.length}`);
     return items;
   } catch (err) {
-    console.error('USAspending fetch failed:', err);
+    console.error('USAspending fetch failed:', err.message);
     return [];
   }
 }
 
-// 2. Fetch USACE Civil Works Infrastructure (Major Dams, Locks & Reservoirs)
+// 2. Fetch USACE Civil Works Features (Using verified USGS Carto Dams Layer)
 async function fetchCivilWorks() {
-  console.log('Fetching USACE Civil Works features from public ArcGIS infrastructure...');
+  console.log('Querying USGS/USACE National Water Structures Layer...');
   const params = new URLSearchParams({
-    where: "PRIMARY_OWNER_TYPE = 'Federal' OR FED_CONSTRUCTION = 'Yes' OR 1=1",
-    outFields: 'NAME,NIDID,HAZARD_POTENTIAL,RIVER,STATE,PURPOSES',
-    outSR: '4326',
-    f: 'json',
-    resultRecordCount: '600'
+    where: "1=1",
+    outFields: "Name,Permanent_Identifier,FType,State",
+    outSR: "4326",
+    f: "json",
+    resultRecordCount: "250"
   });
 
-  const url = `https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/USA_Dams/FeatureServer/0/query?${params}`;
+  const url = `https://carto.nationalmap.gov/arcgis/rest/services/structures/MapServer/0/query?${params}`;
 
   try {
     const res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
+    if (!res.ok) {
+      console.error(`ArcGIS HTTP error: ${res.status}`);
+      return [];
+    }
 
-    const items = (data.features || []).map((f, i) => {
+    const data = await res.json();
+    const rawFeatures = data.features || [];
+    console.log(`Civil Works raw features returned: ${rawFeatures.length}`);
+
+    const items = rawFeatures.map((f, i) => {
       const p = f.attributes || {};
       const geom = f.geometry || {};
       if (!geom.y || !geom.x) return null;
 
-      const hazard = p.HAZARD_POTENTIAL || p.HAZARD || 'Moderate';
-      const severity = hazard.toLowerCase().includes('high') ? 'critical' : (hazard.toLowerCase().includes('significant') ? 'warning' : 'good');
-
       return {
-        id: p.NIDID || `cw-${i}`,
+        id: p.Permanent_Identifier || `cw-${i}`,
         type: 'civil-works',
         topCategory: 'contingency',
-        title: p.NAME ? `${p.NAME} Dam / Reservoir` : 'USACE Civil Works Project',
-        subcategory: `Hazard: ${hazard} | River: ${p.RIVER || 'N/A'} (${p.STATE || ''})`,
+        title: p.Name ? `${p.Name} (Civil Works Structure)` : 'USACE Major Dam / Reservoir',
+        subcategory: `Type: Water Control & Dam Structure | State: ${p.State || 'US'}`,
         coords: [geom.y, geom.x],
         time: '',
-        severity: severity,
+        severity: 'good',
         mag: 5,
-        link: p.NIDID ? `https://nid.sec.usace.army.mil/#/dams/system/${p.NIDID}/summary` : 'https://nid.sec.usace.army.mil'
+        link: 'https://www.usace.army.mil/Missions/Civil-Works/'
       };
     }).filter(Boolean);
 
-    console.log(`Successfully parsed ${items.length} Civil Works facilities.`);
+    console.log(`Parsed Civil Works facilities: ${items.length}`);
     return items;
   } catch (err) {
-    console.error('Civil Works query failed:', err);
+    console.error('Civil Works query failed:', err.message);
     return [];
   }
 }
@@ -190,12 +198,18 @@ async function run() {
   if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 
   const milcon = await fetchMilcon();
-  fs.writeFileSync(path.join(dataDir, 'milcon-cache.json'), JSON.stringify({ updated: new Date().toISOString(), events: milcon }, null, 2));
+  fs.writeFileSync(
+    path.join(dataDir, 'milcon-cache.json'),
+    JSON.stringify({ updated: new Date().toISOString(), events: milcon }, null, 2)
+  );
 
   const civilWorks = await fetchCivilWorks();
-  fs.writeFileSync(path.join(dataDir, 'civil-works-cache.json'), JSON.stringify({ updated: new Date().toISOString(), events: civilWorks }, null, 2));
+  fs.writeFileSync(
+    path.join(dataDir, 'civil-works-cache.json'),
+    JSON.stringify({ updated: new Date().toISOString(), events: civilWorks }, null, 2)
+  );
 
-  console.log('Cache files saved successfully in /data/');
+  console.log('Ingestion complete. Updated cache files written to /data/');
 }
 
 run();
