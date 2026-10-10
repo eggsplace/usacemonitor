@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09T12:22:35.537Z",
+  "updated": "2026-10-10T11:41:28.803Z",
   "events": [
     {
       "id": "DEAC2701RV14136",
@@ -8,8 +8,8 @@
       "title": "MILCON: $17883.0M - BECHTEL NATIONAL, INC.",
       "subcategory": "Installation, WA | USACE Construction Contract...",
       "coords": [
-        47.72956188682281,
-        -121.21694733155005
+        47.01628776604187,
+        -121.16841858582015
       ],
       "time": "",
       "severity": "critical",
@@ -24,8 +24,8 @@
       "title": "MILCON: $16238.8M - ELECTRIC BOAT CORPORATION",
       "subcategory": "Installation, CT | CONSTRUCTION OF VIRGINIA CLASS BLOCK III SUBMARINES....",
       "coords": [
-        41.856783992682956,
-        -72.96069753219325
+        41.82239623663858,
+        -72.75821520615573
       ],
       "time": "",
       "severity": "critical",
@@ -40,8 +40,8 @@
       "title": "MILCON: $10029.6M - HUNTINGTON INGALLS INCORPORATED",
       "subcategory": "Installation, MS | DETAIL DESIGN AND CONSTRUCTION OF LPD 17 CLASS SHIP (LPD 22)...",
       "coords": [
-        32.681840125874515,
-        -89.98447331507468
+        33.05442158953263,
+        -89.34184854121871
       ],
       "time": "",
       "severity": "critical",
@@ -56,8 +56,8 @@
       "title": "MILCON: $8319.6M - HUNTINGTON INGALLS INCORPORATED",
       "subcategory": "Installation, MS | CONSTRUCTION OF DDG 51 SHIPS FY23-27...",
       "coords": [
-        32.83272727205225,
-        -89.7785707799709
+        32.677395706179375,
+        -89.32762792249152
       ],
       "time": "",
       "severity": "critical",
@@ -72,8 +72,8 @@
       "title": "MILCON: $6957.4M - HUNTINGTON INGALLS INCORPORATED",
       "subcategory": "Installation, MS | FY18-FY22 DDG 51 CLASS SHIP CONSTRUCTION...",
       "coords": [
-        32.835774494962,
-        -89.76293559728113
+        32.93207441622651,
+        -89.28147502188907
       ],
       "time": "",
       "severity": "critical",
@@ -88,8 +88,8 @@
       "title": "MILCON: $6651.0M - HUNTINGTON INGALLS INC",
       "subcategory": "Installation, VA | TAS::17 1611::TAS CVN 78 SHIP CONSTRUCTION...",
       "coords": [
-        37.591810161021634,
-        -77.88791881579958
+        37.98632279741987,
+        -78.11139267604922
       ],
       "time": "",
       "severity": "critical",
@@ -104,8 +104,8 @@
       "title": "MILCON: $6589.9M - BATH IRON WORKS CORPORATION",
       "subcategory": "Installation, ME | CONSTRUCTION OF DDG 51 SHIPS FY23-27...",
       "coords": [
-        44.47057619518006,
-        -69.5931856124389
+        44.342281602977735,
+        -69.00168403632107
       ],
       "time": "",
       "severity": "critical",
@@ -120,8 +120,8 @@
       "title": "MILCON: $5912.3M - NATIONAL STEEL AND SHIPBUILDING COMPANY",
       "subcategory": "Installation, CA | DETAIL DESIGN AND CONSTRUCTION (DD&C) FOR T-AO 205...",
       "coords": [
-        36.108633908339336,
-        -119.64042816303912
+        36.448467027983284,
+        -119.96803041332271
       ],
       "time": "",
       "severity": "critical",
@@ -136,8 +136,8 @@
       "title": "MILCON: $5497.6M - BATH IRON WORKS CORPORATION",
       "subcategory": "Installation, ME | FY18-FY22 DDG 51 CLASS SHIP CONSTRUCTION...",
       "coords": [
-        44.5475868253892,
-        -69.61427725590833
+        45.08605943603512,
+        -69.06399141115551
       ],
       "time": "",
       "severity": "critical",
@@ -152,8 +152,8 @@
       "title": "MILCON: $5025.7M - BATH IRON WORKS CORPORATION",
       "subcategory": "Installation, ME | FY13-FY17 DDG 51 CLASS SHIP CONSTRUCTION....",
       "coords": [
-        44.517938574396894,
-        -69.62659935946391
+        44.99811919913875,
+        -69.29665662632287
       ],
       "time": "",
       "severity": "critical",
@@ -168,8 +168,8 @@
       "title": "MILCON: $5006.3M - BECHTEL PARSONS BLUE GRASS, A JOINT VENTURE",
       "subcategory": "Installation, KY | THE PURPOSE OF MODIFICATION P00003 - CLIN 0002 CONSTRUCTION IS TO DO THE FOLLOWING:  1. FY...",
       "coords": [
-        37.55608556305942,
-        -84.36358448474017
+        37.66181045258369,
+        -84.54428172155355
       ],
       "time": "",
       "severity": "critical",
@@ -184,8 +184,8 @@
       "title": "MILCON: $4578.3M - HUNTINGTON INGALLS INC",
       "subcategory": "Installation, VA | DETAIL DESIGN AND CONSTRUCTION CVN 79...",
       "coords": [
-        37.698553220366534,
-        -77.79346104805632
+        38.060571707077834,
+        -78.24692339203101
       ],
       "time": "",
       "severity": "critical",
@@ -200,8 +200,8 @@
       "title": "MILCON: $4519.0M - HUNTINGTON INGALLS INC",
       "subcategory": "Installation, VA | TAS::17 1611::TAS CVN79 CONSTRUCTION PREPARATION EFFORTS FY09...",
       "coords": [
-        38.090406421664795,
-        -77.84490152651661
+        37.60985025374053,
+        -78.04952774684084
       ],
       "time": "",
       "severity": "critical",
@@ -216,8 +216,8 @@
       "title": "MILCON: $3373.8M - HUNTINGTON INGALLS INCORPORATED",
       "subcategory": "Installation, MS | DETAIL DESIGN AND CONSTRUCTION (DD&C) FOR LHA 8 (INITIAL EFFORT LIMITED TO PLANNING, ADVAN...",
       "coords": [
-        32.86639595460554,
-        -89.851197067113
+        32.71467409197618,
+        -89.4592071635333
       ],
       "time": "",
       "severity": "critical",
@@ -232,8 +232,8 @@
       "title": "MILCON: $3365.4M - LOCKHEED MARTIN CORPORATION",
       "subcategory": "Installation, MD | MMSC DETAILED DESIGN AND CONSTRUCTION...",
       "coords": [
-        38.69852843125682,
-        -77.00408597406779
+        39.099232465666816,
+        -76.46861804502093
       ],
       "time": "",
       "severity": "critical",
@@ -248,8 +248,8 @@
       "title": "MILCON: $3345.8M - HUNTINGTON INGALLS INCORPORATED",
       "subcategory": "Installation, MS | FY13-FY17 DDG 51 CLASS SHIP CONSTRUCTION....",
       "coords": [
-        32.909751884310175,
-        -89.80366061529148
+        32.354186418820774,
+        -90.01653940215374
       ],
       "time": "",
       "severity": "critical",
@@ -264,8 +264,8 @@
       "title": "MILCON: $3071.4M - DRAGADOS/HAWAIIAN DREDGING/ORION JV",
       "subcategory": "Installation, HI | FY23 MCON PROJECT P-209, DRY DOCK 3 REPLACEMENT, JOINT BASE PEARL HARBOR HICKAM, HAWAII...",
       "coords": [
-        21.39708713575215,
-        -157.36237013591042
+        20.74711164766658,
+        -157.52236947395835
       ],
       "time": "",
       "severity": "critical",
@@ -280,8 +280,8 @@
       "title": "MILCON: $2952.5M - MARINETTE MARINE CORPORATION",
       "subcategory": "Installation, WI | DETAIL DESIGN AND CONSTRUCTION OF FFG(X) GUIDED MISSILE FRIGATE...",
       "coords": [
-        44.427772769643035,
-        -89.22717301310036
+        43.96593579039658,
+        -89.35926199745629
       ],
       "time": "",
       "severity": "critical",
@@ -296,8 +296,8 @@
       "title": "MILCON: $2833.5M - FISHER SAND & GRAVEL CO",
       "subcategory": "Installation, AZ | CONSTRUCT VERTICAL BORDER BARRIER...",
       "coords": [
-        33.65329669443385,
-        -111.07528919396815
+        33.98564237060249,
+        -111.58605809271418
       ],
       "time": "",
       "severity": "critical",
@@ -312,8 +312,8 @@
       "title": "MILCON: $2808.2M - AUSTAL USA, LLC",
       "subcategory": "Installation, AL | CONSTRUCTION OF LCS FLIGHT 0+ SHIP...",
       "coords": [
-        32.54215151904356,
-        -87.00898823787789
+        33.10052780924255,
+        -86.4491720330697
       ],
       "time": "",
       "severity": "critical",
@@ -328,8 +328,8 @@
       "title": "MILCON: $2594.0M - FISHER SAND & GRAVEL CO",
       "subcategory": "Installation, TX | BORDER BARRIER DESIGN BUILD FOR BBT-5...",
       "coords": [
-        31.44976166914715,
-        -97.77290798266571
+        31.062267165944604,
+        -97.5655136618202
       ],
       "time": "",
       "severity": "critical",
@@ -344,8 +344,8 @@
       "title": "MILCON: $2551.3M - BATH IRON WORKS CORPORATION",
       "subcategory": "Installation, ME | DDG 1001/1002 CONSTRUCTION AND FY11 CLASS SERVICES...",
       "coords": [
-        44.538378137978825,
-        -69.43284594457576
+        44.95801330151997,
+        -69.14220451298928
       ],
       "time": "",
       "severity": "critical",
@@ -360,8 +360,8 @@
       "title": "MILCON: $2514.1M - THALLE CONSTRUCTION CO INC",
       "subcategory": "Installation, FL | CENTRAL EVERGLADES PLANNING PROJECT (CEPP) CONTRACT 11B, EVERGLADES AGRICULTURAL AREA (EAA...",
       "coords": [
-        27.479083120846546,
-        -81.36564427584975
+        27.479448590235904,
+        -81.99434593748748
       ],
       "time": "",
       "severity": "critical",
@@ -376,8 +376,8 @@
       "title": "MILCON: $2276.9M - PARSONS GOVERNMENT SERVICES INC.",
       "subcategory": "Installation, SC | SALT WASTE PROCESSING FACILITY CONCEPTUAL DESIGN...",
       "coords": [
-        33.529769502215785,
-        -81.30303186759669
+        33.899446840030286,
+        -81.14394929273992
       ],
       "time": "",
       "severity": "critical",
@@ -392,8 +392,8 @@
       "title": "MILCON: $2143.1M - WASHINGTON DEMILITARIZATION COMPANY LLC",
       "subcategory": "Installation, OR | 199712!2100!6004!AA09 !U.S. ARMY INDUSTRIAL OPERATIONS !DAAA0997C0025  !A!*!P00006        ...",
       "coords": [
-        44.55974584895937,
-        -122.20978899562525
+        44.673347212257696,
+        -122.13158409569613
       ],
       "time": "",
       "severity": "critical",
@@ -408,8 +408,8 @@
       "title": "MILCON: $2022.2M - AMI METALS, INC",
       "subcategory": "Installation, TX | BULK STEEL FOR SOUTHWEST BORDER BARRIER CONSTRUCTION PROJECTS...",
       "coords": [
-        31.42854889289179,
-        -97.68336702835262
+        31.427149506625227,
+        -97.2687045394616
       ],
       "time": "",
       "severity": "critical",
@@ -424,8 +424,8 @@
       "title": "MILCON: $2019.7M - BOLLINGER MISSISSIPPI SHIPBUILDING, LLC",
       "subcategory": "Installation, MS | POLAR SECURITY CUTTER #1 (FORMERLY HPIB) DETAIL DESIGN AND CONSTRUCTION...",
       "coords": [
-        33.08806874348855,
-        -89.2717157284206
+        32.562265757118176,
+        -89.81031154771938
       ],
       "time": "",
       "severity": "critical",
@@ -440,8 +440,8 @@
       "title": "MILCON: $1995.3M - WASHINGTON DEMILITARIZATION COMPANY, LLC",
       "subcategory": "Installation, AR | 199710!2100!6000!AA09 !U.S. ARMY INDUSTRIAL OPERATIONS !DAAA0997C0098  !A!*!*             ...",
       "coords": [
-        34.936944771615494,
-        -92.57184443275717
+        34.96600753643889,
+        -92.66001370006015
       ],
       "time": "",
       "severity": "critical",
@@ -456,8 +456,8 @@
       "title": "MILCON: $1938.5M - KOKOSING ALBERICI TRAYLOR, LLC",
       "subcategory": "Installation, MI | CONSTRUCTION OF THE NEW THIRD LOCK, NEW LOCK AT THE SOO, SAULT STE. MARIE, MICHIGAN....",
       "coords": [
-        43.3315995184543,
-        -84.85109368830204
+        43.351875339495834,
+        -84.55631293588048
       ],
       "time": "",
       "severity": "critical",
@@ -472,8 +472,8 @@
       "title": "MILCON: $1870.7M - WASHINGTON GROUP/ALBERICI JOINT VENTURE",
       "subcategory": "Installation, IL | TAS::96 3134::TAS ARRA::YES::ARRA OLMSTED DAM CONSTRUCTION PROJECT (ARRA FUNDS ADDED 9/3/2...",
       "coords": [
-        40.42538456024364,
-        -89.24626609234146
+        40.388265309199376,
+        -88.82150950524144
       ],
       "time": "",
       "severity": "critical",
@@ -488,8 +488,8 @@
       "title": "MILCON: $1857.2M - SOUTHWEST VALLEY CONSTRUCTORS CO",
       "subcategory": "Installation, AZ | DESIGN BUILD OF TUCSON SECTOR BARRIER WALL REPLACEMENT PROJECT, VARIOUS LOCATIONS, AZ...",
       "coords": [
-        33.40525778458247,
-        -111.16226920210335
+        33.48657543500722,
+        -111.15475296261522
       ],
       "time": "",
       "severity": "critical",
@@ -504,8 +504,8 @@
       "title": "MILCON: $1842.1M - WASHINGTON GOVERNMENT ENVIRONMENTAL SERVICES COMPANY LLC",
       "subcategory": "Installation, AL | 199712!2100!0084!AA09 !U.S. ARMY INDUSTRIAL OPERATIONS !DAAA0996C0018  !A!*!P00006        ...",
       "coords": [
-        32.81115592027392,
-        -86.7316957122899
+        32.446433724280084,
+        -86.54832423135639
       ],
       "time": "",
       "severity": "critical",
@@ -520,12 +520,12 @@
       "title": "MILCON: $1822.4M - 381 CONSTRUCTORS",
       "subcategory": "Installation, ME | P-381 MULTI-MISSION DRY DOCK #1, PORTSMOUTH NAVAL SHIPYARD, KITTERY, ME...",
       "coords": [
-        44.55835175634206,
-        -69.49038405027693
+        44.844009365176035,
+        -69.68183378125728
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1822391533.37,
+      "cost": 1822402355.37,
       "mag": 40,
       "link": "https://www.usaspending.gov/search"
     },
@@ -536,8 +536,8 @@
       "title": "MILCON: $1787.5M - FISHER SAND & GRAVEL CO",
       "subcategory": "Installation, NM | DESIGN AND CONSTRUCT NEW VERTICAL BARRIER AND POWER DISTRIBUTION, LIGHTING, CAMERAS, EQUIP...",
       "coords": [
-        35.21129955278202,
-        -106.62863442768518
+        34.867894511372135,
+        -105.84137248931712
       ],
       "time": "",
       "severity": "critical",
@@ -552,8 +552,8 @@
       "title": "MILCON: $1770.8M - BARNARD CONSTRUCTION COMPANY, INCORPORATED",
       "subcategory": "Installation, TX | BORDER WALL CONSTRUCTION FOR EL PASO SECTOR - EPT-5...",
       "coords": [
-        30.800051476607813,
-        -97.66341840488721
+        31.235113410789612,
+        -97.65595011250342
       ],
       "time": "",
       "severity": "critical",
@@ -568,8 +568,8 @@
       "title": "MILCON: $1720.0M - SOUTHWEST VALLEY CONSTRUCTORS CO",
       "subcategory": "Installation, TX | AWARD OF CONSTRUCTION TASK ORDER FOR BORDER WALL IN BIG BEND TEXAS, SEGMENT IDENTIFIED AS ...",
       "coords": [
-        31.43876395915357,
-        -97.83502398286285
+        30.67479952484177,
+        -97.6024170416644
       ],
       "time": "",
       "severity": "critical",
@@ -584,8 +584,8 @@
       "title": "MILCON: $1650.8M - FISHER SAND & GRAVEL CO",
       "subcategory": "Installation, AZ | YUM-2 VERTICAL BORDER AND WATERBORNE BARRIER CONSTRUCTION...",
       "coords": [
-        33.86218201298264,
-        -111.1632662225307
+        34.115605425195234,
+        -111.82430727468451
       ],
       "time": "",
       "severity": "critical",
@@ -600,8 +600,8 @@
       "title": "MILCON: $1639.4M - LOCKHEED MARTIN CORPORATION",
       "subcategory": "Installation, MD | CONSTRUCTION OF LCS FLIGHT 0+ SHIP...",
       "coords": [
-        38.762656016121824,
-        -76.91767132883629
+        39.043972885312456,
+        -77.19175505873568
       ],
       "time": "",
       "severity": "critical",
@@ -616,8 +616,8 @@
       "title": "MILCON: $1629.0M - HENSEL PHELPS CONSTRUCTION CO",
       "subcategory": "Installation, VA | 200112!000146!9700!ZD47  !PENTAGON RENOVATION MANAGEMENT  !MDA94701C2001  !A!N!*!N!       ...",
       "coords": [
-        37.6384823550329,
-        -78.52867923391861
+        37.67908961475063,
+        -78.53454992062947
       ],
       "time": "",
       "severity": "critical",
@@ -632,8 +632,8 @@
       "title": "MILCON: $1540.9M - BECHTEL NATIONAL, INC.",
       "subcategory": "Installation, VA | DESIGN AND CONSTRUCTION OF THE NASA SPACE LAUNCH SYSTEM (SLS) MOBILE LAUNCHER 2 (ML2)....",
       "coords": [
-        37.51743755157152,
-        -77.94597755577621
+        37.88293403499349,
+        -78.04615350309406
       ],
       "time": "",
       "severity": "critical",
@@ -648,8 +648,8 @@
       "title": "MILCON: $1433.8M - CLARK/BALFOUR BEATTY - NCE, A JOINT VENTURE",
       "subcategory": "Installation, VA | PHASE SERVICES FOR NGA...",
       "coords": [
-        37.507703156385,
-        -77.79366831614556
+        37.85892536275943,
+        -78.27484533512488
       ],
       "time": "",
       "severity": "critical",
@@ -664,8 +664,8 @@
       "title": "MILCON: $1430.6M - SEQIRUS INC",
       "subcategory": "Installation, MA | TAS::75 0140::TAS CONSTRUCTION OF VACCINE MANUFACTURING FACILITY...",
       "coords": [
-        41.97493884597212,
-        -71.21455398095287
+        41.96811778153003,
+        -71.89693263143299
       ],
       "time": "",
       "severity": "critical",
@@ -680,8 +680,8 @@
       "title": "MILCON: $1403.3M - BATH IRON WORKS CORPORATION",
       "subcategory": "Installation, ME | CONSTRUCTION OF DDG 51 CLASS DESTROYER...",
       "coords": [
-        44.80651014679929,
-        -69.0139859289493
+        44.59224173295108,
+        -69.76150592454407
       ],
       "time": "",
       "severity": "critical",
@@ -696,8 +696,8 @@
       "title": "MILCON: $1342.5M - RAYTHEON COMPANY",
       "subcategory": "Installation, MA | QATAR EARLY WARNING RADAR- CONSTRUCTION OF RADAR AND SUPPORT BUILDINGS...",
       "coords": [
-        42.593212551335405,
-        -71.46769335045121
+        42.3717567044499,
+        -71.18462176568902
       ],
       "time": "",
       "severity": "critical",
@@ -712,8 +712,8 @@
       "title": "MILCON: $1313.2M - SLS FEDERAL SERVICES LLC",
       "subcategory": "Installation, AZ | BORDER WALL CONSTRUCTION FOR TCA-5 TON....",
       "coords": [
-        33.39393688573892,
-        -111.75731775525807
+        33.340407511803555,
+        -111.55427886120015
       ],
       "time": "",
       "severity": "critical",
@@ -728,8 +728,8 @@
       "title": "MILCON: $1251.3M - BALFOUR BEATTY/DPR/BIG-D, A JOINT VENTURE",
       "subcategory": "Installation, UT | UTAH DATA CENTER, CAMP WILLIAMS, UT...",
       "coords": [
-        40.35760724638516,
-        -111.50450968320507
+        40.54213320157647,
+        -111.89661004862491
       ],
       "time": "",
       "severity": "critical",
@@ -744,8 +744,8 @@
       "title": "MILCON: $1249.8M - APTIM FEDERAL SERVICES, LLC",
       "subcategory": "Installation, LA | IHNC 392 PERMANENT PROTECTION & ADVANCED...",
       "coords": [
-        31.261214845404997,
-        -91.84794957903263
+        31.25719811311419,
+        -91.57233404004096
       ],
       "time": "",
       "severity": "critical",
@@ -760,8 +760,8 @@
       "title": "MILCON: $1225.3M - FISHER SAND & GRAVEL CO",
       "subcategory": "Installation, CA | CONSTRUCTION BORDER BARRIER EL CENTRO, CA...",
       "coords": [
-        35.934547614300264,
-        -120.00562610365415
+        36.442844988101584,
+        -119.30988331285178
       ],
       "time": "",
       "severity": "critical",
@@ -776,8 +776,8 @@
       "title": "MILCON: $1223.1M - FISHER SAND & GRAVEL CO",
       "subcategory": "Installation, TX | BORDER WALL CONSTRUCTION - VERTICAL BARRIER, BIG BEND TEXAS SECTOR (BBT-2)...",
       "coords": [
-        30.846885722535887,
-        -97.89306768027927
+        31.065685901758386,
+        -97.26020335446402
       ],
       "time": "",
       "severity": "critical",
@@ -792,8 +792,8 @@
       "title": "MILCON: $1205.9M - SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
       "subcategory": "Installation, VA | THE SCOPE OF THE TO IS TO PROVIDE ENTERPRISE IT SERVICES FOR THE USACE....",
       "coords": [
-        37.92440426071651,
-        -78.55950984647647
+        37.60243384282986,
+        -77.95480988240959
       ],
       "time": "",
       "severity": "critical",
@@ -808,8 +808,8 @@
       "title": "MILCON: $1147.0M - SPENCER CONSTRUCTION LLC",
       "subcategory": "Installation, TX | BORDER BARRIER CONSTRUCTION...",
       "coords": [
-        30.73790041527727,
-        -97.81249145506676
+        30.73664537352266,
+        -97.79952599417719
       ],
       "time": "",
       "severity": "critical",
@@ -824,8 +824,8 @@
       "title": "MILCON: $1122.6M - RAUMA MARINE CONSTRUCTIONS OY",
       "subcategory": "Installation, VA | PURCHASE OF TWO ARCTIC SECURITY CUTTERS FOR THE USCG...",
       "coords": [
-        37.50924842000671,
-        -78.49589400483455
+        37.69796141325457,
+        -77.97702595727566
       ],
       "time": "",
       "severity": "critical",
@@ -840,8 +840,8 @@
       "title": "MILCON: $1100.7M - CLARK MCCARTHY HEALTHCARE PARTNERS II",
       "subcategory": "Installation, TX | IGF::OT::IGF DESIGN-BID-BUILD FORT BLISS REPLACEMENT HOSPITAL, EL PASO, TX...",
       "coords": [
-        31.79537862334366,
-        -106.43865792866225
+        31.833506570955404,
+        -106.4220263897422
       ],
       "time": "",
       "severity": "critical",
@@ -856,8 +856,8 @@
       "title": "MILCON: $1091.1M - GULF INTRACOASTAL CONSTRUCTORS, A JOINT VENTURE",
       "subcategory": "Installation, LA | PRE- CONSTRUCTION SERVICES...",
       "coords": [
-        31.04091328619006,
-        -91.62056187562318
+        31.23641011093321,
+        -91.87095852197278
       ],
       "time": "",
       "severity": "critical",
@@ -872,8 +872,8 @@
       "title": "MILCON: $1079.0M - FERROVIAL CONSTRUCCION PR, LLC",
       "subcategory": "Installation, PR | RIO PUERTO NUEVO FLOOD CONTROL PROJECT, SUPPLEMENTAL CONTRACT 3 CHANNEL BOTTOM AND WALL IM...",
       "coords": [
-        18.11087722615557,
-        -66.24110421248292
+        18.244102915723346,
+        -66.35489418113576
       ],
       "time": "",
       "severity": "critical",
@@ -888,8 +888,8 @@
       "title": "MILCON: $1069.4M - BFBC LLC",
       "subcategory": "Installation, AZ | UNDEFINITIZED CONTRACT ACTION FOR EL CENTRO (15 MILE) IN CALIFORNIA AND YUMA (5 MILE) IN A...",
       "coords": [
-        34.110556841452876,
-        -111.5261376717728
+        33.58555939632214,
+        -111.39722792769214
       ],
       "time": "",
       "severity": "critical",
@@ -904,8 +904,8 @@
       "title": "MILCON: $1057.5M - MCCARTHY MORTENSON NBAF A JOINT VENTURE",
       "subcategory": "Installation, KS | CONSTRUCTION OF NATIONAL BIO AND AGRO-DEFENSE FACILITY (NBAF), AT MANHATTAN, KANSAS...",
       "coords": [
-        38.18947865932882,
-        -96.55632833833094
+        38.573948050651644,
+        -96.69038664137037
       ],
       "time": "",
       "severity": "critical",
@@ -920,8 +920,8 @@
       "title": "MILCON: $1055.8M - CLARK MCCARTHY HEALTHCARE PARTNERS, A JOINT VENTURE",
       "subcategory": "Installation, LA | SOUTHEAST LOUISIANA VETERANS HEALTHCARE SYSTEM REPLACEMENT MEDICAL CENTER, NEW ORLEANS, LA...",
       "coords": [
-        30.87408248204639,
-        -91.64451611244472
+        31.099410348479505,
+        -91.6820286976218
       ],
       "time": "",
       "severity": "critical",
@@ -936,8 +936,8 @@
       "title": "MILCON: $1030.2M - BARNARD CONSTRUCTION COMPANY, INCORPORATED",
       "subcategory": "Installation, TX | BORDER BARRIER CONSTRUCTION IN HUDSPETH COUNTY, TX...",
       "coords": [
-        31.102839607229164,
-        -97.63374484670278
+        30.947777990680365,
+        -97.17055869044806
       ],
       "time": "",
       "severity": "critical",
