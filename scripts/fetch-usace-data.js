@@ -50,7 +50,6 @@ function resolveCoords(description, stateCode) {
   return null;
 }
 
-// 1. Strict MILCON Query (Construction only, excludes pure equipment/munitions/shipbuilding)
 async function fetchMilcon() {
   console.log('Querying USAspending API for verified Military Construction (MILCON)...');
   const payload = {
@@ -58,7 +57,6 @@ async function fetchMilcon() {
       keywords: ["MILCON", "Military Construction", "Facility Construction", "Barracks", "Airfield", "Hangar", "Depot Modernization", "Drydock Construction"],
       award_type_codes: ["A", "B", "C", "D"],
       award_amounts: [{ lower_bound: 5000000 }],
-      // Construction NAICS: 236220 (Commercial/Institutional), 237990 (Heavy Civil), 236210 (Industrial)
       naics_codes: ["236220", "237990", "236210", "237130"]
     },
     fields: [
@@ -129,7 +127,6 @@ async function fetchMilcon() {
   }
 }
 
-// 2. Civil Works Query (Water resources, dams, navigation)
 async function fetchCivilWorks() {
   console.log('Querying Civil Works infrastructure & contracts...');
   const params = new URLSearchParams({
@@ -156,7 +153,7 @@ async function fetchCivilWorks() {
 
       const name = p.GNIS_NAME || 'Federal Water Resources Facility';
       const gnisId = p.GNIS_ID ? p.GNIS_ID.replace(/\D/g, '') : null;
-      const estCost = Math.round(18 + ((i * 11) % 92)); // Authorized cost bracket allocation
+      const estCost = Math.round(18 + ((i * 11) % 92));
 
       const directLink = gnisId 
         ? `https://geonames.usgs.gov/apex/f?p=gnispq:3:::NO::P3_FID:${gnisId}` 
