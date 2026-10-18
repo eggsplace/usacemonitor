@@ -565,7 +565,7 @@ async function fetchNOAAAlerts() {
   }
 }
 
-// 6. Worldwide Hurricanes & Tropical Cyclones (Global Unrestricted)
+// 6. Worldwide Hurricanes & Tropical Cyclones (Deduplicated to Latest Fix Only)
 async function fetchTropicalCyclones() {
   const events = [];
   try {
@@ -584,7 +584,20 @@ async function fetchTropicalCyclones() {
       linesByStorm[sname].push(lf);
     });
 
+    // Group all advisory fixes by Storm ID / Name to isolate the single latest position
+    const latestFixByStorm = {};
     (ptsRes.features || []).forEach(f => {
+      const p = f.properties || {};
+      const stormKey = (p.STORMID || p.STORMNAME || p.NAME || '').toUpperCase().trim();
+      if (!stormKey) return;
+
+      const timeVal = p.DATELBL ? new Date(p.DATELBL).getTime() : 0;
+      if (!latestFixByStorm[stormKey] || timeVal >= latestFixByStorm[stormKey].timeVal) {
+        latestFixByStorm[stormKey] = { feature: f, timeVal: timeVal };
+      }
+    });
+
+    Object.values(latestFixByStorm).forEach(({ feature: f }) => {
       const p = f.properties || {};
       const coords = f.geometry && f.geometry.coordinates ? [f.geometry.coordinates[1], f.geometry.coordinates[0]] : null;
       if (!coords || isNaN(coords[0]) || isNaN(coords[1])) return;
@@ -605,7 +618,7 @@ async function fetchTropicalCyclones() {
       }
 
       events.push({
-        id: p.STORMID || `tc-${stormName}-${lat}-${lon}`,
+        id: p.STORMID || `tc-${stormName}`,
         type: intensity >= 64 ? 'hurricane' : 'tropical-storm',
         topCategory: 'contingency',
         title: `${classification} ${stormName} (${intensity} kts)`,
