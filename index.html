@@ -199,7 +199,7 @@ aside {
 
 <div class="ticker-bar">
   <span class="label">PRIORITY ALERTS ❯❯</span>
-  <marquee scrollamount="5" id="news-marquee">Monitoring crisis events, river gauges, weather, hurricanes, civil works, and MILCON in real-time...</marquee>
+  <marquee scrollamount="5" id="news-marquee">Scanning active weather systems and critical advisories...</marquee>
 </div>
 
 <div class="workspace">
@@ -250,7 +250,6 @@ aside {
         </div>
       </div>
 
-      <!-- Basemap View Mode Switch -->
       <div class="basemap-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
         <button id="basemap-toggle" class="filter-btn active" onclick="toggleBasemap()">IMAGERY</button>
         <span id="basemap-status" style="color: var(--accent-cyan); font-size:11px;">SATELLITE HYBRID</span>
@@ -283,13 +282,11 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// Centered to frame CONUS, southern Canada, Mexico, the Gulf, and the Caribbean
 const map = L.map('map', { center: [34.0, -96.0], zoom: 4, zoomControl: false });
 map.attributionControl.setPrefix(false);
 
 const MAPTILER_API_KEY = 'qUsMKrQQt9RdGj760Jgm';
 
-// Basemap Layers
 const imageryLayer = L.tileLayer(`https://api.maptiler.com/maps/hybrid-v4/256/{z}/{x}/{y}.jpg?key=${MAPTILER_API_KEY}`, {
   attribution: '&copy; MapTiler &copy; OpenStreetMap',
   maxNativeZoom: 13,
@@ -302,7 +299,6 @@ const vectorMapLayer = L.tileLayer(`https://api.maptiler.com/maps/streets-v2/256
   maxZoom: 20
 });
 
-// Default to Imagery
 imageryLayer.addTo(map);
 let currentBasemap = 'imagery';
 
@@ -348,6 +344,32 @@ let eventMarkers = [];
 let allEvents = [];
 let hurricaneTrackLayers = [];
 let terminatorLayer = null;
+
+// Dynamic Priority Alerts Ticker Generator
+function updatePriorityTicker(noaaAlerts, hurricanes) {
+  const tickerEl = document.getElementById('news-marquee');
+  const priorityItems = [];
+
+  // 1. High-priority tropical cyclones
+  (hurricanes || []).forEach(h => {
+    priorityItems.push(`⚡ ${h.title.toUpperCase()} [${h.subcategory}]`);
+  });
+
+  // 2. Severe / life-safety NOAA alerts
+  const criticalTypes = ['tornado warning', 'flash flood warning', 'extreme wind warning', 'hurricane warning', 'storm surge warning', 'tsunami warning', 'blizzard warning'];
+  (noaaAlerts || []).forEach(a => {
+    const titleLower = a.title.toLowerCase();
+    if (criticalTypes.some(t => titleLower.includes(t)) || a.severity === 'critical') {
+      priorityItems.push(`🚨 ${a.title.toUpperCase()}`);
+    }
+  });
+
+  if (priorityItems.length > 0) {
+    tickerEl.innerText = priorityItems.slice(0, 15).join('   ✦   ');
+  } else {
+    tickerEl.innerText = 'NO CRITICAL LIFE-SAFETY WARNINGS ACTIVE ACROSS MONITORED THEATERS   ✦   SYSTEMS NORMAL';
+  }
+}
 
 // 1. River Gauges (via cache)
 async function fetchRiverGaugeData() {
@@ -543,7 +565,7 @@ async function fetchNOAAAlerts() {
   }
 }
 
-// 6. Worldwide Hurricanes & Tropical Cyclones
+// 6. Worldwide Hurricanes & Tropical Cyclones (Global Unrestricted)
 async function fetchTropicalCyclones() {
   const events = [];
   try {
@@ -792,7 +814,6 @@ function renderEvents(events) {
   });
 }
 
-// Initial state: Everything unchecked
 const layerFilters = {
   'earthquakes': false, 'gauges': false, 'wildfires': false,
   'storms': false, 'hurricanes': false, 'disasters': false,
@@ -855,7 +876,6 @@ document.querySelectorAll('.top-cat-btn').forEach(btn => {
   btn.addEventListener('click', () => switchTopCategory(btn.dataset.cat));
 });
 
-// Radar Controls
 async function updateRadarStatus() {
   try {
     const res = await fetch('https://api.rainviewer.com/public/weather-maps.json', { cache: 'no-store' });
@@ -890,7 +910,6 @@ function toggleRadarUI() {
   }
 }
 
-// Day/Night Terminator
 function addDayNightTerminator() {
   try {
     if (!window.L || !window.L.terminator) return;
@@ -956,6 +975,9 @@ async function init() {
   applyCurrentFilter();
   toggleRadarUI();
   toggleDayNight();
+  
+  // Populate the dynamic weather alerts priority marquee
+  updatePriorityTicker(noaaAlerts, tropicalCyclones);
   
   document.getElementById('feed-count').innerText = 'ONLINE';
   updateRadarStatus();
