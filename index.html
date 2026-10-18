@@ -1,203 +1,1141 @@
-// scripts/fetch-usace-data.js
-// Standalone backend ingestion script for USACE Civil Works and MILCON datasets.
-const fs = require('fs');
-const path = require('path');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USACE Operations Monitor</title>
 
-const BASE_COORDINATES = {
-  "FORT LIBERTY": [35.14, -79.00], "FORT BRAGG": [35.14, -79.00],
-  "FORT CAVAZOS": [31.13, -97.77], "FORT HOOD": [31.13, -97.77],
-  "FORT BLISS": [31.81, -106.42], "FORT CAMPBELL": [36.65, -87.48],
-  "FORT CARSON": [38.74, -104.79], "FORT STEWART": [31.87, -81.61],
-  "FORT DRUM": [44.05, -75.76], "FORT RILEY": [39.11, -96.82],
-  "FORT LEONARD WOOD": [37.71, -92.16], "FORT EISENHOWER": [33.37, -82.14],
-  "FORT GORDON": [33.37, -82.14], "FORT MOORE": [32.36, -84.95],
-  "FORT BENNING": [32.36, -84.95], "JOINT BASE LEWIS-MCCHORD": [47.11, -122.58],
-  "JBLM": [47.11, -122.58], "NELLIS": [36.24, -115.05],
-  "EGLIN": [30.46, -86.55], "TYNDALL": [30.07, -85.58],
-  "WRIGHT-PATTERSON": [39.82, -84.05], "NORFOLK": [36.95, -76.30],
-  "REDSTONE ARSENAL": [34.68, -86.65], "ABERDEEN PROVING GROUND": [39.47, -76.13],
-  "YUMA PROVING GROUND": [32.84, -114.39], "SCHOFIELD BARRACKS": [21.50, -158.06],
-  "CAMP HUMPHREYS": [36.96, 127.03], "KADENA": [26.35, 127.77],
-  "ANDERSEN": [13.58, 144.92], "GUAM": [13.44, 144.79]
-};
+<!-- Leaflet CSS & JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-const STATE_CENTROIDS = {
-  "AL": [32.80, -86.79], "AK": [61.37, -152.40], "AZ": [33.72, -111.43], "AR": [34.96, -92.37],
-  "CA": [36.11, -119.68], "CO": [39.05, -105.31], "CT": [41.59, -72.75], "DE": [39.31, -75.50],
-  "FL": [27.76, -81.68], "GA": [33.04, -83.64], "HI": [21.09, -157.49], "ID": [44.24, -114.47],
-  "IL": [40.34, -88.98], "IN": [39.84, -86.25], "IA": [42.01, -93.21], "KS": [38.52, -96.72],
-  "KY": [37.66, -84.67], "LA": [31.16, -91.86], "ME": [44.69, -69.38], "MD": [39.06, -76.80],
-  "MA": [42.23, -71.53], "MI": [43.32, -84.53], "MN": [45.69, -93.90], "MS": [32.74, -89.67],
-  "MO": [38.45, -92.28], "MT": [46.92, -110.45], "NE": [41.12, -98.26], "NV": [38.31, -117.05],
-  "NH": [43.45, -71.56], "NJ": [40.29, -74.52], "NM": [34.84, -106.24], "NY": [42.16, -74.94],
-  "NC": [35.63, -79.80], "ND": [47.52, -99.78], "OH": [40.38, -82.76], "OK": [35.56, -96.92],
-  "OR": [44.57, -122.07], "PA": [40.59, -77.20], "RI": [41.68, -71.51], "SC": [33.85, -80.94],
-  "SD": [44.29, -99.43], "TN": [35.74, -86.69], "TX": [31.05, -97.56], "UT": [40.15, -111.86],
-  "VT": [44.04, -72.71], "VA": [37.76, -78.16], "WA": [47.40, -121.49], "WV": [38.49, -80.95],
-  "WI": [44.26, -89.61], "WY": [42.75, -107.30], "PR": [18.22, -66.59], "GU": [13.44, 144.79]
-};
+<!-- Leaflet Terminator (Day/Night overlay) -->
+<script src="https://unpkg.com/@joergdietrich/leaflet.terminator"></script>
 
-function resolveCoords(description, stateCode) {
-  const desc = (description || '').toUpperCase();
-  for (const [name, coords] of Object.entries(BASE_COORDINATES)) {
-    if (desc.includes(name)) {
-      return [coords[0] + (Math.random() - 0.5) * 0.04, coords[1] + (Math.random() - 0.5) * 0.04];
-    }
-  }
-  if (stateCode && STATE_CENTROIDS[stateCode]) {
-    const c = STATE_CENTROIDS[stateCode];
-    return [c[0] + (Math.random() - 0.5) * 0.8, c[1] + (Math.random() - 0.5) * 0.8];
-  }
-  return null;
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<!-- Tactical Monospace Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-base: #0a0c10;
+  --bg-panel: rgba(14, 18, 24, 0.92);
+  --border: #1e2638;
+  --accent-cyan: #00f0ff;
+  --accent-red: #ff3344;
+  --accent-amber: #ffaa00;
+  --accent-green: #00ff66;
+  --text-main: #c0caf5;
+  --text-dim: #565f89;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Share Tech Mono', monospace; }
+body {
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-// 1. Strict MILCON Query (Construction only, excludes equipment/munitions/vehicles)
-async function fetchMilcon() {
-  console.log('Querying USAspending API for verified Military Construction (MILCON)...');
-  const payload = {
-    filters: {
-      keywords: ["MILCON", "Military Construction", "Facility Construction", "Barracks", "Airfield", "Hangar", "Depot Modernization"],
-      award_type_codes: ["A", "B", "C", "D"],
-      award_amounts: [{ lower_bound: 5000000 }],
-      // NAICS Sector 23: Construction of buildings and heavy civil infrastructure
-      naics_codes: ["236220", "237990", "236210", "237130"]
-    },
-    fields: [
-      "Award ID", "Recipient Name", "Award Amount", "Description",
-      "Place of Performance State Code", "Place of Performance City Name"
-    ],
-    limit: 60,
-    page: 1,
-    sort: "Award Amount",
-    order: "desc"
-  };
+header {
+  background: #05070a;
+  border-bottom: 1px solid var(--border);
+  padding: 6px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  z-index: 1000;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.status-badge {
+  background: rgba(0, 255, 102, 0.15);
+  border: 1px solid var(--accent-green);
+  color: var(--accent-green);
+  padding: 2px 6px;
+  font-size: 10px;
+  border-radius: 2px;
+  letter-spacing: 1px;
+}
+.top-controls { display: flex; align-items: center; gap: 15px; }
+.top-controls a.admin-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 11px;
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+}
+.top-controls a.admin-link:hover { color: var(--accent-cyan); border-color: var(--accent-cyan); }
 
+.ticker-bar {
+  background: rgba(255, 51, 68, 0.1);
+  border-bottom: 1px solid rgba(255, 51, 68, 0.3);
+  color: #ff8899;
+  font-size: 12px;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.ticker-bar span.label { color: var(--accent-red); font-weight: bold; margin-right: 12px; }
+
+.workspace { flex: 1; display: flex; position: relative; height: calc(100vh - 65px); }
+#map { flex: 1; height: 100%; background: #000; }
+
+aside {
+  width: 300px;
+  background: var(--bg-panel);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  backdrop-filter: blur(8px);
+}
+.sidebar-header {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.top-cat-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.top-cat-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 8px 2px;
+  font-size: 9.5px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.3;
+}
+.top-cat-btn.active, .top-cat-btn:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  background: rgba(0, 240, 255, 0.05);
+}
+
+.filter-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 6px;
+  font-size: 11px;
+  cursor: pointer;
+  text-align: center;
+}
+.filter-btn.active, .filter-btn:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  background: rgba(0, 240, 255, 0.05);
+}
+
+.events-list { flex: 1; overflow-y: auto; padding: 8px; }
+.event-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-cyan);
+  padding: 8px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+.event-card:hover { background: rgba(0, 240, 255, 0.08); border-color: var(--accent-cyan); }
+.event-card.critical { border-left-color: var(--accent-red); }
+.event-card.warning { border-left-color: var(--accent-amber); }
+.event-card.good { border-left-color: var(--accent-green); }
+.event-card.flood-stage { border-left-color: #3aa0ff; }
+.event-card.low-water { border-left-color: #FFC000; }
+.event-subline { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
+.event-time { font-size: 10px; color: var(--text-dim); margin-top: 4px; }
+.event-details { font-size: 11px; color: var(--text-main); margin-top: 6px; line-height: 1.4; }
+.event-link { font-size: 10px; color: var(--accent-cyan); margin-top: 4px; display: inline-block; text-decoration: underline; }
+
+.empty-state {
+  padding: 24px 12px;
+  color: var(--text-dim);
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.6;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="status-badge">● LIVE OPS</span>
+    <span style="font-weight: bold; letter-spacing: 1px;">USACE OPERATIONS MONITOR</span>
+  </div>
+  <div class="top-controls">
+    <span id="utc-clock">00:00:00 UTC</span>
+    <span style="color: var(--text-dim);">FEEDS: <span id="feed-count" style="color: var(--accent-green);">SYNCING</span></span>
+    <a class="admin-link" href="admin.html">+ ADD ENTRY</a>
+  </div>
+</header>
+
+<div class="ticker-bar">
+  <span class="label">PRIORITY ALERTS ❯❯</span>
+  <marquee scrollamount="5" id="news-marquee">Scanning active weather systems and critical advisories...</marquee>
+</div>
+
+<div class="workspace">
+  <div id="map"></div>
+
+  <aside>
+    <div class="sidebar-header">
+      <span id="section-label">CONTINGENCY OPS</span>
+      <span id="total-events-count" style="color: var(--accent-cyan);">0 ACTIVE</span>
+    </div>
+
+    <div class="top-cat-tabs">
+      <button class="top-cat-btn active" data-cat="contingency">CONTINGENCY OPS</button>
+      <button class="top-cat-btn" data-cat="support-units">SUPPORT UNITS</button>
+    </div>
+
+    <div id="contingency-controls">
+      <div class="filter-tabs">
+        <div style="display: flex; gap: 4px; margin-bottom: 6px;">
+          <button class="filter-btn" onclick="toggleAllLayers(true)" style="flex: 0.5;">ALL</button>
+          <button class="filter-btn" onclick="toggleAllLayers(false)" style="flex: 0.5;">NONE</button>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-earthquakes" onchange="updateLayerDisplay()"> Earthquakes
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-gauges" onchange="updateLayerDisplay()"> River Gauges
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-wildfires" onchange="updateLayerDisplay()"> Wildfires
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-storms" onchange="updateLayerDisplay()"> Storms
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-hurricanes" onchange="updateLayerDisplay()"> Hurricanes
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-disasters" onchange="updateLayerDisplay()"> Disasters
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-civil-works" onchange="updateLayerDisplay()"> Civil Works
+          </label>
+          <label style="display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); cursor: pointer; font-size: 11px;">
+            <input type="checkbox" id="filter-programs" onchange="updateLayerDisplay()"> MILCON
+          </label>
+        </div>
+      </div>
+
+      <!-- Basemap View Mode Switch -->
+      <div class="basemap-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
+        <button id="basemap-toggle" class="filter-btn active" onclick="toggleBasemap()">IMAGERY</button>
+        <span id="basemap-status" style="color: var(--accent-cyan); font-size:11px;">SATELLITE HYBRID</span>
+      </div>
+
+      <div class="radar-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
+        <button id="radar-toggle" class="filter-btn" onclick="toggleRadarUI()">RADAR</button>
+        <span id="radar-status" style="color: var(--text-dim); font-size:11px;">last: N/A</span>
+      </div>
+
+      <div class="daynight-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
+        <button id="daynight-toggle" class="filter-btn" onclick="toggleDayNight()">DAY/NIGHT</button>
+        <span id="daynight-status" style="color: var(--text-dim); font-size:11px;">off</span>
+      </div>
+    </div>
+
+    <div class="events-list" id="events-feed">
+      <div style="padding: 12px; color: var(--text-dim); text-align: center;">Fetching telemetry data...</div>
+    </div>
+  </aside>
+</div>
+
+<script src="radar.js"></script>
+
+<script>
+function updateClock() {
+  const now = new Date();
+  document.getElementById('utc-clock').innerText = now.toUTCString().split(' ')[4] + ' UTC';
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// Centered to frame CONUS, southern Canada, Mexico, the Gulf, and the Caribbean
+const map = L.map('map', { center: [34.0, -96.0], zoom: 4, zoomControl: false });
+map.attributionControl.setPrefix(false);
+
+const MAPTILER_API_KEY = 'qUsMKrQQt9RdGj760Jgm';
+
+// Basemap Layers
+const imageryLayer = L.tileLayer(`https://api.maptiler.com/maps/hybrid-v4/256/{z}/{x}/{y}.jpg?key=${MAPTILER_API_KEY}`, {
+  attribution: '&copy; MapTiler &copy; OpenStreetMap',
+  maxNativeZoom: 13,
+  maxZoom: 20
+});
+
+const vectorMapLayer = L.tileLayer(`https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=${MAPTILER_API_KEY}`, {
+  attribution: '&copy; MapTiler &copy; OpenStreetMap',
+  maxNativeZoom: 19,
+  maxZoom: 20
+});
+
+imageryLayer.addTo(map);
+let currentBasemap = 'imagery';
+
+function toggleBasemap() {
+  const btn = document.getElementById('basemap-toggle');
+  const status = document.getElementById('basemap-status');
+  if (currentBasemap === 'imagery') {
+    map.removeLayer(imageryLayer);
+    vectorMapLayer.addTo(map);
+    vectorMapLayer.bringToBack();
+    currentBasemap = 'vector';
+    btn.innerText = 'VECTOR MAP';
+    status.innerText = 'STREETS / VECTOR';
+    status.style.color = 'var(--text-main)';
+  } else {
+    map.removeLayer(vectorMapLayer);
+    imageryLayer.addTo(map);
+    imageryLayer.bringToBack();
+    currentBasemap = 'imagery';
+    btn.innerText = 'IMAGERY';
+    status.innerText = 'SATELLITE HYBRID';
+    status.style.color = 'var(--accent-cyan)';
+  }
+}
+
+const BASE_ICON_SIZE = 20;
+const BASE_ZOOM = 4;
+const MIN_ICON_SIZE = 14;
+const MAX_ICON_SIZE = 38;
+
+function getZoomScaledIconSize(base = BASE_ICON_SIZE) {
+  const zoom = map.getZoom();
+  const scale = Math.pow(1.15, zoom - BASE_ZOOM);
+  const size = Math.round(base * scale);
+  return Math.min(MAX_ICON_SIZE, Math.max(MIN_ICON_SIZE, size));
+}
+
+map.on('zoomend', () => {
+  if (typeof applyCurrentFilter === 'function') applyCurrentFilter();
+});
+
+let eventMarkers = [];
+let allEvents = [];
+let hurricaneTrackLayers = [];
+let terminatorLayer = null;
+
+// Cross-Discipline Priority Alerts Ticker (Single Latest Entry Per Incident)
+function updatePriorityTicker(eventsList) {
+  const tickerEl = document.getElementById('news-marquee');
+  const alertItems = [];
+  const seenIncidentKeys = new Set();
+
+  (eventsList || []).forEach(e => {
+    let alertMsg = null;
+    let incidentKey = null;
+
+    if (e.type === 'hurricane' || e.type === 'tropical-storm') {
+      incidentKey = e.title.split('(')[0].trim().toUpperCase();
+      alertMsg = `🌀 ${e.title.toUpperCase()} [${e.subcategory || 'TRACKING'}]`;
+    } else if (e.type === 'seismic' && e.mag >= 5.0) {
+      incidentKey = `EQ-${Math.round(e.coords[0] * 10)}-${Math.round(e.coords[1] * 10)}`;
+      alertMsg = `⚠️ EARTHQUAKE: ${e.title.toUpperCase()}`;
+    } else if (e.type === 'fire' && e.mag >= 10000) {
+      incidentKey = e.id || e.title;
+      alertMsg = `🔥 WILDFIRE: ${e.title.toUpperCase()}`;
+    } else if (e.type === 'flash-flood' || (e.type === 'river-gauge' && e.severity === 'critical')) {
+      incidentKey = e.id || e.title;
+      alertMsg = `🌊 FLOOD EMERGENCY: ${e.title.toUpperCase()}`;
+    } else if (e.type === 'severe-weather') {
+      const lower = e.title.toLowerCase();
+      if (lower.includes('tornado') || lower.includes('extreme wind') || lower.includes('tsunami')) {
+        incidentKey = e.title;
+        alertMsg = `🚨 ${e.title.toUpperCase()}`;
+      }
+    }
+
+    if (alertMsg && incidentKey && !seenIncidentKeys.has(incidentKey)) {
+      seenIncidentKeys.add(incidentKey);
+      alertItems.push(alertMsg);
+    }
+  });
+
+  if (alertItems.length > 0) {
+    tickerEl.innerText = alertItems.slice(0, 20).join('   ✦   ');
+  } else {
+    tickerEl.innerText = 'NO CRITICAL LIFE-SAFETY INCIDENTS ACTIVE ACROSS MONITORED THEATERS   ✦   SYSTEMS NORMAL';
+  }
+}
+
+// 1. River Gauges (via cache)
+async function fetchRiverGaugeData() {
   try {
-    const res = await fetch('https://api.usaspending.gov/api/v2/search/spending_by_award/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    
+    const res = await fetch('data/river-gauges-cache.json', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    const rawResults = data.results || [];
-
-    const equipmentBlacklist = ['AIRCRAFT', 'SUBMARINE', 'VESSEL', 'DESTROYER', 'FRIGATE', 'MISSILE SYSTEM', 'AMMUNITION', 'WEAPONS SYSTEM', 'RADAR SYSTEM REPAIR'];
-
-    const items = rawResults
-      .filter(award => {
-        const desc = (award["Description"] || '').toUpperCase();
-        // Keep if it is building/facility construction, even if supporting equipment manufacturing
-        const isSupportingPlant = desc.includes('PLANT') || desc.includes('DEPOT') || desc.includes('FACILITY') || desc.includes('HANGAR') || desc.includes('DOCK');
-        const isBlacklisted = equipmentBlacklist.some(term => desc.includes(term));
-        if (isBlacklisted && !isSupportingPlant) return false;
-        return true;
+    return (data.events || [])
+      .filter(e => {
+        const titleStr = (e.title || '').toLowerCase();
+        if (titleStr.includes('minor') || titleStr.includes('action')) return false;
+        return e.severity === 'critical' || titleStr.includes('moderate') || titleStr.includes('major');
       })
-      .map((award, i) => {
-        const amount = award["Award Amount"] || 0;
-        const desc = award["Description"] || "Military Facility Construction";
-        const state = award["Place of Performance State Code"] || "US";
-        const coords = resolveCoords(desc, state);
-        if (!coords) return null;
-
-        const formattedCost = `$${(amount / 1000000).toFixed(1)}M`;
-
-        return {
-          id: award["Award ID"] || `mil-${i}`,
-          type: 'programs',
-          topCategory: 'contingency',
-          title: `MILCON: ${award["Recipient Name"] || 'Prime Contractor'} (${formattedCost})`,
-          projectName: desc.length > 70 ? desc.slice(0, 67) + '...' : desc,
-          cost: amount,
-          costFormatted: formattedCost,
-          subcategory: `${award["Place of Performance City Name"] || 'Installation'}, ${state} | Scope: ${desc.slice(0, 85)}`,
-          coords: coords,
-          time: '',
-          severity: amount > 50000000 ? 'critical' : 'warning',
-          mag: 5,
-          link: `https://www.usaspending.gov/search`
-        };
-      }).filter(Boolean);
-
-    console.log(`Parsed & geocoded MILCON construction projects: ${items.length}`);
-    return items;
+      .map(e => ({
+        id: e.id,
+        type: 'river-gauge',
+        topCategory: 'contingency',
+        title: e.title,
+        coords: [e.lat, e.lon],
+        time: e.time ? new Date(e.time).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
+        severity: e.severity,
+        mag: e.mag
+      }));
   } catch (err) {
-    console.error('MILCON fetch failed:', err.message);
     return [];
   }
 }
 
-// 2. Civil Works Query (Water resources, dams, navigation, coastal protection)
-async function fetchCivilWorks() {
-  console.log('Querying Civil Works infrastructure & contracts...');
-  const params = new URLSearchParams({
-    where: "1=1",
-    outFields: "GNIS_Name,Permanent_Identifier,FType,ReachCode",
-    returnGeometry: "true",
-    outSR: "4326",
-    f: "json",
-    resultRecordCount: "250"
-  });
-
-  const url = `https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/0/query?${params}`;
-
+// 2. Wildfires
+async function fetchWildfireData() {
   try {
+    const cutoff = new Date(Date.now() - 14 * 24 * 60 * 60 * 1000);
+    const cutoffStr = cutoff.toISOString().slice(0, 19).replace('T', ' ');
+
+    const whereClause = [
+      `IncidentTypeCategory='WF'`,
+      `IncidentSize>=1000`,
+      `(PercentContained IS NULL OR PercentContained<95)`,
+      `(FireDiscoveryDateTime IS NULL OR FireDiscoveryDateTime>=TIMESTAMP '${cutoffStr}')`
+    ].join(' AND ');
+
+    const params = new URLSearchParams({
+      where: whereClause,
+      outFields: 'IncidentName,IncidentSize,PercentContained,FireDiscoveryDateTime,UniqueFireIdentifier',
+      outSR: '4326',
+      f: 'geojson'
+    });
+    const url = `https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations_Current/FeatureServer/0/query?${params}`;
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    const rawFeatures = data.features || [];
 
-    const items = rawFeatures.map((f, i) => {
-      const p = f.attributes || {};
-      const geom = f.geometry || {};
-      if (!geom.y || !geom.x) return null;
-
-      const name = p.GNIS_Name || 'Federal Water Resources Facility';
-      // Baseline cost bracket estimation for major federal navigation & flood structures
-      const estCost = Math.round(15 + ((i * 7) % 85)); 
-
+    return (data.features || []).map(f => {
+      const p = f.properties;
+      const acres = p.IncidentSize || 0;
       return {
-        id: p.Permanent_Identifier || `cw-${i}`,
-        type: 'civil-works',
+        id: p.UniqueFireIdentifier || f.id,
+        type: 'fire',
         topCategory: 'contingency',
-        title: `${name} (Civil Works)`,
-        projectName: name,
-        costFormatted: `$${estCost}.0M (Auth Allocation)`,
-        subcategory: `Type: Water Control & Dam Structure | Reach: ${p.ReachCode || 'N/A'}`,
-        coords: [geom.y, geom.x],
-        time: '',
-        severity: 'good',
-        mag: 5,
-        link: 'https://www.usace.army.mil/Missions/Civil-Works/'
+        title: `${p.IncidentName || 'Unnamed Fire'} - ${Math.round(acres).toLocaleString()} ac`,
+        coords: [f.geometry.coordinates[1], f.geometry.coordinates[0]],
+        time: p.FireDiscoveryDateTime ? new Date(p.FireDiscoveryDateTime).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
+        severity: acres >= 50000 ? 'critical' : 'warning',
+        mag: acres
       };
-    }).filter(Boolean);
-
-    console.log(`Parsed Civil Works facilities: ${items.length}`);
-    return items;
+    });
   } catch (err) {
-    console.error('Civil Works query failed:', err.message);
     return [];
   }
 }
 
-async function run() {
-  const dataDir = path.join(__dirname, '..', 'data');
-  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+// 3. Earthquakes
+async function fetchSeismicData() {
+  try {
+    const res = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson');
+    const data = await res.json();
 
-  const milcon = await fetchMilcon();
-  fs.writeFileSync(
-    path.join(dataDir, 'milcon-cache.json'),
-    JSON.stringify({ updated: new Date().toISOString(), events: milcon }, null, 2)
-  );
+    function isInUSTerritory(lat, lon) {
+      const conus = lat >= 24.5 && lat <= 49.4 && lon >= -125 && lon <= -66.9;
+      const alaska = lat >= 51 && lat <= 72 && (lon <= -129 || lon >= 165);
+      const hawaii = lat >= 18 && lat <= 23 && lon >= -161 && lon <= -154;
+      const puertoRico = lat >= 17 && lat <= 19 && lon >= -68 && lon <= -64;
+      return conus || alaska || hawaii || puertoRico;
+    }
 
-  const civilWorks = await fetchCivilWorks();
-  fs.writeFileSync(
-    path.join(dataDir, 'civil-works-cache.json'),
-    JSON.stringify({ updated: new Date().toISOString(), events: civilWorks }, null, 2)
-  );
-
-  console.log('Ingestion complete. Updated cache files written to /data/');
+    return (data.features || [])
+      .filter(f => isInUSTerritory(f.geometry.coordinates[1], f.geometry.coordinates[0]))
+      .map(f => ({
+        id: f.id,
+        type: 'seismic',
+        topCategory: 'contingency',
+        title: `M ${f.properties.mag} - ${f.properties.place}`,
+        mag: f.properties.mag,
+        coords: [f.geometry.coordinates[1], f.geometry.coordinates[0]],
+        time: new Date(f.properties.time).toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+        severity: f.properties.mag >= 6.0 ? 'critical' : 'warning'
+      }));
+  } catch (err) {
+    return [];
+  }
 }
 
-run();
+// 4. Disasters (FEMA Declarations Clustered by Event with Regional Centroid)
+async function fetchOpenFEMADisasters() {
+  try {
+    const cutoff = new Date(Date.now() - 180 * 24 * 60 * 60 * 1000);
+    const cutoffStr = cutoff.toISOString().slice(0, 19).replace('T', ' ');
+
+    const params = new URLSearchParams({
+      where: `fema_postdate >= TIMESTAMP '${cutoffStr}'`,
+      outFields: 'name,state_name,dec_number,incident_type,designate,fema_postdate,region',
+      returnCentroid: 'true',
+      outSR: '4326',
+      f: 'json'
+    });
+    const url = `https://gis.fema.gov/arcgis/rest/services/FEMA/DECS_ALL/FeatureServer/0/query?${params}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    // Group individual county designations by disaster declaration event
+    const eventsByDec = {};
+    (data.features || []).forEach(f => {
+      const p = f.attributes;
+      const centroid = f.centroid;
+      if (!centroid || !p.dec_number) return;
+
+      const decNum = p.dec_number;
+      if (!eventsByDec[decNum]) {
+        eventsByDec[decNum] = {
+          decNumber: decNum,
+          name: p.name || 'Severe Incident',
+          state: p.state_name || 'US Region',
+          incidentType: p.incident_type || 'Natural Disaster',
+          designation: p.designate || 'Declared',
+          postDate: p.fema_postdate,
+          centroids: []
+        };
+      }
+      eventsByDec[decNum].centroids.push([centroid.y, centroid.x]);
+    });
+
+    // Compute regional centroid and descriptive disaster label per event
+    return Object.values(eventsByDec).map(evt => {
+      const totalPoints = evt.centroids.length;
+      const avgLat = evt.centroids.reduce((sum, c) => sum + c[0], 0) / totalPoints;
+      const avgLon = evt.centroids.reduce((sum, c) => sum + c[1], 0) / totalPoints;
+
+      // Extract brief description of what the disaster is
+      const briefType = evt.incidentType || 'Major Disaster';
+      const cleanEventName = evt.name.replace(/severe storms?|flooding|tornadoes?/gi, '').trim();
+      const disasterSummary = cleanEventName ? `${briefType} (${cleanEventName})` : briefType;
+
+      return {
+        id: `fema-dec-${evt.decNumber}`,
+        type: 'disaster',
+        topCategory: 'contingency',
+        title: `FEMA: ${disasterSummary} - ${evt.state}`,
+        subcategory: `${briefType} | ${totalPoints} Counties Designated | Dec #${evt.decNumber}`,
+        coords: [avgLat, avgLon],
+        time: evt.postDate ? new Date(evt.postDate).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
+        severity: evt.designation.includes('IA') ? 'critical' : 'warning',
+        mag: 5,
+        link: `https://www.fema.gov/disaster/${evt.decNumber}`
+      };
+    });
+  } catch (err) {
+    return [];
+  }
+}
+
+// 5. NOAA Weather Alerts
+async function fetchNOAAAlerts() {
+  try {
+    const res = await fetch('https://api.weather.gov/alerts/active');
+    const data = await res.json();
+    const events = [];
+
+    if (data.features) {
+      data.features.forEach(alert => {
+        try {
+          const props = alert.properties;
+          const eventName = (props.event || '').toLowerCase();
+
+          if (
+            eventName.includes('special weather') ||
+            eventName.includes('wind advisory') ||
+            eventName.includes('frost') ||
+            eventName.includes('freeze') ||
+            eventName.includes('marine')
+          ) return;
+
+          let coords = null;
+          if (alert.geometry && alert.geometry.coordinates && alert.geometry.coordinates.length > 0) {
+            const geomType = alert.geometry.type;
+            if (geomType === 'Polygon') coords = alert.geometry.coordinates[0][Math.floor(alert.geometry.coordinates[0].length / 2)];
+            else if (geomType === 'MultiPolygon') coords = alert.geometry.coordinates[0][0][Math.floor(alert.geometry.coordinates[0][0].length / 2)];
+          }
+
+          if (!coords || !coords[0] || !coords[1]) return;
+
+          let alertType = 'severe-weather';
+          if (eventName.includes('tsunami')) alertType = 'tsunami';
+          else if (eventName.includes('flash flood')) alertType = 'flash-flood';
+          else if (eventName.includes('flood warning')) alertType = 'flood-warning';
+
+          events.push({
+            id: alert.id,
+            type: alertType,
+            topCategory: 'contingency',
+            title: `${props.event} - ${props.areaDesc || 'Regional'}`,
+            coords: [coords[1], coords[0]],
+            time: props.sent ? new Date(props.sent).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
+            severity: (props.severity === 'Extreme' || props.severity === 'Severe') ? 'critical' : 'warning',
+            mag: 4
+          });
+        } catch (itemErr) {}
+      });
+    }
+    return events;
+  } catch (err) {
+    return [];
+  }
+}
+
+// 6. Worldwide Hurricanes & Tropical Cyclones (Historical & Predictive Track Integration)
+async function fetchTropicalCyclones() {
+  const events = [];
+  try {
+    const pointsUrl = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Active_Hurricanes_v1/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson';
+    const linesUrl = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Active_Hurricanes_v1/FeatureServer/2/query?where=1%3D1&outFields=*&f=geojson';
+    const forecastPtsUrl = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Active_Hurricanes_v1/FeatureServer/1/query?where=1%3D1&outFields=*&f=geojson';
+
+    const [ptsRes, linesRes, fcRes] = await Promise.all([
+      fetch(pointsUrl).then(r => r.json()).catch(() => ({})),
+      fetch(linesUrl).then(r => r.json()).catch(() => ({})),
+      fetch(forecastPtsUrl).then(r => r.json()).catch(() => ({}))
+    ]);
+
+    const linesByStorm = {};
+    (linesRes.features || []).forEach(lf => {
+      const sname = (lf.properties.STORMNAME || lf.properties.NAME || '').toUpperCase();
+      if (!linesByStorm[sname]) linesByStorm[sname] = [];
+      linesByStorm[sname].push(lf);
+    });
+
+    const historicalFixesByStorm = {};
+    (ptsRes.features || []).forEach(f => {
+      const p = f.properties || {};
+      const sname = (p.STORMID || p.STORMNAME || p.NAME || '').toUpperCase().trim();
+      if (!sname) return;
+      if (!historicalFixesByStorm[sname]) historicalFixesByStorm[sname] = [];
+      historicalFixesByStorm[sname].push(f);
+    });
+
+    const forecastFixesByStorm = {};
+    (fcRes.features || []).forEach(f => {
+      const p = f.properties || {};
+      const sname = (p.STORMID || p.STORMNAME || p.NAME || '').toUpperCase().trim();
+      if (!sname) return;
+      if (!forecastFixesByStorm[sname]) forecastFixesByStorm[sname] = [];
+      forecastFixesByStorm[sname].push(f);
+    });
+
+    // Identify latest observed center per storm
+    const latestFixByStorm = {};
+    Object.entries(historicalFixesByStorm).forEach(([sname, fixes]) => {
+      let latest = fixes[0];
+      let maxTime = latest.properties && latest.properties.DATELBL ? new Date(latest.properties.DATELBL).getTime() : 0;
+      fixes.forEach(fix => {
+        const t = fix.properties && fix.properties.DATELBL ? new Date(fix.properties.DATELBL).getTime() : 0;
+        if (t >= maxTime) {
+          maxTime = t;
+          latest = fix;
+        }
+      });
+      latestFixByStorm[sname] = latest;
+    });
+
+    Object.entries(latestFixByStorm).forEach(([stormKey, f]) => {
+      const p = f.properties || {};
+      const coords = f.geometry && f.geometry.coordinates ? [f.geometry.coordinates[1], f.geometry.coordinates[0]] : null;
+      if (!coords || isNaN(coords[0]) || isNaN(coords[1])) return;
+
+      const [lat, lon] = coords;
+      const intensity = p.INTENSITY || p.MAXWIND || 0;
+      const stormName = (p.STORMNAME || p.NAME || 'Unnamed').toUpperCase();
+      
+      let classification = p.STORMTYPE;
+      if (!classification) {
+        if (intensity >= 64) {
+          if (lon >= 100 && lon <= 180 && lat >= 0) classification = 'Typhoon';
+          else if (lat < 0 || (lon >= 30 && lon < 100)) classification = 'Cyclone';
+          else classification = 'Hurricane';
+        } else {
+          classification = 'Tropical Storm';
+        }
+      }
+
+      events.push({
+        id: p.STORMID || `tc-${stormName}`,
+        type: intensity >= 64 ? 'hurricane' : 'tropical-storm',
+        topCategory: 'contingency',
+        title: `${classification} ${stormName} (${intensity} kts)`,
+        subcategory: `Basin: ${p.BASIN || 'Global'} | Pressure: ${p.PRESSURE || 'N/A'} mb | Movement: ${p.MOVEMENT || 'Tracking'}`,
+        coords: [lat, lon],
+        time: p.DATELBL || new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+        severity: intensity >= 64 ? 'critical' : 'warning',
+        mag: 5,
+        trackLines: linesByStorm[stormName] || [],
+        historicalPoints: historicalFixesByStorm[stormKey] || [],
+        forecastPoints: forecastFixesByStorm[stormKey] || [],
+        link: `https://www.nhc.noaa.gov/`
+      });
+    });
+  } catch (err) {
+    console.warn("Tropical Cyclone Feed error:", err);
+  }
+  return events;
+}
+
+// 7. Civil Works (Fetched from Cache)
+async function fetchCivilWorksData() {
+  try {
+    const res = await fetch('data/civil-works-cache.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    return (data.events || []).map(e => ({
+      ...e,
+      baseSize: 20
+    }));
+  } catch (err) {
+    console.warn("Civil Works cache not ready yet:", err.message);
+    return [];
+  }
+}
+
+// 8. MILCON (Fetched from Cache)
+async function fetchMilconSpendingData() {
+  try {
+    const res = await fetch('data/milcon-cache.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    return (data.events || []).map(e => {
+      const cost = e.cost || 0;
+      let base = 20;
+      if (cost >= 100000000) base = 24;
+      else if (cost >= 25000000) base = 22;
+      else base = 19;
+
+      return {
+        ...e,
+        baseSize: base
+      };
+    });
+  } catch (err) {
+    console.warn("MILCON cache not ready yet:", err.message);
+    return [];
+  }
+}
+
+// 9. Support Units
+async function fetchManualSupportUnits() {
+  try {
+    const res = await fetch('data/support-units.json', { cache: 'no-store' });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.map(entry => ({
+      id: entry.id,
+      type: 'support-units',
+      topCategory: 'support-units',
+      title: entry.title,
+      subcategory: entry.subcategory,
+      status: entry.status,
+      link: entry.link,
+      details: entry.details,
+      coords: (entry.lat != null && entry.lon != null) ? [entry.lat, entry.lon] : null,
+      time: entry.date || '',
+      severity: entry.status === 'delayed' ? 'critical' : 'good',
+      baseSize: 20
+    }));
+  } catch (err) {
+    return [];
+  }
+}
+
+// Helper: Build sub-node track marker (historical & forecast points)
+function createStormNodeIcon(intensity, isForecast) {
+  const iconFile = intensity >= 64 ? 'hurricane.png' : 'tropical_storm.png';
+  const size = isForecast ? 15 : 13;
+  const half = size / 2;
+  const borderColor = isForecast ? '#ffaa00' : '#00f0ff';
+
+  return L.divIcon({
+    html: `<div style="background: rgba(10, 14, 24, 0.85); border: 1.5px solid ${borderColor}; border-radius: 50%; width: ${size}px; height: ${size}px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 4px #000;">
+             <img src="assets/icons/${iconFile}" style="width: ${size - 4}px; height: ${size - 4}px; border-radius: 50%; object-fit: cover;">
+           </div>`,
+    iconSize: [size, size],
+    iconAnchor: [half, half],
+    className: 'storm-node-icon'
+  });
+}
+
+// ---- Marker and Feed Rendering ----
+function renderEvents(events) {
+  eventMarkers.forEach(m => map.removeLayer(m));
+  eventMarkers = [];
+  hurricaneTrackLayers.forEach(l => map.removeLayer(l));
+  hurricaneTrackLayers = [];
+
+  const feedContainer = document.getElementById('events-feed');
+  feedContainer.innerHTML = '';
+  document.getElementById('total-events-count').innerText = `${events.length} ${topCategory === 'contingency' ? 'EVENTS' : 'ITEMS'}`;
+
+  if (events.length === 0) {
+    feedContainer.innerHTML = `<div class="empty-state">No entries currently active or toggled on.</div>`;
+    return;
+  }
+
+  events.forEach(evt => {
+    const isRiverGauge = evt.type === 'river-gauge';
+    let iconColor, iconBgColor;
+
+    if (evt.type === 'fire') {
+      iconColor = evt.severity === 'critical' ? '#ff3344' : '#ffaa00';
+      iconBgColor = '#ffffff';
+    } else if (evt.type === 'severe-weather' || evt.type === 'weather') {
+      iconColor = evt.severity === 'critical' ? '#ff3344' : '#00f0ff';
+      iconBgColor = '#ffffff';
+    } else if (evt.type === 'programs') {
+      iconColor = '#1e2638';
+      iconBgColor = '#ffffff';
+    } else if (isRiverGauge) {
+      iconColor = evt.severity === 'critical' ? '#3aa0ff' : '#FFC000';
+      iconBgColor = evt.severity === 'critical' ? 'rgba(58, 160, 255, 0.2)' : 'rgba(255, 192, 0, 0.2)';
+    } else if (evt.type === 'flash-flood') {
+      iconColor = '#ff3344';
+      iconBgColor = 'rgba(255, 51, 68, 0.2)';
+    } else if (evt.type === 'flood-warning') {
+      iconColor = '#3aa0ff';
+      iconBgColor = 'rgba(58, 160, 255, 0.2)';
+    } else {
+      iconColor = evt.severity === 'critical' ? '#ff3344' : evt.severity === 'good' ? '#00ff66' : '#ffaa00';
+      iconBgColor = evt.severity === 'critical' ? 'rgba(255, 51, 68, 0.2)' : evt.severity === 'good' ? 'rgba(0, 255, 102, 0.2)' : 'rgba(255, 170, 0, 0.2)';
+    }
+
+    const iconSize = getZoomScaledIconSize(evt.baseSize || BASE_ICON_SIZE);
+
+    if (evt.coords) {
+      let faIcon = 'fa-circle';
+      switch (evt.type) {
+        case 'seismic': faIcon = 'fa-wave-square'; break;
+        case 'river-gauge': faIcon = 'fa-water'; break;
+        case 'fire': faIcon = 'fa-fire'; break;
+        case 'hurricane': faIcon = 'fa-wind'; break;
+        case 'tropical-storm': faIcon = 'fa-wind'; break;
+        case 'tsunami': faIcon = 'fa-water'; break;
+        case 'weather': faIcon = 'fa-cloud-bolt'; break;
+        case 'flash-flood': faIcon = 'fa-water'; break;
+        case 'flood-warning': faIcon = 'fa-water'; break;
+        case 'severe-weather': faIcon = 'fa-cloud-bolt'; break;
+        case 'disaster': faIcon = 'fa-triangle-exclamation'; break;
+        case 'civil-works': faIcon = 'fa-landmark'; break;
+        case 'support-units': faIcon = 'fa-people-group'; break;
+        case 'programs': faIcon = 'fa-shield-halved'; break;
+        default: faIcon = 'fa-circle';
+      }
+      
+      const hasWhiteBg = (evt.type === 'fire' || evt.type === 'severe-weather' || evt.type === 'weather' || evt.type === 'programs');
+      const borderWidth = hasWhiteBg ? 2 : 1;
+      const fontSize = Math.round(iconSize * 0.5);
+      const half = iconSize / 2;
+
+      const isFloodGauge = isRiverGauge && evt.severity === 'critical';
+      const isLowWaterGauge = isRiverGauge && evt.severity === 'warning';
+      
+      const CUSTOM_ICON_BY_TYPE = {
+        'seismic': 'earthquake.png',
+        'hurricane': 'hurricane.png',
+        'tropical-storm': 'tropical_storm.png',
+        'tsunami': 'tsunami.png',
+        'flash-flood': 'flood.png',
+        'flood-warning': 'flood.png',
+        'fire': 'wildfire.png',
+        'severe-weather': 'storm.png',
+        'civil-works': 'civil_works.png',
+        'programs': 'milcon.png'
+      };
+      
+      let innerHtml;
+      if (CUSTOM_ICON_BY_TYPE[evt.type]) {
+        innerHtml = `<img src="assets/icons/${CUSTOM_ICON_BY_TYPE[evt.type]}" style="width: ${Math.round(iconSize * 0.82)}px; height: ${Math.round(iconSize * 0.82)}px; border-radius: 50%; object-fit: cover;">`;
+      } else if (isFloodGauge) {
+        innerHtml = `<img src="assets/icons/high_water.png" style="width: ${Math.round(iconSize * 0.82)}px; height: ${Math.round(iconSize * 0.82)}px; border-radius: 50%; object-fit: cover;">`;
+      } else if (isLowWaterGauge) {
+        innerHtml = `<img src="assets/icons/low_water.png" style="width: ${Math.round(iconSize * 0.82)}px; height: ${Math.round(iconSize * 0.82)}px; border-radius: 50%; object-fit: cover;">`;
+      } else {
+        innerHtml = `<i class="fas ${faIcon}" style="color: ${iconColor}; font-size: ${fontSize}px;"></i>`;
+      }
+
+      const icon = L.divIcon({
+        html: `<div style="background: ${iconBgColor}; border: ${borderWidth}px solid ${iconColor}; border-radius: 50%; width: ${iconSize}px; height: ${iconSize}px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 ${hasWhiteBg ? '5px #ffffff' : '4px rgba(0,0,0,0.6)'};">
+                 ${innerHtml}
+               </div>`,
+        iconSize: [iconSize, iconSize], iconAnchor: [half, half], popupAnchor: [0, -half], className: 'event-icon'
+      });
+      const marker = L.marker(evt.coords, { icon: icon }).addTo(map);
+      marker.bindPopup(`<b>${evt.title}</b><br>${evt.subcategory || ''}<br>Coords: [${evt.coords[0].toFixed(2)}, ${evt.coords[1].toFixed(2)}]<br><a href="${evt.link}" target="_blank" rel="noopener" style="color: #00f0ff;">Official Dossier &rarr;</a>`);
+      eventMarkers.push(marker);
+
+      // Render Historical & Predictive Track Lines and Node Icons
+      if (evt.trackLines && evt.trackLines.length > 0) {
+        evt.trackLines.forEach(tl => {
+          const trackLayer = L.geoJSON(tl, {
+            style: { color: '#ff3344', weight: 2.5, dashArray: '5, 5', opacity: 0.85 }
+          }).addTo(map);
+          hurricaneTrackLayers.push(trackLayer);
+        });
+      }
+
+      // Render Historical Track Points (Past Observation Nodes)
+      if (evt.historicalPoints && evt.historicalPoints.length > 0) {
+        evt.historicalPoints.forEach(hp => {
+          const c = hp.geometry && hp.geometry.coordinates;
+          if (!c) return;
+          const lat = c[1], lon = c[0];
+          if (Math.abs(lat - evt.coords[0]) < 0.05 && Math.abs(lon - evt.coords[1]) < 0.05) return;
+          const nodeIntensity = hp.properties.INTENSITY || hp.properties.MAXWIND || 0;
+          const nodeMarker = L.marker([lat, lon], {
+            icon: createStormNodeIcon(nodeIntensity, false)
+          }).addTo(map);
+          nodeMarker.bindPopup(`<b>${evt.title.split('(')[0]} (Historical Fix)</b><br>Wind: ${nodeIntensity} kts<br>Time: ${hp.properties.DATELBL || ''}`);
+          hurricaneTrackLayers.push(nodeMarker);
+        });
+      }
+
+      // Render Predictive Forecast Points (Forward Track Analysis Nodes)
+      if (evt.forecastPoints && evt.forecastPoints.length > 0) {
+        evt.forecastPoints.forEach(fp => {
+          const c = fp.geometry && fp.geometry.coordinates;
+          if (!c) return;
+          const lat = c[1], lon = c[0];
+          const nodeIntensity = fp.properties.INTENSITY || fp.properties.MAXWIND || 0;
+          const nodeMarker = L.marker([lat, lon], {
+            icon: createStormNodeIcon(nodeIntensity, true)
+          }).addTo(map);
+          nodeMarker.bindPopup(`<b>${evt.title.split('(')[0]} (Forecast Track)</b><br>Projected Wind: ${nodeIntensity} kts<br>Target: ${fp.properties.DATELBL || fp.properties.TAU || 'Forecast'}`);
+          hurricaneTrackLayers.push(nodeMarker);
+        });
+      }
+    }
+
+    const card = document.createElement('div');
+    const cardClass = isRiverGauge ? (evt.severity === 'critical' ? 'flood-stage' : 'low-water') : (evt.type === 'flash-flood' ? 'critical' : evt.type === 'flood-warning' ? 'flood-stage' : evt.severity);
+    card.className = `event-card ${cardClass}`;
+    let inner = `<div><strong>${evt.title}</strong></div>`;
+    if (evt.subcategory) inner += `<div class="event-subline">${evt.subcategory}</div>`;
+    if (evt.details) inner += `<div class="event-details">${evt.details}</div>`;
+    inner += `<div class="event-time">${evt.time}</div>`;
+    if (evt.link) inner += `<a class="event-link" href="${evt.link}" target="_blank" rel="noopener">Official Incident Dossier &rarr;</a>`;
+    card.innerHTML = inner;
+
+    if (evt.coords) {
+      card.onclick = () => {
+        map.flyTo(evt.coords, 6, { duration: 1.5 });
+        const marker = eventMarkers.find(m => m.getLatLng().lat === evt.coords[0] && m.getLatLng().lng === evt.coords[1]);
+        if (marker) marker.openPopup();
+      };
+    }
+    feedContainer.appendChild(card);
+  });
+}
+
+const layerFilters = {
+  'earthquakes': false, 'gauges': false, 'wildfires': false,
+  'storms': false, 'hurricanes': false, 'disasters': false,
+  'civil-works': false, 'programs': false
+};
+
+window.toggleAllLayers = function(enable) {
+  Object.keys(layerFilters).forEach(key => {
+    layerFilters[key] = enable;
+    const checkbox = document.getElementById(`filter-${key}`);
+    if (checkbox) checkbox.checked = enable;
+  });
+  updateLayerDisplay();
+};
+
+window.updateLayerDisplay = function() {
+  Object.keys(layerFilters).forEach(key => {
+    const cb = document.getElementById(`filter-${key}`);
+    if (cb) layerFilters[key] = cb.checked;
+  });
+  applyCurrentFilter();
+};
+
+let topCategory = 'contingency';
+const CATEGORY_LABELS = {
+  'contingency': 'CONTINGENCY OPS',
+  'support-units': 'SUPPORT UNITS'
+};
+
+function applyCurrentFilter() {
+  let filtered;
+  if (topCategory === 'contingency') {
+    filtered = allEvents.filter(evt => {
+      if (evt.topCategory !== 'contingency') return false;
+      if (evt.type === 'seismic') return layerFilters['earthquakes'];
+      if (evt.type === 'river-gauge') return layerFilters['gauges'];
+      if (evt.type === 'fire') return layerFilters['wildfires'];
+      if (evt.type === 'severe-weather' || evt.type === 'weather' || evt.type === 'flash-flood' || evt.type === 'flood-warning') return layerFilters['storms'];
+      if (evt.type === 'hurricane' || evt.type === 'tropical-storm' || evt.type === 'tsunami') return layerFilters['hurricanes'];
+      if (evt.type === 'disaster') return layerFilters['disasters'];
+      if (evt.type === 'civil-works') return layerFilters['civil-works'];
+      if (evt.type === 'programs') return layerFilters['programs'];
+      return false;
+    });
+  } else {
+    filtered = allEvents.filter(evt => evt.topCategory === topCategory);
+  }
+  renderEvents(filtered);
+}
+
+function switchTopCategory(cat) {
+  topCategory = cat;
+  document.querySelectorAll('.top-cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  document.getElementById('section-label').textContent = CATEGORY_LABELS[cat];
+  document.getElementById('contingency-controls').style.display = (cat === 'contingency') ? 'block' : 'none';
+  applyCurrentFilter();
+}
+
+document.querySelectorAll('.top-cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchTopCategory(btn.dataset.cat));
+});
+
+async function updateRadarStatus() {
+  try {
+    const res = await fetch('https://api.rainviewer.com/public/weather-maps.json', { cache: 'no-store' });
+    const data = await res.json();
+    if (data && data.radar && data.radar.past && data.radar.past.length) {
+      const latest = data.radar.past[data.radar.past.length - 1].time;
+      document.getElementById('radar-status').innerText = `last: ${new Date(latest * 1000).toUTCString()}`;
+    }
+  } catch (err) {}
+}
+
+function setRadarButtonState(enabled) {
+  const btn = document.getElementById('radar-toggle');
+  if (enabled) { btn.classList.add('active'); btn.innerText = 'RADAR ON'; }
+  else { btn.classList.remove('active'); btn.innerText = 'RADAR'; }
+}
+
+let radarRefreshHandle = null;
+
+function toggleRadarUI() {
+  if (typeof toggleWeatherRadar !== 'function') return;
+  const btn = document.getElementById('radar-toggle');
+  if (btn.classList.contains('active')) {
+    removeWeatherRadar();
+    setRadarButtonState(false);
+    if (radarRefreshHandle) { clearInterval(radarRefreshHandle); radarRefreshHandle = null; }
+  } else {
+    setRadarButtonState(true);
+    if (typeof startRadarAutoRefresh === 'function') radarRefreshHandle = startRadarAutoRefresh(300000);
+    else addWeatherRadar();
+    updateRadarStatus();
+  }
+}
+
+function addDayNightTerminator() {
+  try {
+    if (!window.L || !window.L.terminator) return;
+    if (terminatorLayer) map.removeLayer(terminatorLayer);
+    
+    terminatorLayer = L.terminator({
+      opacity: 0.1, weight: 1, color: '#111111',
+      fillColor: '#000000', fillOpacity: 0.45
+    }).addTo(map);
+    document.getElementById('daynight-status').innerText = 'on';
+  } catch (err) {}
+}
+
+function removeDayNightTerminator() {
+  if (terminatorLayer) {
+    map.removeLayer(terminatorLayer);
+    terminatorLayer = null;
+    document.getElementById('daynight-status').innerText = 'off';
+  }
+}
+
+function toggleDayNight() {
+  const btn = document.getElementById('daynight-toggle');
+  if (btn.classList.contains('active')) {
+    removeDayNightTerminator();
+    btn.classList.remove('active');
+    btn.innerText = 'DAY/NIGHT';
+  } else {
+    addDayNightTerminator();
+    btn.classList.add('active');
+    btn.innerText = 'DAY/NIGHT ON';
+    if (!window.terminatorInterval) {
+      window.terminatorInterval = setInterval(() => { if (terminatorLayer) addDayNightTerminator(); }, 60000);
+    }
+  }
+}
+
+async function init() {
+  const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, tropicalCyclones, civilWorks, milconSpending, supportUnits] = await Promise.all([
+    fetchSeismicData(),
+    fetchRiverGaugeData(),
+    fetchWildfireData(),
+    fetchOpenFEMADisasters(),
+    fetchNOAAAlerts(),
+    fetchTropicalCyclones(),
+    fetchCivilWorksData(),
+    fetchMilconSpendingData(),
+    fetchManualSupportUnits()
+  ]);
+
+  allEvents = [
+    ...seismic,
+    ...riverGauges,
+    ...wildfires,
+    ...openFemaDisasters,
+    ...noaaAlerts,
+    ...tropicalCyclones,
+    ...civilWorks,
+    ...milconSpending,
+    ...supportUnits
+  ];
+  
+  applyCurrentFilter();
+  toggleRadarUI();
+  toggleDayNight();
+  
+  // Dynamic Priority Alerts Marquee
+  updatePriorityTicker(allEvents);
+  
+  document.getElementById('feed-count').innerText = 'ONLINE';
+  updateRadarStatus();
+  setInterval(updateRadarStatus, 60000);
+}
+
+init();
+setInterval(init, 120000);
+</script>
+
+</body>
+</html>
