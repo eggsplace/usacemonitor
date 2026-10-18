@@ -172,7 +172,7 @@ aside {
 .event-subline { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
 .event-time { font-size: 10px; color: var(--text-dim); margin-top: 4px; }
 .event-details { font-size: 11px; color: var(--text-main); margin-top: 6px; line-height: 1.4; }
-.event-link { font-size: 10px; color: var(--accent-cyan); margin-top: 4px; display: inline-block; }
+.event-link { font-size: 10px; color: var(--accent-cyan); margin-top: 4px; display: inline-block; text-decoration: underline; }
 
 .empty-state {
   padding: 24px 12px;
@@ -283,7 +283,7 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// Centered on the continental United States and framed across borders and basins
+// Centered to frame CONUS, southern Canada, Mexico, the Gulf, and the Caribbean
 const map = L.map('map', { center: [34.0, -96.0], zoom: 4, zoomControl: false });
 map.attributionControl.setPrefix(false);
 
@@ -492,7 +492,7 @@ async function fetchSeismicData() {
   }
 }
 
-// 4. Disasters
+// 4. Disasters (FEMA Declarations Clustered by Event with Regional Centroid)
 async function fetchOpenFEMADisasters() {
   try {
     const cutoff = new Date(Date.now() - 180 * 24 * 60 * 60 * 1000);
@@ -500,7 +500,7 @@ async function fetchOpenFEMADisasters() {
 
     const params = new URLSearchParams({
       where: `fema_postdate >= TIMESTAMP '${cutoffStr}'`,
-      outFields: 'name,state_name,dec_number,designate,fema_postdate,region',
+      outFields: 'name,state_name,dec_number,incident_type,designate,fema_postdate,region',
       returnCentroid: 'true',
       outSR: '4326',
       f: 'json'
@@ -510,22 +510,52 @@ async function fetchOpenFEMADisasters() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
-    return (data.features || []).map(f => {
+    // Group individual county designations by disaster declaration event
+    const eventsByDec = {};
+    (data.features || []).forEach(f => {
       const p = f.attributes;
       const centroid = f.centroid;
-      if (!centroid) return null;
-      const designation = p.designate || '';
+      if (!centroid || !p.dec_number) return;
+
+      const decNum = p.dec_number;
+      if (!eventsByDec[decNum]) {
+        eventsByDec[decNum] = {
+          decNumber: decNum,
+          name: p.name || 'Severe Incident',
+          state: p.state_name || 'US Region',
+          incidentType: p.incident_type || 'Natural Disaster',
+          designation: p.designate || 'Declared',
+          postDate: p.fema_postdate,
+          centroids: []
+        };
+      }
+      eventsByDec[decNum].centroids.push([centroid.y, centroid.x]);
+    });
+
+    // Compute regional centroid and descriptive disaster label per event
+    return Object.values(eventsByDec).map(evt => {
+      const totalPoints = evt.centroids.length;
+      const avgLat = evt.centroids.reduce((sum, c) => sum + c[0], 0) / totalPoints;
+      const avgLon = evt.centroids.reduce((sum, c) => sum + c[1], 0) / totalPoints;
+
+      // Extract brief description of what the disaster is
+      const briefType = evt.incidentType || 'Major Disaster';
+      const cleanEventName = evt.name.replace(/severe storms?|flooding|tornadoes?/gi, '').trim();
+      const disasterSummary = cleanEventName ? `${briefType} (${cleanEventName})` : briefType;
+
       return {
-        id: `${p.dec_number}-${p.name}-${p.state_name}`,
+        id: `fema-dec-${evt.decNumber}`,
         type: 'disaster',
         topCategory: 'contingency',
-        title: `${p.name || 'Unknown'}, ${p.state_name || ''} - ${designation || 'Declared'} (${p.dec_number || 'n/a'})`,
-        coords: [centroid.y, centroid.x],
-        time: p.fema_postdate ? new Date(p.fema_postdate).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
-        severity: designation.includes('IA') ? 'critical' : 'warning',
-        mag: 5
+        title: `FEMA: ${disasterSummary} - ${evt.state}`,
+        subcategory: `${briefType} | ${totalPoints} Counties Designated | Dec #${evt.decNumber}`,
+        coords: [avgLat, avgLon],
+        time: evt.postDate ? new Date(evt.postDate).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
+        severity: evt.designation.includes('IA') ? 'critical' : 'warning',
+        mag: 5,
+        link: `https://www.fema.gov/disaster/${evt.decNumber}`
       };
-    }).filter(Boolean);
+    });
   } catch (err) {
     return [];
   }
@@ -585,16 +615,18 @@ async function fetchNOAAAlerts() {
   }
 }
 
-// 6. Worldwide Hurricanes & Tropical Cyclones (Deduplicated to Latest Fix Only)
+// 6. Worldwide Hurricanes & Tropical Cyclones (Historical & Predictive Track Integration)
 async function fetchTropicalCyclones() {
   const events = [];
   try {
     const pointsUrl = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Active_Hurricanes_v1/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson';
     const linesUrl = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Active_Hurricanes_v1/FeatureServer/2/query?where=1%3D1&outFields=*&f=geojson';
+    const forecastPtsUrl = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Active_Hurricanes_v1/FeatureServer/1/query?where=1%3D1&outFields=*&f=geojson';
 
-    const [ptsRes, linesRes] = await Promise.all([
+    const [ptsRes, linesRes, fcRes] = await Promise.all([
       fetch(pointsUrl).then(r => r.json()).catch(() => ({})),
-      fetch(linesUrl).then(r => r.json()).catch(() => ({}))
+      fetch(linesUrl).then(r => r.json()).catch(() => ({})),
+      fetch(forecastPtsUrl).then(r => r.json()).catch(() => ({}))
     ]);
 
     const linesByStorm = {};
@@ -604,19 +636,40 @@ async function fetchTropicalCyclones() {
       linesByStorm[sname].push(lf);
     });
 
-    const latestFixByStorm = {};
+    const historicalFixesByStorm = {};
     (ptsRes.features || []).forEach(f => {
       const p = f.properties || {};
-      const stormKey = (p.STORMID || p.STORMNAME || p.NAME || '').toUpperCase().trim();
-      if (!stormKey) return;
-
-      const timeVal = p.DATELBL ? new Date(p.DATELBL).getTime() : 0;
-      if (!latestFixByStorm[stormKey] || timeVal >= latestFixByStorm[stormKey].timeVal) {
-        latestFixByStorm[stormKey] = { feature: f, timeVal: timeVal };
-      }
+      const sname = (p.STORMID || p.STORMNAME || p.NAME || '').toUpperCase().trim();
+      if (!sname) return;
+      if (!historicalFixesByStorm[sname]) historicalFixesByStorm[sname] = [];
+      historicalFixesByStorm[sname].push(f);
     });
 
-    Object.values(latestFixByStorm).forEach(({ feature: f }) => {
+    const forecastFixesByStorm = {};
+    (fcRes.features || []).forEach(f => {
+      const p = f.properties || {};
+      const sname = (p.STORMID || p.STORMNAME || p.NAME || '').toUpperCase().trim();
+      if (!sname) return;
+      if (!forecastFixesByStorm[sname]) forecastFixesByStorm[sname] = [];
+      forecastFixesByStorm[sname].push(f);
+    });
+
+    // Identify latest observed center per storm
+    const latestFixByStorm = {};
+    Object.entries(historicalFixesByStorm).forEach(([sname, fixes]) => {
+      let latest = fixes[0];
+      let maxTime = latest.properties && latest.properties.DATELBL ? new Date(latest.properties.DATELBL).getTime() : 0;
+      fixes.forEach(fix => {
+        const t = fix.properties && fix.properties.DATELBL ? new Date(fix.properties.DATELBL).getTime() : 0;
+        if (t >= maxTime) {
+          maxTime = t;
+          latest = fix;
+        }
+      });
+      latestFixByStorm[sname] = latest;
+    });
+
+    Object.entries(latestFixByStorm).forEach(([stormKey, f]) => {
       const p = f.properties || {};
       const coords = f.geometry && f.geometry.coordinates ? [f.geometry.coordinates[1], f.geometry.coordinates[0]] : null;
       if (!coords || isNaN(coords[0]) || isNaN(coords[1])) return;
@@ -647,6 +700,8 @@ async function fetchTropicalCyclones() {
         severity: intensity >= 64 ? 'critical' : 'warning',
         mag: 5,
         trackLines: linesByStorm[stormName] || [],
+        historicalPoints: historicalFixesByStorm[stormKey] || [],
+        forecastPoints: forecastFixesByStorm[stormKey] || [],
         link: `https://www.nhc.noaa.gov/`
       });
     });
@@ -721,6 +776,23 @@ async function fetchManualSupportUnits() {
   }
 }
 
+// Helper: Build sub-node track marker (historical & forecast points)
+function createStormNodeIcon(intensity, isForecast) {
+  const iconFile = intensity >= 64 ? 'hurricane.png' : 'tropical_storm.png';
+  const size = isForecast ? 15 : 13;
+  const half = size / 2;
+  const borderColor = isForecast ? '#ffaa00' : '#00f0ff';
+
+  return L.divIcon({
+    html: `<div style="background: rgba(10, 14, 24, 0.85); border: 1.5px solid ${borderColor}; border-radius: 50%; width: ${size}px; height: ${size}px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 4px #000;">
+             <img src="assets/icons/${iconFile}" style="width: ${size - 4}px; height: ${size - 4}px; border-radius: 50%; object-fit: cover;">
+           </div>`,
+    iconSize: [size, size],
+    iconAnchor: [half, half],
+    className: 'storm-node-icon'
+  });
+}
+
 // ---- Marker and Feed Rendering ----
 function renderEvents(events) {
   eventMarkers.forEach(m => map.removeLayer(m));
@@ -741,7 +813,16 @@ function renderEvents(events) {
     const isRiverGauge = evt.type === 'river-gauge';
     let iconColor, iconBgColor;
 
-    if (isRiverGauge) {
+    if (evt.type === 'fire') {
+      iconColor = evt.severity === 'critical' ? '#ff3344' : '#ffaa00';
+      iconBgColor = '#ffffff';
+    } else if (evt.type === 'severe-weather' || evt.type === 'weather') {
+      iconColor = evt.severity === 'critical' ? '#ff3344' : '#00f0ff';
+      iconBgColor = '#ffffff';
+    } else if (evt.type === 'programs') {
+      iconColor = '#1e2638';
+      iconBgColor = '#ffffff';
+    } else if (isRiverGauge) {
       iconColor = evt.severity === 'critical' ? '#3aa0ff' : '#FFC000';
       iconBgColor = evt.severity === 'critical' ? 'rgba(58, 160, 255, 0.2)' : 'rgba(255, 192, 0, 0.2)';
     } else if (evt.type === 'flash-flood') {
@@ -776,7 +857,9 @@ function renderEvents(events) {
         case 'programs': faIcon = 'fa-shield-halved'; break;
         default: faIcon = 'fa-circle';
       }
-      const borderWidth = (evt.type === 'flash-flood' || evt.type === 'flood-warning' || evt.type === 'programs' || evt.type === 'civil-works') ? 2 : 1;
+      
+      const hasWhiteBg = (evt.type === 'fire' || evt.type === 'severe-weather' || evt.type === 'weather' || evt.type === 'programs');
+      const borderWidth = hasWhiteBg ? 2 : 1;
       const fontSize = Math.round(iconSize * 0.5);
       const half = iconSize / 2;
 
@@ -808,19 +891,53 @@ function renderEvents(events) {
       }
 
       const icon = L.divIcon({
-        html: `<div style="background: ${iconBgColor}; border: ${borderWidth}px solid ${iconColor}; border-radius: 50%; width: ${iconSize}px; height: ${iconSize}px; display: flex; align-items: center; justify-content: center;">${innerHtml}</div>`,
+        html: `<div style="background: ${iconBgColor}; border: ${borderWidth}px solid ${iconColor}; border-radius: 50%; width: ${iconSize}px; height: ${iconSize}px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 ${hasWhiteBg ? '5px #ffffff' : '4px rgba(0,0,0,0.6)'};">
+                 ${innerHtml}
+               </div>`,
         iconSize: [iconSize, iconSize], iconAnchor: [half, half], popupAnchor: [0, -half], className: 'event-icon'
       });
       const marker = L.marker(evt.coords, { icon: icon }).addTo(map);
-      marker.bindPopup(`<b>${evt.title}</b><br>${evt.subcategory || ''}<br>Coords: [${evt.coords[0].toFixed(2)}, ${evt.coords[1].toFixed(2)}]`);
+      marker.bindPopup(`<b>${evt.title}</b><br>${evt.subcategory || ''}<br>Coords: [${evt.coords[0].toFixed(2)}, ${evt.coords[1].toFixed(2)}]<br><a href="${evt.link}" target="_blank" rel="noopener" style="color: #00f0ff;">Official Dossier &rarr;</a>`);
       eventMarkers.push(marker);
 
+      // Render Historical & Predictive Track Lines and Node Icons
       if (evt.trackLines && evt.trackLines.length > 0) {
         evt.trackLines.forEach(tl => {
           const trackLayer = L.geoJSON(tl, {
-            style: { color: '#ff3344', weight: 3, dashArray: '6, 6', opacity: 0.85 }
+            style: { color: '#ff3344', weight: 2.5, dashArray: '5, 5', opacity: 0.85 }
           }).addTo(map);
           hurricaneTrackLayers.push(trackLayer);
+        });
+      }
+
+      // Render Historical Track Points (Past Observation Nodes)
+      if (evt.historicalPoints && evt.historicalPoints.length > 0) {
+        evt.historicalPoints.forEach(hp => {
+          const c = hp.geometry && hp.geometry.coordinates;
+          if (!c) return;
+          const lat = c[1], lon = c[0];
+          if (Math.abs(lat - evt.coords[0]) < 0.05 && Math.abs(lon - evt.coords[1]) < 0.05) return;
+          const nodeIntensity = hp.properties.INTENSITY || hp.properties.MAXWIND || 0;
+          const nodeMarker = L.marker([lat, lon], {
+            icon: createStormNodeIcon(nodeIntensity, false)
+          }).addTo(map);
+          nodeMarker.bindPopup(`<b>${evt.title.split('(')[0]} (Historical Fix)</b><br>Wind: ${nodeIntensity} kts<br>Time: ${hp.properties.DATELBL || ''}`);
+          hurricaneTrackLayers.push(nodeMarker);
+        });
+      }
+
+      // Render Predictive Forecast Points (Forward Track Analysis Nodes)
+      if (evt.forecastPoints && evt.forecastPoints.length > 0) {
+        evt.forecastPoints.forEach(fp => {
+          const c = fp.geometry && fp.geometry.coordinates;
+          if (!c) return;
+          const lat = c[1], lon = c[0];
+          const nodeIntensity = fp.properties.INTENSITY || fp.properties.MAXWIND || 0;
+          const nodeMarker = L.marker([lat, lon], {
+            icon: createStormNodeIcon(nodeIntensity, true)
+          }).addTo(map);
+          nodeMarker.bindPopup(`<b>${evt.title.split('(')[0]} (Forecast Track)</b><br>Projected Wind: ${nodeIntensity} kts<br>Target: ${fp.properties.DATELBL || fp.properties.TAU || 'Forecast'}`);
+          hurricaneTrackLayers.push(nodeMarker);
         });
       }
     }
@@ -832,7 +949,7 @@ function renderEvents(events) {
     if (evt.subcategory) inner += `<div class="event-subline">${evt.subcategory}</div>`;
     if (evt.details) inner += `<div class="event-details">${evt.details}</div>`;
     inner += `<div class="event-time">${evt.time}</div>`;
-    if (evt.link) inner += `<a class="event-link" href="${evt.link}" target="_blank" rel="noopener">Reference &rarr;</a>`;
+    if (evt.link) inner += `<a class="event-link" href="${evt.link}" target="_blank" rel="noopener">Official Incident Dossier &rarr;</a>`;
     card.innerHTML = inner;
 
     if (evt.coords) {
@@ -1008,7 +1125,7 @@ async function init() {
   toggleRadarUI();
   toggleDayNight();
   
-  // Dynamic Priority Alerts Marquee: Aggregates latest unique incidents
+  // Dynamic Priority Alerts Marquee
   updatePriorityTicker(allEvents);
   
   document.getElementById('feed-count').innerText = 'ONLINE';
