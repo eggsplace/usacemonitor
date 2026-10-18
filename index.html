@@ -501,7 +501,6 @@ async function fetchSeismicData() {
 // 4. Disasters (FEMA Declarations Grouped by Incident with Centroid Calculation)
 async function fetchOpenFEMADisasters() {
   try {
-    // Queries all verified fields from FEMA DECS_ALL
     const params = new URLSearchParams({
       where: "1=1",
       outFields: "name,state_name,dec_number,designate,fema_postdate",
@@ -551,7 +550,7 @@ async function fetchOpenFEMADisasters() {
         subcategory: `${count} Designated County Areas | Dec #${evt.decNumber}`,
         coords: [avgLat, avgLon],
         time: evt.date ? new Date(evt.date).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : '',
-        severity: evt.designate.includes('IA') ? 'critical' : 'warning',
+        severity: (evt.designate && evt.designate.includes('IA')) ? 'critical' : 'warning',
         mag: 5,
         link: `https://www.fema.gov/disaster/${evt.decNumber}`
       };
@@ -895,7 +894,6 @@ function renderEvents(events) {
       });
       const marker = L.marker(evt.coords, { icon: icon }).addTo(map);
 
-      // Hover Tooltip: Instant Project Name & Cost Inspection
       if (evt.type === 'civil-works' || evt.type === 'programs') {
         const tooltipText = `<b>${evt.projectName || evt.title}</b><br><span style="color: #00f0ff;">Cost / Obligation: ${evt.costFormatted || 'N/A'}</span>`;
         marker.bindTooltip(tooltipText, {
@@ -905,7 +903,7 @@ function renderEvents(events) {
         });
       }
 
-      marker.bindPopup(`<b>${evt.title}</b><br>${evt.subcategory || ''}<br><b>Cost Allocation:</b> ${evt.costFormatted || 'N/A'}<br>Coords: [${evt.coords[0].toFixed(2)}, ${evt.coords[1].toFixed(2)}]<br><a href="${evt.link}" target="_blank" rel="noopener" style="color: #00f0ff;">View Project Record &rarr;</a>`);
+      marker.bindPopup(`<b>${evt.title}</b><br>${evt.subcategory || ''}<br><b>Cost Allocation:</b> ${evt.costFormatted || 'N/A'}<br>Coords: [${evt.coords[0].toFixed(2)}, ${evt.coords[1].toFixed(2)}]<br><a href="${evt.link}" target="_blank" rel="noopener" style="color: #00f0ff;">View Official Record &rarr;</a>`);
       eventMarkers.push(marker);
 
       if (evt.trackLines && evt.trackLines.length > 0) {
@@ -955,4 +953,192 @@ function renderEvents(events) {
     if (evt.costFormatted) inner += `<div style="color: #00f0ff; font-size: 11px; margin-top: 2px;">Cost Allocation: ${evt.costFormatted}</div>`;
     if (evt.details) inner += `<div class="event-details">${evt.details}</div>`;
     inner += `<div class="event-time">${evt.time}</div>`;
-    if (evt.
+    if (evt.link) inner += `<a class="event-link" href="${evt.link}" target="_blank" rel="noopener">View Official Record &rarr;</a>`;
+    card.innerHTML = inner;
+
+    if (evt.coords) {
+      card.onclick = () => {
+        map.flyTo(evt.coords, 6, { duration: 1.5 });
+        const marker = eventMarkers.find(m => m.getLatLng().lat === evt.coords[0] && m.getLatLng().lng === evt.coords[1]);
+        if (marker) marker.openPopup();
+      };
+    }
+    feedContainer.appendChild(card);
+  });
+}
+
+const layerFilters = {
+  'earthquakes': false, 'gauges': false, 'wildfires': false,
+  'storms': false, 'hurricanes': false, 'disasters': false,
+  'civil-works': false, 'programs': false
+};
+
+window.toggleAllLayers = function(enable) {
+  Object.keys(layerFilters).forEach(key => {
+    layerFilters[key] = enable;
+    const checkbox = document.getElementById(`filter-${key}`);
+    if (checkbox) checkbox.checked = enable;
+  });
+  updateLayerDisplay();
+};
+
+window.updateLayerDisplay = function() {
+  Object.keys(layerFilters).forEach(key => {
+    const cb = document.getElementById(`filter-${key}`);
+    if (cb) layerFilters[key] = cb.checked;
+  });
+  applyCurrentFilter();
+};
+
+let topCategory = 'contingency';
+const CATEGORY_LABELS = {
+  'contingency': 'CONTINGENCY OPS',
+  'support-units': 'SUPPORT UNITS'
+};
+
+function applyCurrentFilter() {
+  let filtered;
+  if (topCategory === 'contingency') {
+    filtered = allEvents.filter(evt => {
+      if (evt.topCategory !== 'contingency') return false;
+      if (evt.type === 'seismic') return layerFilters['earthquakes'];
+      if (evt.type === 'river-gauge') return layerFilters['gauges'];
+      if (evt.type === 'fire') return layerFilters['wildfires'];
+      if (evt.type === 'severe-weather' || evt.type === 'weather' || evt.type === 'flash-flood' || evt.type === 'flood-warning') return layerFilters['storms'];
+      if (evt.type === 'hurricane' || evt.type === 'tropical-storm' || evt.type === 'tsunami') return layerFilters['hurricanes'];
+      if (evt.type === 'disaster') return layerFilters['disasters'];
+      if (evt.type === 'civil-works') return layerFilters['civil-works'];
+      if (evt.type === 'programs') return layerFilters['programs'];
+      return false;
+    });
+  } else {
+    filtered = allEvents.filter(evt => evt.topCategory === topCategory);
+  }
+  renderEvents(filtered);
+}
+
+function switchTopCategory(cat) {
+  topCategory = cat;
+  document.querySelectorAll('.top-cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  document.getElementById('section-label').textContent = CATEGORY_LABELS[cat];
+  document.getElementById('contingency-controls').style.display = (cat === 'contingency') ? 'block' : 'none';
+  applyCurrentFilter();
+}
+
+document.querySelectorAll('.top-cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchTopCategory(btn.dataset.cat));
+});
+
+async function updateRadarStatus() {
+  try {
+    const res = await fetch('https://api.rainviewer.com/public/weather-maps.json', { cache: 'no-store' });
+    const data = await res.json();
+    if (data && data.radar && data.radar.past && data.radar.past.length) {
+      const latest = data.radar.past[data.radar.past.length - 1].time;
+      document.getElementById('radar-status').innerText = `last: ${new Date(latest * 1000).toUTCString()}`;
+    }
+  } catch (err) {}
+}
+
+function setRadarButtonState(enabled) {
+  const btn = document.getElementById('radar-toggle');
+  if (enabled) { btn.classList.add('active'); btn.innerText = 'RADAR ON'; }
+  else { btn.classList.remove('active'); btn.innerText = 'RADAR'; }
+}
+
+let radarRefreshHandle = null;
+
+function toggleRadarUI() {
+  if (typeof toggleWeatherRadar !== 'function') return;
+  const btn = document.getElementById('radar-toggle');
+  if (btn.classList.contains('active')) {
+    removeWeatherRadar();
+    setRadarButtonState(false);
+    if (radarRefreshHandle) { clearInterval(radarRefreshHandle); radarRefreshHandle = null; }
+  } else {
+    setRadarButtonState(true);
+    if (typeof startRadarAutoRefresh === 'function') radarRefreshHandle = startRadarAutoRefresh(300000);
+    else addWeatherRadar();
+    updateRadarStatus();
+  }
+}
+
+function addDayNightTerminator() {
+  try {
+    if (!window.L || !window.L.terminator) return;
+    if (terminatorLayer) map.removeLayer(terminatorLayer);
+    
+    terminatorLayer = L.terminator({
+      opacity: 0.1, weight: 1, color: '#111111',
+      fillColor: '#000000', fillOpacity: 0.45
+    }).addTo(map);
+    document.getElementById('daynight-status').innerText = 'on';
+  } catch (err) {}
+}
+
+function removeDayNightTerminator() {
+  if (terminatorLayer) {
+    map.removeLayer(terminatorLayer);
+    terminatorLayer = null;
+    document.getElementById('daynight-status').innerText = 'off';
+  }
+}
+
+function toggleDayNight() {
+  const btn = document.getElementById('daynight-toggle');
+  if (btn.classList.contains('active')) {
+    removeDayNightTerminator();
+    btn.classList.remove('active');
+    btn.innerText = 'DAY/NIGHT';
+  } else {
+    addDayNightTerminator();
+    btn.classList.add('active');
+    btn.innerText = 'DAY/NIGHT ON';
+    if (!window.terminatorInterval) {
+      window.terminatorInterval = setInterval(() => { if (terminatorLayer) addDayNightTerminator(); }, 60000);
+    }
+  }
+}
+
+async function init() {
+  const [seismic, riverGauges, wildfires, openFemaDisasters, noaaAlerts, tropicalCyclones, civilWorks, milconSpending, supportUnits] = await Promise.all([
+    fetchSeismicData(),
+    fetchRiverGaugeData(),
+    fetchWildfireData(),
+    fetchOpenFEMADisasters(),
+    fetchNOAAAlerts(),
+    fetchTropicalCyclones(),
+    fetchCivilWorksData(),
+    fetchMilconSpendingData(),
+    fetchManualSupportUnits()
+  ]);
+
+  allEvents = [
+    ...seismic,
+    ...riverGauges,
+    ...wildfires,
+    ...openFemaDisasters,
+    ...noaaAlerts,
+    ...tropicalCyclones,
+    ...civilWorks,
+    ...milconSpending,
+    ...supportUnits
+  ];
+  
+  applyCurrentFilter();
+  toggleRadarUI();
+  toggleDayNight();
+  
+  updatePriorityTicker(allEvents);
+  
+  document.getElementById('feed-count').innerText = 'ONLINE';
+  updateRadarStatus();
+  setInterval(updateRadarStatus, 60000);
+}
+
+init();
+setInterval(init, 120000);
+</script>
+
+</body>
+</html>
