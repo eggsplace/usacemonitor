@@ -250,6 +250,7 @@ aside {
         </div>
       </div>
 
+      <!-- Basemap View Mode Switch -->
       <div class="basemap-controls" style="padding:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;">
         <button id="basemap-toggle" class="filter-btn active" onclick="toggleBasemap()">IMAGERY</button>
         <span id="basemap-status" style="color: var(--accent-cyan); font-size:11px;">SATELLITE HYBRID</span>
@@ -282,11 +283,13 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
+// Centered on the continental United States and framed across borders and basins
 const map = L.map('map', { center: [34.0, -96.0], zoom: 4, zoomControl: false });
 map.attributionControl.setPrefix(false);
 
 const MAPTILER_API_KEY = 'qUsMKrQQt9RdGj760Jgm';
 
+// Basemap Layers
 const imageryLayer = L.tileLayer(`https://api.maptiler.com/maps/hybrid-v4/256/{z}/{x}/{y}.jpg?key=${MAPTILER_API_KEY}`, {
   attribution: '&copy; MapTiler &copy; OpenStreetMap',
   maxNativeZoom: 13,
@@ -345,29 +348,46 @@ let allEvents = [];
 let hurricaneTrackLayers = [];
 let terminatorLayer = null;
 
-// Dynamic Priority Alerts Ticker Generator
-function updatePriorityTicker(noaaAlerts, hurricanes) {
+// Cross-Discipline Priority Alerts Ticker (Single Latest Entry Per Incident)
+function updatePriorityTicker(eventsList) {
   const tickerEl = document.getElementById('news-marquee');
-  const priorityItems = [];
+  const alertItems = [];
+  const seenIncidentKeys = new Set();
 
-  // 1. High-priority tropical cyclones
-  (hurricanes || []).forEach(h => {
-    priorityItems.push(`⚡ ${h.title.toUpperCase()} [${h.subcategory}]`);
-  });
+  (eventsList || []).forEach(e => {
+    let alertMsg = null;
+    let incidentKey = null;
 
-  // 2. Severe / life-safety NOAA alerts
-  const criticalTypes = ['tornado warning', 'flash flood warning', 'extreme wind warning', 'hurricane warning', 'storm surge warning', 'tsunami warning', 'blizzard warning'];
-  (noaaAlerts || []).forEach(a => {
-    const titleLower = a.title.toLowerCase();
-    if (criticalTypes.some(t => titleLower.includes(t)) || a.severity === 'critical') {
-      priorityItems.push(`🚨 ${a.title.toUpperCase()}`);
+    if (e.type === 'hurricane' || e.type === 'tropical-storm') {
+      incidentKey = e.title.split('(')[0].trim().toUpperCase();
+      alertMsg = `🌀 ${e.title.toUpperCase()} [${e.subcategory || 'TRACKING'}]`;
+    } else if (e.type === 'seismic' && e.mag >= 5.0) {
+      incidentKey = `EQ-${Math.round(e.coords[0] * 10)}-${Math.round(e.coords[1] * 10)}`;
+      alertMsg = `⚠️ EARTHQUAKE: ${e.title.toUpperCase()}`;
+    } else if (e.type === 'fire' && e.mag >= 10000) {
+      incidentKey = e.id || e.title;
+      alertMsg = `🔥 WILDFIRE: ${e.title.toUpperCase()}`;
+    } else if (e.type === 'flash-flood' || (e.type === 'river-gauge' && e.severity === 'critical')) {
+      incidentKey = e.id || e.title;
+      alertMsg = `🌊 FLOOD EMERGENCY: ${e.title.toUpperCase()}`;
+    } else if (e.type === 'severe-weather') {
+      const lower = e.title.toLowerCase();
+      if (lower.includes('tornado') || lower.includes('extreme wind') || lower.includes('tsunami')) {
+        incidentKey = e.title;
+        alertMsg = `🚨 ${e.title.toUpperCase()}`;
+      }
+    }
+
+    if (alertMsg && incidentKey && !seenIncidentKeys.has(incidentKey)) {
+      seenIncidentKeys.add(incidentKey);
+      alertItems.push(alertMsg);
     }
   });
 
-  if (priorityItems.length > 0) {
-    tickerEl.innerText = priorityItems.slice(0, 15).join('   ✦   ');
+  if (alertItems.length > 0) {
+    tickerEl.innerText = alertItems.slice(0, 20).join('   ✦   ');
   } else {
-    tickerEl.innerText = 'NO CRITICAL LIFE-SAFETY WARNINGS ACTIVE ACROSS MONITORED THEATERS   ✦   SYSTEMS NORMAL';
+    tickerEl.innerText = 'NO CRITICAL LIFE-SAFETY INCIDENTS ACTIVE ACROSS MONITORED THEATERS   ✦   SYSTEMS NORMAL';
   }
 }
 
@@ -584,7 +604,6 @@ async function fetchTropicalCyclones() {
       linesByStorm[sname].push(lf);
     });
 
-    // Group all advisory fixes by Storm ID / Name to isolate the single latest position
     const latestFixByStorm = {};
     (ptsRes.features || []).forEach(f => {
       const p = f.properties || {};
@@ -989,8 +1008,8 @@ async function init() {
   toggleRadarUI();
   toggleDayNight();
   
-  // Populate the dynamic weather alerts priority marquee
-  updatePriorityTicker(noaaAlerts, tropicalCyclones);
+  // Dynamic Priority Alerts Marquee: Aggregates latest unique incidents
+  updatePriorityTicker(allEvents);
   
   document.getElementById('feed-count').innerText = 'ONLINE';
   updateRadarStatus();
