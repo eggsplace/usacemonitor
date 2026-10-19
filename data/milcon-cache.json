@@ -1,949 +1,995 @@
 {
-  "updated": "2026-10-18T10:10:32.846Z",
+  "updated": "2026-10-19T11:44:19.520Z",
   "events": [
     {
-      "id": "DEAC2701RV14136",
+      "id": "N6247320F5226",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $17883.0M - BECHTEL NATIONAL, INC.",
-      "subcategory": "Installation, WA | USACE Construction Contract...",
+      "title": "MILCON: ENVIRONMENTAL CHEMICAL CORPORATION ($855.6M)",
+      "projectName": "DESIGN-BUILD SOUTH AIRFEILD MCON PROJECTS CHINA LAKE, CALIFORNIA",
+      "cost": 855642447.01,
+      "costFormatted": "$855.6M",
+      "subcategory": "Installation, CA | Scope: DESIGN-BUILD SOUTH AIRFEILD MCON PROJECTS CHINA LAKE, CALIFORNIA",
       "coords": [
-        47.55253800122135,
-        -121.19348868044496
+        36.117236888333046,
+        -119.66738359297753
       ],
       "time": "",
       "severity": "critical",
-      "cost": 17883024035.27,
-      "mag": 44,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N6247320F5226"
     },
     {
-      "id": "N0002409C2104",
+      "id": "N4008520C0060",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $16238.8M - ELECTRIC BOAT CORPORATION",
-      "subcategory": "Installation, CT | CONSTRUCTION OF VIRGINIA CLASS BLOCK III SUBMARINES....",
+      "title": "MILCON: ARCHER WESTERN FEDERAL JV ($408.7M)",
+      "projectName": "HURRICANE FLORENCE RECOVERY MILCON PACKAGE 7",
+      "cost": 408734090.28,
+      "costFormatted": "$408.7M",
+      "subcategory": "Installation, NC | Scope: HURRICANE FLORENCE RECOVERY MILCON PACKAGE 7",
       "coords": [
-        41.8382136373412,
-        -72.89005811116382
+        35.74300789208732,
+        -79.82670208538683
       ],
       "time": "",
       "severity": "critical",
-      "cost": 16238775949,
-      "mag": 44,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N4008520C0060"
     },
     {
-      "id": "N0002406C2222",
+      "id": "70Z04726FPCNI0009",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $10029.6M - HUNTINGTON INGALLS INCORPORATED",
-      "subcategory": "Installation, MS | DETAIL DESIGN AND CONSTRUCTION OF LPD 17 CLASS SHIP (LPD 22)...",
+      "title": "MILCON: WHITING-TURNER CONTRACTING COMPANY, THE ($400.0M)",
+      "projectName": "ACCELERATED DESIGN-BUILD TO BUDGET CONSTRUCT BARRACKS, MULTI-USE TR...",
+      "cost": 400034517,
+      "costFormatted": "$400.0M",
+      "subcategory": "Installation, NJ | Scope: ACCELERATED DESIGN-BUILD TO BUDGET CONSTRUCT BARRACKS, MULTI-USE TRAINING FACILITY, G",
       "coords": [
-        32.5469581860583,
-        -89.52819533003255
+        40.1728703440171,
+        -74.16832202290227
       ],
       "time": "",
       "severity": "critical",
-      "cost": 10029620274.96,
-      "mag": 43,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/70Z04726FPCNI0009"
     },
     {
-      "id": "N0002423C2307",
+      "id": "N4008019C0008",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $8319.6M - HUNTINGTON INGALLS INCORPORATED",
-      "subcategory": "Installation, MS | CONSTRUCTION OF DDG 51 SHIPS FY23-27...",
+      "title": "MILCON: CLARK CONSTRUCTION GROUP LLC ($331.6M)",
+      "projectName": "BASE BID PHASE 1 P3021 HANGAR 21 COMPLEX",
+      "cost": 331627492.14,
+      "costFormatted": "$331.6M",
+      "subcategory": "Installation, MD | Scope: BASE BID PHASE 1 P3021 HANGAR 21 COMPLEX",
       "coords": [
-        32.708943748374345,
-        -89.6551378084414
+        39.147930604138615,
+        -76.57565835290576
       ],
       "time": "",
       "severity": "critical",
-      "cost": 8319625828.83,
-      "mag": 43,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N4008019C0008"
     },
     {
-      "id": "N0002418C2307",
+      "id": "W912EP22C0008",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $6958.3M - HUNTINGTON INGALLS INCORPORATED",
-      "subcategory": "Installation, MS | FY18-FY22 DDG 51 CLASS SHIP CONSTRUCTION...",
+      "title": "MILCON: 4CONTRACTOR JV ($294.1M)",
+      "projectName": "DESIGN-BID-BUILD CONSTRUCTION CONTRACT IN SUPPORT OF PUERTO RICO AR...",
+      "cost": 294094886.5,
+      "costFormatted": "$294.1M",
+      "subcategory": "Installation, PR | Scope: DESIGN-BID-BUILD CONSTRUCTION CONTRACT IN SUPPORT OF PUERTO RICO ARMY NATIONAL GUARD ",
       "coords": [
-        32.595425895544395,
-        -89.563609383903
+        18.06348488674033,
+        -66.93143156088257
       ],
       "time": "",
       "severity": "critical",
-      "cost": 6958257026.74,
-      "mag": 42,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912EP22C0008"
     },
     {
-      "id": "N0002408C2110",
+      "id": "N4008526C0016",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $6651.0M - HUNTINGTON INGALLS INC",
-      "subcategory": "Installation, VA | TAS::17 1611::TAS CVN 78 SHIP CONSTRUCTION...",
+      "title": "MILCON: WALSH FEDERAL LLC ($288.4M)",
+      "projectName": "THE F35 SUSTAINMENT CENTER IS A 255,461 SF DEPOT LEVEL HANGAR TO SU...",
+      "cost": 288421624,
+      "costFormatted": "$288.4M",
+      "subcategory": "Installation, NC | Scope: THE F35 SUSTAINMENT CENTER IS A 255,461 SF DEPOT LEVEL HANGAR TO SUPPORT (20) F-35 AI",
       "coords": [
-        38.06575171201589,
-        -78.31931596202955
+        35.486907277324825,
+        -79.48900664931203
       ],
       "time": "",
       "severity": "critical",
-      "cost": 6651038755.11,
-      "mag": 42,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N4008526C0016"
     },
     {
-      "id": "N0002423C2305",
+      "id": "W9127822C0012",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $6589.9M - BATH IRON WORKS CORPORATION",
-      "subcategory": "Installation, ME | CONSTRUCTION OF DDG 51 SHIPS FY23-27...",
+      "title": "MILCON: BL HARBERT INTERNATIONAL LLC ($271.8M)",
+      "projectName": "WEG AC MAINTENANCE HANGAR TWO-PHASE DESIGN-BUILD OF ZONE 3 WEG HQ-M...",
+      "cost": 271750176.83,
+      "costFormatted": "$271.8M",
+      "subcategory": "Installation, FL | Scope: WEG AC MAINTENANCE HANGAR TWO-PHASE DESIGN-BUILD OF ZONE 3 WEG HQ-MAINTENANCE HANGAR ",
       "coords": [
-        44.437147704576454,
-        -69.65495610338932
+        27.784526711704913,
+        -82.00270684357754
       ],
       "time": "",
       "severity": "critical",
-      "cost": 6589906685,
-      "mag": 42,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W9127822C0012"
     },
     {
-      "id": "N0002416C2229",
+      "id": "0001",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $5913.2M - NATIONAL STEEL AND SHIPBUILDING COMPANY",
-      "subcategory": "Installation, CA | DETAIL DESIGN AND CONSTRUCTION (DD&C) FOR T-AO 205...",
+      "title": "MILCON: CLARK CADDELL A JOINT VENTURE ($250.7M)",
+      "projectName": "TRAINEE BARRACKS COMPLEXES, BRIGADE HEADQUARTERS AND PARADE FIELD",
+      "cost": 250663249,
+      "costFormatted": "$250.7M",
+      "subcategory": "Installation, GA | Scope: TRAINEE BARRACKS COMPLEXES, BRIGADE HEADQUARTERS AND PARADE FIELD",
       "coords": [
-        35.742588677656016,
-        -119.70512251525793
+        33.375448689836425,
+        -83.27795757285723
       ],
       "time": "",
       "severity": "critical",
-      "cost": 5913186703.23,
-      "mag": 42,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/0001"
     },
     {
-      "id": "N0002418C2305",
+      "id": "N4008522C0016",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $5498.0M - BATH IRON WORKS CORPORATION",
-      "subcategory": "Installation, ME | FY18-FY22 DDG 51 CLASS SHIP CONSTRUCTION...",
+      "title": "MILCON: WALSH FEDERAL LLC ($240.0M)",
+      "projectName": "P197 DB AIRCRAFT MAINTENANCE HANGAR - BASE PRICE AND OPTIONS",
+      "cost": 240025901.84,
+      "costFormatted": "$240.0M",
+      "subcategory": "Installation, NC | Scope: P197 DB AIRCRAFT MAINTENANCE HANGAR - BASE PRICE AND OPTIONS",
       "coords": [
-        44.823251556468286,
-        -69.32647290242338
+        35.49188967647538,
+        -80.15028260350802
       ],
       "time": "",
       "severity": "critical",
-      "cost": 5498027273.86,
-      "mag": 42,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N4008522C0016"
     },
     {
-      "id": "N0002413C2305",
+      "id": "N4008520C0059",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $5026.0M - BATH IRON WORKS CORPORATION",
-      "subcategory": "Installation, ME | FY13-FY17 DDG 51 CLASS SHIP CONSTRUCTION....",
+      "title": "MILCON: RQ-WM JORDAN JV ($239.7M)",
+      "projectName": "HURRICANE FLORENCE RECOVERY MILCON PACKAGE 3",
+      "cost": 239682585.63,
+      "costFormatted": "$239.7M",
+      "subcategory": "Installation, NC | Scope: HURRICANE FLORENCE RECOVERY MILCON PACKAGE 3",
       "coords": [
-        44.56945836891613,
-        -69.47932950419131
+        35.99054894301177,
+        -79.4981076135947
       ],
       "time": "",
       "severity": "critical",
-      "cost": 5025968516.81,
-      "mag": 42,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N4008520C0059"
     },
     {
-      "id": "W52P1J09C0013",
+      "id": "N4008520C8501",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $5006.3M - BECHTEL PARSONS BLUE GRASS, A JOINT VENTURE",
-      "subcategory": "Installation, KY | THE PURPOSE OF MODIFICATION P00003 - CLIN 0002 CONSTRUCTION IS TO DO THE FOLLOWING:  1. FY...",
+      "title": "MILCON: WALSH FEDERAL LLC ($228.4M)",
+      "projectName": "BASE PRICE  P199, AIRCRAFT HANGAR AND P235 FLIGHTLINE UTILITIES",
+      "cost": 228447435.75,
+      "costFormatted": "$228.4M",
+      "subcategory": "Installation, NC | Scope: BASE PRICE  P199, AIRCRAFT HANGAR AND P235 FLIGHTLINE UTILITIES",
       "coords": [
-        38.01483692021802,
-        -84.61913778231097
+        35.334479713210996,
+        -79.79766557168531
       ],
       "time": "",
       "severity": "critical",
-      "cost": 5006275910.56,
-      "mag": 42,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N4008520C8501"
     },
     {
-      "id": "N0002415C2114",
+      "id": "W9126G08C0070",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $4578.6M - HUNTINGTON INGALLS INC",
-      "subcategory": "Installation, VA | DETAIL DESIGN AND CONSTRUCTION CVN 79...",
+      "title": "MILCON: WALTON CONSTRUCTION COMPANY LIMITED LIABILITY COMPANY ($213.4M)",
+      "projectName": "FORT POLK BARRACKS AND CENTRAL ENERGY PLANTS",
+      "cost": 213398591.63,
+      "costFormatted": "$213.4M",
+      "subcategory": "Installation, LA | Scope: FORT POLK BARRACKS AND CENTRAL ENERGY PLANTS",
       "coords": [
-        37.97014877668028,
-        -78.26777282156827
+        31.461727510005108,
+        -92.00519641930958
       ],
       "time": "",
       "severity": "critical",
-      "cost": 4578603345.77,
-      "mag": 42,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W9126G08C0070"
     },
     {
-      "id": "N0002409C2116",
+      "id": "N4008508C1404",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $4519.0M - HUNTINGTON INGALLS INC",
-      "subcategory": "Installation, VA | TAS::17 1611::TAS CVN79 CONSTRUCTION PREPARATION EFFORTS FY09...",
+      "title": "MILCON: CADDELL YATES JOINT VENTURE ($194.7M)",
+      "projectName": "BASE BID",
+      "cost": 194731380.97,
+      "costFormatted": "$194.7M",
+      "subcategory": "Installation, NC | Scope: BASE BID",
       "coords": [
-        38.0548076490004,
-        -78.24708182276474
+        35.365753403028805,
+        -79.88511971301098
       ],
       "time": "",
       "severity": "critical",
-      "cost": 4519036235.83,
-      "mag": 42,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N4008508C1404"
     },
     {
-      "id": "N0002416C2427",
+      "id": "W9126G23C0017",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $3373.8M - HUNTINGTON INGALLS INCORPORATED",
-      "subcategory": "Installation, MS | DETAIL DESIGN AND CONSTRUCTION (DD&C) FOR LHA 8 (INITIAL EFFORT LIMITED TO PLANNING, ADVAN...",
+      "title": "MILCON: GUYCO INC ($188.3M)",
+      "projectName": "9400 BLOCK HAMMERHEAD BARRACKS RENOVATIONS (DESIGN-BUILD), FORT CAV...",
+      "cost": 188298336,
+      "costFormatted": "$188.3M",
+      "subcategory": "Installation, TX | Scope: 9400 BLOCK HAMMERHEAD BARRACKS RENOVATIONS (DESIGN-BUILD), FORT CAVAZOS, TEXAS",
       "coords": [
-        32.499082368244345,
-        -89.32519278324651
+        31.127758790219247,
+        -97.78610941384827
       ],
       "time": "",
       "severity": "critical",
-      "cost": 3373813422.4,
-      "mag": 41,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W9126G23C0017"
     },
     {
-      "id": "N0002418C2301",
+      "id": "W912DS13C0032",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $3365.4M - LOCKHEED MARTIN CORPORATION",
-      "subcategory": "Installation, MD | MMSC DETAILED DESIGN AND CONSTRUCTION...",
+      "title": "MILCON: WALSH CONSTRUCTION COMPANY II, LLC ($185.6M)",
+      "projectName": "CONSTRUCTION OF NEW CADET BARRACKS AT USMA WEST POINT, NY. IGF::OT:...",
+      "cost": 185613052,
+      "costFormatted": "$185.6M",
+      "subcategory": "Installation, NY | Scope: CONSTRUCTION OF NEW CADET BARRACKS AT USMA WEST POINT, NY. IGF::OT::IGF",
       "coords": [
-        38.78899980171549,
-        -76.97716908441053
+        42.19812302555513,
+        -75.16596000306612
       ],
       "time": "",
       "severity": "critical",
-      "cost": 3365358808.39,
-      "mag": 41,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912DS13C0032"
     },
     {
-      "id": "N0002413C2307",
+      "id": "N6247324F4252",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $3345.8M - HUNTINGTON INGALLS INCORPORATED",
-      "subcategory": "Installation, MS | FY13-FY17 DDG 51 CLASS SHIP CONSTRUCTION....",
+      "title": "MILCON: HARPER CONSTRUCTION COMPANY, INC. ($184.4M)",
+      "projectName": "P-201 DBB MACC TO JSF HANGAR MCAS MIRAMAR, CA",
+      "cost": 184442251.47,
+      "costFormatted": "$184.4M",
+      "subcategory": "Installation, CA | Scope: P-201 DBB MACC TO JSF HANGAR MCAS MIRAMAR, CA",
       "coords": [
-        32.60265117899413,
-        -89.63976674983952
+        36.0023439882912,
+        -119.3197633934464
       ],
       "time": "",
       "severity": "critical",
-      "cost": 3345822881,
-      "mag": 41,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N6247324F4252"
     },
     {
-      "id": "N6274223F4007",
+      "id": "N4425525C1500",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $3071.4M - DRAGADOS/HAWAIIAN DREDGING/ORION JV",
-      "subcategory": "Installation, HI | FY23 MCON PROJECT P-209, DRY DOCK 3 REPLACEMENT, JOINT BASE PEARL HARBOR HICKAM, HAWAII...",
+      "title": "MILCON: CONTRACK WATTS INC ($183.0M)",
+      "projectName": "MILCON P859 DBB CVN 78 AIRCRAFT CARRIER ELECTRICAL UPGRADE FOR VARI...",
+      "cost": 182997000,
+      "costFormatted": "$183.0M",
+      "subcategory": "Installation, WA | Scope: MILCON P859 DBB CVN 78 AIRCRAFT CARRIER ELECTRICAL UPGRADE FOR VARIOUS SUBSTATION LOC",
       "coords": [
-        20.754762953333913,
-        -157.5029124735312
+        47.6707350225778,
+        -121.75450900482092
       ],
       "time": "",
       "severity": "critical",
-      "cost": 3071394028.15,
-      "mag": 41,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N4425525C1500"
     },
     {
-      "id": "N0002420C2300",
+      "id": "N6247324F4235",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $2952.5M - MARINETTE MARINE CORPORATION",
-      "subcategory": "Installation, WI | DETAIL DESIGN AND CONSTRUCTION OF FFG(X) GUIDED MISSILE FRIGATE...",
+      "title": "MILCON: CLARK CONSTRUCTION GROUP - CALIFORNIA, LP ($181.5M)",
+      "projectName": "P-351 F-35C AIRCRAFT MAINTENANCE HANGAR, NAS LEMOORE, CA",
+      "cost": 181504337.35,
+      "costFormatted": "$181.5M",
+      "subcategory": "Installation, CA | Scope: P-351 F-35C AIRCRAFT MAINTENANCE HANGAR, NAS LEMOORE, CA",
       "coords": [
-        44.22475134934161,
-        -89.7497869720546
+        36.0154030046843,
+        -120.0370686074481
       ],
       "time": "",
       "severity": "critical",
-      "cost": 2952523292,
-      "mag": 41,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N6247324F4235"
     },
     {
-      "id": "70B01C26F00000017",
+      "id": "N0002423C5530",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $2833.5M - FISHER SAND & GRAVEL CO",
-      "subcategory": "Installation, AZ | CONSTRUCT VERTICAL BORDER BARRIER...",
+      "title": "MILCON: NORTHROP GRUMMAN SYSTEMS CORP ($178.0M)",
+      "projectName": "UKRAINE. ABL FACILITY CONSTRUCTION, EQUIPMENT, AND MANAGEMENT",
+      "cost": 177997350,
+      "costFormatted": "$178.0M",
+      "subcategory": "Installation, WV | Scope: UKRAINE. ABL FACILITY CONSTRUCTION, EQUIPMENT, AND MANAGEMENT",
       "coords": [
-        33.9283695312285,
-        -111.29713454893746
+        38.4915212939976,
+        -81.2334167806223
       ],
       "time": "",
       "severity": "critical",
-      "cost": 2833494611.7,
-      "mag": 41,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N0002423C5530"
     },
     {
-      "id": "N0002417C2301",
+      "id": "N4008520C0044",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $2808.2M - AUSTAL USA, LLC",
-      "subcategory": "Installation, AL | CONSTRUCTION OF LCS FLIGHT 0+ SHIP...",
+      "title": "MILCON: RQ-DPR JV ($168.9M)",
+      "projectName": "DESIGN-BUILD (DB) HURRICANE FLORENCE RECOVERY MILCON PACKAGE 2, HQ ...",
+      "cost": 168941622.3,
+      "costFormatted": "$168.9M",
+      "subcategory": "Installation, NC | Scope: DESIGN-BUILD (DB) HURRICANE FLORENCE RECOVERY MILCON PACKAGE 2, HQ FACILITIES AT MARI",
       "coords": [
-        32.59589894659844,
-        -86.4664897869174
+        35.393448006472184,
+        -79.49589720356194
       ],
       "time": "",
       "severity": "critical",
-      "cost": 2808192322.4,
-      "mag": 41,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N4008520C0044"
     },
     {
-      "id": "70B01C26F00000405",
+      "id": "N6247325F4487",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $2594.0M - FISHER SAND & GRAVEL CO",
-      "subcategory": "Installation, TX | BORDER BARRIER DESIGN BUILD FOR BBT-5...",
+      "title": "MILCON: CLARK CONSTRUCTION GROUP - CALIFORNIA, LP ($166.0M)",
+      "projectName": "P025-MQ 25 SQUADRON HANGAR AT NBVC",
+      "cost": 165993041.99,
+      "costFormatted": "$166.0M",
+      "subcategory": "Installation, CA | Scope: P025-MQ 25 SQUADRON HANGAR AT NBVC",
       "coords": [
-        30.899697741427644,
-        -97.5903216106512
+        36.50732782029424,
+        -119.73184913236075
       ],
       "time": "",
       "severity": "critical",
-      "cost": 2594040000,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N6247325F4487"
     },
     {
-      "id": "N0002411C2306",
+      "id": "N4008520C0055",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $2551.3M - BATH IRON WORKS CORPORATION",
-      "subcategory": "Installation, ME | DDG 1001/1002 CONSTRUCTION AND FY11 CLASS SERVICES...",
+      "title": "MILCON: WHITING-TURNER CONTRACTING COMPANY, THE ($160.5M)",
+      "projectName": "HURRICANE FLORENCE RECOVERY MILCON PACKAGE 1, P162F, PP254F, P246F,...",
+      "cost": 160549259.61,
+      "costFormatted": "$160.5M",
+      "subcategory": "Installation, NC | Scope: HURRICANE FLORENCE RECOVERY MILCON PACKAGE 1, P162F, PP254F, P246F, P142F,&P130F.",
       "coords": [
-        44.468936958653,
-        -69.37239141442537
+        35.87087747236696,
+        -79.86183721486859
       ],
       "time": "",
       "severity": "critical",
-      "cost": 2551316435,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N4008520C0055"
     },
     {
-      "id": "W912EP24C0018",
+      "id": "N6274210C1301",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $2514.1M - THALLE CONSTRUCTION CO INC",
-      "subcategory": "Installation, FL | CENTRAL EVERGLADES PLANNING PROJECT (CEPP) CONTRACT 11B, EVERGLADES AGRICULTURAL AREA (EAA...",
+      "title": "MILCON: WALSH CONSTRUCTION COMPANY ($158.2M)",
+      "projectName": "RECOVERYPROJECT#::5014::RP#  CONSTRUCTION OF THE NOAA PRC AT FORD I...",
+      "cost": 158167013,
+      "costFormatted": "$158.2M",
+      "subcategory": "Installation, HI | Scope: RECOVERYPROJECT#::5014::RP#  CONSTRUCTION OF THE NOAA PRC AT FORD ISLAND, PEARL HARBO",
       "coords": [
-        27.582967432609493,
-        -81.84908211230385
+        20.879839040344173,
+        -157.62195276062533
       ],
       "time": "",
       "severity": "critical",
-      "cost": 2514144742.31,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N6274210C1301"
     },
     {
-      "id": "DEAC0902SR22210",
+      "id": "N4008511C4019",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $2276.9M - PARSONS GOVERNMENT SERVICES INC.",
-      "subcategory": "Installation, SC | SALT WASTE PROCESSING FACILITY CONCEPTUAL DESIGN...",
+      "title": "MILCON: THE HASKELL COMPANY ($157.7M)",
+      "projectName": "P688 APRON EXPANSION, PHASE II, P311 PARALLEL TAXIWAY, P683 HANGAR,...",
+      "cost": 157711167,
+      "costFormatted": "$157.7M",
+      "subcategory": "Installation, NC | Scope: P688 APRON EXPANSION, PHASE II, P311 PARALLEL TAXIWAY, P683 HANGAR, P687 MV-22 MAINTE",
       "coords": [
-        34.06911256634632,
-        -81.09856602090137
+        35.617430770141624,
+        -79.6242653287947
       ],
       "time": "",
       "severity": "critical",
-      "cost": 2276893314.21,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N4008511C4019"
     },
     {
-      "id": "DAAA0997C0025",
+      "id": "N4008526C0013",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $2143.1M - WASHINGTON DEMILITARIZATION COMPANY LLC",
-      "subcategory": "Installation, OR | 199712!2100!6004!AA09 !U.S. ARMY INDUSTRIAL OPERATIONS !DAAA0997C0025  !A!*!P00006        ...",
+      "title": "MILCON: BL HARBERT INTERNATIONAL LLC ($156.1M)",
+      "projectName": "P440 / 441 RECRUIT BARRACKS, MARINE CORPS RECRUIT DEPOT, PARRIS ISL...",
+      "cost": 156104687.08,
+      "costFormatted": "$156.1M",
+      "subcategory": "Installation, SC | Scope: P440 / 441 RECRUIT BARRACKS, MARINE CORPS RECRUIT DEPOT, PARRIS ISLAND, SC",
       "coords": [
-        44.515930948080936,
-        -121.99555067981284
+        33.489233380294024,
+        -80.75511344328699
       ],
       "time": "",
       "severity": "critical",
-      "cost": 2143099331.38,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N4008526C0013"
     },
     {
-      "id": "70B01C26C00000006",
+      "id": "W912DQ14C4006",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $2022.2M - AMI METALS, INC",
-      "subcategory": "Installation, TX | BULK STEEL FOR SOUTHWEST BORDER BARRIER CONSTRUCTION PROJECTS...",
+      "title": "MILCON: ARCHER WESTERN AVIATION PARTNERS ($155.9M)",
+      "projectName": "IGF::OT::IGF PROJECT REQUIRES THE CONSTRUCTION OF A 2-BAY CORROSION...",
+      "cost": 155851399.97,
+      "costFormatted": "$155.9M",
+      "subcategory": "Installation, KS | Scope: IGF::OT::IGF PROJECT REQUIRES THE CONSTRUCTION OF A 2-BAY CORROSION CONTROL/FUEL CELL",
       "coords": [
-        30.88054673099881,
-        -97.53396942740231
+        38.49483413231989,
+        -96.45525895162537
       ],
       "time": "",
       "severity": "critical",
-      "cost": 2022176160.58,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912DQ14C4006"
     },
     {
-      "id": "N0002419C2210",
+      "id": "N6247318C4605",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $2019.7M - BOLLINGER MISSISSIPPI SHIPBUILDING, LLC",
-      "subcategory": "Installation, MS | POLAR SECURITY CUTTER #1 (FORMERLY HPIB) DETAIL DESIGN AND CONSTRUCTION...",
+      "title": "MILCON: HARPER CONSTRUCTION COMPANY, INC. ($150.5M)",
+      "projectName": "IGF::OT::IGF FIRM-FIXED PRICE, DESIGN BID BUILD, P198&P203 CONSTRUC...",
+      "cost": 150471980.3,
+      "costFormatted": "$150.5M",
+      "subcategory": "Installation, CA | Scope: IGF::OT::IGF FIRM-FIXED PRICE, DESIGN BID BUILD, P198&P203 CONSTRUCTION OF F-35 AIRCR",
       "coords": [
-        32.49176076330583,
-        -89.77348721513529
+        35.86960393560735,
+        -119.89690589293983
       ],
       "time": "",
       "severity": "critical",
-      "cost": 2019738356.06,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N6247318C4605"
     },
     {
-      "id": "DAAA0997C0098",
+      "id": "FA890323F0060",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1995.3M - WASHINGTON DEMILITARIZATION COMPANY, LLC",
-      "subcategory": "Installation, AR | 199710!2100!6000!AA09 !U.S. ARMY INDUSTRIAL OPERATIONS !DAAA0997C0098  !A!*!*             ...",
+      "title": "MILCON: GILBANE FEDERAL ($149.4M)",
+      "projectName": "THE CONTRACTOR MUST CONSTRUCT A NEW MULTI-BAY AIRCRAFT HANGAR OF AP...",
+      "cost": 149418588.7,
+      "costFormatted": "$149.4M",
+      "subcategory": "Installation, CA | Scope: THE CONTRACTOR MUST CONSTRUCT A NEW MULTI-BAY AIRCRAFT HANGAR OF APPROXIMATELY 130,00",
       "coords": [
-        35.2517129230384,
-        -92.3393188628496
+        36.36147064700385,
+        -119.38708806837754
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1995254704.5,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/FA890323F0060"
     },
     {
-      "id": "W911XK22C0006",
+      "id": "W912BV23C0002",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1938.5M - KOKOSING ALBERICI TRAYLOR, LLC",
-      "subcategory": "Installation, MI | CONSTRUCTION OF THE NEW THIRD LOCK, NEW LOCK AT THE SOO, SAULT STE. MARIE, MICHIGAN....",
+      "title": "MILCON: HARPER CONSTRUCTION COMPANY, INC. ($149.4M)",
+      "projectName": "DESIGN AND CONSTRUCTION OF THE KC-46A MAINTENANCE HANGAR AT TINKER ...",
+      "cost": 149384393,
+      "costFormatted": "$149.4M",
+      "subcategory": "Installation, OK | Scope: DESIGN AND CONSTRUCTION OF THE KC-46A MAINTENANCE HANGAR AT TINKER AFB, OKLAHOMA.",
       "coords": [
-        43.51083975911165,
-        -84.63392661895786
+        35.246744984240806,
+        -97.30826887394517
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1938479275,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912BV23C0002"
     },
     {
-      "id": "W912QR04C0004",
+      "id": "W912PL24C0019",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1870.7M - WASHINGTON GROUP/ALBERICI JOINT VENTURE",
-      "subcategory": "Installation, IL | TAS::96 3134::TAS ARRA::YES::ARRA OLMSTED DAM CONSTRUCTION PROJECT (ARRA FUNDS ADDED 9/3/2...",
+      "title": "MILCON: KORTE CONSTRUCTION COMPANY ($149.1M)",
+      "projectName": "DISASTER RESILIENCY PROGRAM (DRP) PHASE 1",
+      "cost": 149093042.25,
+      "costFormatted": "$149.1M",
+      "subcategory": "Installation, NV | Scope: DISASTER RESILIENCY PROGRAM (DRP) PHASE 1",
       "coords": [
-        40.714605663283734,
-        -89.14021843930455
+        38.59572995790431,
+        -116.72448900322445
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1870676938.26,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912PL24C0019"
     },
     {
-      "id": "W912PL19C0015",
+      "id": "W9128A11C0004",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1857.2M - SOUTHWEST VALLEY CONSTRUCTORS CO",
-      "subcategory": "Installation, AZ | DESIGN BUILD OF TUCSON SECTOR BARRIER WALL REPLACEMENT PROJECT, VARIOUS LOCATIONS, AZ...",
+      "title": "MILCON: DCK-ECC PACIFIC LLC ($146.4M)",
+      "projectName": "FY09 DESIGN AND CONSTRUCT SOUTH RANGE PROJECTS, SCHOFIELD BARRACKS,...",
+      "cost": 146407937,
+      "costFormatted": "$146.4M",
+      "subcategory": "Installation, HI | Scope: FY09 DESIGN AND CONSTRUCT SOUTH RANGE PROJECTS, SCHOFIELD BARRACKS, OAHU, HAWAII",
       "coords": [
-        33.38182333554257,
-        -111.4954961390525
+        21.48324494435479,
+        -158.07038264391244
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1857177427.39,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W9128A11C0004"
     },
     {
-      "id": "DAAA0996C0018",
+      "id": "W9123620C2025",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1842.1M - WASHINGTON GOVERNMENT ENVIRONMENTAL SERVICES COMPANY LLC",
-      "subcategory": "Installation, AL | 199712!2100!0084!AA09 !U.S. ARMY INDUSTRIAL OPERATIONS !DAAA0996C0018  !A!*!P00006        ...",
+      "title": "MILCON: BALFOUR BEATTY CONSTRUCTION, LLC ($144.1M)",
+      "projectName": "CONSTRUCTION OF THE BATTALION COMPLEX OPERATIONS BUILDING (PHASE 2)...",
+      "cost": 144054594.98,
+      "costFormatted": "$144.1M",
+      "subcategory": "Installation, VA | Scope: CONSTRUCTION OF THE BATTALION COMPLEX OPERATIONS BUILDING (PHASE 2) AND HANGAR FACILI",
       "coords": [
-        32.695128455273235,
-        -86.83745032576226
+        37.84120362189029,
+        -78.01842523230714
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1842081292.91,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W9123620C2025"
     },
     {
-      "id": "N4008521C0077",
+      "id": "W9128F22F0150",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1822.4M - 381 CONSTRUCTORS",
-      "subcategory": "Installation, ME | P-381 MULTI-MISSION DRY DOCK #1, PORTSMOUTH NAVAL SHIPYARD, KITTERY, ME...",
+      "title": "MILCON: APTIM FEDERAL SERVICES, LLC ($142.6M)",
+      "projectName": "FT MCCOY BARRACKS ASSESSMENT AND REPAIRS, FORT MCCOY, WI",
+      "cost": 142638107.46,
+      "costFormatted": "$142.6M",
+      "subcategory": "Installation, WI | Scope: FT MCCOY BARRACKS ASSESSMENT AND REPAIRS, FORT MCCOY, WI",
       "coords": [
-        44.35973455782401,
-        -69.10391601360867
+        43.97160852240254,
+        -89.92749930879893
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1822402355.37,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W9128F22F0150"
     },
     {
-      "id": "70B01C26F00000073",
+      "id": "W9128F24C0013",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1787.5M - FISHER SAND & GRAVEL CO",
-      "subcategory": "Installation, NM | DESIGN AND CONSTRUCT NEW VERTICAL BARRIER AND POWER DISTRIBUTION, LIGHTING, CAMERAS, EQUIP...",
+      "title": "MILCON: CONTI FEDERAL SERVICES, LLC ($141.3M)",
+      "projectName": "CONSTRUCT B-21 PHASE MAINTENANCE HANGAR AT ELLSWORTH AFB",
+      "cost": 141259202.41,
+      "costFormatted": "$141.3M",
+      "subcategory": "Installation, SD | Scope: CONSTRUCT B-21 PHASE MAINTENANCE HANGAR AT ELLSWORTH AFB",
       "coords": [
-        34.65497292919463,
-        -106.56959618192774
+        43.89564815704439,
+        -99.23979798754333
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1787500000,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W9128F24C0013"
     },
     {
-      "id": "70B01C26F00000292",
+      "id": "W912HV24C0003",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1770.8M - BARNARD CONSTRUCTION COMPANY, INCORPORATED",
-      "subcategory": "Installation, TX | BORDER WALL CONSTRUCTION FOR EL PASO SECTOR - EPT-5...",
+      "title": "MILCON: TOKYU CONSTRUCTION-KANEHIDE CONSTRUCTION JV ($140.0M)",
+      "projectName": "THIS PROJECT IS TO CONSTRUCT A MARINE CORPS BARRACKS COMPLEX CONSIS...",
+      "cost": 139967393.95,
+      "costFormatted": "$140.0M",
+      "subcategory": "Installation, US | Scope: THIS PROJECT IS TO CONSTRUCT A MARINE CORPS BARRACKS COMPLEX CONSISTING OF TWO BUILDI",
       "coords": [
-        31.2703623372273,
-        -97.59246797113789
+        26.368536702612275,
+        127.76343398152892
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1770847986,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912HV24C0003"
     },
     {
-      "id": "70B01C26F00000345",
+      "id": "W9128F21C0045",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1720.0M - SOUTHWEST VALLEY CONSTRUCTORS CO",
-      "subcategory": "Installation, TX | AWARD OF CONSTRUCTION TASK ORDER FOR BORDER WALL IN BIG BEND TEXAS, SEGMENT IDENTIFIED AS ...",
+      "title": "MILCON: WALSH FEDERAL LLC ($139.1M)",
+      "projectName": "CONSTRUCT LO HANGAR",
+      "cost": 139129584.52,
+      "costFormatted": "$139.1M",
+      "subcategory": "Installation, SD | Scope: CONSTRUCT LO HANGAR",
       "coords": [
-        30.671040507271883,
-        -97.7997757290365
+        44.04433746063458,
+        -99.1216672206662
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1720040000,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W9128F21C0045"
     },
     {
-      "id": "70B01C26F00000044",
+      "id": "W9128F23C0009",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1650.8M - FISHER SAND & GRAVEL CO",
-      "subcategory": "Installation, AZ | YUM-2 VERTICAL BORDER AND WATERBORNE BARRIER CONSTRUCTION...",
+      "title": "MILCON: FEDERAL CONTRACTING INC ($137.1M)",
+      "projectName": "MINOT HELO OPS FACILITY CONSTRUCTION, MINOT AFB, ND.",
+      "cost": 137148194.3,
+      "costFormatted": "$137.1M",
+      "subcategory": "Installation, ND | Scope: MINOT HELO OPS FACILITY CONSTRUCTION, MINOT AFB, ND.",
       "coords": [
-        33.557691924700016,
-        -111.14375192224021
+        47.43663815625268,
+        -99.90830478510384
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1650754000,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W9128F23C0009"
     },
     {
-      "id": "N0002418C2300",
+      "id": "W9128F22C0029",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1639.4M - LOCKHEED MARTIN CORPORATION",
-      "subcategory": "Installation, MD | CONSTRUCTION OF LCS FLIGHT 0+ SHIP...",
+      "title": "MILCON: CONTI FEDERAL SERVICES, LLC ($135.1M)",
+      "projectName": "CONSTRUCT HELO/TRF OPS/AMU AND ALERT FAC",
+      "cost": 135123758.33,
+      "costFormatted": "$135.1M",
+      "subcategory": "Installation, WY | Scope: CONSTRUCT HELO/TRF OPS/AMU AND ALERT FAC",
       "coords": [
-        39.4075804778504,
-        -77.18823240123946
+        43.03359021287773,
+        -107.18127249118317
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1639354125.45,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W9128F22C0029"
     },
     {
-      "id": "MDA94701C2001",
+      "id": "W912QR25C0022",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1629.0M - HENSEL PHELPS CONSTRUCTION CO",
-      "subcategory": "Installation, VA | 200112!000146!9700!ZD47  !PENTAGON RENOVATION MANAGEMENT  !MDA94701C2001  !A!N!*!N!       ...",
+      "title": "MILCON: HARPER CONSTRUCTION COMPANY, INC. ($133.6M)",
+      "projectName": "CONSTRUCTION OF A NEW KC-46A TWO BAY MAINTENANCE HANGAR AND FUSELAG...",
+      "cost": 133621756.58,
+      "costFormatted": "$133.6M",
+      "subcategory": "Installation, CA | Scope: CONSTRUCTION OF A NEW KC-46A TWO BAY MAINTENANCE HANGAR AND FUSELAGE TRAINER AT MARCH",
       "coords": [
-        37.485987889124836,
-        -78.19394333171942
+        36.175929309408694,
+        -119.43855226604367
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1629040561.35,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912QR25C0022"
     },
     {
-      "id": "80KSC019C0013",
+      "id": "W9127S24F0100",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1540.9M - BECHTEL NATIONAL, INC.",
-      "subcategory": "Installation, VA | DESIGN AND CONSTRUCTION OF THE NASA SPACE LAUNCH SYSTEM (SLS) MOBILE LAUNCHER 2 (ML2)....",
+      "title": "MILCON: KGJJ ENGINEERING SOLUTIONS, LLC ($131.6M)",
+      "projectName": "DESIGN BUILD CONSTRUCTION SERVICES + INITIAL OUTFITTING OF MEDICAL ...",
+      "cost": 131553741.7,
+      "costFormatted": "$131.6M",
+      "subcategory": "Installation, HI | Scope: DESIGN BUILD CONSTRUCTION SERVICES + INITIAL OUTFITTING OF MEDICAL FURNITURE AND EQUI",
       "coords": [
-        37.91500363592652,
-        -77.92231403026337
+        21.511766326782986,
+        -158.0698178135018
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1540889354.01,
-      "mag": 40,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W9127S24F0100"
     },
     {
-      "id": "W912DR07C0027",
+      "id": "W912DQ26CA024",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1433.8M - CLARK/BALFOUR BEATTY - NCE, A JOINT VENTURE",
-      "subcategory": "Installation, VA | PHASE SERVICES FOR NGA...",
+      "title": "MILCON: BL HARBERT INTERNATIONAL LLC ($129.4M)",
+      "projectName": "FLW AIT BARRACKS PHASE 2",
+      "cost": 129385276,
+      "costFormatted": "$129.4M",
+      "subcategory": "Installation, MO | Scope: FLW AIT BARRACKS PHASE 2",
       "coords": [
-        37.84696984285847,
-        -78.23784727185895
+        38.37151917685561,
+        -92.17666142208473
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1433788456,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912DQ26CA024"
     },
     {
-      "id": "HHSO100200900101C",
+      "id": "W912BV17C0004",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1430.6M - SEQIRUS INC",
-      "subcategory": "Installation, MA | TAS::75 0140::TAS CONSTRUCTION OF VACCINE MANUFACTURING FACILITY...",
+      "title": "MILCON: WALSH FEDERAL/ALBERICI JV ($129.2M)",
+      "projectName": "IGF::OT::IGF CONSTRUCT KC-46A TWO BAY HANGAR AT TINKER AFB, OK",
+      "cost": 129241008.55,
+      "costFormatted": "$129.2M",
+      "subcategory": "Installation, OK | Scope: IGF::OT::IGF CONSTRUCT KC-46A TWO BAY HANGAR AT TINKER AFB, OK",
       "coords": [
-        42.56826838172516,
-        -71.56192396205742
+        35.49950125400473,
+        -97.09577747909432
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1430622665,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912BV17C0004"
     },
     {
-      "id": "N0002411C2305",
+      "id": "N6247320C0613",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1403.3M - BATH IRON WORKS CORPORATION",
-      "subcategory": "Installation, ME | CONSTRUCTION OF DDG 51 CLASS DESTROYER...",
+      "title": "MILCON: WALSH FEDERAL LLC ($128.9M)",
+      "projectName": "3-BAY HANGAR AT TRAVIS AIR FORCE BASE",
+      "cost": 128884560.33,
+      "costFormatted": "$128.9M",
+      "subcategory": "Installation, CA | Scope: 3-BAY HANGAR AT TRAVIS AIR FORCE BASE",
       "coords": [
-        44.41009294017982,
-        -69.07759524338572
+        36.13518965133369,
+        -119.30157972200138
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1403317277,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N6247320C0613"
     },
     {
-      "id": "FA873017C0010",
+      "id": "JM01",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1342.5M - RAYTHEON COMPANY",
-      "subcategory": "Installation, MA | QATAR EARLY WARNING RADAR- CONSTRUCTION OF RADAR AND SUPPORT BUILDINGS...",
+      "title": "MILCON: M. A. MORTENSON COMPANY ($128.5M)",
+      "projectName": "OPTION PERIOD FOUR",
+      "cost": 128545681,
+      "costFormatted": "$128.5M",
+      "subcategory": "Installation, FL | Scope: OPTION PERIOD FOUR",
       "coords": [
-        41.94882885719666,
-        -71.26134907960623
+        27.9912234613729,
+        -81.49213888638823
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1342483317.71,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/JM01"
     },
     {
-      "id": "70B01C26F00000385",
+      "id": "W912HV23C0006",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1313.2M - SLS FEDERAL SERVICES LLC",
-      "subcategory": "Installation, AZ | BORDER WALL CONSTRUCTION FOR TCA-5 TON....",
+      "title": "MILCON: NISHIMATSU CONSTRUCTION CO.,LTD. ($127.9M)",
+      "projectName": "MILCON CONSTRUCT RESCUE HELICOPTER OPS MAINTENANCE HANGAR, KADENA A...",
+      "cost": 127905978.63,
+      "costFormatted": "$127.9M",
+      "subcategory": "Installation, US | Scope: MILCON CONSTRUCT RESCUE HELICOPTER OPS MAINTENANCE HANGAR, KADENA AIR BASE, OKINAWA, ",
       "coords": [
-        33.51226959290586,
-        -111.6582467013121
+        26.36145469540142,
+        127.76156671642006
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1313227200,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912HV23C0006"
     },
     {
-      "id": "W912DR10C0094",
+      "id": "W912DS21C0025",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1251.3M - BALFOUR BEATTY/DPR/BIG-D, A JOINT VENTURE",
-      "subcategory": "Installation, UT | UTAH DATA CENTER, CAMP WILLIAMS, UT...",
+      "title": "MILCON: DOBCO INC ($125.8M)",
+      "projectName": "REPAIR BUILDING 740, LEE BARRACKS AND REPAIR BUILDING 738, SHERMAN ...",
+      "cost": 125790891,
+      "costFormatted": "$125.8M",
+      "subcategory": "Installation, NY | Scope: REPAIR BUILDING 740, LEE BARRACKS AND REPAIR BUILDING 738, SHERMAN BARRACKS, WEST POI",
       "coords": [
-        40.5301163624326,
-        -111.77255623523881
+        42.385790242491765,
+        -74.68179159965354
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1251343793,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912DS21C0025"
     },
     {
-      "id": "W912P808C0038",
+      "id": "W912DS19C0020",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1249.8M - APTIM FEDERAL SERVICES, LLC",
-      "subcategory": "Installation, LA | IHNC 392 PERMANENT PROTECTION & ADVANCED...",
+      "title": "MILCON: DOBCO INC ($124.3M)",
+      "projectName": "BRADLEY BARRACKS WEST POINT",
+      "cost": 124312455,
+      "costFormatted": "$124.3M",
+      "subcategory": "Installation, NY | Scope: BRADLEY BARRACKS WEST POINT",
       "coords": [
-        30.980113672397213,
-        -92.01283035540979
+        42.227794757827326,
+        -74.95865718473213
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1249801027.34,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912DS19C0020"
     },
     {
-      "id": "70B01C25F00001112",
+      "id": "0002",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1225.3M - FISHER SAND & GRAVEL CO",
-      "subcategory": "Installation, CA | CONSTRUCTION BORDER BARRIER EL CENTRO, CA...",
+      "title": "MILCON: PURCELL CONSTRUCTION CORP. ($119.9M)",
+      "projectName": "BARRACKS COMPLEX, FORT LEE, VA",
+      "cost": 119889757,
+      "costFormatted": "$119.9M",
+      "subcategory": "Installation, VA | Scope: BARRACKS COMPLEX, FORT LEE, VA",
       "coords": [
-        36.50472322136885,
-        -119.7011507050603
+        37.55654853989352,
+        -77.8047996417861
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1225325000,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/0002"
     },
     {
-      "id": "70B01C26F00000169",
+      "id": "N6247321C1011",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1223.1M - FISHER SAND & GRAVEL CO",
-      "subcategory": "Installation, TX | BORDER WALL CONSTRUCTION - VERTICAL BARRIER, BIG BEND TEXAS SECTOR (BBT-2)...",
+      "title": "MILCON: HARPER CONSTRUCTION COMPANY, INC. ($117.2M)",
+      "projectName": "MCON P-391 F-35C HANGAR 6, PHASE 2",
+      "cost": 117247217.42,
+      "costFormatted": "$117.2M",
+      "subcategory": "Installation, CA | Scope: MCON P-391 F-35C HANGAR 6, PHASE 2",
       "coords": [
-        31.122809416137375,
-        -97.39744045702726
+        36.35474601787332,
+        -119.28815002820475
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1223124000,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N6247321C1011"
     },
     {
-      "id": "47QFCA21F0001",
+      "id": "VA101F13C0036",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1205.9M - SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
-      "subcategory": "Installation, VA | THE SCOPE OF THE TO IS TO PROVIDE ENTERPRISE IT SERVICES FOR THE USACE....",
+      "title": "MILCON: WALSH ALBERICI JOINT VENTURE ($116.8M)",
+      "projectName": "IGF::OT::IGF CLINIC AND TENANT BLDG, JEFFERSON BARRACKS, ST LOUIS MO.",
+      "cost": 116779209,
+      "costFormatted": "$116.8M",
+      "subcategory": "Installation, MO | Scope: IGF::OT::IGF CLINIC AND TENANT BLDG, JEFFERSON BARRACKS, ST LOUIS MO.",
       "coords": [
-        38.07165521180186,
-        -78.08362872965411
+        38.71834696789031,
+        -91.89565706048872
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1205937997.76,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/VA101F13C0036"
     },
     {
-      "id": "70B01C26F00000261",
+      "id": "N6274225F9944",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1147.0M - SPENCER CONSTRUCTION LLC",
-      "subcategory": "Installation, TX | BORDER BARRIER CONSTRUCTION...",
+      "title": "MILCON: ECC EXPEDITIONARY CONSTRUCTORS LLC ($116.3M)",
+      "projectName": "FY25 MCON P-2301 HSC-25 COMPLEX AT THE ANDERSEN AIR FORCE BASE, GUA...",
+      "cost": 116322243.6,
+      "costFormatted": "$116.3M",
+      "subcategory": "Installation, GU | Scope: FY25 MCON P-2301 HSC-25 COMPLEX AT THE ANDERSEN AIR FORCE BASE, GUAM, MARIANA ISLANDS",
       "coords": [
-        31.05840139146111,
-        -97.67038653611137
+        13.59062828978806,
+        144.9269135883968
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1147001057.42,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N6274225F9944"
     },
     {
-      "id": "70Z02326C93210001",
+      "id": "W912BV22C0013",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1122.6M - RAUMA MARINE CONSTRUCTIONS OY",
-      "subcategory": "Installation, VA | PURCHASE OF TWO ARCTIC SECURITY CUTTERS FOR THE USCG...",
+      "title": "MILCON: HARPER CONSTRUCTION COMPANY, INC. ($113.4M)",
+      "projectName": "CONSTRUCTION OF AIT BARRACKS BUILDING AT FORT SILL, OK",
+      "cost": 113447463.37,
+      "costFormatted": "$113.4M",
+      "subcategory": "Installation, OK | Scope: CONSTRUCTION OF AIT BARRACKS BUILDING AT FORT SILL, OK",
       "coords": [
-        38.12838170736539,
-        -78.54183387048116
+        35.26916989253217,
+        -96.52637393476562
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1122648775.26,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912BV22C0013"
     },
     {
-      "id": "W9126G13C0004",
+      "id": "W9128F22C0025",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1100.7M - CLARK MCCARTHY HEALTHCARE PARTNERS II",
-      "subcategory": "Installation, TX | IGF::OT::IGF DESIGN-BID-BUILD FORT BLISS REPLACEMENT HOSPITAL, EL PASO, TX...",
+      "title": "MILCON: FEDERAL CONTRACTING INC ($111.9M)",
+      "projectName": "CONSTRUCT B-21 MPF/FTD FACILITIES",
+      "cost": 111933457.28,
+      "costFormatted": "$111.9M",
+      "subcategory": "Installation, SD | Scope: CONSTRUCT B-21 MPF/FTD FACILITIES",
       "coords": [
-        31.820224659843532,
-        -106.40668153607932
+        44.46812532413883,
+        -99.57111079343453
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1100727120.07,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W9128F22C0025"
     },
     {
-      "id": "W912P809C0041",
+      "id": "N4008026F1183",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1091.1M - GULF INTRACOASTAL CONSTRUCTORS, A JOINT VENTURE",
-      "subcategory": "Installation, LA | PRE- CONSTRUCTION SERVICES...",
+      "title": "MILCON: WALSH FEDERAL LLC ($111.5M)",
+      "projectName": "PHASE II CONSTRUCTION FOR P-691 AIRCRAFT DEVELOPMENT AND MAINTENANC...",
+      "cost": 111495751.33,
+      "costFormatted": "$111.5M",
+      "subcategory": "Installation, MD | Scope: PHASE II CONSTRUCTION FOR P-691 AIRCRAFT DEVELOPMENT AND MAINTENANCE FACILITY, NAS PA",
       "coords": [
-        31.395005543885855,
-        -91.5792265663826
+        39.127905282372595,
+        -76.4810539121004
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1091129786.56,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/N4008026F1183"
     },
     {
-      "id": "W51DQV26CA003",
+      "id": "W912BV25C0007",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: $1079.0M - FERROVIAL CONSTRUCCION PR, LLC",
-      "subcategory": "Installation, PR | RIO PUERTO NUEVO FLOOD CONTROL PROJECT, SUPPLEMENTAL CONTRACT 3 CHANNEL BOTTOM AND WALL IM...",
+      "title": "MILCON: HARPER CONSTRUCTION COMPANY, INC. ($108.6M)",
+      "projectName": "FY23 KC-46A 2-BAY PDM HANGAR AT TINKER AIR FORCE BASE, OKLAHOMA.",
+      "cost": 108568804.27,
+      "costFormatted": "$108.6M",
+      "subcategory": "Installation, OK | Scope: FY23 KC-46A 2-BAY PDM HANGAR AT TINKER AIR FORCE BASE, OKLAHOMA.",
       "coords": [
-        18.49077348392718,
-        -66.25822920838662
+        35.925737297624345,
+        -97.12426719869245
       ],
       "time": "",
       "severity": "critical",
-      "cost": 1078991952,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
-    },
-    {
-      "id": "W912PL19C0014",
-      "type": "programs",
-      "topCategory": "contingency",
-      "title": "MILCON: $1069.4M - BFBC LLC",
-      "subcategory": "Installation, AZ | UNDEFINITIZED CONTRACT ACTION FOR EL CENTRO (15 MILE) IN CALIFORNIA AND YUMA (5 MILE) IN A...",
-      "coords": [
-        33.6373117969263,
-        -111.44123753049227
-      ],
-      "time": "",
-      "severity": "critical",
-      "cost": 1069388598.08,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
-    },
-    {
-      "id": "HSFLBP09C00001",
-      "type": "programs",
-      "topCategory": "contingency",
-      "title": "MILCON: $1057.5M - MCCARTHY MORTENSON NBAF A JOINT VENTURE",
-      "subcategory": "Installation, KS | CONSTRUCTION OF NATIONAL BIO AND AGRO-DEFENSE FACILITY (NBAF), AT MANHATTAN, KANSAS...",
-      "coords": [
-        38.179438804875325,
-        -96.79595176368423
-      ],
-      "time": "",
-      "severity": "critical",
-      "cost": 1057506675.3,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
-    },
-    {
-      "id": "VA101CFMC0064",
-      "type": "programs",
-      "topCategory": "contingency",
-      "title": "MILCON: $1055.8M - CLARK MCCARTHY HEALTHCARE PARTNERS, A JOINT VENTURE",
-      "subcategory": "Installation, LA | SOUTHEAST LOUISIANA VETERANS HEALTHCARE SYSTEM REPLACEMENT MEDICAL CENTER, NEW ORLEANS, LA...",
-      "coords": [
-        31.492037603470312,
-        -92.03404463077469
-      ],
-      "time": "",
-      "severity": "critical",
-      "cost": 1055767843.54,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
-    },
-    {
-      "id": "70B01C26F00000152",
-      "type": "programs",
-      "topCategory": "contingency",
-      "title": "MILCON: $1030.2M - BARNARD CONSTRUCTION COMPANY, INCORPORATED",
-      "subcategory": "Installation, TX | BORDER BARRIER CONSTRUCTION IN HUDSPETH COUNTY, TX...",
-      "coords": [
-        31.24078608714575,
-        -97.3571276083375
-      ],
-      "time": "",
-      "severity": "critical",
-      "cost": 1030175506,
-      "mag": 39,
-      "link": "https://www.usaspending.gov/search"
+      "mag": 5,
+      "link": "https://www.usaspending.gov/award/W912BV25C0007"
     }
   ]
 }

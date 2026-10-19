@@ -1,12 +1,14 @@
 {
-  "updated": "2026-10-18T10:10:33.195Z",
+  "updated": "2026-10-19T11:44:19.807Z",
   "events": [
     {
-      "id": "cw-0-hx4q0b",
+      "id": "93993194",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$18.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 93993194",
       "coords": [
         31.880932019774548,
         -95.86909166465898
@@ -14,14 +16,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/93993194"
     },
     {
-      "id": "cw-1-1jwc1r",
+      "id": "93993380",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$29.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 93993380",
       "coords": [
         31.56946495845995,
         -95.88900011974054
@@ -29,14 +33,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/93993380"
     },
     {
-      "id": "cw-2-35xclu",
+      "id": "93993404",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$40.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 93993404",
       "coords": [
         31.930307026657466,
         -95.93249388320964
@@ -44,14 +50,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/93993404"
     },
     {
-      "id": "cw-3-tldn21",
+      "id": "94321876",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$51.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 94321876",
       "coords": [
         30.32203369021858,
         -96.50745374620877
@@ -59,14 +67,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/94321876"
     },
     {
-      "id": "cw-4-quudyi",
+      "id": "94636588",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$62.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 94636588",
       "coords": [
         28.426190224246316,
         -99.2400438034712
@@ -74,14 +84,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/94636588"
     },
     {
-      "id": "cw-5-5q546d",
+      "id": "94855736",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$73.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 94855736",
       "coords": [
         29.034991204709204,
         -103.39093013459532
@@ -89,14 +101,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/94855736"
     },
     {
-      "id": "cw-6-82on1d",
+      "id": "94891031",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$84.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 94891031",
       "coords": [
         29.563059202711486,
         -94.59836089329569
@@ -104,14 +118,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/94891031"
     },
     {
-      "id": "cw-7-nlkdkr",
+      "id": "95247315",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$95.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 95247315",
       "coords": [
         39.744229576310055,
         -113.88969366359525
@@ -119,14 +135,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/95247315"
     },
     {
-      "id": "cw-8-jbyyqm",
+      "id": "96175222",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$106.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 96175222",
       "coords": [
         32.25054371918569,
         -101.49086772951372
@@ -134,14 +152,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/96175222"
     },
     {
-      "id": "cw-9-wf8l54",
+      "id": "96175394",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$25.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 96175394",
       "coords": [
         32.19931553162858,
         -101.01400861442035
@@ -149,14 +169,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/96175394"
     },
     {
-      "id": "cw-10-1up79e",
+      "id": "96469657",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$36.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 96469657",
       "coords": [
         32.3927121050929,
         -100.87867072695425
@@ -164,14 +186,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/96469657"
     },
     {
-      "id": "cw-11-h5wuku",
+      "id": "96471273",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$47.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 96471273",
       "coords": [
         32.60087679884113,
         -101.09483485844493
@@ -179,14 +203,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/96471273"
     },
     {
-      "id": "cw-12-9u8y1z",
+      "id": "96471275",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$58.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 96471275",
       "coords": [
         32.5914611986793,
         -101.0518871806675
@@ -194,14 +220,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/96471275"
     },
     {
-      "id": "cw-13-ge7jdu",
+      "id": "96471277",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$69.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 96471277",
       "coords": [
         32.53847858971962,
         -101.05394177822795
@@ -209,14 +237,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/96471277"
     },
     {
-      "id": "cw-14-tv5sz0",
+      "id": "96708021",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$80.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 96708021",
       "coords": [
         30.452180588127085,
         -101.73267981964383
@@ -224,14 +254,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/96708021"
     },
     {
-      "id": "cw-15-l4apsh",
+      "id": "96770571",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$91.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 96770571",
       "coords": [
         29.80226081337884,
         -101.44261998747473
@@ -239,14 +271,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/96770571"
     },
     {
-      "id": "cw-16-9vad4y",
+      "id": "96770799",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$102.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 96770799",
       "coords": [
         29.802332413018004,
         -101.44261998747473
@@ -254,14 +288,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/96770799"
     },
     {
-      "id": "cw-17-73g6z3",
+      "id": "97002380",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$21.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 97002380",
       "coords": [
         31.400976912139722,
         -106.02637870794665
@@ -269,14 +305,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/97002380"
     },
     {
-      "id": "cw-18-df22qd",
+      "id": "97002464",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$32.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 97002464",
       "coords": [
         31.40060471266759,
         -106.0146838379215
@@ -284,14 +322,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/97002464"
     },
     {
-      "id": "cw-19-sf17bs",
+      "id": "97002816",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$43.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 97002816",
       "coords": [
         31.495353789043197,
         -106.15505567415741
@@ -299,14 +339,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/97002816"
     },
     {
-      "id": "cw-20-gr3py7",
+      "id": "97003338",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$54.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 97003338",
       "coords": [
         31.403158712764352,
         -106.02094063976153
@@ -314,14 +356,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/97003338"
     },
     {
-      "id": "cw-21-pdgwg9",
+      "id": "97066514",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$65.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 97066514",
       "coords": [
         29.520012526844624,
         -104.28646215824958
@@ -329,14 +373,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/97066514"
     },
     {
-      "id": "cw-22-gp8uee",
+      "id": "97259909",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$76.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 97259909",
       "coords": [
         32.215720587784766,
         -98.19896966718763
@@ -344,14 +390,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/97259909"
     },
     {
-      "id": "cw-23-9nbc6n",
+      "id": "98893617",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$87.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 98893617",
       "coords": [
         35.224182162519426,
         -80.76652913695311
@@ -359,14 +407,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/98893617"
     },
     {
-      "id": "cw-24-2wr6r5",
+      "id": "98893621",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$98.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 98893621",
       "coords": [
         35.18029248352085,
         -80.8288523531168
@@ -374,14 +424,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/98893621"
     },
     {
-      "id": "cw-25-ri3ck9",
+      "id": "98893625",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$109.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 98893625",
       "coords": [
         35.16477047938871,
         -80.85312622645566
@@ -389,14 +441,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/98893625"
     },
     {
-      "id": "cw-26-n5we0w",
+      "id": "98893631",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$28.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 98893631",
       "coords": [
         35.14153574297929,
         -80.81989614841608
@@ -404,14 +458,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/98893631"
     },
     {
-      "id": "cw-27-2lg3op",
+      "id": "98893635",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$39.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 98893635",
       "coords": [
         35.14014507227382,
         -80.91104557559576
@@ -419,14 +475,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/98893635"
     },
     {
-      "id": "cw-28-ana4ng",
+      "id": "98893641",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$50.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 98893641",
       "coords": [
         34.98416283663373,
         -80.97415165300991
@@ -434,14 +492,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/98893641"
     },
     {
-      "id": "cw-29-auet3a",
+      "id": "98893647",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$61.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 98893647",
       "coords": [
         34.565811149083125,
         -80.92068681471645
@@ -449,14 +509,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/98893647"
     },
     {
-      "id": "cw-30-vghhk0",
+      "id": "99217929",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$72.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 99217929",
       "coords": [
         30.424443036613656,
         -94.85140933076384
@@ -464,14 +526,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/99217929"
     },
     {
-      "id": "cw-31-3flozc",
+      "id": "99254851",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$83.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 99254851",
       "coords": [
         40.513576753306566,
         -122.52489770661886
@@ -479,14 +543,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/99254851"
     },
     {
-      "id": "cw-32-kz3asx",
+      "id": "99320119",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$94.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 99320119",
       "coords": [
         29.955414921928114,
         -82.92914299098524
@@ -494,14 +560,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/99320119"
     },
     {
-      "id": "cw-33-1vcb4v",
+      "id": "100484013",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$105.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 100484013",
       "coords": [
         41.47332559068003,
         -79.43896634206698
@@ -509,14 +577,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/100484013"
     },
     {
-      "id": "cw-34-qqr4ii",
+      "id": "100484017",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$24.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 100484017",
       "coords": [
         41.601439497945606,
         -79.0498726975993
@@ -524,14 +594,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/100484017"
     },
     {
-      "id": "cw-35-mcwmsg",
+      "id": "101000938",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$35.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 101000938",
       "coords": [
         32.78744819637695,
         -100.38881603498226
@@ -539,14 +611,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/101000938"
     },
     {
-      "id": "cw-36-dvs2zt",
+      "id": "101002388",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$46.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 101002388",
       "coords": [
         32.35215821091968,
         -99.8074558680387
@@ -554,14 +628,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/101002388"
     },
     {
-      "id": "cw-37-eo20e1",
+      "id": "101727513",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$57.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 101727513",
       "coords": [
         33.0856496433845,
         -97.55860196080307
@@ -569,14 +645,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/101727513"
     },
     {
-      "id": "cw-38-jlmuci",
+      "id": "102217482",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$68.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 102217482",
       "coords": [
         37.60542766882383,
         -93.30988299196832
@@ -584,14 +662,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/102217482"
     },
     {
-      "id": "cw-39-jklet2",
+      "id": "102538958",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$79.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 102538958",
       "coords": [
         32.11382475154835,
         -98.6059819621788
@@ -599,14 +679,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/102538958"
     },
     {
-      "id": "cw-40-dzs39n",
+      "id": "102674777",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$90.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 102674777",
       "coords": [
         41.552852841754614,
         -78.59589355149593
@@ -614,14 +696,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/102674777"
     },
     {
-      "id": "cw-41-4isgwu",
+      "id": "103111720",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$101.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 103111720",
       "coords": [
         31.18466259669051,
         -99.84172487646613
@@ -629,14 +713,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/103111720"
     },
     {
-      "id": "cw-42-6alwxd",
+      "id": "103622659",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$20.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 103622659",
       "coords": [
         34.81279544014983,
         -81.71191186065111
@@ -644,14 +730,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/103622659"
     },
     {
-      "id": "cw-43-j3dj2c",
+      "id": "103670031",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$31.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 103670031",
       "coords": [
         37.28970188720117,
         -108.04069053424276
@@ -659,14 +747,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/103670031"
     },
     {
-      "id": "cw-44-qj14tc",
+      "id": "27686762",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$42.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27686762",
       "coords": [
         34.191624764391534,
         -118.01754928775259
@@ -674,14 +764,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27686762"
     },
     {
-      "id": "cw-45-oxjh2h",
+      "id": "27686898",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$53.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27686898",
       "coords": [
         34.16751355773657,
         -118.09167909814205
@@ -689,14 +781,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27686898"
     },
     {
-      "id": "cw-46-67ehkv",
+      "id": "27690472",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$64.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27690472",
       "coords": [
         33.98190393593031,
         -118.11433808687717
@@ -704,14 +798,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27690472"
     },
     {
-      "id": "cw-47-q744lw",
+      "id": "27689892",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$75.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27689892",
       "coords": [
         34.14105013865177,
         -118.37960934355718
@@ -719,14 +815,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27689892"
     },
     {
-      "id": "cw-48-jqky3j",
+      "id": "27689898",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$86.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27689898",
       "coords": [
         34.235202679533685,
         -118.42134842565918
@@ -734,14 +832,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27689898"
     },
     {
-      "id": "cw-49-ni892j",
+      "id": "27690010",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$97.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27690010",
       "coords": [
         34.23435087959126,
         -118.41282462416483
@@ -749,14 +849,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27690010"
     },
     {
-      "id": "cw-50-vssbxa",
+      "id": "27686118",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$108.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27686118",
       "coords": [
         34.0569512804699,
         -118.07179468563564
@@ -764,14 +866,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27686118"
     },
     {
-      "id": "cw-51-yrgun8",
+      "id": "27686148",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$27.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27686148",
       "coords": [
         34.074558949906546,
         -118.05577675124302
@@ -779,14 +883,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27686148"
     },
     {
-      "id": "cw-52-wsjn17",
+      "id": "27686690",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$38.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27686690",
       "coords": [
         34.08200127356746,
         -118.2277203802479
@@ -794,14 +900,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27686690"
     },
     {
-      "id": "cw-53-flombf",
+      "id": "27686738",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$49.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27686738",
       "coords": [
         34.13485709023796,
         -118.0436989543555
@@ -809,14 +917,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27686738"
     },
     {
-      "id": "cw-54-5pfltp",
+      "id": "27686000",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$60.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27686000",
       "coords": [
         34.02926754362659,
         -118.06906448297298
@@ -824,14 +934,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27686000"
     },
     {
-      "id": "cw-55-u14ufv",
+      "id": "27686012",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$71.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27686012",
       "coords": [
         34.056053079474886,
         -118.08746088837071
@@ -839,14 +951,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27686012"
     },
     {
-      "id": "cw-56-x5s0ea",
+      "id": "27693984",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$82.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27693984",
       "coords": [
         34.30400975461419,
         -118.40904676207587
@@ -854,14 +968,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27693984"
     },
     {
-      "id": "cw-57-536gz9",
+      "id": "27694002",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$93.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27694002",
       "coords": [
         34.25639628349155,
         -118.38803462106333
@@ -869,14 +985,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27694002"
     },
     {
-      "id": "cw-58-1rugvm",
+      "id": "27684848",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$104.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27684848",
       "coords": [
         34.23641708497319,
         -118.33063361073924
@@ -884,14 +1002,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27684848"
     },
     {
-      "id": "cw-59-v7fzk8",
+      "id": "27684712",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$23.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27684712",
       "coords": [
         34.1556291441618,
         -118.31256220048174
@@ -899,14 +1019,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27684712"
     },
     {
-      "id": "cw-60-s1uq5c",
+      "id": "27640256",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$34.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27640256",
       "coords": [
         34.87272690463924,
         -120.24501137461947
@@ -914,14 +1036,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27640256"
     },
     {
-      "id": "cw-61-256puc",
+      "id": "27640294",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$45.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27640294",
       "coords": [
         34.83981090608946,
         -120.16795835918663
@@ -929,14 +1053,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27640294"
     },
     {
-      "id": "cw-62-ko01ec",
+      "id": "26826921",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$56.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 26826921",
       "coords": [
         38.17047642206651,
         -82.63497427273381
@@ -944,14 +1070,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/26826921"
     },
     {
-      "id": "cw-63-c3bw3a",
+      "id": "26853146",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$67.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 26853146",
       "coords": [
         37.464816354041545,
         -82.52541919293208
@@ -959,14 +1087,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/26853146"
     },
     {
-      "id": "cw-64-bbqdb9",
+      "id": "26934907",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$78.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 26934907",
       "coords": [
         38.286210030143735,
         -82.977505782771
@@ -974,14 +1104,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/26934907"
     },
     {
-      "id": "cw-65-waegw3",
+      "id": "27015578",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$89.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27015578",
       "coords": [
         41.743344422394685,
         -111.78293885485516
@@ -989,14 +1121,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27015578"
     },
     {
-      "id": "cw-66-os2odh",
+      "id": "27015598",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$100.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27015598",
       "coords": [
         41.72086881121348,
         -111.88672253977705
@@ -1004,14 +1138,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27015598"
     },
     {
-      "id": "cw-67-3h9r67",
+      "id": "27015734",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$19.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27015734",
       "coords": [
         41.62166241306733,
         -111.74032489501322
@@ -1019,14 +1155,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27015734"
     },
     {
-      "id": "cw-68-gf4w1v",
+      "id": "27015882",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$30.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27015882",
       "coords": [
         41.51816293726808,
         -111.71441367506638
@@ -1034,14 +1172,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27015882"
     },
     {
-      "id": "cw-69-5noks5",
+      "id": "27049789",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$41.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27049789",
       "coords": [
         34.78231847802884,
         -120.53053474453638
@@ -1049,14 +1189,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27049789"
     },
     {
-      "id": "cw-70-v6cjo3",
+      "id": "27054961",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$52.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27054961",
       "coords": [
         32.653466660900186,
         -116.6782239423575
@@ -1064,14 +1206,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27054961"
     },
     {
-      "id": "cw-71-egvpp9",
+      "id": "27056413",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$63.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27056413",
       "coords": [
         32.55140076083552,
         -117.08442920449687
@@ -1079,14 +1223,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27056413"
     },
     {
-      "id": "cw-72-eb41q7",
+      "id": "27059069",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$74.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27059069",
       "coords": [
         32.5910398608368,
         -116.52551811107048
@@ -1094,14 +1240,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27059069"
     },
     {
-      "id": "cw-73-nbl5za",
+      "id": "27100483",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$85.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27100483",
       "coords": [
         34.395626858292374,
         -119.07642174618458
@@ -1109,14 +1257,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27100483"
     },
     {
-      "id": "cw-74-pvrlkk",
+      "id": "27105639",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$96.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27105639",
       "coords": [
         34.401238681350314,
         -118.70158901874392
@@ -1124,14 +1274,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27105639"
     },
     {
-      "id": "cw-75-fytslz",
+      "id": "27110333",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$107.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27110333",
       "coords": [
         34.42617049030026,
         -118.58664126820841
@@ -1139,14 +1291,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27110333"
     },
     {
-      "id": "cw-76-u16kf0",
+      "id": "27745365",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$26.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27745365",
       "coords": [
         32.91259367824996,
         -116.92483846975945
@@ -1154,14 +1308,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27745365"
     },
     {
-      "id": "cw-77-pcmgf5",
+      "id": "27744881",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$37.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27744881",
       "coords": [
         33.086018232880406,
         -116.91642301489284
@@ -1169,14 +1325,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27744881"
     },
     {
-      "id": "cw-78-zsuh9n",
+      "id": "27743791",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$48.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27743791",
       "coords": [
         33.04483941701286,
         -117.12822244817563
@@ -1184,14 +1342,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27743791"
     },
     {
-      "id": "cw-79-13s60e",
+      "id": "27743795",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$59.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27743795",
       "coords": [
         33.04105021499469,
         -117.15744071881954
@@ -1199,14 +1359,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27743795"
     },
     {
-      "id": "cw-80-zgllg2",
+      "id": "27692458",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$70.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27692458",
       "coords": [
         34.28864436510133,
         -118.1945503254035
@@ -1214,14 +1376,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27692458"
     },
     {
-      "id": "cw-81-yg84vv",
+      "id": "27688476",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$81.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27688476",
       "coords": [
         33.94890352908331,
         -118.17390449392764
@@ -1229,14 +1393,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27688476"
     },
     {
-      "id": "cw-82-4m1bbx",
+      "id": "27688644",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$92.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27688644",
       "coords": [
         34.26406695761804,
         -118.27059373581395
@@ -1244,14 +1410,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27688644"
     },
     {
-      "id": "cw-83-1u0lgu",
+      "id": "27687960",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$103.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27687960",
       "coords": [
         34.22201935843028,
         -118.17775191674508
@@ -1259,14 +1427,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27687960"
     },
     {
-      "id": "cw-84-1w91zo",
+      "id": "27742455",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$22.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27742455",
       "coords": [
         33.11815931016928,
         -116.78703206140771
@@ -1274,14 +1444,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27742455"
     },
     {
-      "id": "cw-85-sy8s1d",
+      "id": "27741637",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$33.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27741637",
       "coords": [
         32.9421426053792,
         -117.12115903906212
@@ -1289,14 +1461,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27741637"
     },
     {
-      "id": "cw-86-bytgnm",
+      "id": "27738223",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$44.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27738223",
       "coords": [
         32.69166418138849,
         -117.00761500198806
@@ -1304,14 +1478,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27738223"
     },
     {
-      "id": "cw-87-ywwujg",
+      "id": "27733495",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$55.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27733495",
       "coords": [
         32.63747244853563,
         -116.88406164318691
@@ -1319,14 +1495,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27733495"
     },
     {
-      "id": "cw-88-xun777",
+      "id": "27684418",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$66.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27684418",
       "coords": [
         34.17467936441752,
         -117.98868968184321
@@ -1334,14 +1512,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27684418"
     },
     {
-      "id": "cw-89-g22xw7",
+      "id": "27727531",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$77.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27727531",
       "coords": [
         32.99000310516921,
         -116.58735101727846
@@ -1349,14 +1529,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27727531"
     },
     {
-      "id": "cw-90-d6vx4o",
+      "id": "27810944",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$88.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27810944",
       "coords": [
         21.145646519246355,
         -156.73516010990957
@@ -1364,14 +1546,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27810944"
     },
     {
-      "id": "cw-91-hjveov",
+      "id": "27811938",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$99.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27811938",
       "coords": [
         21.142248388690845,
         -156.91883210372424
@@ -1379,14 +1563,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27811938"
     },
     {
-      "id": "cw-92-rf83mq",
+      "id": "27811944",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$18.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27811944",
       "coords": [
         21.131997389312694,
         -156.88398123813238
@@ -1394,14 +1580,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27811944"
     },
     {
-      "id": "cw-93-tnmpve",
+      "id": "27820588",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$29.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27820588",
       "coords": [
         34.26641480468747,
         -117.46406026742493
@@ -1409,14 +1597,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27820588"
     },
     {
-      "id": "cw-94-ch6w1w",
+      "id": "27821828",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$40.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27821828",
       "coords": [
         33.33727605045425,
         -117.13619567095309
@@ -1424,14 +1614,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27821828"
     },
     {
-      "id": "cw-95-9dq7f8",
+      "id": "27821878",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$51.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27821878",
       "coords": [
         34.212008998915934,
         -117.45802219516506
@@ -1439,14 +1631,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27821878"
     },
     {
-      "id": "cw-96-fethvz",
+      "id": "27824476",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$62.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27824476",
       "coords": [
         34.13975960807717,
         -117.14946620369905
@@ -1454,14 +1648,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27824476"
     },
     {
-      "id": "cw-97-rnabmf",
+      "id": "27824482",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$73.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27824482",
       "coords": [
         34.14415280678959,
         -117.18907921084883
@@ -1469,14 +1665,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27824482"
     },
     {
-      "id": "cw-98-b10jwq",
+      "id": "27825893",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$84.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27825893",
       "coords": [
         34.161620951589065,
         -117.01550378232196
@@ -1484,14 +1682,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27825893"
     },
     {
-      "id": "cw-99-5bbosu",
+      "id": "27825910",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$95.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27825910",
       "coords": [
         34.14678614676945,
         -117.06845892343304
@@ -1499,14 +1699,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27825910"
     },
     {
-      "id": "cw-100-lwtsu8",
+      "id": "27826758",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$106.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27826758",
       "coords": [
         33.21334422379994,
         -117.37667756966255
@@ -1514,14 +1716,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27826758"
     },
     {
-      "id": "cw-101-co2wue",
+      "id": "27832054",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$25.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27832054",
       "coords": [
         34.17876853931838,
         -117.26578102633697
@@ -1529,14 +1733,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27832054"
     },
     {
-      "id": "cw-102-n9ke68",
+      "id": "27833812",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$36.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27833812",
       "coords": [
         34.11136260736584,
         -117.09930779178237
@@ -1544,14 +1750,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27833812"
     },
     {
-      "id": "cw-103-c9yjk0",
+      "id": "27833828",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$47.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27833828",
       "coords": [
         34.08902180843537,
         -117.03899431368372
@@ -1559,14 +1767,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27833828"
     },
     {
-      "id": "cw-104-f5re2o",
+      "id": "27837836",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$58.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27837836",
       "coords": [
         33.708662465630574,
         -117.6362555849197
@@ -1574,14 +1784,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27837836"
     },
     {
-      "id": "cw-105-mhlzrb",
+      "id": "27840802",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$69.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27840802",
       "coords": [
         33.92330195862228,
         -117.59783466225417
@@ -1589,14 +1801,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27840802"
     },
     {
-      "id": "cw-106-skx9gf",
+      "id": "27843138",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$80.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27843138",
       "coords": [
         34.13569098558003,
         -117.54096660296301
@@ -1604,14 +1818,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27843138"
     },
     {
-      "id": "cw-107-acoakl",
+      "id": "27853039",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$91.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 27853039",
       "coords": [
         33.96472557066409,
         -117.46618477637372
@@ -1619,14 +1835,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/27853039"
     },
     {
-      "id": "cw-108-g5p4ve",
+      "id": "31426085",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$102.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 31426085",
       "coords": [
         35.28540719753596,
         -78.25504405610387
@@ -1634,14 +1852,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/31426085"
     },
     {
-      "id": "cw-109-oymxo6",
+      "id": "31426091",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$21.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 31426091",
       "coords": [
         35.56429970475629,
         -78.79418543298911
@@ -1649,14 +1869,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/31426091"
     },
     {
-      "id": "cw-110-teqdsl",
+      "id": "31696653",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$32.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 31696653",
       "coords": [
         44.11503049614077,
         -110.68505520075541
@@ -1664,14 +1886,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/31696653"
     },
     {
-      "id": "cw-111-4jxx38",
+      "id": "31707759",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$43.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 31707759",
       "coords": [
         43.858239078266486,
         -110.58563720254854
@@ -1679,14 +1903,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/31707759"
     },
     {
-      "id": "cw-112-aioanz",
+      "id": "31752823",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$54.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 31752823",
       "coords": [
         43.0795309592593,
         -111.03736250446708
@@ -1694,14 +1920,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/31752823"
     },
     {
-      "id": "cw-113-q7z9ek",
+      "id": "31845107",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$65.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 31845107",
       "coords": [
         37.165544595435485,
         -83.30899987161008
@@ -1709,14 +1937,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/31845107"
     },
     {
-      "id": "cw-114-tem88j",
+      "id": "31860283",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$76.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 31860283",
       "coords": [
         37.47899864135374,
         -83.67723733444086
@@ -1724,14 +1954,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/31860283"
     },
     {
-      "id": "cw-115-r66q6c",
+      "id": "31883010",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$87.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 31883010",
       "coords": [
         37.81208591655726,
         -83.46387549379801
@@ -1739,14 +1971,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/31883010"
     },
     {
-      "id": "cw-116-fqwtkj",
+      "id": "32175630",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$98.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32175630",
       "coords": [
         35.63978062438295,
         -118.47001509182907
@@ -1754,14 +1988,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32175630"
     },
     {
-      "id": "cw-117-3wr7os",
+      "id": "32175774",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$109.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32175774",
       "coords": [
         35.31087025110509,
         -118.56961554348452
@@ -1769,14 +2005,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32175774"
     },
     {
-      "id": "cw-118-7etyvx",
+      "id": "32176398",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$28.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32176398",
       "coords": [
         35.63974902372616,
         -118.48275849324794
@@ -1784,14 +2022,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32176398"
     },
     {
-      "id": "cw-119-m6v4nv",
+      "id": "32445261",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$39.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32445261",
       "coords": [
         20.887944593800384,
         -156.25329372845587
@@ -1799,14 +2039,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32445261"
     },
     {
-      "id": "cw-120-dn2i60",
+      "id": "32445277",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$50.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32445277",
       "coords": [
         20.885682927432757,
         -156.25243926182793
@@ -1814,14 +2056,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32445277"
     },
     {
-      "id": "cw-121-mg6cet",
+      "id": "32445285",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$61.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32445285",
       "coords": [
         20.848045795963763,
         -156.26846666195698
@@ -1829,14 +2073,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32445285"
     },
     {
-      "id": "cw-122-u0qp6n",
+      "id": "32446165",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$72.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32446165",
       "coords": [
         20.85155119495673,
         -156.18536613037907
@@ -1844,14 +2090,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32446165"
     },
     {
-      "id": "cw-123-rhqon1",
+      "id": "32446785",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$83.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32446785",
       "coords": [
         20.803353531370465,
         -156.22141973031913
@@ -1859,14 +2107,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32446785"
     },
     {
-      "id": "cw-124-gov4z5",
+      "id": "32450215",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$94.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32450215",
       "coords": [
         20.812264729677434,
         -156.11808366641117
@@ -1874,14 +2124,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32450215"
     },
     {
-      "id": "cw-125-cqwpl4",
+      "id": "32451143",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$105.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32451143",
       "coords": [
         20.819710003162132,
         -156.61794365116322
@@ -1889,14 +2141,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32451143"
     },
     {
-      "id": "cw-126-gf2ini",
+      "id": "32454619",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$24.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32454619",
       "coords": [
         20.890392731019396,
         -156.50505885367497
@@ -1904,14 +2158,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32454619"
     },
     {
-      "id": "cw-127-8omb6h",
+      "id": "32641515",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$35.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32641515",
       "coords": [
         21.56201630965088,
         -158.00006232570644
@@ -1919,14 +2175,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32641515"
     },
     {
-      "id": "cw-128-whshgb",
+      "id": "32642471",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$46.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32642471",
       "coords": [
         21.373643919784758,
         -157.88039033297744
@@ -1934,14 +2192,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32642471"
     },
     {
-      "id": "cw-129-6lrmji",
+      "id": "32642501",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$57.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32642501",
       "coords": [
         21.32856872152441,
         -157.8008271368052
@@ -1949,14 +2209,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32642501"
     },
     {
-      "id": "cw-130-efogrm",
+      "id": "32642509",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$68.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32642509",
       "coords": [
         21.30665892314189,
         -157.78836900398466
@@ -1964,14 +2226,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32642509"
     },
     {
-      "id": "cw-131-8wd1kq",
+      "id": "32644597",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$79.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 32644597",
       "coords": [
         21.556100709170142,
         -157.8991479295259
@@ -1979,14 +2243,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/32644597"
     },
     {
-      "id": "cw-132-kfcq1k",
+      "id": "34806525",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$90.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 34806525",
       "coords": [
         37.26884890345255,
         -85.88584156307957
@@ -1994,14 +2260,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/34806525"
     },
     {
-      "id": "cw-133-c8291o",
+      "id": "34806643",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$101.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 34806643",
       "coords": [
         37.27408315487506,
         -86.2507890680628
@@ -2009,14 +2277,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/34806643"
     },
     {
-      "id": "cw-134-c2x5um",
+      "id": "34806682",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$20.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 34806682",
       "coords": [
         37.575764369314754,
         -85.73979194255111
@@ -2024,14 +2294,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/34806682"
     },
     {
-      "id": "cw-135-n1p8x9",
+      "id": "34806691",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$31.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 34806691",
       "coords": [
         37.35922778283419,
         -85.99802000144713
@@ -2039,14 +2311,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/34806691"
     },
     {
-      "id": "cw-136-dlfwcj",
+      "id": "35204680",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$42.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 35204680",
       "coords": [
         40.960972965096445,
         -110.57929109793129
@@ -2054,14 +2328,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/35204680"
     },
     {
-      "id": "cw-137-qjgex0",
+      "id": "35208696",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$53.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 35208696",
       "coords": [
         41.452251452770234,
         -110.17287108105104
@@ -2069,14 +2345,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/35208696"
     },
     {
-      "id": "cw-138-d52h7z",
+      "id": "35363391",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$64.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 35363391",
       "coords": [
         30.535176080658236,
         -86.38260699391692
@@ -2084,14 +2362,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/35363391"
     },
     {
-      "id": "cw-139-af17vn",
+      "id": "48817278",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$75.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 48817278",
       "coords": [
         37.96722133789961,
         -89.35222940120248
@@ -2099,14 +2379,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/48817278"
     },
     {
-      "id": "cw-140-3vgi26",
+      "id": "48817290",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$86.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 48817290",
       "coords": [
         38.18766113345887,
         -88.92712296653234
@@ -2114,14 +2396,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/48817290"
     },
     {
-      "id": "cw-141-825o7o",
+      "id": "48817294",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$97.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 48817294",
       "coords": [
         38.038058570604385,
         -88.961525097739
@@ -2129,14 +2413,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/48817294"
     },
     {
-      "id": "cw-142-6uyl7c",
+      "id": "36763378",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$108.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 36763378",
       "coords": [
         38.23689357664459,
         -85.43586650257016
@@ -2144,14 +2430,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/36763378"
     },
     {
-      "id": "cw-143-mrzbx6",
+      "id": "36763386",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$27.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 36763386",
       "coords": [
         37.75727064337584,
         -84.87295790388586
@@ -2159,14 +2447,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/36763386"
     },
     {
-      "id": "cw-144-ao837b",
+      "id": "37210065",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$38.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37210065",
       "coords": [
         42.02082332646846,
         -110.04990993584772
@@ -2174,14 +2464,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37210065"
     },
     {
-      "id": "cw-145-b8xi87",
+      "id": "37260959",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$49.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37260959",
       "coords": [
         35.0373931539686,
         -116.38374008074041
@@ -2189,14 +2481,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37260959"
     },
     {
-      "id": "cw-146-rajr69",
+      "id": "37354271",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$60.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37354271",
       "coords": [
         35.32227733722281,
         -120.42286604334959
@@ -2204,14 +2498,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37354271"
     },
     {
-      "id": "cw-147-rs79vo",
+      "id": "37354521",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$71.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37354521",
       "coords": [
         35.303818069770934,
         -120.40607317241233
@@ -2219,14 +2515,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37354521"
     },
     {
-      "id": "cw-148-mlsuvy",
+      "id": "37355183",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$82.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37355183",
       "coords": [
         36.26710131742169,
         -121.06642943417427
@@ -2234,14 +2532,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37355183"
     },
     {
-      "id": "cw-149-fq1uf6",
+      "id": "37355331",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$93.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37355331",
       "coords": [
         35.33436713334043,
         -120.50441279047148
@@ -2249,14 +2549,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37355331"
     },
     {
-      "id": "cw-150-pgld3t",
+      "id": "37706107",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$104.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706107",
       "coords": [
         32.723759057373734,
         -115.59459322334959
@@ -2264,14 +2566,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706107"
     },
     {
-      "id": "cw-151-l1y3rw",
+      "id": "37706123",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$23.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706123",
       "coords": [
         32.70510314535425,
         -115.1249526713722
@@ -2279,14 +2583,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706123"
     },
     {
-      "id": "cw-152-6luoab",
+      "id": "37706171",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$34.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706171",
       "coords": [
         32.70557047894674,
         -115.12497247169084
@@ -2294,14 +2600,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706171"
     },
     {
-      "id": "cw-153-o0epqt",
+      "id": "37706183",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$45.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706183",
       "coords": [
         32.705485282851775,
         -115.03290185469062
@@ -2309,14 +2617,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706183"
     },
     {
-      "id": "cw-154-k0hu6c",
+      "id": "37706193",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$56.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706193",
       "coords": [
         32.666314855043055,
         -115.50349140371519
@@ -2324,14 +2634,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706193"
     },
     {
-      "id": "cw-155-ri7zte",
+      "id": "37706227",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$67.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706227",
       "coords": [
         33.946711948296084,
         -116.64094223361076
@@ -2339,14 +2651,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706227"
     },
     {
-      "id": "cw-156-zvtzg5",
+      "id": "37706233",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$78.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706233",
       "coords": [
         32.676115454466554,
         -115.52496914096398
@@ -2354,14 +2668,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706233"
     },
     {
-      "id": "cw-157-2iuetq",
+      "id": "37706241",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$89.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706241",
       "coords": [
         32.7050171502921,
         -115.02982025438185
@@ -2369,14 +2685,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706241"
     },
     {
-      "id": "cw-158-cddys3",
+      "id": "37706295",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$100.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706295",
       "coords": [
         32.66133205136965,
         -115.55103881132447
@@ -2384,14 +2702,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706295"
     },
     {
-      "id": "cw-159-sdd89v",
+      "id": "37706327",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$19.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706327",
       "coords": [
         33.44684953284207,
         -115.8434476538638
@@ -2399,14 +2719,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706327"
     },
     {
-      "id": "cw-160-zk4qvr",
+      "id": "37706475",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$30.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706475",
       "coords": [
         33.88633493192157,
         -116.8033311230739
@@ -2414,14 +2736,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706475"
     },
     {
-      "id": "cw-161-xm8pey",
+      "id": "37706597",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$41.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706597",
       "coords": [
         32.70868645901651,
         -115.51544700863157
@@ -2429,14 +2753,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706597"
     },
     {
-      "id": "cw-162-qxhh9b",
+      "id": "37706743",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$52.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706743",
       "coords": [
         32.731459718505455,
         -115.71574384589624
@@ -2444,14 +2770,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706743"
     },
     {
-      "id": "cw-163-i29d9m",
+      "id": "37706851",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$63.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706851",
       "coords": [
         32.717524323370974,
         -115.59452622337498
@@ -2459,14 +2787,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706851"
     },
     {
-      "id": "cw-164-h5n6a5",
+      "id": "37706877",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$74.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37706877",
       "coords": [
         32.84302686405241,
         -115.74046825790596
@@ -2474,14 +2804,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37706877"
     },
     {
-      "id": "cw-165-6ans30",
+      "id": "37707025",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$85.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37707025",
       "coords": [
         33.76092993113418,
         -116.55001826930581
@@ -2489,14 +2821,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37707025"
     },
     {
-      "id": "cw-166-fmpcrk",
+      "id": "37707089",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$96.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37707089",
       "coords": [
         33.74476513069872,
         -116.53550819852936
@@ -2504,14 +2838,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37707089"
     },
     {
-      "id": "cw-167-erz31a",
+      "id": "37707167",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$107.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37707167",
       "coords": [
         32.717524323370974,
         -115.59452622337498
@@ -2519,14 +2855,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37707167"
     },
     {
-      "id": "cw-168-g9tp0b",
+      "id": "37707281",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$26.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37707281",
       "coords": [
         32.705485282851775,
         -115.03290185469062
@@ -2534,14 +2872,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37707281"
     },
     {
-      "id": "cw-169-nmijym",
+      "id": "37707351",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$37.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37707351",
       "coords": [
         32.70693752612733,
         -115.51403040815836
@@ -2549,14 +2889,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37707351"
     },
     {
-      "id": "cw-170-rhy3ga",
+      "id": "37707377",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$48.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37707377",
       "coords": [
         33.37362089262839,
         -116.42822035146146
@@ -2564,14 +2906,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37707377"
     },
     {
-      "id": "cw-171-lfh9vu",
+      "id": "37707399",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$59.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37707399",
       "coords": [
         32.676115454466554,
         -115.52496914096398
@@ -2579,14 +2923,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37707399"
     },
     {
-      "id": "cw-172-t2mae0",
+      "id": "37707515",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$70.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37707515",
       "coords": [
         32.823761685473315,
         -115.284210775532
@@ -2594,14 +2940,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37707515"
     },
     {
-      "id": "cw-173-pcrklc",
+      "id": "37707555",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$81.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37707555",
       "coords": [
         32.7050171502921,
         -115.02982025438185
@@ -2609,14 +2957,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37707555"
     },
     {
-      "id": "cw-174-5rua9t",
+      "id": "37707643",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$92.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37707643",
       "coords": [
         32.6960885362442,
         -115.28398696606556
@@ -2624,14 +2974,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37707643"
     },
     {
-      "id": "cw-175-f33pgl",
+      "id": "37707759",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$103.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37707759",
       "coords": [
         32.67650986411111,
         -115.34451150917205
@@ -2639,14 +2991,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37707759"
     },
     {
-      "id": "cw-176-e4luob",
+      "id": "37707807",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$22.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37707807",
       "coords": [
         32.70557047894674,
         -115.12497247169084
@@ -2654,14 +3008,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37707807"
     },
     {
-      "id": "cw-177-72ww28",
+      "id": "37795836",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$33.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37795836",
       "coords": [
         37.62188854334435,
         -86.50407116573138
@@ -2669,14 +3025,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37795836"
     },
     {
-      "id": "cw-178-a2r324",
+      "id": "37795844",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$44.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37795844",
       "coords": [
         37.58980940125603,
         -86.55186437761165
@@ -2684,14 +3042,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37795844"
     },
     {
-      "id": "cw-179-d3nmv5",
+      "id": "37985745",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$55.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37985745",
       "coords": [
         39.83048440545283,
         -110.96910803100539
@@ -2699,14 +3059,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37985745"
     },
     {
-      "id": "cw-180-yd3fom",
+      "id": "37985835",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$66.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37985835",
       "coords": [
         39.77703047909759,
         -110.79263765521296
@@ -2714,14 +3076,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37985835"
     },
     {
-      "id": "cw-181-e4vr0a",
+      "id": "37985961",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$77.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37985961",
       "coords": [
         39.674219829080386,
         -111.30490527983987
@@ -2729,14 +3093,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37985961"
     },
     {
-      "id": "cw-182-o3hkof",
+      "id": "37986067",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$88.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 37986067",
       "coords": [
         39.83048440545283,
         -110.96910803100539
@@ -2744,14 +3110,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/37986067"
     },
     {
-      "id": "cw-183-gupzt1",
+      "id": "40038465",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$99.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40038465",
       "coords": [
         40.62620165154722,
         -109.82009029489708
@@ -2759,14 +3127,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40038465"
     },
     {
-      "id": "cw-184-1mrpo8",
+      "id": "40038531",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$18.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40038531",
       "coords": [
         40.74319008056993,
         -109.62233593550202
@@ -2774,14 +3144,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40038531"
     },
     {
-      "id": "cw-185-mr1qlk",
+      "id": "40038575",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$29.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40038575",
       "coords": [
         40.62620165154722,
         -109.82009029489708
@@ -2789,14 +3161,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40038575"
     },
     {
-      "id": "cw-186-nqbo6w",
+      "id": "40038585",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$40.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40038585",
       "coords": [
         40.569310387527906,
         -109.69758472871061
@@ -2804,14 +3178,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40038585"
     },
     {
-      "id": "cw-187-ilihcu",
+      "id": "40038629",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$51.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40038629",
       "coords": [
         40.4085321954582,
         -109.34101903293192
@@ -2819,14 +3195,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40038629"
     },
     {
-      "id": "cw-188-2j16b9",
+      "id": "40038697",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$62.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40038697",
       "coords": [
         40.52616245648093,
         -109.60583283659359
@@ -2834,14 +3212,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40038697"
     },
     {
-      "id": "cw-189-9recm1",
+      "id": "40038747",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$73.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40038747",
       "coords": [
         40.679765670442976,
         -109.66083466824838
@@ -2849,14 +3229,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40038747"
     },
     {
-      "id": "cw-190-mkhkfe",
+      "id": "40543638",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$84.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40543638",
       "coords": [
         30.680759888907946,
         -87.13175894222142
@@ -2864,14 +3246,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40543638"
     },
     {
-      "id": "cw-191-3aoyab",
+      "id": "40590786",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$95.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40590786",
       "coords": [
         37.24594428330484,
         -83.1835657728469
@@ -2879,14 +3263,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40590786"
     },
     {
-      "id": "cw-192-v23luc",
+      "id": "40590788",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$106.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40590788",
       "coords": [
         37.232079286674406,
         -83.03620279569499
@@ -2894,14 +3280,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40590788"
     },
     {
-      "id": "cw-193-7oq53g",
+      "id": "40837011",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$25.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40837011",
       "coords": [
         42.645518457703815,
         -111.69939657295527
@@ -2909,14 +3297,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40837011"
     },
     {
-      "id": "cw-194-opp2qz",
+      "id": "40839867",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$36.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40839867",
       "coords": [
         42.585156914855446,
         -111.73341823712163
@@ -2924,14 +3314,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40839867"
     },
     {
-      "id": "cw-195-z2roat",
+      "id": "40839871",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$47.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40839871",
       "coords": [
         42.606860119805866,
         -111.70610116853787
@@ -2939,14 +3331,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40839871"
     },
     {
-      "id": "cw-196-ntqy71",
+      "id": "40846741",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$58.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40846741",
       "coords": [
         42.16772619507517,
         -111.8501047311672
@@ -2954,14 +3348,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40846741"
     },
     {
-      "id": "cw-197-7he1nk",
+      "id": "40763841",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$69.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40763841",
       "coords": [
         37.876654740542,
         -79.9773990560896
@@ -2969,14 +3365,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40763841"
     },
     {
-      "id": "cw-198-w3ejkw",
+      "id": "40763895",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$80.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40763895",
       "coords": [
         37.50636026081792,
         -80.10652287227873
@@ -2984,14 +3382,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40763895"
     },
     {
-      "id": "cw-199-kfdz6r",
+      "id": "40763925",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$91.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40763925",
       "coords": [
         38.06986571592973,
         -79.89758911084162
@@ -2999,14 +3399,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40763925"
     },
     {
-      "id": "cw-200-azg12v",
+      "id": "40763967",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$102.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40763967",
       "coords": [
         37.792154732273204,
         -79.75961965187608
@@ -3014,14 +3416,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40763967"
     },
     {
-      "id": "cw-201-2irv8y",
+      "id": "40851497",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$21.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 40851497",
       "coords": [
         42.33198388564149,
         -111.77466620701632
@@ -3029,14 +3433,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/40851497"
     },
     {
-      "id": "cw-202-6b97no",
+      "id": "41000489",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$32.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 41000489",
       "coords": [
         30.72783298152542,
         -86.65996527910075
@@ -3044,14 +3450,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/41000489"
     },
     {
-      "id": "cw-203-5dce3w",
+      "id": "41061446",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$43.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 41061446",
       "coords": [
         37.34708364362823,
         -88.91428609707927
@@ -3059,14 +3467,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/41061446"
     },
     {
-      "id": "cw-204-gzydsu",
+      "id": "41061450",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$54.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 41061450",
       "coords": [
         37.08944921037279,
         -88.59452458825265
@@ -3074,14 +3484,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/41061450"
     },
     {
-      "id": "cw-205-d4yp5b",
+      "id": "41061458",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$65.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 41061458",
       "coords": [
         37.041711129315686,
         -88.71092175041524
@@ -3089,14 +3501,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/41061458"
     },
     {
-      "id": "cw-206-mct4cw",
+      "id": "41210167",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$76.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 41210167",
       "coords": [
         33.751211712563666,
         -116.87130465759863
@@ -3104,14 +3518,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/41210167"
     },
     {
-      "id": "cw-207-zuz2p8",
+      "id": "41662997",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$87.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 41662997",
       "coords": [
         38.358912403278424,
         -122.36634666394008
@@ -3119,14 +3535,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/41662997"
     },
     {
-      "id": "cw-208-3l4sg9",
+      "id": "41668365",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$98.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 41668365",
       "coords": [
         38.48813827701426,
         -122.40236201801791
@@ -3134,14 +3552,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/41668365"
     },
     {
-      "id": "cw-209-tbo9jt",
+      "id": "41672309",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$109.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 41672309",
       "coords": [
         38.19944225514627,
         -122.38554478089951
@@ -3149,14 +3569,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/41672309"
     },
     {
-      "id": "cw-210-e32e4m",
+      "id": "43891345",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$28.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 43891345",
       "coords": [
         37.92926620814123,
         -90.46129070820683
@@ -3164,14 +3586,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/43891345"
     },
     {
-      "id": "cw-211-zp1ona",
+      "id": "43939109",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$39.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 43939109",
       "coords": [
         46.91508647285419,
         -116.95184139284942
@@ -3179,14 +3603,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/43939109"
     },
     {
-      "id": "cw-212-p9vpty",
+      "id": "43983536",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$50.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 43983536",
       "coords": [
         42.23087931428587,
         -111.29573322679721
@@ -3194,14 +3620,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/43983536"
     },
     {
-      "id": "cw-213-0g65ap",
+      "id": "43990704",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$61.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 43990704",
       "coords": [
         42.33070906339615,
         -111.23383209590624
@@ -3209,14 +3637,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/43990704"
     },
     {
-      "id": "cw-214-3y43v7",
+      "id": "43995744",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$72.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 43995744",
       "coords": [
         42.53701632338101,
         -111.57365053046796
@@ -3224,14 +3654,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/43995744"
     },
     {
-      "id": "cw-215-9wnl7a",
+      "id": "43997220",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$83.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 43997220",
       "coords": [
         42.72877913996702,
         -111.61722476882507
@@ -3239,14 +3671,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/43997220"
     },
     {
-      "id": "cw-216-4fgwyf",
+      "id": "44291531",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$94.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44291531",
       "coords": [
         46.90399645197912,
         -115.84741211384768
@@ -3254,14 +3688,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44291531"
     },
     {
-      "id": "cw-217-eikpif",
+      "id": "44291551",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$105.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44291551",
       "coords": [
         47.06866925304272,
         -115.9543032376149
@@ -3269,14 +3705,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44291551"
     },
     {
-      "id": "cw-218-p9jfux",
+      "id": "44045359",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$24.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44045359",
       "coords": [
         44.13855486959177,
         -113.24522399796223
@@ -3284,14 +3722,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44045359"
     },
     {
-      "id": "cw-219-a4l5nf",
+      "id": "44351736",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$35.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44351736",
       "coords": [
         37.25926081649608,
         -79.93834267315833
@@ -3299,14 +3739,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44351736"
     },
     {
-      "id": "cw-220-1ptlcz",
+      "id": "44351744",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$46.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44351744",
       "coords": [
         37.41734478280331,
         -79.93462228183499
@@ -3314,14 +3756,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44351744"
     },
     {
-      "id": "cw-221-vjrnb9",
+      "id": "44351764",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$57.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44351764",
       "coords": [
         36.983891709639146,
         -79.514095328208
@@ -3329,14 +3773,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44351764"
     },
     {
-      "id": "cw-222-92dv7y",
+      "id": "44477343",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$68.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44477343",
       "coords": [
         46.23284218343359,
         -116.02254540572328
@@ -3344,14 +3790,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44477343"
     },
     {
-      "id": "cw-223-98j38t",
+      "id": "44193214",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$79.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44193214",
       "coords": [
         44.95093944022494,
         -113.64272442340634
@@ -3359,14 +3807,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44193214"
     },
     {
-      "id": "cw-224-jl3grm",
+      "id": "44539818",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$90.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44539818",
       "coords": [
         46.15049321976208,
         -115.58742117209675
@@ -3374,14 +3824,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44539818"
     },
     {
-      "id": "cw-225-kyqf39",
+      "id": "44571317",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$101.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44571317",
       "coords": [
         39.43931745678489,
         -121.05913820121471
@@ -3389,14 +3841,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44571317"
     },
     {
-      "id": "cw-226-cc1vqp",
+      "id": "44573305",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$20.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44573305",
       "coords": [
         39.41320258199903,
         -121.13964274338873
@@ -3404,14 +3858,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44573305"
     },
     {
-      "id": "cw-227-ddquay",
+      "id": "44590639",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$31.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44590639",
       "coords": [
         39.52479060700342,
         -120.9381061943244
@@ -3419,14 +3875,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44590639"
     },
     {
-      "id": "cw-228-2r37gn",
+      "id": "44591345",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$42.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44591345",
       "coords": [
         39.43968082217521,
         -120.66131893955027
@@ -3434,14 +3892,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44591345"
     },
     {
-      "id": "cw-229-34qo9m",
+      "id": "44592723",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$53.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44592723",
       "coords": [
         39.56241984110021,
         -120.54778127054338
@@ -3449,14 +3909,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44592723"
     },
     {
-      "id": "cw-230-qyg1vg",
+      "id": "44605248",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$64.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44605248",
       "coords": [
         39.224348822978506,
         -121.26855860576624
@@ -3464,14 +3926,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44605248"
     },
     {
-      "id": "cw-231-bisn41",
+      "id": "44746835",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$75.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44746835",
       "coords": [
         37.040686697317824,
         -89.38223680543489
@@ -3479,14 +3943,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44746835"
     },
     {
-      "id": "cw-232-9o7w4v",
+      "id": "44746839",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$86.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44746839",
       "coords": [
         37.08769177865081,
         -89.26274797579853
@@ -3494,14 +3960,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44746839"
     },
     {
-      "id": "cw-233-k4pau7",
+      "id": "44921313",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$97.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44921313",
       "coords": [
         37.1468004832852,
         -90.07626713998991
@@ -3509,14 +3977,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44921313"
     },
     {
-      "id": "cw-234-e32w5f",
+      "id": "44957997",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$108.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 44957997",
       "coords": [
         36.542175456673924,
         -83.63042145854718
@@ -3524,14 +3994,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/44957997"
     },
     {
-      "id": "cw-235-lxm0aa",
+      "id": "45169884",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$27.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 45169884",
       "coords": [
         37.1839440320933,
         -91.25984146831179
@@ -3539,14 +4011,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/45169884"
     },
     {
-      "id": "cw-236-y4wkxo",
+      "id": "45180690",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$38.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 45180690",
       "coords": [
         45.7247847134234,
         -114.2818229656806
@@ -3554,14 +4028,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/45180690"
     },
     {
-      "id": "cw-237-17q2sf",
+      "id": "45180746",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$49.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 45180746",
       "coords": [
         46.38110790741292,
         -114.22040568511119
@@ -3569,14 +4045,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/45180746"
     },
     {
-      "id": "cw-238-3hm26s",
+      "id": "45180826",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$60.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 45180826",
       "coords": [
         46.53710372610741,
         -114.15955970549027
@@ -3584,14 +4062,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/45180826"
     },
     {
-      "id": "cw-239-j8mz62",
+      "id": "45180972",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$71.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 45180972",
       "coords": [
         46.161122381991234,
         -113.94894651929684
@@ -3599,14 +4079,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/45180972"
     },
     {
-      "id": "cw-240-yltoqj",
+      "id": "48529152",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$82.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 48529152",
       "coords": [
         42.252445094718944,
         -77.21649130294716
@@ -3614,14 +4096,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/48529152"
     },
     {
-      "id": "cw-241-jklwc6",
+      "id": "46844949",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$93.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 46844949",
       "coords": [
         41.50376716606265,
         -111.33752733024818
@@ -3629,14 +4113,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/46844949"
     },
     {
-      "id": "cw-242-r1asnb",
+      "id": "46848135",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$104.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 46848135",
       "coords": [
         40.91350914096468,
         -110.82411480934711
@@ -3644,14 +4130,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/46848135"
     },
     {
-      "id": "cw-243-gh82kx",
+      "id": "46853145",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$23.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 46853145",
       "coords": [
         41.86443903202819,
         -111.00899951414856
@@ -3659,14 +4147,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/46853145"
     },
     {
-      "id": "cw-244-lhclgo",
+      "id": "46860821",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$34.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 46860821",
       "coords": [
         41.39035517967216,
         -111.01235864668647
@@ -3674,14 +4164,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/46860821"
     },
     {
-      "id": "cw-245-sqpmhs",
+      "id": "46868373",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$45.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 46868373",
       "coords": [
         41.72067400997842,
         -111.0855687094353
@@ -3689,14 +4181,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/46868373"
     },
     {
-      "id": "cw-246-zhopk8",
+      "id": "46874317",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$56.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 46874317",
       "coords": [
         41.1441165684627,
         -110.8057889698335
@@ -3704,14 +4198,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/46874317"
     },
     {
-      "id": "cw-247-93mpsn",
+      "id": "46878679",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$67.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 46878679",
       "coords": [
         40.84149639155264,
         -110.92719435356648
@@ -3719,14 +4215,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/46878679"
     },
     {
-      "id": "cw-248-mantas",
+      "id": "46880161",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$78.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 46880161",
       "coords": [
         41.57363265594696,
         -111.14370176653924
@@ -3734,14 +4232,16 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/46880161"
     },
     {
-      "id": "cw-249-aiiqer",
+      "id": "46880959",
       "type": "civil-works",
       "topCategory": "contingency",
-      "title": "Federal Dam Structure (Civil Works)",
-      "subcategory": "Type: Water Control & Dam Structure | Reach: N/A",
+      "title": "Federal Water Resources Facility (Civil Works)",
+      "projectName": "Federal Water Resources Facility",
+      "costFormatted": "$89.0M (Auth Allocation)",
+      "subcategory": "Reach: N/A | ID: 46880959",
       "coords": [
         41.50554945860611,
         -111.01342446342849
@@ -3749,7 +4249,7 @@
       "time": "",
       "severity": "good",
       "mag": 5,
-      "link": "https://www.usace.army.mil/Missions/Civil-Works/"
+      "link": "https://nid.sec.usace.army.mil/#/dams/system/46880959"
     }
   ]
 }
