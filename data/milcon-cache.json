@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T10:56:52.357Z",
+  "updated": "2026-10-22T10:56:11.776Z",
   "events": [
     {
       "id": "N6247320F5226",
@@ -11,8 +11,8 @@
       "costFormatted": "$855.6M",
       "subcategory": "Installation, CA | Scope: DESIGN-BUILD SOUTH AIRFEILD MCON PROJECTS CHINA LAKE, CALIFORNIA",
       "coords": [
-        35.994552483846704,
-        -120.05707573799722
+        35.85818851908394,
+        -119.49669768569373
       ],
       "time": "",
       "severity": "critical",
@@ -29,8 +29,8 @@
       "costFormatted": "$408.7M",
       "subcategory": "Installation, NC | Scope: HURRICANE FLORENCE RECOVERY MILCON PACKAGE 7",
       "coords": [
-        35.72528033813411,
-        -80.17054066051836
+        35.875762572960205,
+        -80.18637271511744
       ],
       "time": "",
       "severity": "critical",
@@ -47,8 +47,8 @@
       "costFormatted": "$400.0M",
       "subcategory": "Installation, NJ | Scope: ACCELERATED DESIGN-BUILD TO BUDGET CONSTRUCT BARRACKS, MULTI-USE TRAINING FACILITY, G",
       "coords": [
-        40.6597096233704,
-        -74.59202133244182
+        40.30142046800735,
+        -74.71538585897177
       ],
       "time": "",
       "severity": "critical",
@@ -65,8 +65,8 @@
       "costFormatted": "$331.6M",
       "subcategory": "Installation, MD | Scope: BASE BID PHASE 1 P3021 HANGAR 21 COMPLEX",
       "coords": [
-        39.43338031893815,
-        -76.5435046860555
+        39.44740150673822,
+        -76.52777372093037
       ],
       "time": "",
       "severity": "critical",
@@ -83,8 +83,8 @@
       "costFormatted": "$294.1M",
       "subcategory": "Installation, PR | Scope: DESIGN-BID-BUILD CONSTRUCTION CONTRACT IN SUPPORT OF PUERTO RICO ARMY NATIONAL GUARD ",
       "coords": [
-        18.448038780984508,
-        -66.46260630646353
+        17.993641501174327,
+        -66.71793886977707
       ],
       "time": "",
       "severity": "critical",
@@ -101,8 +101,8 @@
       "costFormatted": "$288.4M",
       "subcategory": "Installation, NC | Scope: THE F35 SUSTAINMENT CENTER IS A 255,461 SF DEPOT LEVEL HANGAR TO SUPPORT (20) F-35 AI",
       "coords": [
-        35.276276133859966,
-        -79.78572004936375
+        35.933615236922,
+        -79.7446629376813
       ],
       "time": "",
       "severity": "critical",
@@ -119,8 +119,8 @@
       "costFormatted": "$271.8M",
       "subcategory": "Installation, FL | Scope: WEG AC MAINTENANCE HANGAR TWO-PHASE DESIGN-BUILD OF ZONE 3 WEG HQ-MAINTENANCE HANGAR ",
       "coords": [
-        28.047456066026083,
-        -81.54991367682757
+        28.027247166149564,
+        -81.85659158583788
       ],
       "time": "",
       "severity": "critical",
@@ -137,8 +137,8 @@
       "costFormatted": "$250.7M",
       "subcategory": "Installation, GA | Scope: TRAINEE BARRACKS COMPLEXES, BRIGADE HEADQUARTERS AND PARADE FIELD",
       "coords": [
-        32.98768382203578,
-        -83.73973252752187
+        33.43662946912408,
+        -83.91496752084039
       ],
       "time": "",
       "severity": "critical",
@@ -155,8 +155,8 @@
       "costFormatted": "$240.0M",
       "subcategory": "Installation, NC | Scope: P197 DB AIRCRAFT MAINTENANCE HANGAR - BASE PRICE AND OPTIONS",
       "coords": [
-        35.80979685920197,
-        -79.54072703889857
+        35.47343010002765,
+        -79.95915268325858
       ],
       "time": "",
       "severity": "critical",
@@ -173,8 +173,8 @@
       "costFormatted": "$239.7M",
       "subcategory": "Installation, NC | Scope: HURRICANE FLORENCE RECOVERY MILCON PACKAGE 3",
       "coords": [
-        35.93392918968359,
-        -79.44398758323683
+        35.63205941214122,
+        -79.70041548520229
       ],
       "time": "",
       "severity": "critical",
@@ -191,8 +191,8 @@
       "costFormatted": "$228.4M",
       "subcategory": "Installation, NC | Scope: BASE PRICE  P199, AIRCRAFT HANGAR AND P235 FLIGHTLINE UTILITIES",
       "coords": [
-        35.996081227932955,
-        -80.12008284428882
+        35.87386175330207,
+        -79.83564060729016
       ],
       "time": "",
       "severity": "critical",
@@ -209,8 +209,8 @@
       "costFormatted": "$213.4M",
       "subcategory": "Installation, LA | Scope: FORT POLK BARRACKS AND CENTRAL ENERGY PLANTS",
       "coords": [
-        30.91020388240124,
-        -91.905410313845
+        31.153506505894978,
+        -92.19583315685851
       ],
       "time": "",
       "severity": "critical",
@@ -227,8 +227,8 @@
       "costFormatted": "$194.7M",
       "subcategory": "Installation, NC | Scope: BASE BID",
       "coords": [
-        35.44569481059391,
-        -79.41212684794327
+        35.48152084570166,
+        -79.51198619869801
       ],
       "time": "",
       "severity": "critical",
@@ -245,8 +245,8 @@
       "costFormatted": "$188.3M",
       "subcategory": "Installation, TX | Scope: 9400 BLOCK HAMMERHEAD BARRACKS RENOVATIONS (DESIGN-BUILD), FORT CAVAZOS, TEXAS",
       "coords": [
-        31.118505833436828,
-        -97.76100273393297
+        31.134848094346367,
+        -97.7880144772009
       ],
       "time": "",
       "severity": "critical",
@@ -263,8 +263,8 @@
       "costFormatted": "$185.6M",
       "subcategory": "Installation, NY | Scope: CONSTRUCTION OF NEW CADET BARRACKS AT USMA WEST POINT, NY. IGF::OT::IGF",
       "coords": [
-        42.168097558256065,
-        -75.28488771757958
+        42.3364570399262,
+        -75.13687214279233
       ],
       "time": "",
       "severity": "critical",
@@ -281,8 +281,8 @@
       "costFormatted": "$184.4M",
       "subcategory": "Installation, CA | Scope: P-201 DBB MACC TO JSF HANGAR MCAS MIRAMAR, CA",
       "coords": [
-        35.71573201882698,
-        -119.92128502505085
+        35.78593306348929,
+        -120.05824045429742
       ],
       "time": "",
       "severity": "critical",
@@ -299,8 +299,8 @@
       "costFormatted": "$183.0M",
       "subcategory": "Installation, WA | Scope: MILCON P859 DBB CVN 78 AIRCRAFT CARRIER ELECTRICAL UPGRADE FOR VARIOUS SUBSTATION LOC",
       "coords": [
-        47.08973190175993,
-        -121.63647870087159
+        47.741616339952266,
+        -121.8153792776622
       ],
       "time": "",
       "severity": "critical",
@@ -317,8 +317,8 @@
       "costFormatted": "$181.5M",
       "subcategory": "Installation, CA | Scope: P-351 F-35C AIRCRAFT MAINTENANCE HANGAR, NAS LEMOORE, CA",
       "coords": [
-        36.06529472684607,
-        -120.0379470463488
+        36.1511751239047,
+        -119.64466578784874
       ],
       "time": "",
       "severity": "critical",
@@ -335,8 +335,8 @@
       "costFormatted": "$178.0M",
       "subcategory": "Installation, WV | Scope: UKRAINE. ABL FACILITY CONSTRUCTION, EQUIPMENT, AND MANAGEMENT",
       "coords": [
-        38.85021342855214,
-        -80.68722151139667
+        38.59035950187442,
+        -80.67080116792928
       ],
       "time": "",
       "severity": "critical",
@@ -353,8 +353,8 @@
       "costFormatted": "$168.9M",
       "subcategory": "Installation, NC | Scope: DESIGN-BUILD (DB) HURRICANE FLORENCE RECOVERY MILCON PACKAGE 2, HQ FACILITIES AT MARI",
       "coords": [
-        35.28795499900379,
-        -79.9846185198271
+        35.760028993195824,
+        -79.70944443486154
       ],
       "time": "",
       "severity": "critical",
@@ -371,8 +371,8 @@
       "costFormatted": "$166.5M",
       "subcategory": "Installation, CA | Scope: P025-MQ 25 SQUADRON HANGAR AT NBVC",
       "coords": [
-        36.07232654064406,
-        -119.68918881517921
+        36.00633974273098,
+        -119.54828628478695
       ],
       "time": "",
       "severity": "critical",
@@ -389,8 +389,8 @@
       "costFormatted": "$160.5M",
       "subcategory": "Installation, NC | Scope: HURRICANE FLORENCE RECOVERY MILCON PACKAGE 1, P162F, PP254F, P246F, P142F,&P130F.",
       "coords": [
-        35.32395857488214,
-        -79.50768063121262
+        35.8444708813413,
+        -79.58667901352747
       ],
       "time": "",
       "severity": "critical",
@@ -407,8 +407,8 @@
       "costFormatted": "$158.2M",
       "subcategory": "Installation, HI | Scope: RECOVERYPROJECT#::5014::RP#  CONSTRUCTION OF THE NOAA PRC AT FORD ISLAND, PEARL HARBO",
       "coords": [
-        20.993201068421925,
-        -157.7566673100929
+        20.97215535680083,
+        -157.30004961626372
       ],
       "time": "",
       "severity": "critical",
@@ -425,8 +425,8 @@
       "costFormatted": "$157.7M",
       "subcategory": "Installation, NC | Scope: P688 APRON EXPANSION, PHASE II, P311 PARALLEL TAXIWAY, P683 HANGAR, P687 MV-22 MAINTE",
       "coords": [
-        35.744749616042235,
-        -80.06779092387876
+        35.64399930826187,
+        -79.7365939449631
       ],
       "time": "",
       "severity": "critical",
@@ -443,8 +443,8 @@
       "costFormatted": "$156.1M",
       "subcategory": "Installation, SC | Scope: P440 / 441 RECRUIT BARRACKS, MARINE CORPS RECRUIT DEPOT, PARRIS ISLAND, SC",
       "coords": [
-        34.22779526340657,
-        -81.11615617921794
+        33.46261215963434,
+        -81.30811317411569
       ],
       "time": "",
       "severity": "critical",
@@ -461,8 +461,8 @@
       "costFormatted": "$155.9M",
       "subcategory": "Installation, KS | Scope: IGF::OT::IGF PROJECT REQUIRES THE CONSTRUCTION OF A 2-BAY CORROSION CONTROL/FUEL CELL",
       "coords": [
-        38.73867298883787,
-        -97.04697557619748
+        38.39690890678421,
+        -96.99847218949475
       ],
       "time": "",
       "severity": "critical",
@@ -479,8 +479,8 @@
       "costFormatted": "$150.5M",
       "subcategory": "Installation, CA | Scope: IGF::OT::IGF FIRM-FIXED PRICE, DESIGN BID BUILD, P198&P203 CONSTRUCTION OF F-35 AIRCR",
       "coords": [
-        36.197235859522,
-        -119.42757133854614
+        35.78153228842106,
+        -119.53461000259074
       ],
       "time": "",
       "severity": "critical",
@@ -497,8 +497,8 @@
       "costFormatted": "$149.4M",
       "subcategory": "Installation, CA | Scope: THE CONTRACTOR MUST CONSTRUCT A NEW MULTI-BAY AIRCRAFT HANGAR OF APPROXIMATELY 130,00",
       "coords": [
-        36.079471477378966,
-        -119.5624231135159
+        35.85025884439457,
+        -119.83552551285473
       ],
       "time": "",
       "severity": "critical",
@@ -515,8 +515,8 @@
       "costFormatted": "$149.4M",
       "subcategory": "Installation, OK | Scope: DESIGN AND CONSTRUCTION OF THE KC-46A MAINTENANCE HANGAR AT TINKER AFB, OKLAHOMA.",
       "coords": [
-        35.66707420777627,
-        -96.68013090196291
+        35.9397955137935,
+        -96.85576496718747
       ],
       "time": "",
       "severity": "critical",
@@ -533,8 +533,8 @@
       "costFormatted": "$149.1M",
       "subcategory": "Installation, NV | Scope: DISASTER RESILIENCY PROGRAM (DRP) PHASE 1",
       "coords": [
-        38.30506836568126,
-        -117.10922967208654
+        38.34263501207071,
+        -117.3762602771056
       ],
       "time": "",
       "severity": "critical",
@@ -551,8 +551,8 @@
       "costFormatted": "$146.4M",
       "subcategory": "Installation, HI | Scope: FY09 DESIGN AND CONSTRUCT SOUTH RANGE PROJECTS, SCHOFIELD BARRACKS, OAHU, HAWAII",
       "coords": [
-        21.48075398012448,
-        -158.04189261149182
+        21.51539583443442,
+        -158.0687369597513
       ],
       "time": "",
       "severity": "critical",
@@ -563,14 +563,14 @@
       "id": "W9123620C2025",
       "type": "programs",
       "topCategory": "contingency",
-      "title": "MILCON: BALFOUR BEATTY CONSTRUCTION, LLC ($144.1M)",
+      "title": "MILCON: BALFOUR BEATTY CONSTRUCTION, LLC ($144.2M)",
       "projectName": "CONSTRUCTION OF THE BATTALION COMPLEX OPERATIONS BUILDING (PHASE 2)...",
-      "cost": 144054594.98,
-      "costFormatted": "$144.1M",
+      "cost": 144184993.98,
+      "costFormatted": "$144.2M",
       "subcategory": "Installation, VA | Scope: CONSTRUCTION OF THE BATTALION COMPLEX OPERATIONS BUILDING (PHASE 2) AND HANGAR FACILI",
       "coords": [
-        37.508890671350926,
-        -78.25489843923401
+        37.691948924304384,
+        -78.53695368325225
       ],
       "time": "",
       "severity": "critical",
@@ -587,8 +587,8 @@
       "costFormatted": "$142.6M",
       "subcategory": "Installation, WI | Scope: FT MCCOY BARRACKS ASSESSMENT AND REPAIRS, FORT MCCOY, WI",
       "coords": [
-        44.32892247212961,
-        -89.49182381709848
+        44.01234898745905,
+        -89.9728849699253
       ],
       "time": "",
       "severity": "critical",
@@ -605,8 +605,8 @@
       "costFormatted": "$141.3M",
       "subcategory": "Installation, SD | Scope: CONSTRUCT B-21 PHASE MAINTENANCE HANGAR AT ELLSWORTH AFB",
       "coords": [
-        44.60139982360633,
-        -99.35644941136786
+        44.4969390271215,
+        -99.06721568666055
       ],
       "time": "",
       "severity": "critical",
@@ -623,8 +623,8 @@
       "costFormatted": "$140.0M",
       "subcategory": "Installation, US | Scope: THIS PROJECT IS TO CONSTRUCT A MARINE CORPS BARRACKS COMPLEX CONSISTING OF TWO BUILDI",
       "coords": [
-        26.34783743392709,
-        127.75199544387671
+        26.36354721010871,
+        127.76133183200166
       ],
       "time": "",
       "severity": "critical",
@@ -641,8 +641,8 @@
       "costFormatted": "$139.1M",
       "subcategory": "Installation, SD | Scope: CONSTRUCT LO HANGAR",
       "coords": [
-        44.15793452922795,
-        -99.50284114890417
+        44.482816842915526,
+        -99.07618511048993
       ],
       "time": "",
       "severity": "critical",
@@ -659,8 +659,8 @@
       "costFormatted": "$137.1M",
       "subcategory": "Installation, ND | Scope: MINOT HELO OPS FACILITY CONSTRUCTION, MINOT AFB, ND.",
       "coords": [
-        47.25343296935656,
-        -99.63697517999401
+        47.884443942933686,
+        -99.91466746162202
       ],
       "time": "",
       "severity": "critical",
@@ -677,8 +677,8 @@
       "costFormatted": "$135.1M",
       "subcategory": "Installation, WY | Scope: CONSTRUCT HELO/TRF OPS/AMU AND ALERT FAC",
       "coords": [
-        43.017722351426805,
-        -106.91084637459127
+        42.58416423000434,
+        -107.0255356990461
       ],
       "time": "",
       "severity": "critical",
@@ -695,8 +695,8 @@
       "costFormatted": "$133.6M",
       "subcategory": "Installation, CA | Scope: CONSTRUCTION OF A NEW KC-46A TWO BAY MAINTENANCE HANGAR AND FUSELAGE TRAINER AT MARCH",
       "coords": [
-        35.82016235739837,
-        -119.40664136560915
+        35.808567820596906,
+        -119.67447896122786
       ],
       "time": "",
       "severity": "critical",
@@ -713,8 +713,8 @@
       "costFormatted": "$131.6M",
       "subcategory": "Installation, HI | Scope: DESIGN BUILD CONSTRUCTION SERVICES + INITIAL OUTFITTING OF MEDICAL FURNITURE AND EQUI",
       "coords": [
-        21.485054120205014,
-        -158.04811596283344
+        21.502968516586204,
+        -158.06601667265832
       ],
       "time": "",
       "severity": "critical",
@@ -731,8 +731,8 @@
       "costFormatted": "$129.4M",
       "subcategory": "Installation, MO | Scope: FLW AIT BARRACKS PHASE 2",
       "coords": [
-        38.709527039286925,
-        -91.98106623148011
+        38.116776263294724,
+        -92.65784363805669
       ],
       "time": "",
       "severity": "critical",
@@ -749,8 +749,8 @@
       "costFormatted": "$129.2M",
       "subcategory": "Installation, OK | Scope: IGF::OT::IGF CONSTRUCT KC-46A TWO BAY HANGAR AT TINKER AFB, OK",
       "coords": [
-        35.33346584616248,
-        -97.19580081836074
+        35.69825042190176,
+        -96.58988198662672
       ],
       "time": "",
       "severity": "critical",
@@ -767,8 +767,8 @@
       "costFormatted": "$128.9M",
       "subcategory": "Installation, CA | Scope: 3-BAY HANGAR AT TRAVIS AIR FORCE BASE",
       "coords": [
-        36.242204411344815,
-        -119.9286608752548
+        36.340757288742076,
+        -120.05486580293912
       ],
       "time": "",
       "severity": "critical",
@@ -785,8 +785,8 @@
       "costFormatted": "$128.5M",
       "subcategory": "Installation, FL | Scope: OPTION PERIOD FOUR",
       "coords": [
-        27.775924656105,
-        -81.69890708933605
+        27.76143120350551,
+        -81.30035089097427
       ],
       "time": "",
       "severity": "critical",
@@ -803,8 +803,8 @@
       "costFormatted": "$127.9M",
       "subcategory": "Installation, US | Scope: MILCON CONSTRUCT RESCUE HELICOPTER OPS MAINTENANCE HANGAR, KADENA AIR BASE, OKINAWA, ",
       "coords": [
-        26.33673392698075,
-        127.7510010305888
+        26.34039804569489,
+        127.76938238993263
       ],
       "time": "",
       "severity": "critical",
@@ -821,8 +821,8 @@
       "costFormatted": "$125.8M",
       "subcategory": "Installation, NY | Scope: REPAIR BUILDING 740, LEE BARRACKS AND REPAIR BUILDING 738, SHERMAN BARRACKS, WEST POI",
       "coords": [
-        42.344844835973674,
-        -74.64235468058209
+        41.778756219931935,
+        -75.26900920632062
       ],
       "time": "",
       "severity": "critical",
@@ -839,8 +839,8 @@
       "costFormatted": "$124.3M",
       "subcategory": "Installation, NY | Scope: BRADLEY BARRACKS WEST POINT",
       "coords": [
-        42.48838807592175,
-        -75.23768113248359
+        42.43387159134463,
+        -74.98793599183115
       ],
       "time": "",
       "severity": "critical",
@@ -857,8 +857,8 @@
       "costFormatted": "$119.9M",
       "subcategory": "Installation, VA | Scope: BARRACKS COMPLEX, FORT LEE, VA",
       "coords": [
-        37.53180757497321,
-        -78.41860402752779
+        37.514172190417014,
+        -78.2800317291834
       ],
       "time": "",
       "severity": "critical",
@@ -875,8 +875,8 @@
       "costFormatted": "$117.2M",
       "subcategory": "Installation, CA | Scope: MCON P-391 F-35C HANGAR 6, PHASE 2",
       "coords": [
-        36.37767480909289,
-        -119.81849805175777
+        36.394118432609865,
+        -119.66045158191116
       ],
       "time": "",
       "severity": "critical",
@@ -893,8 +893,8 @@
       "costFormatted": "$116.8M",
       "subcategory": "Installation, MO | Scope: IGF::OT::IGF CLINIC AND TENANT BLDG, JEFFERSON BARRACKS, ST LOUIS MO.",
       "coords": [
-        38.409446044656605,
-        -92.2081220705543
+        38.40329295905321,
+        -92.23168767265068
       ],
       "time": "",
       "severity": "critical",
@@ -911,8 +911,8 @@
       "costFormatted": "$115.8M",
       "subcategory": "Installation, GU | Scope: FY25 MCON P-2301 HSC-25 COMPLEX AT THE ANDERSEN AIR FORCE BASE, GUAM, MARIANA ISLANDS",
       "coords": [
-        13.59978283931688,
-        144.90034636221208
+        13.579140036181128,
+        144.9186325478965
       ],
       "time": "",
       "severity": "critical",
@@ -929,8 +929,8 @@
       "costFormatted": "$113.4M",
       "subcategory": "Installation, OK | Scope: CONSTRUCTION OF AIT BARRACKS BUILDING AT FORT SILL, OK",
       "coords": [
-        35.21490569369131,
-        -96.68905471300467
+        35.22552535061388,
+        -96.641534087201
       ],
       "time": "",
       "severity": "critical",
@@ -947,8 +947,8 @@
       "costFormatted": "$111.9M",
       "subcategory": "Installation, SD | Scope: CONSTRUCT B-21 MPF/FTD FACILITIES",
       "coords": [
-        44.32536113021902,
-        -99.55551631130871
+        44.38143765594171,
+        -99.71908172579367
       ],
       "time": "",
       "severity": "critical",
@@ -965,8 +965,8 @@
       "costFormatted": "$111.5M",
       "subcategory": "Installation, MD | Scope: PHASE II CONSTRUCTION FOR P-691 AIRCRAFT DEVELOPMENT AND MAINTENANCE FACILITY, NAS PA",
       "coords": [
-        39.30065190014539,
-        -77.19643644245207
+        39.38136291001615,
+        -76.853546364807
       ],
       "time": "",
       "severity": "critical",
@@ -983,8 +983,8 @@
       "costFormatted": "$108.6M",
       "subcategory": "Installation, OK | Scope: FY23 KC-46A 2-BAY PDM HANGAR AT TINKER AIR FORCE BASE, OKLAHOMA.",
       "coords": [
-        35.44894372595238,
-        -97.1947925321492
+        35.87731218602657,
+        -96.93322680094236
       ],
       "time": "",
       "severity": "critical",
