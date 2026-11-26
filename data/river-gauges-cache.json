@@ -1,94 +1,103 @@
 {
-  "generatedAt": "2026-11-26T00:14:36.645Z",
-  "count": 135,
+  "generatedAt": "2026-11-26T09:26:51.449Z",
+  "count": 53,
   "events": [
     {
       "id": "CGCC2",
-      "title": "Bear Creek (CO) above Idledale - action (0 kcfs)",
+      "title": "Bear Creek (CO) above Idledale - action (0.00099 kcfs)",
       "lat": 39.6661,
       "lon": -105.2753,
-      "time": "2026-11-25T23:48:00Z",
+      "time": "2026-11-26T08:48:00Z",
       "severity": "critical",
-      "mag": 0
+      "mag": 0.00099
+    },
+    {
+      "id": "CRCC2",
+      "title": "Cochetopa Creek near Parlin - action (21.74 ft)",
+      "lat": 38.3372222,
+      "lon": -106.7736111,
+      "time": "2026-11-26T08:15:00Z",
+      "severity": "critical",
+      "mag": 21.74
     },
     {
       "id": "DCBN8",
-      "title": "Devils Lake near Devils Lake - major (49.84 ft)",
+      "title": "Devils Lake near Devils Lake - major (49.82 ft)",
       "lat": 48.0994444444444,
       "lon": -98.9027777777778,
-      "time": "2026-11-25T23:00:00Z",
+      "time": "2026-11-26T08:00:00Z",
       "severity": "critical",
-      "mag": 49.84
+      "mag": 49.82
+    },
+    {
+      "id": "DKBW1",
+      "title": "Duckabush River near Brinnon - action (7 ft)",
+      "lat": 47.684166666667,
+      "lon": -123.01027777778,
+      "time": "2026-11-26T08:45:00Z",
+      "severity": "critical",
+      "mag": 7
     },
     {
       "id": "ESLN8",
       "title": "Eastern Stump Lake near Lakota - major (49.77 ft)",
       "lat": 47.8686111111111,
       "lon": -98.3575,
-      "time": "2026-11-25T23:15:00Z",
+      "time": "2026-11-26T08:15:00Z",
       "severity": "critical",
       "mag": 49.77
     },
     {
       "id": "MCBC1",
-      "title": "Marsh Creek Reservoir   - action (168.41 ft)",
+      "title": "Marsh Creek Reservoir   - action (168.42 ft)",
       "lat": 37.89,
       "lon": -121.72611111111,
-      "time": "2026-11-25T23:15:00Z",
+      "time": "2026-11-26T08:00:00Z",
       "severity": "critical",
-      "mag": 168.41
+      "mag": 168.42
     },
     {
       "id": "MNRC2",
-      "title": "Mancos River near Mancos - minor (6.29 ft)",
+      "title": "Mancos River near Mancos - minor (6.26 ft)",
       "lat": 37.3572184,
       "lon": -108.254803,
-      "time": "2026-11-25T23:00:00Z",
+      "time": "2026-11-26T08:00:00Z",
       "severity": "critical",
-      "mag": 6.29
-    },
-    {
-      "id": "RVBC1",
-      "title": "Sacramento River at Rio Vista Bridge - action (7.64 ft)",
-      "lat": 38.159722222222,
-      "lon": -121.68638888889,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "critical",
-      "mag": 7.64
+      "mag": 6.26
     },
     {
       "id": "SRCW1",
-      "title": "Skokomish River at Combined Forks Virtual Gage - action (3.728 kcfs)",
+      "title": "Skokomish River at Combined Forks Virtual Gage - action (6.057 kcfs)",
       "lat": 47.316111111111,
       "lon": -123.23694444444,
-      "time": "2026-11-25T21:30:00Z",
+      "time": "2026-11-26T07:30:00Z",
       "severity": "critical",
-      "mag": 3.728
+      "mag": 6.057
     },
     {
       "id": "SRPW1",
-      "title": "Skokomish River near Potlatch - minor (16.92 ft)",
+      "title": "Skokomish River near Potlatch - moderate (17.7 ft)",
       "lat": 47.31,
       "lon": -123.17583333333,
-      "time": "2026-11-25T23:30:00Z",
+      "time": "2026-11-26T08:30:00Z",
       "severity": "critical",
-      "mag": 16.92
+      "mag": 17.7
     },
     {
       "id": "AKFM7",
-      "title": "Current River at Akers - low threshold (0.53 ft)",
+      "title": "Current River at Akers - low threshold (0.54 ft)",
       "lat": 37.375694,
       "lon": -91.552778,
-      "time": "2026-11-25T23:30:00Z",
+      "time": "2026-11-26T08:30:00Z",
       "severity": "warning",
-      "mag": 0.53
+      "mag": 0.54
     },
     {
       "id": "ALYM7",
       "title": "Jacks Fork at Alley Spring - low threshold (1.06 ft)",
       "lat": 37.14817,
       "lon": -91.44308,
-      "time": "2026-11-25T23:30:00Z",
+      "time": "2026-11-26T08:30:00Z",
       "severity": "warning",
       "mag": 1.06
     },
@@ -97,1125 +106,378 @@
       "title": "East Fork White River at Columbus - action (6.53 ft)",
       "lat": 39.2,
       "lon": -85.9256,
-      "time": "2026-11-25T23:00:00Z",
+      "time": "2026-11-26T09:00:00Z",
       "severity": "critical",
       "mag": 6.53
     },
     {
       "id": "BOON4",
-      "title": "Rockaway River at Boonton - action (305.41 ft)",
+      "title": "Rockaway River at Boonton - action (305.42 ft)",
       "lat": 40.89527778,
       "lon": -74.39777778,
-      "time": "2026-11-25T23:00:00Z",
+      "time": "2026-11-26T08:00:00Z",
       "severity": "critical",
-      "mag": 305.41
+      "mag": 305.42
     },
     {
       "id": "CDCI2",
       "title": "Deer Creek near Chicago Heights - low threshold (3.15 ft)",
       "lat": 41.520833333333,
       "lon": -87.590277777778,
-      "time": "2026-11-25T23:00:00Z",
+      "time": "2026-11-26T09:00:00Z",
       "severity": "warning",
       "mag": 3.15
     },
     {
       "id": "CHBV2",
-      "title": "Chesapeake Bay at Chesapeake Bay Bridge Tunnel (IN MLLW) - major (7.2 ft)",
+      "title": "Chesapeake Bay at Chesapeake Bay Bridge Tunnel (IN MLLW) - major (6.3 ft)",
       "lat": 37.03291,
       "lon": -76.08325,
-      "time": "2026-11-25T23:36:00Z",
+      "time": "2026-11-26T08:54:00Z",
       "severity": "critical",
-      "mag": 7.2
+      "mag": 6.3
     },
     {
       "id": "DWEM7",
       "title": "East Fork Drywood Creek at Prairie State Park - low threshold (1.13 ft)",
       "lat": 37.53527,
       "lon": -94.55805,
-      "time": "2026-11-25T23:15:00Z",
+      "time": "2026-11-26T08:15:00Z",
       "severity": "warning",
       "mag": 1.13
     },
     {
       "id": "EBDI2",
-      "title": "East Branch Du Page River at Lisle - low threshold (5.45 ft)",
+      "title": "East Branch Du Page River at Lisle - low threshold (5.43 ft)",
       "lat": 41.7928,
       "lon": -88.0789,
-      "time": "2026-11-25T22:45:00Z",
+      "time": "2026-11-26T07:45:00Z",
       "severity": "warning",
-      "mag": 5.45
+      "mag": 5.43
     },
     {
       "id": "EMHI2",
-      "title": "Salt Creek (IL) at Elmhurst - low threshold (4.92 ft)",
+      "title": "Salt Creek (IL) at Elmhurst - low threshold (4.96 ft)",
       "lat": 41.886111111111,
       "lon": -87.959166666667,
-      "time": "2026-11-25T23:20:00Z",
+      "time": "2026-11-26T08:20:00Z",
       "severity": "warning",
-      "mag": 4.92
+      "mag": 4.96
     },
     {
       "id": "FSKK1",
-      "title": "Marmaton River at Fort Scott - low threshold (6.69 ft)",
+      "title": "Marmaton River at Fort Scott - low threshold (6.68 ft)",
       "lat": 37.84889,
       "lon": -94.7025,
-      "time": "2026-11-25T23:30:00Z",
+      "time": "2026-11-26T08:30:00Z",
       "severity": "warning",
-      "mag": 6.69
+      "mag": 6.68
     },
     {
       "id": "FYTM7",
-      "title": "Moniteau Creek near Fayette - low threshold (4.88 ft)",
+      "title": "Moniteau Creek near Fayette - low threshold (4.87 ft)",
       "lat": 39.120833,
       "lon": -92.567222,
-      "time": "2026-11-25T23:30:00Z",
+      "time": "2026-11-26T08:30:00Z",
       "severity": "warning",
-      "mag": 4.88
+      "mag": 4.87
+    },
+    {
+      "id": "JPHV2",
+      "title": "James River near Jordan Point below Hopewell (IN MLLW) - minor (5.23 ft)",
+      "lat": 37.3156,
+      "lon": -77.2233,
+      "time": "2026-11-26T08:45:00Z",
+      "severity": "critical",
+      "mag": 5.23
+    },
+    {
+      "id": "JSFV2",
+      "title": "James River (VA) at Jamestown/Scotland Ferry (IN MLLW) - minor (4.19 ft)",
+      "lat": 37.220139,
+      "lon": -76.791453,
+      "time": "2026-11-26T08:00:00Z",
+      "severity": "critical",
+      "mag": 4.19
+    },
+    {
+      "id": "LWTV2",
+      "title": "Potomac River at Lewisetta (IN MLLW) - minor (3.13 ft)",
+      "lat": 37.995,
+      "lon": -76.465,
+      "time": "2026-11-26T08:36:00Z",
+      "severity": "critical",
+      "mag": 3.13
     },
     {
       "id": "MANI3",
-      "title": "Mill Creek (IN) at Cagles Mill - low threshold (7.12 ft)",
+      "title": "Mill Creek (IN) at Cagles Mill - low threshold (7.03 ft)",
       "lat": 39.4875,
       "lon": -86.9247,
-      "time": "2026-11-25T23:15:00Z",
+      "time": "2026-11-26T08:15:00Z",
       "severity": "warning",
-      "mag": 7.12
+      "mag": 7.03
     },
     {
       "id": "MFDP1",
       "title": "Tioga River at Mansfield - low threshold (-0.07 ft)",
       "lat": 41.7969444444444,
       "lon": -77.0805555555556,
-      "time": "2026-11-25T23:00:00Z",
+      "time": "2026-11-26T08:00:00Z",
       "severity": "warning",
       "mag": -0.07
     },
     {
       "id": "MOOV2",
-      "title": "Lake Moomaw at Gathright Dam - low threshold (1563.6 ft)",
+      "title": "Lake Moomaw at Gathright Dam - low threshold (1563.57 ft)",
       "lat": 37.949444444444,
       "lon": -79.959444444444,
-      "time": "2026-11-25T23:30:00Z",
+      "time": "2026-11-26T08:30:00Z",
       "severity": "warning",
-      "mag": 1563.6
+      "mag": 1563.57
     },
     {
       "id": "NBRI2",
-      "title": "West Fork North Branch Chicago River at Northbrook - low threshold (0.96 ft)",
+      "title": "West Fork North Branch Chicago River at Northbrook - low threshold (0.94 ft)",
       "lat": 42.138333333333,
       "lon": -87.834722222222,
-      "time": "2026-11-25T23:00:00Z",
+      "time": "2026-11-26T08:00:00Z",
       "severity": "warning",
-      "mag": 0.96
+      "mag": 0.94
+    },
+    {
+      "id": "NCDV2",
+      "title": "Upper Machodoc Creek near Dahlgren (IN MLLW) - action (3.49 ft)",
+      "lat": 38.319722222222,
+      "lon": -77.036666666667,
+      "time": "2026-11-26T08:36:00Z",
+      "severity": "critical",
+      "mag": 3.49
     },
     {
       "id": "NHPP1",
-      "title": "Delaware River at New Hope-Lambertville Bridge - low threshold (-0.37 ft)",
+      "title": "Delaware River at New Hope-Lambertville Bridge - low threshold (-0.41 ft)",
       "lat": 40.364722222222,
       "lon": -74.948888888889,
-      "time": "2026-11-25T22:45:00Z",
+      "time": "2026-11-26T07:45:00Z",
       "severity": "warning",
-      "mag": -0.37
+      "mag": -0.41
     },
     {
       "id": "NHRI3",
-      "title": "Wabash River at New Harmony - low threshold (1.61 ft)",
+      "title": "Wabash River at New Harmony - low threshold (1.59 ft)",
       "lat": 38.130833333333335,
       "lon": -87.9413888888889,
-      "time": "2026-11-25T23:30:00Z",
+      "time": "2026-11-26T08:30:00Z",
       "severity": "warning",
-      "mag": 1.61
+      "mag": 1.59
     },
     {
       "id": "OMHN1",
-      "title": "Missouri River at Omaha - low threshold (8.47 ft)",
+      "title": "Missouri River at Omaha - low threshold (8.44 ft)",
       "lat": 41.259054,
       "lon": -95.923221,
-      "time": "2026-11-25T23:00:00Z",
+      "time": "2026-11-26T08:00:00Z",
       "severity": "warning",
-      "mag": 8.47
+      "mag": 8.44
     },
     {
       "id": "PWDM7",
       "title": "Current River above Powder Mill - low threshold (1.92 ft)",
       "lat": 37.1855,
       "lon": -91.1779,
-      "time": "2026-11-25T23:45:00Z",
+      "time": "2026-11-26T08:45:00Z",
       "severity": "warning",
       "mag": 1.92
     },
     {
+      "id": "RAPV2",
+      "title": "Rappahannock River at Tappahannock (IN MLLW) - minor (3.1 ft)",
+      "lat": 37.9504,
+      "lon": -76.8867,
+      "time": "2026-11-26T08:45:00Z",
+      "severity": "critical",
+      "mag": 3.1
+    },
+    {
       "id": "RBXM7",
-      "title": "Roubidoux Creek near Waynesville - low threshold (-0.27 ft)",
+      "title": "Roubidoux Creek near Waynesville - low threshold (-0.26 ft)",
       "lat": 37.79194,
       "lon": -92.18333,
-      "time": "2026-11-25T23:30:00Z",
+      "time": "2026-11-26T08:30:00Z",
       "severity": "warning",
-      "mag": -0.27
+      "mag": -0.26
     },
     {
       "id": "RCCM7",
-      "title": "Marmaton River near Richards - low threshold (1.89 ft)",
+      "title": "Marmaton River near Richards - low threshold (1.87 ft)",
       "lat": 37.8647,
       "lon": -94.5822,
-      "time": "2026-11-25T23:15:00Z",
+      "time": "2026-11-26T08:15:00Z",
       "severity": "warning",
-      "mag": 1.89
+      "mag": 1.87
     },
     {
-      "id": "SHNI2",
-      "title": "Ohio River at Shawneetown - low threshold (14.84 ft)",
-      "lat": 37.691944444444,
-      "lon": -88.133333333333,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "warning",
-      "mag": 14.84
+      "id": "SGSM2",
+      "title": "St. George Creek at Straits Point (IN MLLW) - action (2.98 ft)",
+      "lat": 38.138333333333,
+      "lon": -76.5,
+      "time": "2026-11-26T08:24:00Z",
+      "severity": "critical",
+      "mag": 2.98
+    },
+    {
+      "id": "SLIM2",
+      "title": "Patuxent River at Solomons Island (IN MLLW) - action (2.6 ft)",
+      "lat": 38.32,
+      "lon": -76.45,
+      "time": "2026-11-26T08:36:00Z",
+      "severity": "critical",
+      "mag": 2.6
+    },
+    {
+      "id": "TIKV2",
+      "title": "Orchard Lake Outflow at Glebe Mills - action (4.08 ft)",
+      "lat": 37.425009,
+      "lon": -79.932393,
+      "time": "2026-11-26T09:00:00Z",
+      "severity": "critical",
+      "mag": 4.08
     },
     {
       "id": "UUUK1",
       "title": "Marmaton River near Uniontown - low threshold (-0.12 ft)",
       "lat": 37.83556,
       "lon": -94.98111,
-      "time": "2026-11-25T23:00:00Z",
+      "time": "2026-11-26T09:00:00Z",
       "severity": "warning",
       "mag": -0.12
     },
     {
       "id": "VLYM7",
-      "title": "Blackwater River near Valley City - low threshold (2.51 ft)",
+      "title": "Blackwater River near Valley City - low threshold (2.48 ft)",
       "lat": 38.87,
       "lon": -93.621944,
-      "time": "2026-11-25T23:00:00Z",
+      "time": "2026-11-26T08:00:00Z",
       "severity": "warning",
-      "mag": 2.51
+      "mag": 2.48
     },
     {
       "id": "WCRM7",
       "title": "Wilson Creek near Springfield - low threshold (0.4 ft)",
       "lat": 37.168611111111,
       "lon": -93.370277777778,
-      "time": "2026-11-25T23:00:00Z",
+      "time": "2026-11-26T08:00:00Z",
       "severity": "warning",
       "mag": 0.4
     },
     {
       "id": "WSPI2",
-      "title": "Salt Creek (IL) at Western Springs - low threshold (1.32 ft)",
+      "title": "Salt Creek (IL) at Western Springs - low threshold (1.46 ft)",
       "lat": 41.825833333333,
       "lon": -87.900277777778,
-      "time": "2026-11-25T22:50:00Z",
+      "time": "2026-11-26T08:50:00Z",
       "severity": "warning",
-      "mag": 1.32
+      "mag": 1.46
     },
     {
       "id": "WYNI2",
-      "title": "Skillet Fork River at Wayne City - low threshold (4.53 ft)",
+      "title": "Skillet Fork River at Wayne City - low threshold (4.55 ft)",
       "lat": 38.363333333333,
       "lon": -88.587777777778,
-      "time": "2026-11-25T23:00:00Z",
+      "time": "2026-11-26T08:00:00Z",
       "severity": "warning",
-      "mag": 4.53
+      "mag": 4.55
     },
     {
       "id": "BRPT2",
-      "title": "Big Sandy Creek (Trinity River Basin) near Bridgeport - low threshold (0.69 ft)",
+      "title": "Big Sandy Creek (Trinity River Basin) near Bridgeport - low threshold (0.66 ft)",
       "lat": 33.231666666667,
       "lon": -97.694444444444,
-      "time": "2026-11-25T23:15:00Z",
+      "time": "2026-11-26T08:15:00Z",
       "severity": "warning",
-      "mag": 0.69
+      "mag": 0.66
+    },
+    {
+      "id": "CRMC1",
+      "title": "Carmel River Lagoon   - action (10 ft)",
+      "lat": 36.535277777778,
+      "lon": -121.92444444444,
+      "time": "2026-11-26T08:55:00Z",
+      "severity": "critical",
+      "mag": 10
     },
     {
       "id": "DLLT2",
       "title": "Leon River near DeLeon - low threshold (-0.09 ft)",
       "lat": 32.173611111111,
       "lon": -98.532777777778,
-      "time": "2026-11-25T23:30:00Z",
+      "time": "2026-11-26T08:30:00Z",
       "severity": "warning",
       "mag": -0.09
     },
     {
       "id": "EPRT2",
-      "title": "Rio Grande at El Paso (Courchesne Bridge) - low threshold (2.19 ft)",
+      "title": "Rio Grande at El Paso (Courchesne Bridge) - low threshold (2.2 ft)",
       "lat": 31.80319,
       "lon": -106.54131,
-      "time": "2026-11-25T23:05:00Z",
+      "time": "2026-11-26T08:05:00Z",
       "severity": "warning",
-      "mag": 2.19
+      "mag": 2.2
     },
     {
       "id": "MOEA3",
-      "title": "Moenkopi Wash near Tuba city - action (26.37 ft)",
+      "title": "Moenkopi Wash near Tuba city - action (26.38 ft)",
       "lat": 36.105,
       "lon": -111.20111111111,
-      "time": "2026-11-25T23:45:00Z",
+      "time": "2026-11-26T07:45:00Z",
       "severity": "critical",
-      "mag": 26.37
+      "mag": 26.38
+    },
+    {
+      "id": "MSDT2",
+      "title": "Colorado River (TX) at Lake Travis - action (681.02 ft)",
+      "lat": 30.3915902,
+      "lon": -97.9069554,
+      "time": "2026-11-26T08:00:00Z",
+      "severity": "critical",
+      "mag": 681.02
     },
     {
       "id": "TILT2",
-      "title": "Nueces River near Tilden - action (12.53 ft)",
+      "title": "Nueces River near Tilden - action (12.18 ft)",
       "lat": 28.308611111111,
       "lon": -98.556944444444,
-      "time": "2026-11-25T23:30:00Z",
+      "time": "2026-11-26T08:30:00Z",
       "severity": "critical",
-      "mag": 12.53
-    },
-    {
-      "id": "ALIN7",
-      "title": "North Fork Alligator River at Gum Neck (in MLLW) - action (1.74 ft)",
-      "lat": 35.7215,
-      "lon": -76.1934,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "critical",
-      "mag": 1.74
-    },
-    {
-      "id": "ASTF1",
-      "title": "St. Johns River at Astor - major (4.28 ft)",
-      "lat": 29.166666666667,
-      "lon": -81.522222222222,
-      "time": "2026-11-25T22:30:00Z",
-      "severity": "critical",
-      "mag": 4.28
-    },
-    {
-      "id": "BBCM7",
-      "title": "Bull Creek near Walnut Shade - low threshold (0.95 ft)",
-      "lat": 36.717777777778,
-      "lon": -93.206666666667,
-      "time": "2026-11-25T23:25:00Z",
-      "severity": "warning",
-      "mag": 0.95
-    },
-    {
-      "id": "BCMF1",
-      "title": "Black Creek at Middleburg - action (14.47 ft)",
-      "lat": 30.0758333333333,
-      "lon": -81.8638888888889,
-      "time": "2026-11-25T22:45:00Z",
-      "severity": "critical",
-      "mag": 14.47
-    },
-    {
-      "id": "BERN7",
-      "title": "Trent River at New Bern (in MLLW) - action (2.15 ft)",
-      "lat": 35.1028,
-      "lon": -77.0366,
-      "time": "2026-11-25T23:35:00Z",
-      "severity": "critical",
-      "mag": 2.15
-    },
-    {
-      "id": "BGCV2",
-      "title": "Beggars Bridge Creek near Dawley Corners - low threshold (-1.4 ft)",
-      "lat": 36.679806,
-      "lon": -75.984,
-      "time": "2026-11-25T23:18:00Z",
-      "severity": "warning",
-      "mag": -1.4
-    },
-    {
-      "id": "BINF1",
-      "title": "Matanzas River at Bings Landing (in MHHW) - action (1.04 ft)",
-      "lat": 29.6155555555556,
-      "lon": -81.205,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 1.04
-    },
-    {
-      "id": "BKBF1",
-      "title": "St. Johns River at Buckman Bridge (I-295) (in MHHW) - action (1.19 ft)",
-      "lat": 30.1847222222222,
-      "lon": -81.6847222222222,
-      "time": "2026-11-25T23:36:00Z",
-      "severity": "critical",
-      "mag": 1.19
-    },
-    {
-      "id": "BKMF1",
-      "title": "Black Creek (in MHHW) - action (1.55 ft)",
-      "lat": 30.0805555555556,
-      "lon": -81.7611111111111,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 1.55
-    },
-    {
-      "id": "BUCF1",
-      "title": "St. Johns River at Buckman Bridge (I-295) (in MHHW) - action (1.15 ft)",
-      "lat": 30.19,
-      "lon": -81.6663888888889,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "critical",
-      "mag": 1.15
-    },
-    {
-      "id": "BUPF1",
-      "title": "Bulow Plantation State Park (in MHHW) - minor (1.55 ft)",
-      "lat": 29.4347222222222,
-      "lon": -81.1369444444444,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 1.55
-    },
-    {
-      "id": "BYBN7",
-      "title": "Bay River at Bayboro (in MLLW) - action (2.11 ft)",
-      "lat": 35.141,
-      "lon": -76.7651,
-      "time": "2026-11-25T23:45:00Z",
-      "severity": "critical",
-      "mag": 2.11
-    },
-    {
-      "id": "CELF1",
-      "title": "Crescent Lake at Crescent City (in NAVD88) - moderate (3.23 ft)",
-      "lat": 29.43,
-      "lon": -81.5055555555556,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 3.23
-    },
-    {
-      "id": "CHRG1",
-      "title": "Altamaha River near Charlotteville - low threshold (0.76 ft)",
-      "lat": 31.95777777777778,
-      "lon": -82.51722222222222,
-      "time": "2026-11-25T23:45:00Z",
-      "severity": "warning",
-      "mag": 0.76
-    },
-    {
-      "id": "COCF1",
-      "title": "St. Johns River near Cocoa - major (18.41 ft)",
-      "lat": 28.369444444444,
-      "lon": -80.872777777778,
-      "time": "2026-11-25T23:15:00Z",
-      "severity": "critical",
-      "mag": 18.41
-    },
-    {
-      "id": "CONF1",
-      "title": "Ochlockonee River near Concord (CR 12) - low threshold (24.97 ft)",
-      "lat": 30.668888888889,
-      "lon": -84.305277777778,
-      "time": "2026-11-25T23:45:00Z",
-      "severity": "warning",
-      "mag": 24.97
-    },
-    {
-      "id": "CTIN7",
-      "title": "Pamlico Sound at Cedar Island (in MLLW) - action (1.77 ft)",
-      "lat": 35.018333333333,
-      "lon": -76.314444444444,
-      "time": "2026-11-25T23:24:00Z",
-      "severity": "critical",
-      "mag": 1.77
-    },
-    {
-      "id": "DCSF1",
-      "title": "Dunns Creek State Park Boat Ramp (in MHHW) - moderate (2.82 ft)",
-      "lat": 29.5508333333333,
-      "lon": -81.5725,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 2.82
-    },
-    {
-      "id": "DLAF1",
-      "title": "St. Johns River near Deland - major (5.91 ft)",
-      "lat": 29.008055555556,
-      "lon": -81.382777777778,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "critical",
-      "mag": 5.91
-    },
-    {
-      "id": "DNSF1",
-      "title": "Dunns Creek near Satsuma (in MHHW) - moderate (2.52 ft)",
-      "lat": 29.5775,
-      "lon": -81.6263888888889,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "critical",
-      "mag": 2.52
-    },
-    {
-      "id": "DNZM7",
-      "title": "Current River at Doniphan - low threshold (-0.65 ft)",
-      "lat": 36.621944444444,
-      "lon": -90.8475,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "warning",
-      "mag": -0.65
-    },
-    {
-      "id": "DUCF1",
-      "title": "Durbin Creek at Racetrack Road (in NAVD88) - action (2.34 ft)",
-      "lat": 30.099166666667,
-      "lon": -81.526111111111,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "critical",
-      "mag": 2.34
-    },
-    {
-      "id": "EGHN7",
-      "title": "Far Creek at Engelhard (in MLLW) - action (2.02 ft)",
-      "lat": 35.5089,
-      "lon": -75.9969,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "critical",
-      "mag": 2.02
-    },
-    {
-      "id": "ELBA1",
-      "title": "Pea River at Elba (US 84) - low threshold (0.01 ft)",
-      "lat": 31.413333333333,
-      "lon": -86.063055555556,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": 0.01
-    },
-    {
-      "id": "ERLF1",
-      "title": "Santa Fe Lake at Earleton (in NAVD88) - low threshold (137.24 ft)",
-      "lat": 29.745,
-      "lon": -82.098611111111,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": 137.24
-    },
-    {
-      "id": "FBFF1",
-      "title": "Flamingo at Florida Bay - action (1.22 ft)",
-      "lat": 25.1421,
-      "lon": -80.9221,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 1.22
-    },
-    {
-      "id": "FLYF1",
-      "title": "Fenholloway River at Foley - action (37.22 ft)",
-      "lat": 30.065277777778,
-      "lon": -83.558055555556,
-      "time": "2026-11-25T23:45:00Z",
-      "severity": "critical",
-      "mag": 37.22
-    },
-    {
-      "id": "FWHF1",
-      "title": "Santa Fe River near Fort White (in NAVD88) - low threshold (20.18 ft)",
-      "lat": 29.848611111111,
-      "lon": -82.715277777778,
-      "time": "2026-11-25T22:45:00Z",
-      "severity": "warning",
-      "mag": 20.18
-    },
-    {
-      "id": "GCEF1",
-      "title": "St. Johns River at Shands Bridge (in MHHW) - minor (1.53 ft)",
-      "lat": 30.0058333333333,
-      "lon": -81.615,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "critical",
-      "mag": 1.53
-    },
-    {
-      "id": "GENF1",
-      "title": "St. Johns River above Lake Harney - major (13.22 ft)",
-      "lat": 28.713888888889,
-      "lon": -81.035555555556,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "critical",
-      "mag": 13.22
-    },
-    {
-      "id": "GEOA4",
-      "title": "White River at Georgetown - low threshold (-0.51 ft)",
-      "lat": 35.128888888889,
-      "lon": -91.449722222222,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": -0.51
-    },
-    {
-      "id": "GICF1",
-      "title": "Tide Gauge at Boca Grande (in MHHW) - action (1.12 ft)",
-      "lat": 26.7195,
-      "lon": -82.2561,
-      "time": "2026-11-25T23:27:00Z",
-      "severity": "critical",
-      "mag": 1.12
-    },
-    {
-      "id": "GTWF1",
-      "title": "Georgetown (in NAVD88) - moderate (2.94 ft)",
-      "lat": 29.3866666666667,
-      "lon": -81.6408333333333,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 2.94
-    },
-    {
-      "id": "HBKN7",
-      "title": "Pamlico Sound near Hobucken (in MLLW) - minor (2.12 ft)",
-      "lat": 35.2449,
-      "lon": -76.5917,
-      "time": "2026-11-25T23:36:00Z",
-      "severity": "critical",
-      "mag": 2.12
-    },
-    {
-      "id": "HSPF1",
-      "title": "Santa Fe River near High Springs (in NAVD88) - low threshold (30.8 ft)",
-      "lat": 29.8525,
-      "lon": -82.608611111111,
-      "time": "2026-11-25T23:45:00Z",
-      "severity": "warning",
-      "mag": 30.8
-    },
-    {
-      "id": "ICSF1",
-      "title": "Ichetucknee River below Ichetucknee Springs State Park - US-27 (in NAVD88) - low threshold (14.13 ft)",
-      "lat": 29.9525,
-      "lon": -82.786111111111,
-      "time": "2026-11-25T22:45:00Z",
-      "severity": "warning",
-      "mag": 14.13
-    },
-    {
-      "id": "IRWF1",
-      "title": "Indian River at Wabasso (in MHHW) - action (1.68 ft)",
-      "lat": 27.754166666667,
-      "lon": -80.427777777778,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "critical",
-      "mag": 1.68
-    },
-    {
-      "id": "JCRF1",
-      "title": "Tide Station at Jewfish Creek on Florida Bay (in MHHW) - minor (1.28 ft)",
-      "lat": 25.20951,
-      "lon": -80.42553,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 1.28
-    },
-    {
-      "id": "JCSF1",
-      "title": "Julington Creek at St. Johns River Entrance (in MHHW) - action (1.37 ft)",
-      "lat": 30.13519,
-      "lon": -81.62771,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 1.37
-    },
-    {
-      "id": "JMPN7",
-      "title": "Atlantic Coast at Johnnie Mercers Pier at Wrightsville Beach (MLLW) - action (5.64 ft)",
-      "lat": 34.213404,
-      "lon": -77.786688,
-      "time": "2026-11-25T23:36:00Z",
-      "severity": "critical",
-      "mag": 5.64
-    },
-    {
-      "id": "JULF1",
-      "title": "Julington Creek at Old Saint Augustine Road (in MHHW) - minor (1.33 ft)",
-      "lat": 30.1433333333333,
-      "lon": -81.5558333333333,
-      "time": "2026-11-25T23:15:00Z",
-      "severity": "critical",
-      "mag": 1.33
-    },
-    {
-      "id": "JYBT2",
-      "title": "Neches River at Downtown Beaumont - low threshold (-0.01 ft)",
-      "lat": 30.0868,
-      "lon": -94.0957,
-      "time": "2026-11-25T23:50:00Z",
-      "severity": "warning",
-      "mag": -0.01
-    },
-    {
-      "id": "KRKF1",
-      "title": "Lake Kanturk Outfall at Centerville Road (in NAVD88) - low threshold (73.53 ft)",
-      "lat": 30.52678,
-      "lon": -84.190717,
-      "time": "2026-11-25T21:15:00Z",
-      "severity": "warning",
-      "mag": 73.53
-    },
-    {
-      "id": "KRNF1",
-      "title": "Lake Killarney at McLaughlin Drive (in NAVD88) - low threshold (70.59 ft)",
-      "lat": 30.530726,
-      "lon": -84.200935,
-      "time": "2026-11-25T21:00:00Z",
-      "severity": "warning",
-      "mag": 70.59
-    },
-    {
-      "id": "LAIF1",
-      "title": "Lake Iamonia at Waterfront Drive - low threshold (92.98 ft)",
-      "lat": 30.644444444444446,
-      "lon": -84.20722222222223,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": 92.98
-    },
-    {
-      "id": "LBFF1",
-      "title": "Lake Bradford at Camp Flastacowo (in NAVD88) - low threshold (24.53 ft)",
-      "lat": 30.40142,
-      "lon": -84.33806,
-      "time": "2026-11-25T21:15:00Z",
-      "severity": "warning",
-      "mag": 24.53
-    },
-    {
-      "id": "LJTF1",
-      "title": "Lake Jackson near Lakeshore Drive (in NAVD88) - low threshold (79.05 ft)",
-      "lat": 30.511098,
-      "lon": -84.300095,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "warning",
-      "mag": 79.05
-    },
-    {
-      "id": "LLYF1",
-      "title": "Lake Lafayette Outfall at Chaires Crossroad (in NAVD88) - low threshold (41.43 ft)",
-      "lat": 30.43191,
-      "lon": -84.11794,
-      "time": "2026-11-25T21:20:00Z",
-      "severity": "warning",
-      "mag": 41.43
-    },
-    {
-      "id": "LMLF1",
-      "title": "Lake Miccosukee at Cypress Landing (in NAVD88) - low threshold (74.59 ft)",
-      "lat": 30.562706,
-      "lon": -83.99049,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "warning",
-      "mag": 74.59
-    },
-    {
-      "id": "LPTF1",
-      "title": "Lake Talquin at Coe Landing Park (in NGVD29) - low threshold (68.6 ft)",
-      "lat": 30.4556,
-      "lon": -84.483288,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "warning",
-      "mag": 68.6
-    },
-    {
-      "id": "LRSF1",
-      "title": "St Marks River at Leckinger (in NAVD88) - low threshold (5.49 ft)",
-      "lat": 30.253927,
-      "lon": -84.150057,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "warning",
-      "mag": 5.49
-    },
-    {
-      "id": "LSSF1",
-      "title": "Lake Sampson near Starke (in NAVD88) - low threshold (129.87 ft)",
-      "lat": 29.930277777778,
-      "lon": -82.1725,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": 129.87
-    },
-    {
-      "id": "MEIF1",
-      "title": "Indian River at Melbourne (in MHHW) - action (1.8 ft)",
-      "lat": 28.08361111111111,
-      "lon": -80.59194444444445,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 1.8
-    },
-    {
-      "id": "MGNG1",
-      "title": "Ichawaynochaway Creek near Morgan - low threshold (7.87 ft)",
-      "lat": 31.526944444444,
-      "lon": -84.582777777778,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": 7.87
-    },
-    {
-      "id": "MINN7",
-      "title": "Currituck Sound at Mackay's Island - low threshold (-1.96 ft)",
-      "lat": 36.527123,
-      "lon": -75.9902,
-      "time": "2026-11-25T23:36:00Z",
-      "severity": "warning",
-      "mag": -1.96
-    },
-    {
-      "id": "MKLF1",
-      "title": "Tide Station near Manatee Creek on Barnes Sound (in MHHW) - minor (1.16 ft)",
-      "lat": 25.2351879,
-      "lon": -80.430743,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 1.16
-    },
-    {
-      "id": "MLFG1",
-      "title": "Ichawaynochaway Creek at Milford - low threshold (1.42 ft)",
-      "lat": 31.382777777778,
-      "lon": -84.546388888889,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": 1.42
-    },
-    {
-      "id": "MLUL1",
-      "title": "Ouachita River at Monroe - low threshold (18.09 ft)",
-      "lat": 32.500277777778,
-      "lon": -92.119722222222,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": 18.09
-    },
-    {
-      "id": "NBRF1",
-      "title": "St Marks River above Natural Bridge Road (in NAVD88) - low threshold (9.92 ft)",
-      "lat": 30.289722,
-      "lon": -84.149444,
-      "time": "2026-11-25T21:00:00Z",
-      "severity": "warning",
-      "mag": 9.92
-    },
-    {
-      "id": "NLRV2",
-      "title": "North Landing River near Creeds - low threshold (-1.48 ft)",
-      "lat": 36.61811,
-      "lon": -76.046302,
-      "time": "2026-11-25T23:36:00Z",
-      "severity": "warning",
-      "mag": -1.48
-    },
-    {
-      "id": "NMDM7",
-      "title": "Mississippi River at New Madrid - low threshold (-1.28 ft)",
-      "lat": 36.58306,
-      "lon": -89.53222,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": -1.28
-    },
-    {
-      "id": "NRBF1",
-      "title": "New River near Lake Butler (in NAVD88) - action (89.65 ft)",
-      "lat": 29.998055555556,
-      "lon": -82.274166666667,
-      "time": "2026-11-25T23:45:00Z",
-      "severity": "critical",
-      "mag": 89.65
-    },
-    {
-      "id": "NSBT2",
-      "title": "Neches River at Saltwater Barrier - action (3.4 ft)",
-      "lat": 30.156666666667,
-      "lon": -94.114166666667,
-      "time": "2026-11-25T23:15:00Z",
-      "severity": "critical",
-      "mag": 3.4
-    },
-    {
-      "id": "OKRF1",
-      "title": "Ocklawaha River near Ocala - low threshold (0.89 ft)",
-      "lat": 29.1830555555556,
-      "lon": -81.9925,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "warning",
-      "mag": 0.89
-    },
-    {
-      "id": "ORLN7",
-      "title": "Neuse River at Oriental (in MLLW) - action (2.54 ft)",
-      "lat": 35.024444444444,
-      "lon": -76.691944444444,
-      "time": "2026-11-25T23:24:00Z",
-      "severity": "critical",
-      "mag": 2.54
-    },
-    {
-      "id": "PACF1",
-      "title": "Tide Station at Panama City Marina (in MHHW) - action (1.01 ft)",
-      "lat": 30.151944444444,
-      "lon": -85.666944444444,
-      "time": "2026-11-25T23:36:00Z",
-      "severity": "critical",
-      "mag": 1.01
-    },
-    {
-      "id": "PALF1",
-      "title": "St. Johns River at Buffalo Bluff (in MHHW) - moderate (2.36 ft)",
-      "lat": 29.5961111111111,
-      "lon": -81.6833333333333,
-      "time": "2026-11-25T23:15:00Z",
-      "severity": "critical",
-      "mag": 2.36
-    },
-    {
-      "id": "PCBF1",
-      "title": "Tide Station at Panama City Beach Pier (in MHHW) - action (1.45 ft)",
-      "lat": 30.214722222222,
-      "lon": -85.878055555556,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "critical",
-      "mag": 1.45
-    },
-    {
-      "id": "PCHG1",
-      "title": "Pachitla Creek near Edison - low threshold (2.85 ft)",
-      "lat": 31.555,
-      "lon": -84.680833333333,
-      "time": "2026-11-25T22:45:00Z",
-      "severity": "warning",
-      "mag": 2.85
-    },
-    {
-      "id": "PFDF1",
-      "title": "Pellicer Creek at Faver Dykes State Park (in MHHW) - action (0.82 ft)",
-      "lat": 29.667174,
-      "lon": -81.257488,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 0.82
-    },
-    {
-      "id": "PITF1",
-      "title": "Choctawhatchee River near Pittman (SR 2) - low threshold (7.61 ft)",
-      "lat": 30.949722222222,
-      "lon": -85.843055555556,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": 7.61
-    },
-    {
-      "id": "POEF1",
-      "title": "Santa Fe River at Poe Springs Pool (in NAVD88) - low threshold (24.45 ft)",
-      "lat": 29.825555555556,
-      "lon": -82.648888888889,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": 24.45
-    },
-    {
-      "id": "PPBM7",
-      "title": "Black River at Poplar Bluff - low threshold (-0.03 ft)",
-      "lat": 36.759722222222,
-      "lon": -90.388055555556,
-      "time": "2026-11-25T23:15:00Z",
-      "severity": "warning",
-      "mag": -0.03
-    },
-    {
-      "id": "RBPS1",
-      "title": "Rocky  Branch (SC) at Pickens Street - action (3.02 ft)",
-      "lat": 33.994722,
-      "lon": -81.023889,
-      "time": "2026-11-25T23:15:00Z",
-      "severity": "critical",
-      "mag": 3.02
-    },
-    {
-      "id": "RODF1",
-      "title": "Ocklawaha River below Kirkpatrick Dam (in NAVD88) - minor (5.61 ft)",
-      "lat": 29.508333333333,
-      "lon": -81.804166666667,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "critical",
-      "mag": 5.61
-    },
-    {
-      "id": "SAKF1",
-      "title": "Shell Bluff Park (in NAVD88) - moderate (3.2 ft)",
-      "lat": 29.4930555555556,
-      "lon": -81.4875,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 3.2
-    },
-    {
-      "id": "SFRF1",
-      "title": "South Fork New River near Secret Woods Nature Center (in MHHW) - action (1.13 ft)",
-      "lat": 26.0887,
-      "lon": -80.182,
-      "time": "2026-11-25T22:48:00Z",
-      "severity": "critical",
-      "mag": 1.13
-    },
-    {
-      "id": "SJWF1",
-      "title": "St Johns River at Welaka (in MHHW) - moderate (2.44 ft)",
-      "lat": 29.4791666666667,
-      "lon": -81.6755555555556,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 2.44
-    },
-    {
-      "id": "SNFF1",
-      "title": "St. Johns River near Sanford - major (8.47 ft)",
-      "lat": 28.837777777778,
-      "lon": -81.324444444444,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "critical",
-      "mag": 8.47
-    },
-    {
-      "id": "SPUF1",
-      "title": "Deep Creek at Spuds (in MHHW) - minor (1.93 ft)",
-      "lat": 29.7294444444444,
-      "lon": -81.4869444444444,
-      "time": "2026-11-25T23:45:00Z",
-      "severity": "critical",
-      "mag": 1.93
-    },
-    {
-      "id": "SRPF1",
-      "title": "St. Johns River at Racy Point (in MHHW) - minor (1.78 ft)",
-      "lat": 29.8,
-      "lon": -81.55,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "critical",
-      "mag": 1.78
-    },
-    {
-      "id": "STEF1",
-      "title": "Steinhatchee River near Cross City - low threshold (11.32 ft)",
-      "lat": 29.786388888889,
-      "lon": -83.321666666667,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": 11.32
-    },
-    {
-      "id": "SUKF1",
-      "title": "Tide Station at Sunset Cove, Key Largo on Buttonwood Sound (in MHHW) - minor (1.35 ft)",
-      "lat": 25.094839,
-      "lon": -80.444001,
-      "time": "2026-11-25T23:48:00Z",
-      "severity": "critical",
-      "mag": 1.35
-    },
-    {
-      "id": "TCMF1",
-      "title": "Trout Creek Marina near St. Johns River (in MHHW) - minor (1.58 ft)",
-      "lat": 29.985778,
-      "lon": -81.565166,
-      "time": "2026-11-25T23:42:00Z",
-      "severity": "critical",
-      "mag": 1.58
-    },
-    {
-      "id": "THCF1",
-      "title": "Tide Station at Grassy Key on Toms Harbor Channel (in MHHW) - minor (1.12 ft)",
-      "lat": 24.776634,
-      "lon": -80.923402,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 1.12
-    },
-    {
-      "id": "THMF1",
-      "title": "Thomas Creek (in NAVD88) - action (2.74 ft)",
-      "lat": 30.5516666666667,
-      "lon": -81.7336111111111,
-      "time": "2026-11-25T22:54:00Z",
-      "severity": "critical",
-      "mag": 2.74
-    },
-    {
-      "id": "TPTM7",
-      "title": "Mississippi River above Tiptonville - low threshold (2.46 ft)",
-      "lat": 36.412438,
-      "lon": -89.537728,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": 2.46
-    },
-    {
-      "id": "VCAF1",
-      "title": "Tide Station at the Western Tip of Vaca Key (in MHHW) - action (1.03 ft)",
-      "lat": 24.71167,
-      "lon": -81.1067,
-      "time": "2026-11-25T23:30:00Z",
-      "severity": "critical",
-      "mag": 1.03
-    },
-    {
-      "id": "WCKG1",
-      "title": "West Chickamauga Creek at GA 146 near Lakeview - low threshold (0.76 ft)",
-      "lat": 34.957222222222,
-      "lon": -85.205555555556,
-      "time": "2026-11-25T23:15:00Z",
-      "severity": "warning",
-      "mag": 0.76
-    },
-    {
-      "id": "WWCF1",
-      "title": "Chipola River near Wewahitchka (Lands Landing) - low threshold (10.29 ft)",
-      "lat": 30.088333333333,
-      "lon": -85.178888888889,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": 10.29
-    },
-    {
-      "id": "WWCG1",
-      "title": "Flint River (GA) at Lake Blackshear - low threshold (233.5 ft)",
-      "lat": 31.845277777778,
-      "lon": -83.940833333333,
-      "time": "2026-11-25T23:00:00Z",
-      "severity": "warning",
-      "mag": 233.5
+      "mag": 12.18
     },
     {
       "id": "CCSA2",
-      "title": "Campbell Creek near Spenard - moderate (22.63 ft)",
+      "title": "Campbell Creek near Spenard - moderate (22.58 ft)",
       "lat": 61.1388906,
       "lon": -149.9255337,
-      "time": "2026-11-25T23:30:00Z",
+      "time": "2026-11-26T08:45:00Z",
       "severity": "critical",
-      "mag": 22.63
+      "mag": 22.58
     },
     {
-      "id": "KWGA2",
-      "title": "Kwigillingok Tide Gauge at Kwigillingok (MHHW datum) - major (6.49 ft)",
-      "lat": 59.8798,
-      "lon": -163.1663,
-      "time": "2026-11-25T23:00:00Z",
+      "id": "KIPA2",
+      "title": "Kipnuk Tide Gauge at Kipnuk (MHHW datum) - minor (0.55 ft)",
+      "lat": 59.939,
+      "lon": -164.0371,
+      "time": "2026-11-26T08:00:00Z",
       "severity": "critical",
-      "mag": 6.49
+      "mag": 0.55
     },
     {
       "id": "COAP4",
-      "title": "Rio Coamo at Coamo - low threshold (4.27 ft)",
+      "title": "Rio Coamo at Coamo - low threshold (4.3 ft)",
       "lat": 18.08152279,
       "lon": -66.3544338,
-      "time": "2026-11-25T23:00:00Z",
+      "time": "2026-11-26T08:00:00Z",
       "severity": "warning",
-      "mag": 4.27
-    },
-    {
-      "id": "CRBP4",
-      "title": "Canal de Riego de Lajas at Bo. Betances - action (1.88 ft)",
-      "lat": 18.036870653,
-      "lon": -67.1317676,
-      "time": "2026-11-25T22:45:00Z",
-      "severity": "critical",
-      "mag": 1.88
+      "mag": 4.3
     }
   ]
 }
